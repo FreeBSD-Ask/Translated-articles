@@ -11,7 +11,7 @@
 
 使用 <https://manager.linode.com/> 上的旧界面，在你喜欢的数据中心创建你的 Linode 。我不知道如何在新界面上进行操作。为了本教程的目的，我们建议关闭 Lassie，以防止看门狗在没有你的输入的情况下重新启动你的 Linode 。你可以在 Linode 管理器的设置选项卡中关闭看门狗下禁用 Lassie 。
 
-创建两个磁盘镜像；他们都应该是 RAW 格式的。
+创建两个磁盘镜像；他们应该都是 RAW 格式的。
 
 ```
 第一个是 1024MB 大小的镜像，标记为安装程序。
@@ -49,6 +49,7 @@ gunzip -c pfSense-CE-memstick-2.4.4-RELEASE-amd64.img.gz | dd of=/dev/sda bs=512
 ## 安装 pfSense
 
 ---
+
 安装（Install）-- 继续选择 ZFS -- da0 条带（Stripe of da0）--继续安装进行
 
 在最后修改：
@@ -69,4 +70,4 @@ console="comconsole,vidconsole"
 退出 Glish，返回到 Linode 管理器，重新启动到 pfSense 配置文件。
 
 打开 lish -- 回答 n 到"VLANs设置" -- vtnet0 为广域网（WAN）--输入其余部分，直到你看到启动完成。-- 关闭列表 -- 打开 Glish -- 从控制台输入 13 来更新，输入 Y 来更新
- --工作正在进行中
+ --工作正在进行中。
