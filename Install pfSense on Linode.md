@@ -50,7 +50,7 @@ gunzip -c pfSense-CE-memstick-2.4.4-RELEASE-amd64.img.gz | dd of=/dev/sda bs=512
 
 ---
 
-安装（Install）-- 继续选择 ZFS -- da0 条带（Stripe of da0）--继续安装进行
+安装（Install）-- 继续选择 ZFS -- da0 条带（Stripe of da0）--继续进行安装
 
 在最后修改：
 
