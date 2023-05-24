@@ -1,14 +1,20 @@
 # 在 FreeBSD 的 jail 中安装 NnextCloud
 
-### 在我的实验室里，我的 OPNSense 防火墙也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，它还充当我的 DNS 。
+ - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Nextcloud_on_FreeBSD_in_Jail.md>
+ - 作者：Roller Angel
+ - 译者：飞鱼
+ - 校对整理：ykla
 
-在主机上运行
+
+### 在我的实验室里，我的 OPNSense 防火墙同时也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，而且它还充当我的 DNS
+
+在主机上运行：
 
 ```
 vi /etc/sysctl.conf
 ```
 
-添加内容
+添加内容：
 
 ```
 # Allow jail raw sockets
@@ -18,7 +24,7 @@ security.jail.allow_raw_sockets=1
 security.jail.chflags_allowed=1
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 sysctl security.jail.allow_raw_sockets=1
@@ -32,14 +38,14 @@ sysctl security.jail.chflags_allowed=1
 vi /boot/loader.conf
 ```
 
-添加内容
+添加内容：
 
 ```
 # RACCT/RCTL Resource limits
 kern.racct.enable=1
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 zfs create -o mountpoint=/jail zroot/jail
@@ -57,7 +63,7 @@ ls /jail/nextcloud
 vi /etc/jail.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 nextcloud {
@@ -76,7 +82,7 @@ nextcloud {
 }
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 sysrc jail_enable=YES
@@ -84,13 +90,13 @@ sysrc jail_nextcloud_mount_enable=YES
 vi /etc/hosts
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 172.16.28.2 nextcloud.lab.bsd.pw nextcloud
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 service jail restart nextcloud
@@ -98,13 +104,13 @@ jexec 1 tcsh
 vi /etc/hosts
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 172.16.28.2 nextcloud.lab.bsd.pw nextcloud
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 jexec 1 tcsh
@@ -113,7 +119,7 @@ cp /usr/share/zoneinfo/America/Denver /etc/localtime
 vi /etc/rc.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 # DAEMONS | yes
@@ -142,20 +148,20 @@ update_motd=NO
 keyrate=fast
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 vi /etc/cron.d/sendmail-clean-clientmqueue
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 # CLEAN SENDMAIL
 0 * * * * root /bin/rm -r -f /var/spool/clientmqueue/*
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 exit
@@ -166,29 +172,29 @@ sockstat -l4
 vi /etc/resolv.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 nameserver 172.16.28.1
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 ping -c 3 bsd.pw
 exit
 ```
 
-## 构建我们想要的 postgres 支持的 Poudriere
+## 使用 Poudriere 构建我们想要的 postgres
 
-在主机上运行以下命令
+在主机上运行以下命令：
 
-```tcsh
+```
 pkg install -y poudriere
 vi nextcloudpkglist
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 www/nextcloud
@@ -204,13 +210,13 @@ math/php72-gmp
 ftp/php72-ftp
 ```
 
-运行以下命令
+运行以下命令：
 
-```tcsh
+```
 vi /usr/local/etc/poudriere.d/amd64-12-0-make.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 DEFAULT_VERSIONS += php=7.2
@@ -219,15 +225,15 @@ OPTIONS_UNSET += MYSQL
 OPTIONS_SET += PGSQL
 ```
 
-运行以下命令
+运行以下命令：
 
-```tcsh
+```
 poudriere bulk -j amd64-12-0 -p head -f nextcloudpkglist
 ```
 
-### 当 jail 启动后，Poudriere 软件包存储库 用 nullfs 挂载在 jail 内
+### 当 jail 启动后，用 nullfs 将 Poudriere 软件包仓库挂载到 jail 内
 
-运行以下命令
+运行以下命令：
 
 ```
 service jail start nextcloud
@@ -236,13 +242,13 @@ mkdir /mnt/amd64-12-0-head
 exit
 ```
 
-这个 fstab 的东西不起作用......以后会研究的，而只是运行 fstab 之后的 mount -t 命令。
+这个 fstab 的东西不起作用......以后会研究的，现在运行 fstab 之后的 `mount -t` 命令。
 
 ```
 vi /etc/fstab.nextcloud
 ```
 
-添加以下内容
+添加以下内容：
 
 ```
 /usr/local/poudriere/data/packages/amd64-12-0-head    /mnt/amd64-12-0-head    nullfs    rw    0    0
@@ -254,26 +260,27 @@ vi /etc/fstab.nextcloud
 mount -t nullfs /usr/local/poudriere/data/packages/amd64-12-0-head /jail/nextcloud/mnt/amd64-12-0-head
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 service jail restart nextcloud
 jexec nextcloud tcsh
 ```
 
-在 jail 中创建一个 pkg 仓库
+在 jail 中创建一个 pkg 仓库：
 
-```tcsh
+```
 mkdir -p /usr/local/etc/pkg/repos
 ```
 
 禁止 FreeBSD 中 pkg 包管理器的系统级源
 
-```tcsh
+```
 vi /etc/pkg/FreeBSD.conf
 ```
 
-将 enabled 选项改成 no
+将 `enabled` 选项改成 `no`：
+
 
 ```
 FreeBSD: {
@@ -281,13 +288,13 @@ FreeBSD: {
 }
 ```
 
-创建一个替换 FreeBSD.conf 的源配置文件
+创建一个替换 `FreeBSD.conf` 的源配置文件：
 
-```tcsh
+```
 vi /usr/local/etc/pkg/repos/amd64-12-0.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 amd64-12-0: {
@@ -296,9 +303,9 @@ amd64-12-0: {
 }
 ```
 
-用新源来重新安装所有的包
+用新的源来重新安装所有的包：
 
-运行以下命令
+运行以下命令：
 
 ```
 pkg upgrade -fy
@@ -307,9 +314,9 @@ pkg install -y www/nextcloud www/nginx databases/memcached security/sudo databas
 
 ## 升级 Poudriere
 
-在主机上运行以下命令
+在主机上运行以下命令：
 
-```tcsh
+```
 vi /usr/local/etc/poudriere.conf
 ```
 
@@ -318,33 +325,33 @@ CHECK_CHANGED_OPTIONS=verbose
 CHECK_CHANGED_DEPS=yes
 ```
 
-```tcsh
+```
 poudriere jail -j amd64-12-0 -u
 ```
 
-```tcsh
+```
 poudriere ports -p head -u
 poudriere bulk -j amd64-12-0 -p head -f nextcloudpkglist
 ```
 
 从 jail 更新
 
-```tcsh
+```
 jexec nextcloud tcsh
 pkg update && pkg upgrade -y
 ```
 
 ## 设置 PostgreSQL
 
-### 我相信我运行了 poudriere options 命令，并在 nextcloud 上启用了 memcached 支持，稍后我将把它添加到 make.conf 文件中。
+### 我确定我开启了 `poudriere options` 参数，并在 nextcloud 上启用了 memcached 支持，稍后我将把它添加到 `make.conf` 文件中。
 
-在 jail 中运行以下命令
+在 jail 中运行以下命令：
 
-```tcsh
+```
 vi /etc/login.conf
 ```
 
-将以下设置添加到文件的末尾
+将以下设置添加到文件的末尾：
 
 ```
 postgres:\
@@ -353,7 +360,7 @@ postgres:\
         :tc=default:
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 cap_mkdb /etc/login.conf
@@ -363,8 +370,8 @@ jexec nextcloud tcsh
 chown postgres:postgres /var/db/postgres/data
 vi /etc/rc.conf
 ```
-
-更新配置
+：
+更新配置：
 
 ```
 # DAEMONS | yes
@@ -393,7 +400,7 @@ update_motd=NO
 keyrate=fast
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 /usr/local/etc/rc.d/postgresql initdb
@@ -402,14 +409,14 @@ sockstat -l4
 vi /var/db/postgres/data/pg_hba.conf
 ```
 
-在 IPv4 部分添加以下配置
+在 IPv4 部分添加以下配置：
 
 ```
 # IPv4 local connections:
 host    all             all             172.16.28.2/32          trust
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 /usr/local/etc/rc.d/postgresql restart
@@ -421,14 +428,14 @@ ALTER DATABASE nextcloud OWNER TO nextcloud;
 vi /var/db/postgres/data/vacumm.sh
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 /usr/local/bin/reindexdb -a 1> /dev/null 2> /dev/null
 /usr/local/bin/reindexdb -s 1> /dev/null 2> /dev/null
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 chmod +x /var/db/postgres/data/vacumm.sh
@@ -436,13 +443,13 @@ chown postgres:postgres /var/db/postgres/data/vacumm.sh
 su - postgres -c 'crontab -e'
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 0 0 * * * /var/db/postgres/data/vacuum.sh
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 su - postgres -c 'crontab -l'
@@ -450,7 +457,7 @@ su - postgres -c 'crontab -l'
 
 ## Nginx
 
-在 jail 中运行以下命令
+在 jail 中运行以下命令：
 
 ```
 mkdir -p /usr/local/etc/nginx/ssl
@@ -458,13 +465,15 @@ cd /usr/local/etc/nginx/ssl
 openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -keyout nginx.key -out nginx.crt
 ```
 
-输入 server.key 的密码短语：  
+输入 `server.key` 的密码短语：  
 
+```
 something_random_from_bitwarden_or_other_password_manager
+```
 
-使用你的最佳判断来填写密码提示后的提示信息
+使用你的最佳判断来填写密码提示后的提示信息。
 
-运行以下命令
+运行以下命令：
 
 ```
 chmod 400 nginx.key
@@ -473,7 +482,7 @@ chown -R www:www /var/log/nginx
 vi /usr/local/etc/nginx/nginx.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 user                 www;
@@ -615,13 +624,13 @@ http {
 }
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 vi /usr/local/etc/php/ext-20-pgsql.ini
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 [PostgresSQL]
@@ -633,13 +642,13 @@ pgsql.ignore_notice = 0
 pgsql.log_notice = 0
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 vi /usr/local/etc/php/ext-30-pdo_pgsql.ini
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 [PostgresSQL]
@@ -651,7 +660,7 @@ pgsql.ignore_notice = 0
 pgsql.log_notice = 0
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 touch /var/log/php-fpm.log
@@ -660,7 +669,7 @@ rm /usr/local/etc/php-fpm.d/www.conf
 vi /usr/local/etc/php-fpm.d/www.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 [www]
@@ -687,13 +696,13 @@ env[TMPDIR] = /tmp
 env[TEMP] = /tmp
 ```
 
-运行以下命令
+运行以下命令：
 
 ```
 vi /usr/local/etc/php.ini
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 [PHP]
@@ -854,13 +863,13 @@ opcache.revalidate_freq=1
 [openssl]
 ```
 
-再次升级 rc.conf 文件
+再次升级 `rc.conf` 文件：
 
 ```
 vi /etc/rc.conf
 ```
 
-更新这些行，使其看起来像
+更新这些行，使其看起来像：
 
 ```
 # DAEMONS | yes
@@ -891,7 +900,7 @@ keyrate=fast
 
 ## Memcached
 
-在 jail 中运行以下命令
+在 jail 中运行以下命令：
 
 ```
 /usr/local/etc/rc.d/memcached start
@@ -905,15 +914,15 @@ chown -R www:www /var/db/nextcloud
 chown -R www:www /usr/local/www/nextcloud
 ```
 
-在主机上用 Firefox 打开网址  https://172.16.28.2
+在主机上用火狐浏览器打开网址  `https://172.16.28.2`
 
-在 jail 上运行以下命令
+在 jail 上运行以下命令：
 
 ```
 vi /etc/newsyslog.conf
 ```
 
-将以下配置添加到文件的末尾
+将以下配置添加到文件的末尾：
 
 ```
 /var/db/nextcloud/data/nextcloud.log    www:www 640     7       *       @T00    JC
