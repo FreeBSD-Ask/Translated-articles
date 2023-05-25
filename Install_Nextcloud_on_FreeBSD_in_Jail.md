@@ -1,4 +1,4 @@
-# 在 FreeBSD 的 jail 中安装 NnextCloud
+# 在 FreeBSD 的 jail 中安装 NextCloud
 
  - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Nextcloud_on_FreeBSD_in_Jail.md>
  - 作者：Roller Angel
