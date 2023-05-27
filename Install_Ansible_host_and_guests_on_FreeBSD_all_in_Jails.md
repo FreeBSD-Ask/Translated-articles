@@ -1,18 +1,23 @@
-# 将 FreeBSD 上的 Ansible 主机和客户机都安装在 Jails 中
+# 将 FreeBSD 上的 Ansible 主机和客户机都安装在 Jail 中
 
-## 目前，我正在努力将其转化为 Ansible Playbook =D ，我也刚刚从 mwl.io 订购了 FreeBSD Mastery Jails 一书，这将是非常有用的。
+ - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Ansible_host_and_guests_on_FreeBSD_all_in_Jails.md>
+ - 作者：Roller Angel
+ - 译者：飞鱼
+ - 校对整理：ykla
 
-### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1 ，它还充当我的 DNS 。下面我们将使用 zroot 作为 zpool 的名称。
+
+## 目前，我正在努力将其转化为 `Ansible Playbook =D` ，我也刚刚从 mwl.io 订购了 *FreeBSD Mastery Jails* 一书，这将是非常有用的。
+
+### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1 ，它还充当我的 DNS 。下面我们将使用 `zroot` 作为 zpool 的名称。
 
 
-
-在主机上运行
+在主机上执行：
 
 ```
 vi /etc/sysctl.conf
 ```
 
-添加内容
+添加内容：
 
 ```
 # Allow jail raw sockets
@@ -22,7 +27,7 @@ security.jail.allow_raw_sockets=1
 security.jail.chflags_allowed=1
 ```
 
-运行以下内容
+执行以下内容：
 
 ```
 sysctl security.jail.allow_raw_sockets=1
@@ -36,14 +41,14 @@ sysctl security.jail.chflags_allowed=1
 vi /boot/loader.conf
 ```
 
-添加内容
+添加内容：
 
 ```
 # RACCT/RCTL Resource limits
 kern.racct.enable=1
 ```
 
-运行以下内容
+运行以下内容：
 
 ```
 zfs create -o mountpoint=/jail zroot/jail
@@ -59,7 +64,7 @@ ls /jail/ansible0
 vi /etc/jail.conf
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 ansible0 {
@@ -78,7 +83,7 @@ ansible0 {
 }
 ```
 
-运行以下内容
+运行以下内容：
 
 ```
 sysrc jail_enable=YES
@@ -88,20 +93,20 @@ jexec 1 tcsh
 vi /etc/resolv.conf
 ```
 
-添加以下 DNS 配置
+添加以下 DNS 配置：
 
 ```
 nameserver 172.16.28.1
 ```
 
-运行以下内容
+执行以下内容：
 
 ```
 ping -c 3 bsd.pw
 adduser
 ```
 
-以下是我敲入的内容
+以下是我敲入的内容：
 
 ```
 root@ansible0:/ # adduser
@@ -147,14 +152,14 @@ cd ansible
 vi hosts
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 [local]
 127.0.0.1 ansible_python_interpreter=/usr/local/bin/python3.7 ansible_connection=local
 ```
 
-运行以下内容
+运行以下内容：
 
 ```
 pipenv install ansible
@@ -163,9 +168,9 @@ ansible local -i hosts -m setup
 ansible local -i hosts -m pkgng -a "name=git-lite state=present" -bK
 ```
 
-奇怪的是......上面的操作在我的 jail 机器里失败了，但当我在真实的硬件设置上设置同样的东西时，它可以正常工作并添加软件包...... jail 得到一个错误，说 "无法更新目录"。
+奇怪的是......上面的操作在我的 jail 机器里失败了，但当我在真实的硬件设置上设置同样的东西时，它可以正常工作并添加软件包...... jail 得到一个错误，说“Could not update catalogue”（无法更新目录）。
 
-我应该把我的 jail 设置成 Ansible 的目标。
+我应该把我的 jail 设置成 Ansible 的 target：
 
 ```
 sudo -i
@@ -174,14 +179,13 @@ service sshd start
 vi /etc/ssh/sshd_config
 ```
 
-将 ListenAddress 改为 jaill 的 IP 。
-同时在文件末尾添加一个新行，显示以下配置
+将 ListenAddress 改为 jaill 的 IP 。同时在文件末尾添加一个新行，显示以下配置：
 
 ```
 AllowUsers ansible
 ```
 
-运行以下内容
+执行以下内容：
 
 ```
 service sshd restart
@@ -190,15 +194,15 @@ mkdir .ssh
 vi .ssh/authorized_keys
 ```
 
-authorized_keys 应该包括 cat ansible.pub 的输出（不管你给你的 ssh 密钥对起什么名字）在它自己的一行中。
+`authorized_keys` 应该包括 `cat ansible.pub` 的输出（不管你给你的 ssh 密钥对起什么名字）在它自己的一行中。
 
-从这里开始，我就在我的普通 FreeBSD 笔记本上运行命令。
+从这里开始，我就在我的普通 FreeBSD 笔记本上执行命令：
 
 ```
 vi ansible.cfg
 ```
 
-添加以下内容
+添加以下内容：
 
 ```
 [defaults]
@@ -206,9 +210,9 @@ inventory = hosts
 remote_user = ansible
 ```
 
-不需要一直输入 "-i hosts" 。
+不需要一直输入 `-i hosts`。
 
-回到 jail 中（我们可能不再需要把 ansible 放在 wheel 组中......这需要考虑。）
+回到 jail 中（我们可能不再需要把 `ansible` 放在 `wheel` 组中......这需要考虑。）
 
 ```
 pw groupadd sudo
@@ -216,15 +220,15 @@ pw groupmod sudo -m ansible
 visudo
 ```
 
-添加以下配置
+添加以下配置：
 
 ```
 %sudo ALL=(ALL) NOPASSWD: ALL
 ```
 
-不需要一直输入  "K " 和 sudo 密码，只需使用按键即可。
+不需要一直输入  `-K` 和 sudo 密码，只需使用按键即可。
 
-我在我的主机上添加了一个 [jails] 部分，其中有 jail 的 IP ，像以下这样：
+我在我的主机上添加了一个 `[jails]` 部分，其中有 jail 的 IP ，像以下这样：
 
 ```
 [jails]
@@ -234,7 +238,7 @@ visudo
 ansible_python_interpreter=/usr/local/bin/python3.7
 ```
 
-现在我可以成为 sudo ，而不必输入密码了。
+现在我可以成为 sudo ，而不必输入密码了:
 
 ```
 ansible jails -m package -a "name=git-lite state=present" -b
