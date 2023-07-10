@@ -48,9 +48,11 @@ FreeBSD 及其组件可以用于构建专有软件，没有任何限制。从法
 
 简而言之，BSD 许可证，尤其是 FreeBSD 许可证，在构建产品和服务时提供了灵活性和安心感。
 
-1、-BSD 许可证维基百科页面-https://en.wikipedia.org/wiki/BSD_licenses
-2、-FreeBSD 案例研究：Netflix-https://freebsdfoundation.org/blog/freebsd-case-study-netflix/
-3、-2020 年 FreeBSD 供应商峰会：Beckhoff-https://youtu.be/8LUdZseNrpE
+1.-BSD 许可证维基百科页面-https://en.wikipedia.org/wiki/BSD_licenses
+
+2.-FreeBSD 案例研究：Netflix-https://freebsdfoundation.org/blog/freebsd-case-study-netflix/
+
+3.-2020 年 FreeBSD 供应商峰会：Beckhoff-https://youtu.be/8LUdZseNrpE
 
 ---
 
