@@ -42,7 +42,7 @@ FreeBSD 及其组件可以用于构建专有软件，没有任何限制。从法
 
 此外，FreeBSD 许可证已被自由软件基金会验证为与 GPL 兼容，也经过了开放源代码促进会【注1】的审查，被确认为开源许可证。这意味着 FreeBSD 仍然是作为开发产品的参考平台的绝佳选择。FreeBSD 的代码具有最广泛的适用性。你可以从 FreeBSD 入手，然后在任何地方发布。
 
-像 Nextflix 和他们开发的 Open Connect Appliances【Open Connect Appliance 软件内置了一个 FreeBSD 操作系统和 NGINX 服务器，许可证是 BSD】这样的公司，最初就是因为宽松的许可证才吸引了 Open Connect 工程师使用 FreeBSD【注2】。
+像 Nextflix 和他们开发的 Open Connect Appliances【Open Connect Appliance 软件内置了一个 FreeBSD 操作系统和 NGINX 服务器，许可证是 BSD】。像这样的公司，最初就是因为宽松的许可证才吸引了 Open Connect 工程师使用 FreeBSD【注2】。
 
 其他公司，例如 Beckhoff 之所以选择 FreeBSD 和宽松的许可证，部分原因是因为 GPL【注3】不能满足要求。
 
