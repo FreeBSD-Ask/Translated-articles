@@ -1,4 +1,4 @@
-# 参与倡议：2023 年 5 月的 FreeBSD 开发者峰会和 BSDCan
+# 参与宣传：2023 年 5 月的 FreeBSD 开发者峰会和 BSDCan
 
 - 作者：Anne Dickison
 - 译者：ykla/chagpt
