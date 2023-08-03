@@ -9,5 +9,5 @@
 * [将 FreeBSD 上的 Ansible 主机和客户机都安装在 Jail 中](Install\_Ansible\_host\_and\_guests\_on\_FreeBSD\_all\_in\_Jails.md)
 * [在 FreeBSD 的 jail 中安装 NextCloud](Install\_Nextcloud\_on\_FreeBSD\_in\_Jail.md)
 * [如何在 FreeBSD 上安装 Python](Install\_Python\_on\_Freebsd.md)
-* [FreeBSD 简介| BSD.pw 研讨会](Intro%20to%20FreeBSD.md)
+* [FreeBSD 简介 | BSD.pw 研讨会](Intro%20to%20FreeBSD.md)
 * [升级到 FreeBSD 13.2 的十大理由](Top%20Ten%20Reasons%20to%20Upgrade%20to%20FreeBSD%2013.2.md)
