@@ -5,7 +5,7 @@
 - 译者：ykla & ChatGPT
 
   
-**致力于开源："[FreeBSD](https://www.freebsd.org/) 是（规模）最大且历史最悠久以民主方式运作的开源项目之一。"**
+>**致力于开源："[FreeBSD](https://www.freebsd.org/) 是（规模）最大且历史最悠久以民主方式运作的开源项目之一。"**
 
 我们与 FreeBSD 基金会执行董事 Deb Goodkin 进行了交谈，谈论了 FreeBSD 这个自由、开源的类 Unix 操作系统。三十年过去了，FreeBSD 提供了什么，它的成功故事是什么，以及未来的发展方向如何？
 
@@ -21,7 +21,7 @@ FreeBSD 通过奉行“少惊奇原则”而独具特色。遵循“不破坏正
 
 **Deb Goodkin:** 开发人员和用户将看到桌面和硬件支持的改进，使得使用 FreeBSD 更加容易入门。我们专注于改善新用户体验，包括改进文档和入门指南，并为希望学习 FreeBSD 的人们提供更多的教育和培训机会，包括 FreeBSD 视频和指南。我们还在努力实现更多测试能力的自动化，以便能够快速测试变更，减少引入新错误的风险。
 
-**FreeBSD 以"最少惊讶原则"为特点。遵循"不破坏正常运行的事物"的开发路径，该操作系统不会无故更改，除非有充分的理由。**
+>**FreeBSD 以"最少惊讶原则"为特点。遵循"不破坏正常运行的事物"的开发路径，该操作系统不会无故更改，除非有充分的理由。**
 
 **devmio:** 你认为 FreeBSD 之所以有如此持久的影响力是因为什么？有哪些技术/开源社区生态系统确保了它的受欢迎程度？
 
@@ -46,7 +46,7 @@ CHERI 是“Clean Slate Trustworthy Secure Research and Development”（CTSRD -
 - Netflix
 FreeBSD 驱动着 Netflix 全球内容交付网络 Open Connect 的构建模块，向全球会员提供 Netflix 电视节目和电影。通过 FreeBSD 提供动力的 Open Connect 设备，Netflix 能够在单核 x86 服务器上使用内核 TLS 加密实现令人难以置信的性能（单个 OCA 的 400 Gb/s）。
 
-**这个社区非常平易近人和友好，拥有强大的指导文化。事实上，许多最初的开发人员仍然参与其中，并期待着帮助其他人开始他们在 FreeBSD 上的探索之旅。**
+>**这个社区非常平易近人和友好，拥有强大的指导文化。事实上，许多最初的开发人员仍然参与其中，并期待着帮助其他人开始他们在 FreeBSD 上的探索之旅。**
 
 **devmio:** 你认为在开发者世界中，对于 FreeBSD 是否存在一些误解？
 
@@ -60,7 +60,7 @@ FreeBSD 驱动着 Netflix 全球内容交付网络 Open Connect 的构建模块�
 
 **Deb Goodkin:** 对于想要开始使用 FreeBSD 的人，[FreeBSD 基金会网站上有许多资源](https://freebsdfoundation.org/freebsd-project/resources/)，包括安装指南、操作指南、一小时的 FreeBSD Fridays 系列介绍性演讲，以及链接到社区创建的内容，比如 [RoboNuggie 的 YouTube 频道](https://www.youtube.com/c/robonuggie)。如果你希望更深入地参与开发工作，我们最常推荐的方式是从提交一项对文档的更改开始，浏 览[PR（问题报告）](https://www.freebsd.org/support/bugreports/)列表并修复一些 bug，或者帮助维护或添加一个 Port。我们还建议查看项目的新手页面。最后，在 FreeBSD 的[邮件列表](https://www.freebsd.org/community/mailinglists/)、IRC 和 [Discord](https://wiki.freebsd.org/Discord) 频道中可以找到许多社区互动的机会。
 
-**由于其高性能、安全性和先进的网络功能，FreeBSD 无处不在。它被广泛应用于互联网服务器、嵌入式设备和防火墙等众多领域。**
+>**由于其高性能、安全性和先进的网络功能，FreeBSD 无处不在。它被广泛应用于互联网服务器、嵌入式设备和防火墙等众多领域。**
 
 **devmio:** 你认为最近开始的其他开源项目在 30 年后会蓬勃发展吗？
 
