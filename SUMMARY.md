@@ -11,3 +11,4 @@
 * [如何在 FreeBSD 上安装 Python](Install\_Python\_on\_Freebsd.md)
 * [FreeBSD 简介 | BSD.pw 研讨会](Intro%20to%20FreeBSD.md)
 * [升级到 FreeBSD 13.2 的十大理由](Top%20Ten%20Reasons%20to%20Upgrade%20to%20FreeBSD%2013.2.md)
+* [采访 FreeBSD 基金会执行董事 Deb Goodkin](Interview%20with%20Deb%20Goodkin%2C%20Executive%20Director%20of%20the%20FreeBSD%20Foundation.md)
