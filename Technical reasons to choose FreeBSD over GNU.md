@@ -1,0 +1,1 @@
+选择FreeBSD而不是GNU/Linux的技术原因
