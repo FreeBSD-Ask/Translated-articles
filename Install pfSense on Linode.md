@@ -69,5 +69,5 @@ console="comconsole,vidconsole"
 
 退出 Glish，返回到 Linode 管理器，重新启动到 pfSense 配置文件。
 
-打开 lish -- 回答 n 到"VLAN 设置" -- vtnet0 为广域网（WAN）--输入其余部分，直到你看到启动完成。-- 关闭列表 -- 打开 Glish -- 从控制台输入 13 来更新，输入 Y 来更新
+打开 lish -- 回答 n 到 “VLAN 设置” -- vtnet0 为广域网（WAN）--输入其余部分，直到你看到启动完成。-- 关闭列表 -- 打开 Glish -- 从控制台输入 13 来更新，输入 Y 来更新
  --工作正在进行中。
