@@ -4,13 +4,13 @@
 - 译者：ykla & ChatGPT
 - 最后发布日期：2022-04-08
 
-## 清晰的分离
+## 清晰的分离原则
 
 和 FreeBSD 一起工作是非常特别的。这是因为它的设计方式，不同组件的组合方式，以及如何处理配置和调优，以及所有这些都是如此完美地整合在一起。
 
 在我自 1998 年以来使用的大多数 GNU/Linux 发行版中，一直到今天，都会有一种“不匹配”的感觉。
 
-举个例子，Debian GNU/Linux 有自己的做事方式，它是特定于该发行版的。[Debian 的方式](https://wiki.debian.org/DontBreakDebian)通过使用一套特定的配置管理工具和补丁来使第三方软件符合“Debian 方式”的设置。虽然从某种意义上说，这可以统一 Debian 发行版的做事方式，但这却与上游配置不一致，这使得处理起来非常烦人。特别是当某些事情运行不正常时，或者上游文档中诉说的方式与 Debian 上的设置不符时，这就成了一个问题。这种方法的另一个问题是，一些第三方软件，甚至是发行版的核心元素（比如 systemd），无法被强制塑造成“Debian 方式”。结果就是系统中的一些部分按照“Debian 方式”运行，而其他部分则不是。Debian GNU/Linux 已经采用了 systemd，但与此同时，默认的网络部分是 Debian 特有的。有时，你必须禁用和删除 Debian 特定的东西才能让 systemd 特定的东西工作。所有这些都是由于该系统是由许多不匹配的组件组合而成。
+举个例子，Debian GNU/Linux 有自己的做事方式，它是特定于该发行版的。[Debian 的方式](https://wiki.debian.org/DontBreakDebian)通过使用一套特定的配置管理工具和补丁来使第三方软件符合“Debian 方式”的设置。虽然从某种意义上说，这可以统一 Debian 发行版的做事方式，但这却与上游配置不一致，这使得处理起来非常烦人。特别是当某些事情运行不正常时，或者上游文档中诉说的方式与 Debian 上的设置不符时，这就成了一个问题。这种方法的另一个问题是，一些第三方软件，甚至是发行版的核心元素（比如 systemd），无法被强制塑造成“Debian 方式”。结果就是系统中的一些部分按照“Debian 方式”运行，而其他部分则不是。Debian GNU/Linux 已经采用了 systemd，但与此同时，默认的网络部分是 Debian 特有的。有时，你必须禁用和删除 Debian 特定的东西才能让 systemd 特定的东西工作。所有这些都是由于该系统是由许多不匹配的组件组合而成造成的。
 
 在这方面，Arch Linux 与 Debian 相反，因为 Arch Linux 发行版希望第三方软件保持与上游一致，因此除非绝对必要，否则不会做任何更改。这很棒，因为这意味着上游文档与软件是匹配的。然而，虽然这有助于改善系统的整体管理，但事实仍然是，Linux 内核、用户空间工具以及其他所有内容都是由不同的实体开发的。在 FreeBSD 上，许多用户空间工具具有与内核和系统的其他部分紧密集成的运行时选项。例如，top 命令可以显示与管理 ZFS 文件系统相关的信息。在 GNU/Linux 上没有类似的功能。
 
@@ -20,7 +20,7 @@ Ubuntu 则更糟糕。因为它是基于 Debian 的，它在很多方面都使�
 
 你有 rc 实用程序，这是在 [init](https://www.freebsd.org/cgi/man.cgi?query=init) 调用它后控制自动引导过程的命令脚本，还有[命令脚本](https://www.freebsd.org/cgi/man.cgi?query=rc)、[sysctl ](https://www.freebsd.org/cgi/man.cgi?query=sysctl)内核管理工具以及所有其他不同的[系统配置](https://www.freebsd.org/cgi/man.cgi?query=rc.conf)，所有这些都非常完美地组合在一起并有很好的文档支持。
 
-由于 FreeBSD 是按照一种完整的操作系统和项目的方式进行管理的，而不是像一堆不同的项目被粘在一起形成一个发行版，所以一切都经过深思熟虑，基于多年的经验，并且当事情发生改变时，改变是为了整个社区的利益，而且是根据真实使用案例和行业中出现的问题得到反馈的。
+由于 FreeBSD 是按照一种完整的操作系统和项目的方式进行管理的，而不是像一堆不同的项目被粘在一起形成的一个发行版，所以这一切都经过深思熟虑，基于多年的经验，并且当事情发生改变时，改变是为了整个社区的利益，而且是根据真实使用案例和行业中出现的问题得到反馈的。
 
 真正理解 FreeBSD 的最好方法之一就是阅读 Michael W. Lucas 的书[《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)。他在书中不仅很好地解释和描述了所有的技术问题，还涵盖了重要的历史背景，解释了为什么事物会是现在这个样子。即使你只是对 FreeBSD 感兴趣，我也强烈推荐这本书。
 
@@ -28,7 +28,7 @@ Ubuntu 则更糟糕。因为它是基于 Debian 的，它在很多方面都使�
 
 有些人认为文档不是使用某个技术的技术原因，但文档是描述技术的一个重要组成部分。糟糕的文档、过时的文档和缺失的文档应该被视为一个缺陷。
 
-FreeBSD 的文档随系统一起提供，所以你不必在网络上搜索。基本系统的 man 页质量很高，专门为 FreeBSD 编写。你需要的大部分信息都可以在系统的 man 页中找到。
+FreeBSD 的文档随系统一起提供，所以你不必在网络上搜索。基本系统的 man 页面质量很高，专门为 FreeBSD 编写。你需要的大部分信息都可以在系统的 man 页面中找到。
 
 FreeBSD 还有 [FreeBSD 手册](https://docs.freebsd.org/en/books/handbook/)，涵盖从安装到日常使用 FreeBSD 的所有内容。这本手册也可以在安装过程中本地安装。尽管手册中偶尔会有一些过时的部分，因为这本书是许多人持续合作的结果，但总体上它是更新的，而且写得很好。
 
@@ -36,7 +36,7 @@ FreeBSD 还有 [FreeBSD 手册](https://docs.freebsd.org/en/books/handbook/)，�
 
 （安全性）通常不会破坏操作系统本身，而是破坏在操作系统上运行的程序。在某些情况下，被破坏的程序可能会与操作系统进行交互，从而也破坏了操作系统。保护操作系统意味着你努力确保你计算机的资源只被授权的人用于授权的目的。
 
-FreeBSD 默认设置为性能优越，不像 OpenBSD 那样默认设置为安全。然而，FreeBSD 提供了许多工具和选项，帮助你保护系统免受攻击。
+FreeBSD 默认配置为性能优越，不像 OpenBSD 那样默认设置为安全（优先）。然而，FreeBSD 提供了许多工具和选项，帮助你保护系统免受攻击。
 
 在这篇文章中，我无法提供一个详尽的选项和功能列表，因为关于 FreeBSD 的安全性，可以轻松填满一本书。所以，我强烈推荐阅读 Michael W. Lucas 的书[《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)，如果你想更深入地研究 FreeBSD 的一些安全功能。
 
@@ -78,7 +78,7 @@ security.bsd.map_at_zero: Permit processes to map an object at virtual address 0
 
 ## 漏洞统计
 
-以下是 FreeBSD 和 Linux 的漏洞统计列表。FreeBSD 通常较低的安全问题数量并不一定意味着它比 Linux 更安全，尽管我确实认为它是如此，但这也可能是因为 Linux 受到了更多关注。然而，大多数 Linux 发行版的攻击面比 FreeBSD 要大得多。
+以下是 FreeBSD 和 Linux 的漏洞统计列表。FreeBSD 通常较低的安全问题数量并不一定意味着它比 Linux 更安全，尽管我确实认为它是如此，但这也可能是因为 Linux 受到了更多地关注。然而，大多数 Linux 发行版的攻击面比 FreeBSD 要大得多。
 
 | 年份     | FreeBSD  | Linux   |
 | -------- | -------- | ------- |
@@ -113,7 +113,7 @@ security.bsd.map_at_zero: Permit processes to map an object at virtual address 0
 
 ## 稳定性
 
-FreeBSD 拥有出色的工程和发布管理实践。FreeBSD 从想法的构思到公开发布经历多个步骤。
+FreeBSD 拥有出色的工程和发布管理实践。FreeBSD 从想法的构思到公开发布经历了多个步骤。
 
 当有人有一个新的想法并开发出新的东西时，首先会进行同行技术审查。然后它进入“current”分支进行集成测试，根据复杂性或潜在影响，进入稳定分支的迁移窗口会进行调整。然后它进入“stable”分支进行更广泛的用户测试。通常，这也是所有 beta 测试发生的地方，并与更广泛的社区进行合作。然后它进入发布候选测试，通常会持续进行 3 轮测试，然后变为正式发布。这意味着，只要你了解发布和升级说明，你可以相当有信心它会继续正常运行。
 
@@ -125,17 +125,17 @@ FreeBSD 拥有出色的工程和发布管理实践。FreeBSD 从想法的构思�
 
 FreeBSD 的 [Ports](https://www.freebsd.org/cgi/man.cgi?query=ports) 是一项令人惊叹的工程壮举。NetBSD 的 [pkgsrc（软件包、源代码）](https://en.wikipedia.org/wiki/Pkgsrc)和 OpenBSD 的 [ports](https://en.wikipedia.org/wiki/Ports_collection#OpenBSD_ports) 都起源于 FreeBSD 的 ports 系统。
 
-虽然 FreeBSD 也有像 Debian Linux 或 Arch Linux 一样的二进制包，由 [pkg](https://www.freebsd.org/cgi/man.cgi?query=pkg) 包管理器处理，但 FreeBSD 还可以从源代码编译软件，使用用户特定的编译时间配置。Arch Linux [Build System](https://wiki.archlinux.org/title/Arch_Build_System) 实际上受到 FreeBSD ports 系统的很大启发。但是，使用 FreeBSD ports 系统，你可以在 make 期间选择最相关的编译时间选项，而在 Arch Linux 上必须手动编辑和更改包维护者的 [PKGBUILD](https://wiki.archlinux.org/title/PKGBUILD) 脚本（基本上，你应该接受默认设置）。
+虽然 FreeBSD 也有像 Debian Linux 或 Arch Linux 一样的二进制包，由 [pkg](https://www.freebsd.org/cgi/man.cgi?query=pkg) 包管理器处理，但 FreeBSD 还可以从源代码编译软件，使用用户特定的编译时间配置。Arch Linux [Build System](https://wiki.archlinux.org/title/Arch_Build_System) 实际上受到 FreeBSD ports 系统的很大启发。但是，使用 FreeBSD ports 系统，你可以在 `make` 期间选择最相关的编译时间选项，而在 Arch Linux 上必须手动编辑和更改包维护者的 [PKGBUILD](https://wiki.archlinux.org/title/PKGBUILD) 脚本（基本上，你应该接受默认设置）。
 
-FreeBSD ports 使用 Makefile 自动化编译、安装和卸载软件的过程，通过 make 命令。组成 Port 的文件包含所有必要的信息，可自动下载、提取、打补丁、配置、编译和安装应用程序，并且在在期望的应用程序 Port 目录中发出 `make install` 或 `make install clean` 等开始命令后，几乎不需要任何（如果有的话）用户干预。如果该 Port 对其他应用程序或库有依赖关系，则会自动预先安装这些依赖关系。
+FreeBSD Ports 使用 Makefile 自动化编译、安装和卸载软件的过程，通过 `make` 命令。组成 Port 的文件包含所有必要的信息，可自动下载、提取、打补丁、配置、编译和安装应用程序，并且在在期望的应用程序 Port 目录中执行 `make install` 或 `make install clean` 等开始命令后，几乎不需要任何（如果有的话）用户干预。如果该 Port 对其他应用程序或库有依赖关系，则会自动预先安装这些依赖关系。
 
-大多数 Port 都配置有一组默认选项，这些选项被认为对大多数用户来说是适合的。然而，这是关于 Ports 系统的一大优点，这些配置选项可以在安装前使用 `make config` 命令进行更改。该命令会打开一个基于文本的界面，允许用户选择所需的选项。
+大多数 Port 都配置有一组默认选项，这些选项被认为对大多数用户来说是适合的。然而，这是关于 Ports 系统的一大优点，这些配置选项可以在安装前使用 `make config` 命令进行更改。该命令会打开一个基于文本的界面，让用户去选择所需的选项。
 
 在撰写本文时，Ports 中有 30,000 多个 Port 可用。
 
 ## 滚动发布二进制包
 
-对于二进制包，你可以选择两个不同的分支。一个被称为“quarterly”，另一个被称为“latest”。
+对于二进制包，你可以选择两个不同的分支：一个被称为“quarterly”，另一个被称为“latest”。
 
 “quarterly”是指从每年 1 月、4 月、7 月和 10 月开始，从 HEAD 分支中切出的 Ports 分支，并且是从这些分支产生的二进制包。
 
@@ -155,7 +155,7 @@ Poudriere 的设置和使用非常简单，因为它没有依赖项，并且可�
 
 ## ZFS
 
-与 Linux 上的情况不同，ZFS 文件系统在 FreeBSD 上是一等公民。这不仅意味着可以在 ZFS 上安装为根目录，且安装程序原生支持此功能，而且还意味着许多基本系统工具已经紧密集成和构建以支持 ZFS。在 FreeBSD 上运行 ZFS 与在 Linux 上运行 ZFS 非常不同。在 FreeBSD 上，你可以获得更多用于专门调查 ZFS 性能问题或其他相关问题的工具。
+与 Linux 上的情况不同，ZFS 文件系统在 FreeBSD 上是一等公民。这不仅意味着根目录可以使用 zfs，且安装程序原生就支持此功能，而且还意味着许多基本系统工具已经紧密集成和构建以支持 ZFS。在 FreeBSD 上运行 ZFS 与在 Linux 上运行 ZFS 非常不同。在 FreeBSD 上，你可以获得更多用于专门调查 ZFS 性能问题或其他相关问题的工具。
 
 ZFS 的一些主要特点包括：
 
@@ -193,7 +193,7 @@ FreeBSD 使用传统的 BSD 风格 init。在 BSD 风格 init 中，没有运行
 
 如前所述，由于 FreeBSD 是作为完整的操作系统开发的，用户安装的第三方应用程序不是基本系统的一部分。第三方应用程序是使用 Packages 或 Ports 安装的。为了将它们与基本系统分开，用户安装的应用程序被安装在 `/usr/local/` 下。因此，用户安装的二进制文件位于 `/usr/local/bin/`，而配置文件位于 `/usr/local/etc/`。
 
-在 BSD init 系统中，通过在/etc/rc.conf 中添加服务条目来启用服务。默认设置位于 `/etc/defaults/rc.conf` 中，这些默认设置会被 `/etc/rc.conf` 中的设置覆盖。
+在 BSD init 系统中，通过在 `/etc/rc.conf` 中添加服务条目来启用服务。默认设置位于 `/etc/defaults/rc.conf` 中，这些默认设置会被 `/etc/rc.conf` 中的设置覆盖。
 
 以下在 `/etc/rc.conf` 中的条目启用 sshd：
 
@@ -262,11 +262,11 @@ Capsicum 是在[剑桥大学计算机实验室](https://www.cl.cam.ac.uk/)开发
 - Capability 权限-具有细粒度权限的精炼文件描述符
 - Capability 模式-拒绝访问全局命名空间的进程沙箱
 - 进程描述符-以能力为中心的进程 ID 替换
-- 匿名共享内存对象-扩展 POSIX 共享内存 API，支持与文件描述符（能力）关联的匿名交换对象
+- 匿名共享内存对象-扩展 POSIX 共享内存 API，支持与文件描述符（Capability）关联的匿名交换对象
 - rtld-elf-cap-修改的 ELF 运行时链接器，用于构建沙箱应用程序
 - libcapsicum-用于创建和使用能力和沙箱组件的库
 - libuserangel-允许沙箱应用程序或组件与用户 angel（如 Power Boxes）交互的库
-- chromium-capsicum-谷歌的 Chromium Web 浏览器的版本，使用能力模式和能力，以提供高风险网页呈现的有效沙箱保护
+- chromium-capsicum-谷歌的 Chromium Web 浏览器的版本，使用 Capability 模式和 Capability，以提供高风险网页呈现的有效沙箱保护
 
 FreeBSD 对 Capsicum 的实现由 Robert Watson 和 Jonathan Anderson 开发，并自 FreeBSD 10.0-RELEASE 起默认支持。FreeBSD 的 Capsicum 是参考实现，不仅作为 Capsicum API 和语义的参考，还为其他平台（例如，Linux 上的 Capsicum 和 DragonFlyBSD 上的 Capsicum）的 Port 提供了起点源代码。
 
@@ -317,16 +317,15 @@ FreeBSD GEOM 是 FreeBSD 操作系统的主要存储框架。它提供了访问�
 由于 GEOM 的模块化设计，可以将模块堆叠在一起形成一系列 GEOM 层。例如，在 geom_mirror 模块之上可以添加一个加密模块，例如 geom_eli，以提供镜像和加密的卷。每个模块都有消费者和提供者。提供者是 GEOM 模块的来源，通常是物理硬盘，但有时也是虚拟化磁盘，例如内存磁盘。反过来，geom 模块提供输出设备。其他 GEOM 模块，称为消费者，可以使用此提供者来创建相互连接的模块链。
 
 ## Linux 二进制兼容性
-FreeBSD 提供与 Linux 的二进制兼容性。这允许用户在 FreeBSD 系统上安装和运行许多 Linux 二进制文件，而无需首先修改二进制文件。在某些特定情况下，Linux 二进制文件甚至可能在 FreeBSD 上比在 Linux 上运行更好。
+FreeBSD 提供了与 Linux 的二进制兼容性。这使得用户可在 FreeBSD 系统上安装和运行许多 Linux 二进制文件，而无需首先去修改二进制文件。在某些特定情况下，Linux 二进制文件甚至可能在 FreeBSD 上比在 Linux 上运行更好。
 
-并非所有特定于 Linux 的操作系统功能都在 FreeBSD 上得到支持。例如，如果 Linux 二进制文件过度使用 i386 特定调用，例如启用
-
-虚拟 8086 模式，则它们将无法在 FreeBSD 上工作。
+并非所有特定于 Linux 的操作系统功能都在 FreeBSD 上得到支持。例如，如果 Linux 二进制文件过度使用 i386 特定调用，例如启用虚拟 8086 模式，则它们将无法在 FreeBSD 上工作。
 
 ## 安全事件审计
 FreeBSD 包含对安全事件审计的支持。事件审计支持可靠、细粒度且可配置的记录各种与安全相关的系统事件，包括登录、配置更改以及文件和网络访问。这些日志记录对于实时系统监视、入侵检测和事后分析非常有价值。FreeBSD 实现了 Sun 发布的基本安全模块（BSM）应用程序编程接口（API）和文件格式，并与 Solaris 和 Mac OS X 的审计实现相互操作。
 
 ## 最后的说明
+
 本文绝不是使用 FreeBSD 而非 GNU/Linux 的技术性原因的详尽列表。还有其他原因我没有涉及。但是，这些只是我个人认为最突出的一些特点。
 
 除非你有非常特定的需要使用 GNU/Linux，例如特定硬件的支持，否则在运行和管理 FreeBSD 时，你通常会体验到更强的概览、控制和和谐感。
