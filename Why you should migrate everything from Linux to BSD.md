@@ -4,11 +4,11 @@
 - 译者：ykla & ChatGPT
 - 最后更新时间：2021-02-17
   
->作为一个操作系统，GNU/Linux 由于其项目的碎片化性质、内核中的臃肿软件，但主要是由于企业利益的操控而变得一团糟。有[几个技术性原因](https://unixsheikh.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)支持从 GNU/Linux 迁移到 BSD，但本文并不涉及这些，而是对 Linux 领域当前状况的“分析”，更像是一个带有主观观点的愤怒发泄。
+>作为一个操作系统，GNU/Linux 由于其项目的碎片化性质、内核中软件的臃肿，但主要是由于企业利益的操控而变得一团糟。有[几个技术性原因](https://unixsheikh.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)支持从 GNU/Linux 迁移到 BSD，但本文并不涉及这些，而是对 Linux 领域当前状况的“分析”，更像是一个带有主观观点的愤怒发泄。
 
 ## 引言
 
-在过去，我一直喜欢根据技术优势选择操作系统和工具。然而，在如今的世界中，像微软、苹果、谷歌等公司以损害用户隐私和进行有争议的活动而闻名，我认为这是错误的做法。
+在过去，我一直喜欢根据技术优劣来选择操作系统和工具。然而，在如今的世界中，像微软、苹果、谷歌等公司以损害用户隐私和进行有争议的活动而闻名，我认为这是错误的做法。
 
 像微软的 [Windows 10](https://en.wikipedia.org/wiki/Windows_10#Privacy_and_data_collection)、[苹果的 MacOS](https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d) 和[谷歌的 Android](https://en.wikipedia.org/wiki/Android_%28operating_system%29#Security_and_privacy) 等专有操作系统因其不端行为而出名，甚至连联想这样的公司也在使用 UEFI 引导注入定制的 Windows 组件，以便系统可以向联想回传信息。
 
@@ -46,9 +46,9 @@ Linus Torvalds 多次明确表示，他不关心“Linux 世界”（用户空�
 
 >它（ZFS 文件系统）一直更像是个噱头而非其他什么东西。
 
-通过这样的声明，Linus Torvalds 将全球最稳健和流行的文件系统之一，经过 15 多年的发展，简单地贬低为一个“噱头”！
+通过这样的声明，Linus Torvalds 将全球最稳健和流行的文件系统之一，经过 15 多年的发展，简单地贬损为一个“噱头”！
 
-ZFS 被描述为“文件系统的终极选择”。它是由 Sun Microsystems 最初设计的一种综合文件系统和逻辑卷管理器。ZFS 是一个稳定、快速、安全和未来可靠的文件系统。它具有可扩展性，并包含对数据损坏的广泛保护，支持高存储容量，最大 16 Exabyte 文件大小，最大 256 Quadrillion Zettabytes 存储空间，文件系统（数据集）或文件数量没有限制，高效的数据压缩，快照和写时复制克隆，连续的完整性检查和自动修复，RAID-Z，本地 NFSv4 ACLs 等，而且可以非常精确地配置。
+ZFS 被誉为“文件系统的终极选择”。它是由 Sun Microsystems 最初设计的一种综合文件系统和逻辑卷管理器。ZFS 是一个稳定、快速、安全和未来可靠的文件系统。它具有可扩展性，并包含对数据损坏的广泛保护，支持高存储容量，最大 16 Exabyte 文件大小，最大 256 Quadrillion Zettabytes 存储空间，文件系统（数据集）或文件数量没有限制，高效的数据压缩，快照和写时复制克隆，连续的完整性检查和自动修复，RAID-Z，本地 NFSv4 ACLs 等，而且可以非常精确地配置。
 
 由 Oracle 和 [OpenZFS](https://en.wikipedia.org/wiki/OpenZFS) 项目推出的两种主要实现非常相似，使得 ZFS 在类 Unix 系统中得到广泛应用。
 
@@ -84,7 +84,7 @@ Linus Torvalds 通常也非常乐于受到企业利益的迅速影响，他对�
 
 另一篇可以展示其中一些问题的好文章是[《Linux 维护漏洞：ifconfig 在 Linux 上被弃用的真正原因》](https://web.archive.org/web/20200813101037/https://blog.farhan.codes/2018/06/25/linux-maintains-bugs-the-real-reason-ifconfig-on-linux-is-deprecated/)。
 
-这与 BSD（指 FreeBSD、OpenBSD、NetBSD 和 DragonFly BSD）完全不同，因为每个 BSD 都是独立的项目，将其系统"内部"组合在一起。内核、标准 C 库、用户空间工具等都是操作系统基本系统的一部分，而不是从一堆不同的外部来源组合而成的。
+这与 BSD（指 FreeBSD、OpenBSD、NetBSD 和 DragonFly BSD）完全不同，因为每个 BSD 都是独立的项目，将其系统“内部”组合在一起。内核、标准 C 库、用户空间工具等都是操作系统基本系统的一部分，而不是从一堆不同的外部来源组合而成的。
 
 在 2005 年的一次采访中，OpenBSD 的创始人 Theo de Raadt 发表了以下言论：
 
@@ -106,7 +106,7 @@ Linux 发行版是由不同团体编写的工具的集合，往往具有冲突�
 
 >我们与世界上最大的嵌入式供应商合作，特别是在电信和汽车行业，稳定性和可靠性是他们最关心的问题。他们很容易适应 systemd。
 
-我并不反对 systemd 的"init"部分，但 systemd 不再只是一个 init 系统，其主要问题在于其持续的发展是受到公司的财务利益而不是开源社区的利益驱动的。因此，我认为将 systemd 引入主要的 Linux 发行版，比如 Debian GNU/Linux 和 Arch Linux，是一个巨大的错误。他们已经严重依赖于 systemd 和 Red Hat。
+我并不反对 systemd 的“init”部分，但 systemd 不再只是一个 init 系统，其主要问题在于其持续的发展是受到公司的财务利益而不是开源社区的利益驱动的。因此，我认为将 systemd 引入主要的 Linux 发行版，比如 Debian GNU/Linux 和 Arch Linux，是一个巨大的错误。他们已经严重依赖于 systemd 和 Red Hat。
 
 这只是纯粹的猜测，但我必须承认我怀疑 systemd 是引入 Linux 操作系统安全漏洞的平台。这些漏洞当然看起来像是正常的“程序错误”，然而其中一些漏洞与 [OpenSSL Heartbleed 漏洞](https://en.wikipedia.org/wiki/Heartbleed)非常相似。在开源社区中，这是一个众所周知的策略，即利用“程序错误”来创建[后门和其他东西](https://www.youtube.com/watch?v=fwcl17Q0bpk)。systemd 有一系列长期存在且公开的漏洞（截至撰写本文有 1400 多个未解决的漏洞），自 2015 年以来仍未修复，然而 systemd 开发人员继续在其中添加越来越多的混乱！
 
@@ -125,15 +125,16 @@ systemd 开发者已将 Cloudflare、Quad9 和 Google 集成到 systemd-resolved
 随着 Red Hat（IBM）通过 systemd 的不断影响，他们成功引导了大多数主要 Linux 发行版朝着与许多系统管理员和用户希望看到的方向相违背的方向发展。
 
 ## BSD 才是最佳选择
+
 与 Linux 发行版相反，[伯克利软件分发（BSD）](https://en.wikipedia.org/wiki/BSD_(operating_system))不是一个分裂的项目。BSD 项目维护整个操作系统，而不仅仅是内核。
 
-BSD 是基于 Research Unix 开发和分发的操作系统，由加利福尼亚大学伯克利分校的计算机系统研究组（CSRG）开发。如今，“BSD”指的是其后代，如 [FreeBSD](https://www.freebsd.org/)、[OpenBSD](https://www.openbsd.org/)、[NetBSD](https://www.netbsd.org/) 和 [DragonFly BSD](https://www.dragonflybsd.org/)。这些项目是真正的操作系统，而不仅仅是内核，它们并非"发行版"。
+BSD 是基于 Research Unix 开发和分发的操作系统，由加利福尼亚大学伯克利分校的计算机系统研究组（CSRG）开发。如今，“BSD”指的是其后代，如 [FreeBSD](https://www.freebsd.org/)、[OpenBSD](https://www.openbsd.org/)、[NetBSD](https://www.netbsd.org/) 和 [DragonFly BSD](https://www.dragonflybsd.org/)。这些项目是真正的操作系统，而不仅仅是内核，它们并非“发行版”。
 
 Linux 发行版，如 Debian GNU/Linux 和 Arch Linux，必须做的工作是将所有所需的软件汇集在一起，以创建一个完整的 Linux 操作系统。它们需要 [Linux 内核](https://www.kernel.org/)、[GNU 工具和库](https://www.gnu.org/gnu/linux-and-gnu.html)、[init 系统](https://en.wikipedia.org/wiki/Init)以及一些第三方应用程序，以便得到一个运行的操作系统。
 
-相比之下，BSD 既是一个内核又是一个完整的操作系统。例如，FreeBSD 提供了 FreeBSD 内核和 FreeBSD 操作系统。它作为一个单一项目进行维护。
+相比之下，BSD 既是一个内核又是一个完整的操作系统。例如，FreeBSD 提供了 FreeBSD 内核和 FreeBSD 操作系统。它作为单一项目进行维护。
 
-没有一个人或公司拥有 BSD。它由遍布全球的高度技术和忠诚的贡献者社区共同创建和分发。
+没有个人或公司拥有 BSD。它由遍布全球的高度技术和忠诚的贡献者社区共同创建和分发。
 
 公司也[使用和为 BSD 做贡献](https://en.wikipedia.org/wiki/List_of_products_based_on_FreeBSD)，但与 Linux 不同，公司不能“劫持”BSD。公司可以制作自己的 BSD 版本，例如索尼电脑娱乐公司为 PlayStation 3、PlayStation 4 和 PlayStation Vita 游戏机制作的版本，但由于 BSD 是完整的操作系统，并且每个 BSD 项目都由开源爱好者和社区维
 
@@ -146,13 +147,14 @@ Linux 发行版，如 Debian GNU/Linux 和 Arch Linux，必须做的工作是将
 所有这些的另一个巨大优势是，围绕 BSD 项目的社区由经验丰富、乐于助人且（大多数时候）友善的人组成。
 
 ## 许可证问题
+
 GPL 许可证对开发者更严格，它是一种[伪式开源](https://www.youtube.com/watch?v=Pm8P4oCIY3g&t=37m05s)，因为它强制要求公开所有修改后的源代码，并阻止其他开源项目的集成，例如，GPLv2 阻止了在 Linux 中集成 [DTrace](https://en.wikipedia.org/wiki/DTrace) 和 [ZFS](https://en.wikipedia.org/wiki/ZFS)。
 
 另一方面，BSD 开发者没有这样的限制。制造商可以选择将 BSD 作为他们创建新设备时的首选操作系统，而非 Linux。这将使他们可以保留自己的代码修改。而 Linux 的许可证则强制要求将源代码公开。
 
 听起来 GPL 许可证可能更好，因为为什么我们要允许公司简单地“窃取”我们的开源代码，并生产专有产品而不给予任何回报。但事实并非如此简单。通过 GPL 许可证强制公司向公众发布源代码，公司很快变得更具操纵性。
 
-Red Hat 在发布 systemd 时采取的策略是试图让尽可能多的“重要”第三方项目与 systemd 紧密合作，甚至依赖于 systemd。这样，其他 Linux 发行版更容易被说服采用 systemd，因为这些第三方项目的轻松集成。systemd 开发者与几个第三方项目进行了对接，并试图说服他们使其项目依赖于 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)上的尝试，以及 Red Hat 开发者“keszybz”在 [tmux 项目](https://github.com/tmux/tmux/issues/428)上的尝试。这些尝试大部分最初都被"伪装"成技术问题，但当你阅读 Gnome 邮件列表和其他地方的长电子邮件往来时，真正的意图变得非常清晰。
+Red Hat 在发布 systemd 时采取的策略是试图让尽可能多的“重要”第三方项目与 systemd 紧密合作，甚至依赖于 systemd。这样，其他 Linux 发行版更容易被说服采用 systemd，因为这些第三方项目的轻松集成。systemd 开发者与几个第三方项目进行了对接，并试图说服他们使其项目依赖于 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)上的尝试，以及 Red Hat 开发者“keszybz”在 [tmux 项目](https://github.com/tmux/tmux/issues/428)上的尝试。这些尝试大部分最初都被“伪装”成技术问题，但当你阅读 Gnome 邮件列表和其他地方的长电子邮件往来时，真正的意图变得非常清晰。
 
 这样的操纵在 BSD 中是不需要的。公司可以自由地使用和修改 BSD，因此它们不需要试图影响事物的发展。如果不是这样的情况，我们可能会看到，例如，索尼竭尽全力影响 FreeBSD 的发展，因为他们在 PlayStation 产品中使用该操作系统。
 
@@ -168,12 +170,12 @@ Microsoft Windows 在桌面上的成功并不是因为人们认为 Windows 是�
 
 早在 1998-2000 年左右，我就开始将家里和公司的每台服务器和桌面操作系统从微软 Windows 迁移到 GNU/Linux，最初是 Red Hat Linux，后来是 Debian GNU/Linux。我这样做是因为我花了大约十年的时间支持 Microsoft Windows，并在这个绝对可怕的操作系统上浪费了太多时间。
 
-当一个好朋友向我推荐 GNU/Linux 时，我对它的表现感到惊讶，开源社区令人惊讶，所有与 Windows 相关的常见问题都消失了。每当我用 Linux 替换了客户、家人或朋友的 Windows 设置时，支持时间迅速减少。当然，这意味着较少的客户支持工作，但这非常好，因为现在我们可以将时间集中在更重要的事情上。
+当一个好朋友向我推荐 GNU/Linux 时，我对它的表现感到惊讶，开源社区令人惊讶，所有与 Windows 相关的常见问题都消失了。每当我用 Linux 替换了客户、家人或朋友的 Windows 设置时，（需要的）支持时间迅速减少。当然，这意味着较少的客户支持工作，但这非常好，因为现在我们可以将时间集中在更重要的事情上。
 
 稍后我发现了 BSD 世界，并最终开始在服务器和桌面上部署 FreeBSD 和 OpenBSD。
 
 在过去，Linux 通常比 BSD 具有更好的硬件支持，因此我通常更多地使用 Linux 而不是 BSD。硬件很昂贵，而且并不总是可能根据您想在系统上运行的操作系统购买硬件。但现在情况不同了，BSD 通常对现代硬件具有很好的支持。
 
-我仍然喜欢 GNU/Linux，但我不想担心 systemd 中可能存在的可能破坏隐私的垃圾，或者 Lennart Poettering 接下来会想出什么恶心的东西，我也不想担心核心中加入的所有膨胀软件，比如核心[强制适应 DRM](https://patchwork.kernel.org/patch/10084131/)。我一般不想担心下一个问题是什么。一切都应该是理智的选择和默认决策！不是选择退出（opt-out）！
+我仍然喜欢 GNU/Linux，但我不想担心 systemd 中可能存在的可能破坏隐私的垃圾，或者 Lennart Poettering 接下来会想出什么恶心的东西，我也不想担心内核中加入的所有膨胀软件，比如内核[强制适应 DRM](https://patchwork.kernel.org/patch/10084131/)。我一般不想担心下一个问题是什么。一切都应该是理智的选择和默认决策！不是选择退出（opt-out）！
 
 你可以在我的文章[《FreeBSD 是一个了不起的操作系统》](https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html)https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html中了解有关 FreeBSD 的内容，以及在我的文章[《OpenBSD 很棒》](https://unixsheikh.com/articles/openbsd-is-fantastic.html)https://unixsheikh.com/articles/openbsd-is-fantastic.html中了解有关 OpenBSD 的内容。
