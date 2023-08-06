@@ -15,3 +15,4 @@
 * [我们使用开源的 FreeBSD 作为企业操作系统的 5 个原因](5%20Reasons%20We%20Use%20Open%20Source%20FreeBSD%20as%20Our%20Enterprise%20OS.md)
 * [关于 BSD 与 Linux 的典型讨论](The%20typical%20discussions%20about%20BSD%20vs%20Linux.md)
 * [OpenBSD 太棒了](OpenBSD%20is%20fantastic.md)
+* [systemd 背后的真正动机](The%20real%20motivation%20behind%20systemd.md)
