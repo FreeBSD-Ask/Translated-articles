@@ -19,3 +19,4 @@
 * [systemd 在任何地方都不安全](systemd%20isn't%20safe%20to%20run%20anywhere.md)
 * [为什么你应该将所有东西从 Linux 迁移到 BSD](Why%20you%20should%20migrate%20everything%20from%20Linux%20to%20BSD.md)
 * [GPL 之殇](The%20problems%20with%20the%20GPL.md)
+* [选择 FreeBSD 而非 GNU/Linux 的技术性原因](Technical%20reasons%20to%20choose%20FreeBSD%20over%20GNU.md)
