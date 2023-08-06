@@ -107,7 +107,7 @@ security.bsd.map_at_zero: Permit processes to map an object at virtual address 0
 | 2021     | 25       | 158     |
 | 2022     | 1        | 73      |
 | -------- | -------- | ------- |
-| Total    | 430      | 2780    |
+| 总计   | 430      | 2780    |
 
 要了解有关特定漏洞的更多信息，你可以查看 [FreeBSD](https://www.cvedetails.com/vendor/6/Freebsd.html) 和 [Linux](https://www.cvedetails.com/product/47/Linux-Linux-Kernel.html?vendor_id=33) 的 CVE 详情网站。
 
