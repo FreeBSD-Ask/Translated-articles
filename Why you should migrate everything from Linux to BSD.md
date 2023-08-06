@@ -10,7 +10,7 @@
 
 在过去，我一直喜欢根据技术优劣来选择操作系统和工具。然而，在如今的世界中，像微软、苹果、谷歌等公司以损害用户隐私和进行有争议的活动而闻名，我认为这是错误的做法。
 
-像微软的 [Windows 10](https://en.wikipedia.org/wiki/Windows_10#Privacy_and_data_collection)、[苹果的 MacOS](https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d) 和[谷歌的 Android](https://en.wikipedia.org/wiki/Android_%28operating_system%29#Security_and_privacy) 等专有操作系统因其不端行为而出名，甚至连联想这样的公司也在使用 UEFI 引导注入定制的 Windows 组件，以便系统可以向联想回传信息。
+像微软的 [Windows 10](https://en.wikipedia.org/wiki/Windows_10#Privacy_and_data_collection)、[苹果的 MacOS](https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d) 和[谷歌的 Android](https://en.wikipedia.org/wiki/Android_%28operating_system%29#Security_and_privacy) 等专有操作系统因其行为不端而出名，甚至连联想这样的公司也在使用 UEFI 引导注入定制的 Windows 组件，以便系统可以向联想回传信息。
 
 长期以来我一直是开源替代品的支持者，比如 GNU/Linux 和 BSD。不仅如此，我还相信在许多技术领域，开源替代品要好得多。
 
@@ -18,7 +18,7 @@
 
 每当有可能时，我一直建议人们（无论是个人还是企业）将使用的操作系统改为开源替代品，并且当人们对我的宣传持接纳态度时，我会帮助他们从他们的工作站迁移到 BSD 或 Linux。在服务器端同样也是如此。这是真正成功的努力，我诚实地从未遇到过不满意的个人或公司。
 
-然而，随着越来越多的公司希望控制 Linux 作为操作系统的发展方向，GNU/Linux 世界的情况开始发生变化。由于 GNU/Linux 作为操作系统的结构和组织，它不幸受到这些影响，虽然它仍然是开源的，并且仍然远未达到专有替代品所发生的那些糟糕情况，但一些选择性功能已慢慢被引入到内核和 systemd 中。
+然而，随着越来越多的公司希望控制 Linux 作为操作系统的发展方向，GNU/Linux 世界的情况开始发生变化。由于 GNU/Linux 作为操作系统的结构和组织，它不幸受到这些影响，虽然它仍然是开源的，并且仍然远未达到专有替代品所发生的那些糟糕情况，但一些可选择性的功能已慢慢被引入到内核和 systemd 中。
 
 你仍然可以选择退出这些功能并选择其他方式，但作为一个开源爱好者和支持者，以及一个关心隐私的个人，也许更好的方法是将系统迁移到一个你不必担心“骚扰软件”的地方。
 
@@ -108,11 +108,11 @@ Linux 发行版是由不同团体编写的工具的集合，往往具有冲突�
 
 我并不反对 systemd 的“init”部分，但 systemd 不再只是一个 init 系统，其主要问题在于其持续的发展是受到公司的财务利益而不是开源社区的利益驱动的。因此，我认为将 systemd 引入主要的 Linux 发行版，比如 Debian GNU/Linux 和 Arch Linux，是一个巨大的错误。他们已经严重依赖于 systemd 和 Red Hat。
 
-这只是纯粹的猜测，但我必须承认我怀疑 systemd 是引入 Linux 操作系统安全漏洞的平台。这些漏洞当然看起来像是正常的“程序错误”，然而其中一些漏洞与 [OpenSSL Heartbleed 漏洞](https://en.wikipedia.org/wiki/Heartbleed)非常相似。在开源社区中，这是一个众所周知的策略，即利用“程序错误”来创建[后门和其他东西](https://www.youtube.com/watch?v=fwcl17Q0bpk)。systemd 有一系列长期存在且公开的漏洞（截至撰写本文有 1400 多个未解决的漏洞），自 2015 年以来仍未修复，然而 systemd 开发人员继续在其中添加越来越多的混乱！
+这只是纯粹的猜测，但我必须承认我怀疑 systemd 是引入 Linux 操作系统安全漏洞的平台。这些漏洞当然看起来像是正常的“程序错误”，然而其中一些漏洞与 [OpenSSL Heartbleed 漏洞](https://en.wikipedia.org/wiki/Heartbleed)非常相似。在开源社区中，这是一个众所周知的策略，即利用“程序错误”来创建[后门和其他东西](https://www.youtube.com/watch?v=fwcl17Q0bpk)。systemd 有一系列长期存在且公开的漏洞（截至撰写本文有 1400 多个未解决的漏洞），自 2015 年以来仍未修复，然而 systemd 开发人员将继续在其中添加越来越多的混乱！
 
 另一个对 Linux 世界产生巨大影响的公司是谷歌。谷歌开发了基于 Linux 内核的 Android 和 Chrome OS 两个操作系统。Chrome OS 是从 Chromium OS 衍生出来的，其主要用户界面是谷歌的 Chrome 网络浏览器。
 
-Chrome OS 被视为与微软竞争对手，既直接竞争微软的 Windows 操作系统，又间接竞争其文字处理和电子表格应用程序，后者通过 Chrome OS 对云计算的依赖来实现。而这就是 Chrome OS 的一个核心问题，它在很大程度上依赖于谷歌的云基础设施。
+Chrome OS 被视为微软的竞争对手，既直接竞争微软的 Windows 操作系统，又间接竞争其文字处理和电子表格应用程序，后者通过 Chrome OS 对云计算的依赖来实现。而这就是 Chrome OS 的一个核心问题，它在很大程度上依赖于谷歌的云基础设施。
 
 谷歌已成为[最具争议的公司](https://en.wikipedia.org/wiki/Google#Criticism_and_controversy)之一。谷歌本质上是一家广告公司，并因其操纵搜索结果和极端的用户跟踪能力而闻名，主要归因于网站开发人员添加 Google Analytics 等工具。
 
@@ -190,7 +190,7 @@ harryruhr 在我的文章[《为什么你应该将所有东西从 Linux 迁移�
 
 >是的，的确如此。但是现在 BSD 亦如此。单单三个“传统”的 BSD——FreeBSD、NetBSD 和 OpenBSD——在技术和目标上就有很大的差异。然后还有“新”的 BSD 分支，比如 Dragonfly、MidnightBSD、HardenedBSD 等等。在 Distrowatch.com 列出了 18 个不同的 BSD“发行版”。作者如此高度赞扬的 ZFS 文件系统只在 FreeBSD 及其近亲中可用，并且是基于“ZFS on Linux”。它在 NetBSD 和 OpenBSD 上不可用。
 
-这是完全不正确的。FreeBSD 是最早将 ZFS 从 Sun Microsystems 移植过来的独立操作系统之一。ZFS on Linux 出现得要晚得多，然后演变成了 OpenZFS，后来成为所有[自由和开放源代码社区](https://en.wikipedia.org/wiki/Free_and_open-source_software)的 ZFS 贡献者之间的重要合作项目。来自 Linux、FreeBSD、NetBSD、Illumos 等地的开发者现在都在为这个项目做出贡献。
+这是完全错误的。FreeBSD 是最早将 ZFS 从 Sun Microsystems 移植过来的独立操作系统之一。ZFS on Linux 出现得要晚得多，然后演变成了 OpenZFS，后来成为所有[自由和开放源代码社区](https://en.wikipedia.org/wiki/Free_and_open-source_software)的 ZFS 贡献者之间的重要合作项目。来自 Linux、FreeBSD、NetBSD、Illumos 等地的开发者现在都在为这个项目做出贡献。
 
 Linux 之所以分裂，是因为内核、GNU 工具、库和所有其他组件都是完全独立的项目。事实上，这些项目互相之间几乎没有任何关联，但同时，你不能没有以某种形式将这些不同的项目组合在一起，这就是不同的 Linux 发行版所做的事情。
 
@@ -278,8 +278,8 @@ harryruhr 接着写道：
 
 对于特定应用程序或硬件，Microsoft Windows 10 可能是唯一可用的操作系统，但这并不意味着你应该因为技术原因而妥协，忽视这个可怕的操作系统带来的重大隐私问题。事情总是有“过多的垃圾”。
 
-由于最近 Linux 内核强制采用[数字版权管理（DRM）](https://patchwork.kernel.org/patch/10084131/)，以及 Linus Torvalds 对现实的几次脱节表态，以及他对 Linux 世界中许多重要问题的完全漠视，显然他并不关心公司如何影响开发，Linux 内核的未来在隐私和安全方面并不看好。
+由于最近 Linux 内核强制采用[数字版权管理（DRM）](https://patchwork.kernel.org/patch/10084131/)，以及 Linus Torvalds 对现实的几次脱节的表态，以及他对 Linux 世界中许多重要问题的完全漠视，显然他并不关心公司如何影响开发，Linux 内核的未来在隐私和安全方面并不看好。
 
 除非你想在每次发布新的 Linux 内核时都需要自行修补问题，否则你需要一个可行的替代方案。这个替代方案应该由开发内核的人明确了解项目的发展路径，这个路径不应该影响隐私、安全或其他任何重要问题。
 
-当然，任何项目中总会有分歧，但 FreeBSD 开发者之间的分歧与以利润为驱动的公司试图在各种程度上“劫持”GNU/Linux 是不同的。
+当然，任何项目中总会有分歧，但 FreeBSD 开发者之间的分歧与以利润为驱动的公司试图在各种程度上被“劫持”GNU/Linux 是不同的。
