@@ -1,6 +1,6 @@
 # 为什么你应该将所有东西从 Linux 迁移到 BSD
 
-- 原地址：<https://unixsheikh.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html>
+- 原地址：<https://unixsheikh.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html> 和 <https://unixsheikh.com/articles/why-you-should-migrate-everything-from-linux-to-bsd-part-2.html>。
 - 译者：ykla & ChatGPT
 - 最后更新时间：2021-02-17
   
@@ -179,3 +179,109 @@ Microsoft Windows 在桌面上的成功并不是因为人们认为 Windows 是�
 我仍然喜欢 GNU/Linux，但我不想担心 systemd 中可能存在的可能破坏隐私的垃圾，或者 Lennart Poettering 接下来会想出什么恶心的东西，我也不想担心内核中加入的所有膨胀软件，比如内核[强制适应 DRM](https://patchwork.kernel.org/patch/10084131/)。我一般不想担心下一个问题是什么。一切都应该是理智的选择和默认决策！不是选择退出（opt-out）！
 
 你可以在我的文章[《FreeBSD 是一个了不起的操作系统》](https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html)https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html中了解有关 FreeBSD 的内容，以及在我的文章[《OpenBSD 很棒》](https://unixsheikh.com/articles/openbsd-is-fantastic.html)https://unixsheikh.com/articles/openbsd-is-fantastic.html中了解有关 OpenBSD 的内容。
+
+---
+
+harryruhr在我的文章《为什么你应该将所有东西从Linux迁移到BSD》上发表了一篇回应，题为《你应该从Linux迁移到BSD吗？这取决于……》。在这个回应中，harryruhr提出了几个论点，我感觉有必要对其进行回应。
+
+关于分裂问题
+
+在我提到“Linux存在分裂”这一观点后，harryruhr写道：
+
+是的，的确如此。但是现在BSD也是如此。单单三个“传统”的BSD - FreeBSD、NetBSD和OpenBSD - 在技术和目标上就有很大的差异。然后还有“新”的BSD分支，比如Dragonfly、MidnightBSD、HardenedBSD等等。Distrowatch.com列出了18个不同的BSD“发行版”。作者如此高度赞扬的ZFS文件系统只在FreeBSD及其近亲中可用，并且是基于“ZFS on Linux”。它在NetBSD和OpenBSD上不可用。
+
+这是完全不正确的。FreeBSD是最早将ZFS从Sun Microsystems移植过来的独立操作系统之一。ZFS on Linux出现得要晚得多，然后演变成了OpenZFS，后来成为所有自由和开放源代码社区的ZFS贡献者之间的重要合作项目。来自Linux、FreeBSD、NetBSD、Illumos等地的开发者现在都在为这个项目做出贡献。
+
+Linux之所以分裂，是因为内核、GNU工具、库和所有其他组件都是完全独立的项目。事实上，这些项目互相之间几乎没有任何关联，但同时，你不能没有以某种形式将这些不同的项目组合在一起，这就是不同Linux发行版所做的事情。
+
+GNU项目甚至自1990年以来一直在开发他们自己的内核GNU Hurd，最初计划作为Unix内核的替代品。由于Hurd内核尚未完成，Linux内核只是一个方便的方式来启动工作中的操作系统。
+
+而BSD则完全没有分裂，它们都是独立的完整操作系统和独立项目，都有自己的内核、基本工具等等。它们是拥有不同目标的独立项目。它们共享BSD内核的家族树，并且偶尔共享代码，但除此之外它们是相互独立的。如果FreeBSD或NetBSD被取消，OpenBSD并不会受到最少的影响，反之亦然。
+
+对于Dragonfly BSD，情况也是一样的。Matthew Dillon在1994年至2003年间是FreeBSD开发者，在2003年，由于他认为FreeBSD中采用的线程和对称多处理技术将导致性能不佳和维护问题，他与其他FreeBSD开发者意见不一，于是他创建了DragonflyBSD。但是DragonflyBSD现在也是完全独立的操作系统和项目。
+
+所有这些不同的BSD项目仍然都是完整且独立的操作系统。它们不是由来自不同项目的独立部分组合而成的。
+
+至于MidnightBSD、HardenedBSD和其他类似的项目，它们也与分裂无关。这些项目大多数都是基于FreeBSD的，它们采用FreeBSD并设置不同的应用程序，或者对内核进行补丁等。它们与分裂毫无关联。
+
+如果BSD项目像GNU/Linux一样分裂，那么BSD内核应该由一个独立的项目开发，基本工具应该由另一个独立的项目开发，直到你将所有这些独立而分裂的部分“粘合在一起”，什么都不会起作用。
+
+这就是GNU/Linux操作系统与BSD操作系统之间的分裂性质的区别。
+
+关于“被劫持”问题
+
+关于我的观点“Linux被劫持”，harryruhr写道：
+
+作者说大型“有争议”的公司正在影响Linux的发展。这可能是真的，但在FreeBSD中情况是否真的更好呢？
+
+FreeBSD社区在每一个可能的机会都自豪地宣称Netflix正在使用FreeBSD来传送他们的内容。而且Netflix是FreeBSD内核最大的商业贡献者之一。然而，目前在FreeBSD桌面上本地观看Netflix内容仍然不可能。如果这一点，以及他们传播DRM内容，不能使Netflix成为最有争议的公司之一，我不知道什么是“有争议”。此外，当然还有数十个基于FreeBSD的商业和专有产品，这些产品否定了用户享受自由软件的好处。
+
+正确的是，Netflix是FreeBSD最大的商业贡献者之一，但这与Linux世界中的“劫持”无关。Netflix将他们在FreeBSD上的所有改进都贡献回项目。他们所做的所有性能优化都已贡献给FreeBSD。这对FreeBSD非常有益。
+
+但Netflix绝不会试图影响FreeBSD项目或者试图“劫持”FreeBSD。他们也没有开始制作新的初始化系统，然后后来揭示这实际上并不是一个初始化系统，而是一个“永远未完成、永远不完整，但跟踪技术进展”的东西，不断壮大。
+
+Hacker News上的一位名为drewg123的Netflix员工提供了以下相关信息：
+
+在Netflix，我们的大型工作组中至少有7位FreeBSD提交者，以及一位核心团队成员（我肯定忘记了一些人，对此我感到抱歉！）。我们雇用了许多其他的提交者和核心团队成员（根据具体合同）。
+
+与Yahoo不同，我们要对Netflix的业务目标负责，这些目标包括提高我们的流媒体客户体验质量，同时保持或降低内容传送的成本。经常情况下，这些目标与FreeBSD的目标高度契合，我们做出了大量贡献（如异步sendfile、kTLS、未映射的mbufs、时代稳定、NUMA工作、RACK TCP、BBR TCP、TCP pacing等等，我可能忘记了很多其他的贡献）。
+
+关于Netflix提供的服务以及只能在其专有应用程序中播放的所谓DRM内容，以及其他基于FreeBSD的专有项目，这对FreeBSD没有影响，也与“劫持”毫无关系。这些项目都不会影响FreeBSD。
+
+因此，是的，FreeBSD的情况要好得多。
+
+关于“理智人”在哪里的问题
+
+对于我提到“BSD是理智人的所在地”这一观点，harryruhr写道：
+
+作者说：“BSD项目维护整个操作系统，不仅仅是内核。”这是正确的，BSD确实不仅仅是内核，还包括用户空间程序。但是BSD操作系统中包含多少“用户空间”完全取决于BSD开发者。通常只有一些最基本的工具。其他工具必须通过端口和软件包进行安装，这与在Linux发行版中使用软件包没有什么不同。例如，FreeBSD的基本系统中甚至没有Xorg，你必须使用“pkg install xorg”从软件包安装它。很少有情况是将集成系统的一部分从基本系统中移除，并转变为软件包。
+
+我觉得这种说法有点误导。
+
+你不能将FreeBSD中必须从第三方项目安装Xorg（因为它不存在于基本系统中）与GNU/Linux操作系统的分裂性实际情况进行比较。这两者完全没有关系。
+
+我的文章是关于GNU/Linux操作系统与不同BSD操作系统之间的分裂性质进行对比，而不是关于基本安装中包含多少第三方应用程序。
+
+接着harryruhr说：
+
+最“完整”的系统确实是OpenBSD，它不仅带有X（Xenocara），还有自己的MTA（OpenSMTPd）和Web服务器（OpenBSD httpd），这使得OpenBSD的基本系统成为基本任务的服务器的良好选择。当然，除了xterm、xcalc和3个窗口管理器（twm、fvwm和cwm）外，几乎没有其他“图形”程序包含在内。如果你想要一个Web浏览器或者像样的邮件程序，你必须从软件包安装。
+
+OpenBSD中的X、OpenSMTPd、httpd和其他应用程序与操作系统本身无关。无论你选择将这些应用程序放入基本系统中还是留在外部，都不会影响OpenBSD仍然是一个完整的操作系统，即使没有这些部分。
+
+这些部分不会使OpenBSD比FreeBSD更“多”地成为一个操作系统。这些部分只是使OpenBSD的基本安装中包含了更多的应用程序。
+
+OpenBSD项目决定将更多的应用程序集成到基本系统中，因为OpenBSD非常重视安全。开发者希望将这些应用程序与基本系统集成在一起，以控制这些部分的开发和工作方式。因此，这些应用程序已成为OpenBSD项目的一个整合部分。
+
+FreeBSD或NetBSD也可以在基本系统中提供大量的应用程序，但
+
+对于这些项目来说这样做没有意义。
+
+事实是这些应用程序并不影响操作系统的完整性。另一方面，如果你没有内核，或者你没有“用户空间”工具，你什么都没有。这就是GNU/Linux的现实。
+
+最后，我想指出，我提到GNU/Linux操作系统的分裂状况，是为了指出这种分裂是我们面临问题的主要原因之一。这些分裂项目经常有冲突的利益，这才是问题的核心，而不是哪个操作系统在基本安装中有最多的工具。
+
+关于许可证问题
+
+harryruhr接着写道：
+
+关于“BSD或GPL”的讨论就像许可证本身一样古老。对于两者，都有支持和反对的好理由。就个人而言，只要是自由软件，我并不在乎。关于GPL导致的软件由利润主导而不是同情心的论点并不真的令人信服。
+
+我认为，任何真正关心“自由软件”，即人们可以自由分发和修改的开源软件的人，都应该更深入地考虑这个问题。我们有超过三十年的经验，显示出许多以利润为驱动的公司在依赖一款无法控制的软件时会变得多么具有操纵性。
+
+使用BSD许可证，公司无需使用策略或操纵手段来影响应用程序的开发，它可以直接使用该应用程序并随心所欲地操作。
+
+关于迁移问题
+
+最后，harryruhr针对选择BSD而非Linux的原因，写下了以下内容：
+
+但除了使用免费软件的原因外，这些理由应该只是技术上的。那些过时的论点，比如“BSD是完整的系统，Linux只是内核”或者“Linux是被利润驱动，BSD是被同情心驱动”，并不真的适用（再也不适用）。
+
+通常情况下，我完全同意唯一选择特定操作系统的理由应该是技术上的原因。然而，这种情况不再适用，而我提出的论点也不是过时的，相反地是事实。
+
+对于特定应用程序或硬件，Microsoft Windows 10可能是唯一可用的操作系统，但这并不意味着你应该因为技术原因而妥协，忽视这个可怕的操作系统带来的重大隐私问题。事情总是有“过多的垃圾”。
+
+由于最近Linux内核强制采用数字版权管理（DRM），以及Linus Torvalds对现实的几次脱节表态，以及他对Linux世界中许多重要问题的完全漠视，显然他并不关心公司如何影响开发，Linux内核的未来在隐私和安全方面并不看好。
+
+除非你想在每次发布新的Linux内核时都需要自行修补问题，否则你需要一个可行的替代方案。这个替代方案应该由开发内核的人明确了解项目的发展路径，这个路径不应该影响隐私、安全或其他任何重要问题。
+
+当然，任何项目中总会有分歧，但FreeBSD开发者之间的分歧与以利润为驱动的公司试图在各种程度上“劫持”GNU/Linux是不同的。
