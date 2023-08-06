@@ -20,5 +20,5 @@
 * [为什么你应该将所有东西从 Linux 迁移到 BSD](Why%20you%20should%20migrate%20everything%20from%20Linux%20to%20BSD.md)
 * [GPL 之殇](The%20problems%20with%20the%20GPL.md)
 * [选择 FreeBSD 而非 GNU/Linux 的技术性原因](Technical%20reasons%20to%20choose%20FreeBSD%20over%20GNU.md)
-* [选择 OpenBSD 和 FreeBSD 之间的区别](Choosing%20between%20OpenBSD%20and%20FreeBSD.md)
+* [在 OpenBSD 和 FreeBSD 之间选择的区别](Choosing%20between%20OpenBSD%20and%20FreeBSD.md)
 * [FreeBSD 是一个令人惊叹的操作系统](FreeBSD%20is%20an%20amazing%20operating%20system.md)
