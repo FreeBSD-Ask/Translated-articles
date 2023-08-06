@@ -17,3 +17,4 @@
 * [OpenBSD 太棒了](OpenBSD%20is%20fantastic.md)
 * [systemd 背后的真正动机](The%20real%20motivation%20behind%20systemd.md)
 * [systemd 在任何地方都不安全](systemd%20isn't%20safe%20to%20run%20anywhere.md)
+* [为什么你应该将所有东西从 Linux 迁移到 BSD？](Why%20you%20should%20migrate%20everything%20from%20Linux%20to%20BSD.md)
