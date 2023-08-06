@@ -1,4 +1,4 @@
-# 选择 OpenBSD 和 FreeBSD 之间的区别
+# 在 OpenBSD 和 FreeBSD 之间选择的区别
 
 - 原地址：<https://unixsheikh.com/articles/choosing-between-openbsd-and-freebsd.html>
 - 译者：ykla & ChatGPT
