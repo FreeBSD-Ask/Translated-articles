@@ -129,11 +129,11 @@ FreeBSD 的 [Ports](https://www.freebsd.org/cgi/man.cgi?query=ports) 是一项�
 
 虽然 FreeBSD 也有像 Debian Linux 或 Arch Linux 一样的二进制包，由 [pkg](https://www.freebsd.org/cgi/man.cgi?query=pkg) 包管理器处理，但 FreeBSD 还可以从源代码编译软件，使用用户特定的编译时间配置。Arch Linux [Build System](https://wiki.archlinux.org/title/Arch_Build_System) 实际上受到 FreeBSD ports 系统的很大启发。但是，使用 FreeBSD ports 系统，你可以在 make 期间选择最相关的编译时间选项，而在 Arch Linux 上必须手动编辑和更改包维护者的 [PKGBUILD](https://wiki.archlinux.org/title/PKGBUILD) 脚本（基本上，你应该接受默认设置）。
 
-FreeBSD ports 集合使用 Makefile 自动化编译、安装和卸载软件的过程，通过 make 命令。组成端口的文件包含所有必要的信息，可自动下载、提取、打补丁、配置、编译和安装应用程序，并且在在期望的应用程序端口目录中发出 make install 或 make install clean 等开始命令后，几乎不需要任何（如果有的话）用户干预。如果该端口对其他应用程序或库有依赖关系，则会自动预先安装这些依赖关系。
+FreeBSD ports 集合使用 Makefile 自动化编译、安装和卸载软件的过程，通过 make 命令。组成 Port 的文件包含所有必要的信息，可自动下载、提取、打补丁、配置、编译和安装应用程序，并且在在期望的应用程序 Port 目录中发出 make install 或 make install clean 等开始命令后，几乎不需要任何（如果有的话）用户干预。如果该 Port 对其他应用程序或库有依赖关系，则会自动预先安装这些依赖关系。
 
-大多数端口都配置有一组默认选项，这些选项被认为对大多数用户来说是合适的。然而，这是关于端口系统的一大优点，这些配置选项可以在安装前使用 make config 命令进行更改。该命令会打开一个基于文本的界面，允许用户选择所需的选项。
+大多数 Port 都配置有一组默认选项，这些选项被认为对大多数用户来说是合适的。然而，这是关于 Ports 系统的一大优点，这些配置选项可以在安装前使用 make config 命令进行更改。该命令会打开一个基于文本的界面，允许用户选择所需的选项。
 
-在撰写本文时，集合中有 30,000 多个端口可用。
+在撰写本文时，集合中有 30,000 多个 Port 可用。
 
 滚动发布二进制包
 
@@ -141,7 +141,7 @@ FreeBSD ports 集合使用 Makefile 自动化编译、安装和卸载软件的�
 
 “quarterly”是指从每年 1 月、4 月、7 月和 10 月开始，从 HEAD 分支中切出的 Ports 分支，并且是从这些分支产生的二进制包集。
 
-“quarterly”分支为用户提供了更可预测和稳定的端口和包的安装和升级体验。这主要通过仅允许来自上游的非功能更新来实现。“quarterly”分支旨在接收安全修复，但也可能会有版本更新、提交的回退、错误修复和端口的兼容性或框架更改，这取决于上游的情况。
+“quarterly”分支为用户提供了更可预测和稳定的 Port 和包的安装和升级体验。这主要通过仅允许来自上游的非功能更新来实现。“quarterly”分支旨在接收安全修复，但也可能会有版本更新、提交的回退、错误修复和 Port 的兼容性或框架更改，这取决于上游的情况。
 
 然而，如果你选择“latest”分支，FreeBSD 将成为滚动发布的操作系统，就像 Arch Linux 一样，它将得到最新的第三方软件。
 
@@ -151,7 +151,7 @@ Poudriere 是一个用于创建和测试 FreeBSD 软件包的实用程序。它�
 
 通过 Poudriere，你可以轻松构建和设置自己的二进制软件包存储库，其中软件包完全按照你的规格和需求构建。
 
-Poudriere 可以处理整个 ports 树的批量构建，特定子集的 ports 树，或者单个端口及其依赖项。它自动构建软件包，生成构建日志文件，提供签名 pkg 存储库，使得在将补丁提交给 FreeBSD bug 跟踪器之前可以测试端口构建，使得可以使用不同选项测试不同的构建。Poudriere 在一个干净的 jail 环境中进行构建，能够使用 zfs 特定功能。这意味着没有污染主机环境，没有残留文件，没有意外删除，没有更改现有配置文件。
+Poudriere 可以处理整个 ports 树的批量构建，特定子集的 ports 树，或者单个 Port 及其依赖项。它自动构建软件包，生成构建日志文件，提供签名 pkg 存储库，使得在将补丁提交给 FreeBSD bug 跟踪器之前可以测试 Port 构建，使得可以使用不同选项测试不同的构建。Poudriere 在一个干净的 jail 环境中进行构建，能够使用 zfs 特定功能。这意味着没有污染主机环境，没有残留文件，没有意外删除，没有更改现有配置文件。
 
 Poudriere 的设置和使用非常简单，因为它没有依赖项，并且可以在任何支持的 FreeBSD 版本上运行。
 
@@ -270,7 +270,7 @@ Capsicum 是在[剑桥大学计算机实验室](https://www.cl.cam.ac.uk/)开发
 - libuserangel-允许沙箱应用程序或组件与用户 angel（如 Power Boxes）交互的库
 - chromium-capsicum-谷歌的 Chromium Web 浏览器的版本，使用能力模式和能力，以提供高风险网页呈现的有效沙箱保护
 
-FreeBSD 对 Capsicum 的实现由 Robert Watson 和 Jonathan Anderson 开发，并自 FreeBSD 10.0-RELEASE 起默认支持。FreeBSD 的 Capsicum 是参考实现，不仅作为 Capsicum API 和语义的参考，还为其他平台（例如，Linux 上的 Capsicum 和 DragonFlyBSD 上的 Capsicum）的端口提供了起点源代码。
+FreeBSD 对 Capsicum 的实现由 Robert Watson 和 Jonathan Anderson 开发，并自 FreeBSD 10.0-RELEASE 起默认支持。FreeBSD 的 Capsicum 是参考实现，不仅作为 Capsicum API 和语义的参考，还为其他平台（例如，Linux 上的 Capsicum 和 DragonFlyBSD 上的 Capsicum）的 Port 提供了起点源代码。
 
 有关 FreeBSD 上的 Capsicum 的更多信息，请参见：
 
