@@ -18,7 +18,7 @@
 
 >一个包含 69 个单独二进制文件的软件包很难称为单块式。然而，与以前的解决方案不同的是，我们将更多组件捆绑在一个单一的压缩包中，并在单个存储库中维护它们，具有统一的发布周期。
 
-然而，问题是，许多这些所谓的单独二进制文件在没有其他 systemd 组件的情况下将无法工作。只需举一个例子，如果查看 {systemd-networkd](https://www.freedesktop.org/software/systemd/man/systemd.network.html) 的 man 页面，明确说明如果将 UseDNS 选项定义为 `true`，*则将使用从 DHCP 服务器接收到的 DNS 服务器，并优先于任何静态配置的 DNS 服务器。这对应于 `resolv.conf` 中的 `nameserver` 选项。* 但它忽略了这个设置（和多个其他设置）在没有 systemd-resolved 的情况下是无效的。systemd 的其他组件也同样紧密集成。
+然而，问题是，许多这些所谓的单独二进制文件在没有其他 systemd 组件的情况下将无法工作。只需举一个例子，如果查看 [systemd-networkd](https://www.freedesktop.org/software/systemd/man/systemd.network.html) 的 man 页面，明确说明如果将 UseDNS 选项定义为 `true`，*则将使用从 DHCP 服务器接收到的 DNS 服务器，并优先于任何静态配置的 DNS 服务器。这对应于 `resolv.conf` 中的 `nameserver` 选项。* 但它忽略了这个设置（和多个其他设置）在没有 systemd-resolved 的情况下是无效的。systemd 的其他组件也同样紧密集成。
 
 某些类型的应用程序非常难以按照 Unix 哲学设计和构建，例如现代网络浏览器、电子游戏等，但 systemd 并不属于这类应用程序。它在许多方面违反了 Unix 哲学，以至于很难跟上，这不是因为开发者需要这样做，而是因为他们想这样做，他们根本不在乎。虽然他们可以不在乎，并继续将更多功能添加到 systemd 中，但是现在一些大型 GNU/Linux 发行版是时候开始认真关注了。
 
