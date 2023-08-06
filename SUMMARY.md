@@ -14,3 +14,4 @@
 * [采访 FreeBSD 基金会执行董事 Deb Goodkin](Interview%20with%20Deb%20Goodkin%2C%20Executive%20Director%20of%20the%20FreeBSD%20Foundation.md)
 * [我们使用开源的 FreeBSD 作为企业操作系统的 5 个原因](5%20Reasons%20We%20Use%20Open%20Source%20FreeBSD%20as%20Our%20Enterprise%20OS.md)
 * [关于 BSD 与 Linux 的典型讨论](The%20typical%20discussions%20about%20BSD%20vs%20Linux.md)
+* [openBSD 太棒了](OpenBSD%20is%20fantastic.md)
