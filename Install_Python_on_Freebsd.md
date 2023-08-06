@@ -15,7 +15,7 @@ sudo -H pip3.8 install pipenv
 ```
 【`-H` 参数将环境变数中的 HOME（家目录）指定为要变更身份的使用者家目录，在上述中即 `/root`。】
 
-## 最后一个配置步骤是在 FreeBSD 上设置 UTF-8 。如果您还没有这样做，请查看下面链接的 FreeBSD Workshop 简介中的说明
+## 最后一个配置步骤是在 FreeBSD 上设置 UTF-8 。如果你还没有这样做，请查看下面链接的 FreeBSD Workshop 简介中的说明
 
 [FreeBSD 简介](https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Intro_to_FreeBSD_Workshop.md#iocage)
 
