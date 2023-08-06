@@ -1,4 +1,4 @@
-# OpenBSD 太棒了
+# systemd 背后的真正动机
 
 - 原地址：<https://unixsheikh.com/articles/the-real-motivation-behind-systemd.html>
 - 译者：ykla & ChatGPT
