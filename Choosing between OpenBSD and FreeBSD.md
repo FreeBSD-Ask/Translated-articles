@@ -29,5 +29,5 @@
 
 最终，这两个系统都可以解决许多相同的问题，但它们解决问题的方式不同，最好的方法是在相同的环境中尝试它们两个，以确定哪个更适合你的需求和个人偏好。
 
-在我之前的文章中，我分享了一些我认为这两个操作系统都很棒的原因。[OpenBSD 是非常出色的](https://unixsheikh.com/articles/openbsd-is-fantastic.html)https://unixsheikh.com/articles/openbsd-is-fantastic.html，而 [FreeBSD 也是一个令人惊叹的操作系统](https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html)https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html。
+在我之前的文章中，我分享了一些我认为这两个操作系统都很棒的原因。[OpenBSD 是非常出色的](https://unixsheikh.com/articles/openbsd-is-fantastic.html)，而 [FreeBSD 也是一个令人惊叹的操作系统](https://unixsheikh.com/articles/freebsd-is-an-amazing-operating-system.html)。
 
