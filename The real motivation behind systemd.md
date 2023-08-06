@@ -57,16 +57,18 @@ Mentor Automotive 在 [2015 年的一个活动上发布了他们的幻灯片](ht
 
 ## 事实 3：不，这不是谣言，systemd 确实是一个巨大的单体
 
-在他的博客文章《最大的谣言》中，Lennart Poettering 在 2013 年 1 月反驳称 systemd 是一个“单体”，这是许多人认为的。Lennart 说：
+在他的博客文章《The Biggest Myths》（最大的谣言）中，Lennart Poettering 在 2013 年 1 月反驳称 systemd 是一个“单体”，这是许多人认为的。Lennart 说：
 
->一个涉及 69 个单独二进制文件的软件包很难被称为单体。然而，与之前的解决方案不同的是，我们将更多的组件打包在一个单一的 tarball 中，并在一个统一的存储库中维护它们，有一个统一的发布周期。
+>一个涉及 69 个单独二进制文件的软件包很难被称为单体。然而，与之前的解决方案不同的是，我们将更多的组件打包在一个单一的压缩包中，并在一个统一的存储库中维护它们，有一个统一的发布周期。
 
-然而，事实是，许多这些所谓的单独二进制文件的功能在没有其他 systemd 组件的情况下根本无法工作。如果我们查看 systemd-networkd 的 man 页面，它清楚地说明，如果将 UseDNS 选项设置为 true，则将使用从 DHCP 服务器接收到的 DNS 服务器，并优先于任何静态配置的 DNS 服务器。这对应于/etc/resolv.conf 中的 nameserver 选项。但是，man 页面忽略了这个设置（以及多个其他设置）在没有 systemd-resolved 的情况下无法正常工作。systemd 的其他组件更紧密地集成在一起。
+然而，事实是，许多这些所谓的单独二进制文件的功能在没有其他 systemd 组件的情况下根本无法工作。如果我们查看 systemd-networkd 的 man 页面，它清楚地说明，如果将 UseDNS 选项设置为 true，则将使用从 DHCP 服务器接收到的 DNS 服务器，并优先于任何静态配置的 DNS 服务器。这对应于 `/etc/resolv.conf` 中的 `nameserver` 参数。但是，man 页面忽略了这个设置（以及多个其他设置）在没有 systemd-resolved 的情况下无法正常工作。systemd 的其他组件更紧密地集成在一起。
 
 ## 事实 4：隐私问题
-systemd-resolved 在 Cloudflare、Quad9 和 Google 中硬编码了备用 DNS 服务器。即使你关闭了这些选项，一个 bug 可能会导致这些备用服务器仍然被使用（这实际上在某个时候发生过）。
+
+systemd-resolved 在 Cloudflare、Quad9 和 Google 中硬编码了备用 DNS 服务器。即使你关闭了这些选项，一个 Bug 可能会导致这些备用服务器仍然被使用（实际上这在某个时候发生过）。
 
 ## 事实 5：Red Hat 想成为下一个 Microsoft Windows
+
 这是 Red Hat 的另一个主要动机，这在 Lennart Poetterings 在 [FUDCON + GNOME.Asia Beijing 2014](http://0pointer.de/public/gnomeasia2014.pdf) 中的幻灯片中有所体现。转到第 15 页，然后缓慢滚动到第 19 页。最终你会看到项目目标：
 
 - 将 Linux 从一堆代码转变为具有竞争力的通用操作系统。
@@ -88,14 +90,14 @@ systemd-resolved 在 Cloudflare、Quad9 和 Google 中硬编码了备用 DNS 服
 
 ## 事实 6：Red Hat 需要其他主要 Linux 发行版合作
 
-如果 Red Hat 想在开发“互联网的下一代操作系统”的长期计划中取得成功，他们知道他们需要以某种方式影响其他主要 Linux 发行版。这是因为如果像 Debian 这样的主要 Linux 发行版拒绝 systemd，Red Hat 将无法按照他们的计划继续进行，因为太多的第三方项目根本不关心 Red Hat 希望如何工作。这一点非常重要，因为许多开源项目用于开发具有 [POSIX](https://en.wikipedia.org/wiki/POSIX) 兼容性的软件。因此，他们努力确保他们的项目在多个类 Unix 操作系统上编译和工作。这对 Red Hat 来说并不符合利益。只要你还考虑其他操作系统，如 Solaris、FreeBSD、OpenBSD 等，与 Microsoft Windows 中的功能相比，Linux 就会被“拖后腿”。诸如简单的挂载和卸载、简单的特权升级等功能。
+如果 Red Hat 想在开发“互联网的下一代操作系统”的长期计划中取得成功，他们知道他们需要以某种方式影响其他主要 Linux 发行版。这是因为如果像 Debian 这样的主要的 Linux 发行版拒绝 systemd，Red Hat 将无法按照他们的计划继续进行，因为太多的第三方项目根本不关心 Red Hat 希望如何工作。这一点非常重要，因为许多开源项目用于开发具有 [POSIX](https://en.wikipedia.org/wiki/POSIX) 兼容性的软件。因此，他们努力确保他们的项目在多个类 Unix 操作系统上编译和工作。这对 Red Hat 来说并不符合利益。只要你还考虑其他操作系统，如 Solaris、FreeBSD、OpenBSD 等，与 Microsoft Windows 中的功能相比，Linux 就会被“拖后腿”。诸如简单的挂载和卸载、简单的特权升级等功能。
 
 Red Hat 的另一个问题是，如果其他主要 GNU/Linux 发行版拒绝了 systemd，他们将很难将与 systemd 相关的更改和代码推入内核。但当其他主要发行版也采用了 systemd 时，这变得容易得多。
 
 ## 结论
 systemd 的主要问题在于其持续的发展是出于一家公司的经济利益，而不是 Linux 开源社区的利益。
 
-从安全的角度来看，不能信任 Red Hat，如果美国军方或其他某个三字缩写组织希望 Red Hat 在 systemd 中加入后门，那么这可能在很多年内都不会被察觉，就像 [Heartbleed Bug](https://en.wikipedia.org/wiki/Heartbleed) 一样。
+从安全的角度来看，也不能信任 Red Hat，如果美国军方或其他某个三字缩写组织（如 FBI）希望 Red Hat 在 systemd 中加入后门，那么这可能在很多年内都不会被察觉，就像 [Heartbleed Bug](https://en.wikipedia.org/wiki/Heartbleed) 一样。
 
 我们已经看到了几个这类可利用漏洞的例子：
 
@@ -103,18 +105,19 @@ systemd 的主要问题在于其持续的发展是出于一家公司的经济利
 - [存在两年的远程代码执行](https://it.slashdot.org/story/17/07/03/0343258/severe-systemd-bug-allowed-remote-code-execution-for-two-years)
 - [Systemd 漏洞允许攻击者通过恶意 DNS 数据包入侵 Linux 盒子](https://www.bleepingcomputer.com/news/security/systemd-bug-lets-attackers-hack-linux-boxes-via-malicious-dns-packets/%3CPaste%3E)
 
-这样的漏洞是故意引入代码中的，伪装成虚假的错误，还是真正的错误，是不可能说清楚的。但有一点非常清楚，Red Hat 对 Linux 社区的最大利益并不关心，他们只关心自己的经济利益。
+这样的漏洞是故意引入代码伪装成虚假的错误，还是真正的错误，是不可能说清楚的。但有一点非常清楚，Red Hat 对 Linux 社区的最大利益并不关心，他们只关心自己的经济利益。
 
 另一个主要问题是前面提到的 systemd-resolved 中的硬编码 DNS 服务器。
 
-Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494)说，硬编码的值应该在配置文件发生灾难性故障且网络上没有 DHCP 时存在（DNS 回退是可以更改的，但需要重新编译）。然而，这是“嵌入式开发人员”在说话。如果在应用程序中发现了使这些 DNS 服务器运行的 Bug，尽管你已经将它们禁用，或者发现了[竞争问题的 Bug](https://github.com/systemd/systemd/issues/4175)，你可能面临着严重的隐私问题。此外，将 Cloudflare、Quad9 和 Google DNS 服务器硬编码到 systemd 代码中的问题是非常严重的，因为这些公司不仅因侵犯人们的隐私而闻名，而且 NSA（美国国家安全局）以前曾渗透过 Google 的数据中心，这是 [Snowden 文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html)披露的内容。这样的设置不应该是默认选择，而应该是选择加入，并且绝对不应该是默认选项。
+Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494)说，硬编码的值应该在配置文件发生灾难性故障且网络上没有 DHCP 时存在（DNS 回退是可以更改的，但需要重新编译）。然而，这是“嵌入式开发人员”在说话。如果在应用程序中发现了使这些 DNS 服务器运行的 Bug，尽管你已经将它们禁用，或者发现了[竞争问题的 Bug](https://github.com/systemd/systemd/issues/4175)，你可能面临着严重的隐私问题。此外，将 Cloudflare、Quad9 和 Google DNS 服务器硬编码到 systemd 代码中的问题是非常严重的，因为这些公司不仅因侵犯人们的隐私而闻名，而且 NSA（美国国家安全局）以前曾渗透过 Google 的数据中心，这是 [Snowden 文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html)披露的内容。这样的设置不应该是默认选择，而应该是选择加入，并且绝对不应该是默认配置。
 
 通常处理这些问题的方式，以及 Lennart Poettering 的极度傲慢态度，显示出对用户隐私和开源 Linux 社区利益的完全漠视。
 
 ## 最后的评论
+
 令我惊讶的是，最初在 Debian 邮件列表上的讨论竟然只涉及 SysVinit、Upstart 和 systemd。没有人认真研究 [runit](http://smarden.org/runit/) 或 [s6](https://skarnet.org/software/s6/)。不仅这些系统更符合 Unix 哲学，而且它们也更安全和易于理解。
 
-Casper Ti. Vectors 在 Gentoo 论坛上的帖子“s6/s6-rc vs systemd, or why you probably do not need systemd”也显示出 [s6 是比 systemd 更好](https://forums.gentoo.org/viewtopic-t-1105854.html)，而且在许多方面是更优越的解决方案。
+Casper Ti. Vectors 在 Gentoo 论坛上的帖子“s6/s6-rc vs systemd, or why you probably do not need systemd”也显示出 [s6 比 systemd 更好](https://forums.gentoo.org/viewtopic-t-1105854.html)，而且在许多方面是更优越的解决方案。
 
 许多人错误地认为每个 systemd 组件都是独立的，但事实并非如此。查看代码和文档，看看这些所谓模块之间的[紧密集成](https://www.freedesktop.org/wiki/Software/systemd/InterfacePortabilityAndStabilityChart/)。
 
