@@ -211,24 +211,20 @@ sshd_enable="YES"
 
 你也可以手动启动服务，方法是：
 
-```
+
 
 这将自动编辑 `/etc/rc.conf` 并添加该条目。
 
 你也可以手动启动服务，方法是：
 
 ```
-
 # service sshd start
-
 ```
 
 如果某个服务尚未启用，但你仍然希望启动它，可以使用以下命令在命令行中启动：
 
 ```
-
 # service sshd onestart
-
 ```
 你可以在[维基百科](https://en.wikipedia.org/wiki/Init)上阅读更多关于初始化系统的内容。
 
