@@ -13,7 +13,7 @@
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/8cde3a3d-cf16-450b-8ad2-b5dde29e2e32)
 
-一台带有 FreeBSD 引导界面的计算机成功！我第一次看到运行中的 FreeBSD 安装界面。大多数读者都知道，[BSD 操作系统可以直接追溯到原始的 AT&T UNIX](https://hackaday.com/2019/11/05/will-the-real-unix-please-stand-up/)，而 GNU/Linux 则是一个相当好的 UNIX 复制品，起源于 1990 年代初的 Linus Torvalds，以及 1980 年代开始的 Richard Stallman 的 GNU 项目。这意味着对于 Linux 用户来说，需要适应于不同的术语。
+一台带有 FreeBSD 引导界面的计算机成功！这是我第一次看到运行中的 FreeBSD 安装界面。大多数读者都知道，[BSD 操作系统可以直接追溯到原始的 AT&T UNIX](https://hackaday.com/2019/11/05/will-the-real-unix-please-stand-up/)，而 GNU/Linux 则是一个相当好的 UNIX 复制品，起源于 1990 年代初的 Linus Torvalds，以及 1980 年代开始的 Richard Stallman 的 GNU 项目。这意味着对于 Linux 用户来说，需要适应于不同的术语。
 
 Linux 是一个围绕其内核构建的操作系统，具有不同实现的用户空间组件，而各种 BSD 操作系统则是独立的操作系统。因此，我们谈论 Slackware 和 Debian 等不同的 Linux 发行版，但相比之下，[NetBSD](https://www.netbsd.org/) 和 FreeBSD 即使有共同的历史，也是不同的操作系统。虽然有一些如 [GhostBSD](https://www.ghostbsd.org/) 这样以 FreeBSD 为核心的 BSD 发行版，但在这个上下文中这样的情况较少见。所以，我用种子下载了 FreeBSD 13.2 的 USB 镜像文件，并将其写入了 USB 闪存驱动器。拿出 Hackaday 的测试计算机，开始进行试验。
 
@@ -42,6 +42,6 @@ Linux 是一个围绕其内核构建的操作系统，具有不同实现的用�
 
 FreeBSD 并不像一个功能完整的 Linux 发行版那样，从一开始就自带驱动程序，因此如果你有某些不寻常的设备，你需要自己找到并安装驱动程序。因此，在我能安装驱动程序之前，我被困在 VESA 分辨率中。这里我遇到了一个问题。[Nvidia 在支持他们的显卡方面做得很好](https://www.nvidia.com/en-us/drivers/unix/)，但是像这样古老的显卡早就不再得到他们的支持。我找到的最后一个支持它的驱动程序不想正常运行，因此我从未能够发挥出显卡的潜力。这并不是在批评 FreeBSD，而是显卡太古老了。
 
-因此，除了以一个非常复古的 1024 x 768 的 VESA 分辨率来编写这篇文章，我对 FreeBSD 的印象还是相当喜欢的。我喜欢它精简的安装，与典型的 Linux 发行版相比，你必须安装所有你需要的东西。我喜欢它的安装过程对于像我这样中等水平的 Linux 用户来说相对轻松。我喜欢它的速度，我发现它是一个非常可接受的日常驱动程序。当然，还有一些 Linux 发行版的安装要困难得多。
+因此，除了以一个非常复古的 1024 x 768 的 VESA 分辨率来编写这篇文章以外，我对 FreeBSD 的印象还是相当喜欢的。我喜欢它精简的安装，与典型的 Linux 发行版相比，你必须安装所有你需要的东西。我喜欢它的安装过程对于像我这样中等水平的 Linux 用户来说相对轻松。我喜欢它的速度，我发现它是一个非常可接受的日常驱动程序。当然，还有一些 Linux 发行版的安装要困难得多。
 
 我相信如果有一个新一点的支持的显卡，我就能获得完整的分辨率，我甚至可能在另一台配置更好的计算机上安装这个操作系统，继续进行实验。然而，如果我对 FreeBSD 有什么不满，那就是针对新手的文档。我有多年的 Linux 使用经验，帮助我找到我需要的东西，但尽管安装过程相对轻松，我发现对我少数问题的答案可能很难找到。这绝对是一个值得一看的操作系统，但偶尔如果您不是 UNIX 专家，您可能需要使用 Google-fu【译者注：指在 Google 上运用高超的搜索技巧来解决问题的能力】 来获取帮助。去吧，试一试吧！
