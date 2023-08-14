@@ -1,12 +1,12 @@
 # 在 FreeBSD Jail 中使用 OpenRC 启动并运行 Devuan GNU+Linux 系统
 
 - 原文地址：<https://weblog.antranigv.am/posts/2023/08/freebsd-jail-devuan-linux-openrc/>
-
+- 作者：Antranig Vartanian
 - 译者：basebit
 
 两年前，我写了一篇名为 ["VoidLinux in FreeBSD Jail; with init"](https://weblog.antranigv.am/posts/2021/08/2021-08-21-00-37/) 的博文，在文中我们在一个 FreeBSD Jail 环境里安装并“启动”了 VoidLinux 。我认为现在是时候对那篇博文进行修订了。
 
-这次，我们将使用 [Devuan GNU+Linux](https://www.devuan.org/) ，使用 [OpenRC](https://wiki.gentoo.org/wiki/Project:OpenRC) 启动系统，并在 Linux Jail 中放置一些本地的 FreeBSD 二进制程序。
+这次，我们将使用 [Devuan GNU+Linux](https://www.devuan.org/) 以及用 [OpenRC](https://wiki.gentoo.org/wiki/Project:OpenRC) 来启动系统，并在 Linux Jail 中放置一些本地的 FreeBSD 二进制程序。
 
 以下是我这次运行的操作系统版本：
 
@@ -15,20 +15,20 @@ root@srv0:~ # uname -v
 FreeBSD 13.2-RELEASE releng/13.2-n254617-525ecfdad597 GENERIC
 ```
 
-为了引导启动 Devuan 系统，我们需要使用 [debootstrap](https://wiki.debian.org/Debootstrap) 工具，确切地说，是 [Devuan Chimaera 版本的 debootstrap 工具](https://pkginfo.devuan.org/cgi-bin/package-query.html?c=package&q=debootstrap=1.0.123+devuan3) 。我们可以从 ports/packages 中安装 debootstrap，然后再进行其余的修改。
+为了引导启动 Devuan 系统，我们需要使用一个叫 [debootstrap](https://wiki.debian.org/Debootstrap) 的软件，确切地说，是 [Devuan Chimaera 版本的 debootstrap 工具](https://pkginfo.devuan.org/cgi-bin/package-query.html?c=package&q=debootstrap=1.0.123+devuan3) 。我们可以从 ports/packages 中安装 `debootstrap`，然后再进行其余的修改。
 
 ```
 pkg install -y debootstrap
 ```
 
-现在我们需要获取 Devuan 的 debootstrap 工具，解压缩它，将一些文件放入我们的 debootstrap 中，并设置一些符号链接。
+现在我们需要获取 Devuan 的 `debootstrap` 工具，并将其解压缩，将一些文件放入我们的 `debootstrap` 中，并设置一些符号链接。
 
 ```
-# Path might change over time, check https://pkginfo.devuan.org/ for the exact link
+# 路径可能会随着时间变化，请访问 https://pkginfo.devuan.org/ 获取确切的链接。
 
 fetch http://deb.devuan.org/merged/pool/DEVUAN/main/d/debootstrap/debootstrap_1.0.123+devuan3_all.deb
 
-# .deb files are messy, make a directory
+# .deb 文件很凌乱，建议创建一个目录。
 
 mkdir debootstrap_devuan
 mv debootstrap_1.0.123+devuan3_all.deb debootstrap_devuan/
@@ -36,14 +36,14 @@ cd debootstrap_devuan/
 tar xf debootstrap_1.0.123+devuan3_all.deb
 tar xf data.tar.gz
 
-# We need chimaera (latest, symlink) and ceres (origin)
+# 我们需要 chimaera（最新版本，符号链接）和 ceres（源始版本）。
 
 cp usr/share/debootstrap/scripts/ceres usr/share/debootstrap/scripts/chimaera /usr/local/share/debootstrap/scripts/
 ```
 
 现在我们可以引导启动我们的系统了。我将使用 ZFS 文件系统，但这也可以在不使用 ZFS 文件系统的情况下完成。
 
-请记住，我的 Jail 路径将是 /usr/local/jails/devuan0 ，请根据需要修改此路径。🙂
+请记住，我的 Jail 路径将是 `/usr/local/jails/devuan0` ，请根据需要修改此路径。🙂
 
 ```
 zfs create zroot/jails/devuan0
@@ -67,15 +67,15 @@ W: See /usr/local/jails/devuan0/debootstrap/debootstrap.log for details (possibl
 ```
 chroot /usr/local/jails/devuan0 /bin/bash
 
-# Fix base packages
+# 修复基本包
 
 dpkg --force-depends -i /var/cache/apt/archives/*.deb
 
-# Set Cache-Start
+# 设置 Cache-Start
 
 echo "APT::Cache-Start 251658240;" > /etc/apt/apt.conf.d/00chroot
 
-# Install OpenRC
+# 安装 OpenRC
 
 apt update
 apt install openrc
@@ -88,7 +88,7 @@ cd /usr/local/jails/devuan0/etc/
 echo "root::0:0::0:0:Charlie &:/root:/bin/bash" > master.passwd
 pwd_mkdb -d ./ -p master.passwd
 
-# Restore the Linux passwd file
+# 存储 Linux passwd 文件
 
 cp passwd- passwd
 ```
@@ -99,7 +99,7 @@ cp passwd- passwd
 cp -a /rescue /usr/local/jails/devuan0/native
 ```
 
-现在我们还需要一个 Jail 配置文件，我们可以将其放在 /etc/jail.conf.d/devuan0.conf 中。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
+现在我们还需要一个 Jail 配置文件，我们可以将其放在 `/etc/jail.conf.d/devuan0.conf` 中。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
 
 ```
 # vim: set syntax=sh:
@@ -146,7 +146,7 @@ devuan0 {
 }
 ```
 
-正如你所猜到的，我们还需要一个 fstab 文件，应该放在 /etc/jail.conf.d/devuan0.fstab 中。
+正如你所猜到的，我们还需要一个 fstab 文件，应该放在 `/etc/jail.conf.d/devuan0.fstab` 中。
 
 ```
 devfs       /usr/local/jails/devuan0/dev      devfs     rw                   0 0
@@ -182,7 +182,7 @@ devuan0                         devuan0.bsd.am                /usr/local/jails/d
 
 是的，它已经在运行了！
 
-现在我们可以使用 jexec 进入其中并运行一些命令！
+现在我们可以使用 `jexec` 进入其中并运行一些命令！
 
 ```
 root@srv0:~ # jexec -l devuan0 /bin/bash
@@ -201,22 +201,22 @@ root@devuan0:~# ps f
 41190 ?        Ss     0:00 /usr/sbin/rsyslogd
 ```
 
-让我们进行一些网络设置！设置网络并安装 OpenSSH。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
+让我们进行一些网络设置吧！设置网络并安装 OpenSSH。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
 
 ```
-# Setup network interfaces
+# 设置网卡
 
 /native/ifconfig lo0 inet 127.0.0.1/8 up
 /native/ifconfig epair0b inet 10.0.0.10/24 up
 /native/route add default 10.0.0.1
 
-# Install and start OpenSSH server
+# 安装并启动 OpenSSH 服务器
 
 apt-get --no-install-recommends install openssh-server
 rc-service ssh start
 ```
 
-现在你应该能够 ping 通其他主机。
+现在你应该能够 ping 通其他主机了。
 
 ```
 ~# ping -n -c 1 bsd.am
@@ -229,7 +229,7 @@ PING  (37.252.73.34) 56(84) bytes of data.
 rtt min/avg/max/mdev = 2.603/2.603/2.603/0.000 ms
 ```
 
-为了使网络配置持久化，我们可以使用 rc.local 文件，在 OpenRC 启动时该文件会被执行。
+为了使网络配置持久化，我们可以使用 `rc.local` 文件，在 OpenRC 启动时该文件会被执行。
 
 ```
 chmod +x /etc/rc.local
@@ -238,8 +238,8 @@ echo '/native/ifconfig epair0b inet 10.0.0.10/24 up' >> /etc/rc.local
 echo '/native/route add default 10.0.0.1' >> /etc/rc.local
 ```
 
-你知道这意味着什么吗？这意味着你现在可以在 Linux 上使用正确的 ZFS、DTrace 和 pf 防火墙。恭喜你，现在你拥有了一片净土。
+你知道这意味着什么吗？这意味着你现在可以在 Linux 上使用正确的 ZFS、DTrace 和 pf 防火墙了。恭喜你，现在你拥有了一片净土。
 
-就是这样了，朋友们...
+就是这样了，朋友们……
 
-附言：我想感谢我的导师 [norayr](http://norayr.am/) ，他向我展示了如何手动启动/停止 OpenRC，还要感谢 [#devuan](https://www.devuan.org/os/community) 社区里那些了不起的人们，感谢他们的帮助。
+PS：我想感谢我的导师 [norayr](http://norayr.am/) ，他向我展示了如何手动启动/停止 OpenRC，还要感谢 [#devuan](https://www.devuan.org/os/community) 社区里那些了不起的人们，感谢他们的帮助。
