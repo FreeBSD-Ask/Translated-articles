@@ -23,5 +23,5 @@
 * [在 OpenBSD 和 FreeBSD 之间选择的区别](Choosing%20between%20OpenBSD%20and%20FreeBSD.md)
 * [FreeBSD 是一个令人惊叹的操作系统](FreeBSD%20is%20an%20amazing%20operating%20system.md)
 * [JENNY 日常使用的系统：FreeBSD 13.2](JENNY’S%20DAILY%20DRIVERS_FREEBSD%2013.2.md)
-* [留意日期：2023 年 11 月自由软件组织厂商峰会](Save%20the%20Date:%20November%202023%20FreeBSD%20Vendor%20Summit.md)
+* [留意日期：2023 年 11 月自由软件组织厂商峰会](Save%20the%20Date_November%202023%20FreeBSD%20Vendor%20Summit.md)
 
