@@ -2,6 +2,7 @@
 
 - 原文地址：<https://weblog.antranigv.am/posts/2023/08/freebsd-jail-devuan-linux-openrc/>
 - 作者：Antranig Vartanian
+- 发布时间：2023 年 8 月 1 日
 - 译者：basebit
 
 两年前，我写了一篇名为 ["VoidLinux in FreeBSD Jail; with init"](https://weblog.antranigv.am/posts/2021/08/2021-08-21-00-37/) 的博文，在文中我们在一个 FreeBSD Jail 环境里安装并“启动”了 VoidLinux 。我认为现在是时候对那篇博文进行修订了。
@@ -242,4 +243,8 @@ echo '/native/route add default 10.0.0.1' >> /etc/rc.local
 
 就是这样了，朋友们……
 
-PS：我想感谢我的导师 [norayr](http://norayr.am/) ，他向我展示了如何手动启动/停止 OpenRC，还要感谢 [#devuan](https://www.devuan.org/os/community) 社区里那些了不起的人们，感谢他们的帮助。
+PS：我想感谢我的导师 [norayr](http://norayr.am/) ，是他向我展示了如何手动启动/停止 OpenRC，还要感谢 [#devuan](https://www.devuan.org/os/community) 社区里那些了不起的人们，感谢他们的帮助。
+
+---
+
+作者简介：Antranig Vartanian 在 Illuria 安全公司从事工作。涉及 Unix、BSD、信息安全、Elixir/Erlang、DNS、XMPP 领域。通常没有太大问题。
