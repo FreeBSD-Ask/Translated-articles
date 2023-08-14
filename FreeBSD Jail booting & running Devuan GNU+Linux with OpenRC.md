@@ -103,7 +103,7 @@ cp -a /rescue /usr/local/jails/devuan0/native
 现在我们还需要一个 Jail 配置文件，我们可以将其放在 `/etc/jail.conf.d/devuan0.conf` 中。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
 
 ```
-# vim: set syntax=sh:
+# vim：设置 syntax=sh:
 
 exec.clean;
 allow.raw_sockets;
@@ -116,7 +116,7 @@ devuan0 {
   $id             = "0";
   $bridge         = "bridge0";
 
-# Set a domain :)
+# 设置域名 :)
 
   $domain         = "bsd.am";
   vnet;
@@ -138,7 +138,7 @@ devuan0 {
   host.hostname   = "${name}.${domain}";
   path            = "/usr/local/jails/devuan0";
 
-# Maybe mkdir this path :)
+# 也许需要创建路径 :)
 
   exec.consolelog = "/var/log/jail/${name}.log";
 
