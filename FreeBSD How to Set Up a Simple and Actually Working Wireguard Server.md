@@ -1,0 +1,1 @@
+FreeBSD: 如何设置一个简单且实际工作的WireGuard服务器
