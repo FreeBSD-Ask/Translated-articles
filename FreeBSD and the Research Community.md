@@ -18,7 +18,7 @@ BSD 许可证的结构允许研究人员将操作系统的部分内容整合到�
 
 ### 强调对测量的坚定承诺
 
-FreeBSD 项目对测量的强调始于最初的 CSRG（计算机系统研究组） 团队，并持续延续到系统的最新版本。
+FreeBSD 项目对测量的强调始于最初的 CSRG（计算机系统研究组）团队，并延续到系统的最新版本。
 
 ### 广泛支持多种体系结构
 
@@ -33,8 +33,8 @@ FreeBSD 支持以下内容：
 
 - **社区：** 友好且专业，拥有许多活跃的贡献者和用户，其中有些人参与已有 10+或 20+年
 - **指导：** 已融入项目的文化和流程
-- **文档：** FreeBSD 手册、常见问题解答、开发者手册、端口开发者手册、文档项目入门指南、man 手册
-- **支持：** 相关的非盈利性 FreeBSD 基金会为项目及其贡献者提供法律和经济支持
+- **文档：** FreeBSD 手册、FAQ、开发者手册、Port 开发者手册、文档项目入门指南、man 手册
+- **支持：** 相关的非盈利性 FreeBSD 基金会为项目及其贡献者提供了法律和经济支持
   
 ### 访问众多已使用 FreeBSD 的产品
 
@@ -46,7 +46,7 @@ FreeBSD 广泛应用于商业产品中，通过上游合并提供明确的技术
 
 DIFFUSE——Lawrence Stewart、Grenville Armitage、斯威本科技大学（Swinburne University of Technology）CAIA 开发了一些利用机器学习（ML）技术基于流统计对网络流量进行分类的系统。
 
-Nigel Williams、Grenville Armitage、斯威本科技大学（Swinburne University of Technology）适用于 FreeBSD 的多路径 TCP
+Nigel Williams、Grenville Armitage、斯威本理工大学（Swinburne University of Technology）适用于 FreeBSD 的多路径 TCP
 
 Maffione, V., Rizzo, L., Lettieri, G.一个 “使用 Netmap Passthrough 实现灵活的虚拟网络。” IEEE Lanman 2016。
 
@@ -72,4 +72,4 @@ McKusick, M. K.; Joy, W. N.; 和 Leffler, S. J. “用于 UNIX 的快速文件�
 
 尽管平台主要关注技术，但潜在的文化是关于社区的。
 
-卓越的技术平台与广泛的商业使用以及友好的社区相结合，使 FreeBSD 成为您研究项目的绝佳选择。加入我们吧！
+卓越的技术平台与广泛的商业使用以及友好的社区相结合，使 FreeBSD 成为你研究项目的绝佳选择。加入我们吧！
