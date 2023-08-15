@@ -48,7 +48,7 @@ FreeBSD 广泛应用于商业产品中，通过上游合并提供明确的技术
 
 目前在 FreeBSD 上的努力涵盖了文件系统、网络和安全等多个领域，包括以下内容：
 
-DIFFUSE——Lawrence Stewart、Grenville Armitage、斯威本科技大学（Swinburne University of Technology）CAIA 开发了一些利用机器学习（ML）技术基于流统计对网络流量进行分类的系统。
+DIFFUSE——Lawrence Stewart、Grenville Armitage、斯威本理工大学（Swinburne University of Technology）CAIA 开发了一些利用机器学习（ML）技术基于流统计对网络流量进行分类的系统。
 
 Nigel Williams、Grenville Armitage、斯威本理工大学（Swinburne University of Technology）适用于 FreeBSD 的多路径 TCP
 
