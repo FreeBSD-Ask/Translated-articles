@@ -1,5 +1,9 @@
 # FreeBSD 与研究社区
 
+- 原地址：<https://freebsdfoundation.org/our-work/research/>
+- 译者：ykla & ChatGPT
+
+  
 在学术界，FreeBSD 拥有丰富的历史。它源自于加州大学伯克利分校（University of California at Berkeley）计算机系统研究小组在 20 世纪 70 年代中期至 1990 年代期间开发的 4.4-Lite 版本的伯克利软件发行版（Berkeley Software Distribution）。在过去的 30 年里，FreeBSD 操作系统继续为学术界提供了一个稳定的基石，供他们进行研究，并为工业界的采用提供了道路，这是通过广泛使用的基于或整合了 FreeBSD 的产品实现的。
 
 ## FreeBSD 作为研究平台的卓越之处是什么？
