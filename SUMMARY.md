@@ -28,4 +28,5 @@
 * [如何在 FreeBSD 上设置一个简单且实际工作的 WireGuard 服务器](FreeBSD%20How%20to%20Set%20Up%20a%20Simple%20and%20Actually%20Working%20Wireguard%20Server.md)
 * [用于研究的 FreeBSD：CHERI/Morello](FreeBSD%20for%20Research%20CHERIMorello.md)
 * [FreeBSD 与研究社区](FreeBSD%20and%20the%20Research%20Community.md)
-* [2023年7月软件开发项目进展报道](July%202023%20Software%20Development%20Projects%20Update.md)
+* [2023 年 7 月软件开发项目进展报道](July%202023%20Software%20Development%20Projects%20Update.md)
+ 
