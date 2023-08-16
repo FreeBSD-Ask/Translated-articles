@@ -215,13 +215,12 @@ FreeBSD Azure Release Engineering 团队的成员 Li-Wen Hsu、Wei Hu <whu@FreeB
 - 构建并发布 Hyper-V gen2 VM 镜像到 Azure Marketplace。
 - 构建并发布快照版本到 Azure 社区库。
 
-上述任务由 FreeBSD 基金会赞助，提供了来自 Microsoft 的资源。
 
 以上任务由 FreeBSD 基金会赞助，资源由微软提供。
 
 来自 Wei Hu 和 Souradeep Chakrabarti 的工作涉及多项由微软赞助的任务，包括：
 
-- 将 Hyper-V 客户支持移植到 aarch64 架构
+- 将 Hyper-V 客户端支持移植到 aarch64 架构
   - <https://bugs.freebsd.org/267654>
   - <https://bugs.freebsd.org/272461>
 
@@ -230,4 +229,4 @@ FreeBSD Azure Release Engineering 团队的成员 Li-Wen Hsu、Wei Hu <whu@FreeB
 - 在 Microsoft Learn 上更新与 FreeBSD 相关的文档
 - 在 Azure Pipelines 中支持 FreeBSD
 - 将 Azure 代理 Port 更新到最新版本
-- 上游提交 Azure 代理的本地修改内容
+- 提交 Azure 代理的本地修改内容给上游
