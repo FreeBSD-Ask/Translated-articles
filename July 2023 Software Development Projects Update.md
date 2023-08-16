@@ -68,7 +68,7 @@ FreeBSD 基于 Jenkins 的持续集成基础设施当前在开发人员将提交
 
 DTrace 是一个框架，使管理员和内核开发人员能够实时观察内核行为。DTrace 具有称为“provider”的内核模块，它使用“探针”在内核中执行特定的仪器操作。kinst 是由 Christos Margiolis 和 Mark Johnston 于 GSOC 2022 的一部分创建的新 DTrace 提供程序，它允许进行指令级跟踪，即对于给定的内核函数，用户可以跟踪其中的每个指令。该提供程序在 FreeBSD 14.0 中可用。
 
-kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 是要跟踪的内核函数，`<offset>` 是特定的指令。可以使用 kgdb(1) 从函数的反汇编中获取这些偏移量。例如，以下命令将在每次执行 vm_fault() 时跟踪其第一条指令：
+kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 是要跟踪的内核函数，`<offset>` 是特定的指令。可以使用 kgdb(1) 从函数的反汇编中获取这些偏移量。例如，以下命令将在每次执行 vm_fault() 时跟踪其第一条指令：［注：原文如此］
 
 这个项目于 7 月下旬完成，实现了内联函数跟踪。为了实现这个功能，使用了 DWARF 调试标准，以便能够检测内联调用并相应地处理它们。利用了 DWARF 和 kinst 的功能，解决了 FBT 的一些缺点，例如尾部调用优化问题（DTrace 手册的第 20.4 章）和内联跟踪能力的缺失。
 
@@ -78,11 +78,11 @@ kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 
 - 扩展 kinst，通过使用 FreeBSD 的 dwarf(3)，能够跟踪内联调用
 - 添加一个“locals”结构，用于存储跟踪函数的局部变量。例如，对于 kinst::foo:<x>，我们可以在 D 脚本中使用 print(locals->bar) 来打印局部变量 bar
 - 添加一个新的 dtrace(1) 参数，在 dt_sugar 应用转换后转储 D 程序。这对于调试 dt_sugar 本身非常有用。
-- 将 kinst 移植到 riscv 和/或 arm64。
+- 将 kinst 移植到 riscv / arm64。
 
 ## FreeBSD 作为一级 cloud-init 平台
 
-cloud-init 是在云中配置服务器的标准方式。不幸的是，除了 Linux 以外的操作系统对 cloud-init 的支持相当有限，而且缺乏对 FreeBSD 的 cloud-init 支持阻碍了希望将 FreeBSD 作为一级平台提供的云提供商。为了解决这个问题，FreeBSD 基金会与 Mina Galić 签订合同，使 FreeBSD 的 cloud-init 支持与 Linux 支持保持一致。项目交付成果包括完成对特定网络类的提取，实现 ifconfig(8)和 login.conf(5)解析器，实现 IPv6 配置，为 Azure 创建 devd 规则，并编写有关将 FreeBSD 投入生产的手册文档。
+cloud-init 是在云中配置服务器的标准方式。不幸的是，除了 Linux 以外的操作系统对 cloud-init 的支持相当有限，而且缺乏对 FreeBSD 的 cloud-init 支持阻碍了将 FreeBSD 作为一级平台提供的云提供商这一愿望。为了解决这个问题，FreeBSD 基金会与 Mina Galić 签订合同，使 FreeBSD 的 cloud-init 支持与 Linux 支持保持一致。项目交付成果包括完成对特定网络类的提取，实现 ifconfig(8)和 login.conf(5)解析器，实现 IPv6 配置，为 Azure 创建 devd 规则，并编写有关将 FreeBSD 投入生产的手册文档。
 
 在上个季度完成了一些项目里程碑：
 
@@ -169,7 +169,7 @@ OpenSSL 在过去的几年中已经发展壮大，现在有超过 50 万行的�
 
 ## 将 amd64 的最大 CPU 数从 256 增加到 1024
 
-默认的 amd64 和 arm64 FreeBSD 内核配置当前支持最多 256 个 CPU。可以通过设置 MAXCPU 内核选项来构建支持更大核心数量的自定义内核。然而，拥有超过 256 个 CPU 的商品系统正在变得越来越普遍，并且在 FreeBSD 14 的支持生命周期中将越来越常见。我们希望将默认的最大 CPU 数增加到 1024，以便在 FreeBSD 14 上支持这些系统。基金会团队成员 Ed Maste 和其他开发人员已经进行了许多更改，以支持更大的默认 MAXCPU，包括将 cpuset_t 的用户空间最大值修复为 1024。还进行了一些更改，以避免静态的 MAXCPU 大小的数组，将其替换为按需内存分配。还需要额外的工作来继续减少由 MAXCPU 大小的静态分配和解决非常高核心数系统上的可扩展性瓶颈，但目标是在支持大型 CPU 数的情况下发布具有稳定 ABI 和 KBI 的 FreeBSD 14。
+默认的 amd64 和 arm64 FreeBSD 内核配置当前支持最多 256 个 CPU。可以通过设置内核参数 MAXCPU 来构建支持更大核心数量的自定义内核。然而，拥有超过 256 个 CPU 的商品系统正在变得越来越普遍，并且在 FreeBSD 14 的支持生命周期中将越来越常见。我们希望将默认的最大 CPU 数增加到 1024，以便在 FreeBSD 14 上支持这些系统。基金会团队成员 Ed Maste 和其他开发人员已经进行了许多更改，以支持更大的默认 MAXCPU，包括将 cpuset_t 的用户空间最大值修复为 1024。还进行了一些更改，以避免静态的 MAXCPU 大小的数组，将其替换为按需内存分配。还需要额外的工作来继续减少由 MAXCPU 大小的静态分配和解决非常高核心数系统上的可扩展性瓶颈，但目标是在支持大型 CPU 数的情况下发布具有稳定 ABI 和 KBI 的 FreeBSD 14。
 
 ## 谷歌代码之夏
 
@@ -191,7 +191,7 @@ Differential [D40575](https://reviews.freebsd.org/D40575) 实现了用于量化�
 
 ## 将 mfsBSD 集成到发布构建工具中
 
-mfsBSD 是由 Martin Matuška 创建的工具集，用于创建基于 mfsroot 的 FreeBSD 分发的小型但功能齐全的分发版。也就是说，它通过内存文件系统（MFS）从存储设备加载文件并将它们存储在内存中。作为这个项目的一部分，Soobin Rho <soobinrho@FreeBSD.org>将在 src/release makefile 中为 -current 和 -stable 版本的 mfsBSD 镜像创建每周快照的附加目标。目前，只能生成 RELEASE 版本的 mfsBSD 镜像，这意味着它们往往会与基础工具不同步。该项目旨在解决这个问题。
+mfsBSD 是由 Martin Matuška 创建的工具集，用于创建基于 mfsroot 的 FreeBSD 分发的小型但功能齐全的发行版。也就是说，它通过内存文件系统（MFS）从存储设备加载文件并将它们存储在内存中。作为这个项目的一部分，Soobin Rho <soobinrho@FreeBSD.org>将在 src/release makefile 中为 -current 和 -stable 版本的 mfsBSD 镜像创建为每周快照的附加目标。目前，只能生成 RELEASE 版本的 mfsBSD 镜像，这意味着它们往往会与基础工具不同步。该项目旨在解决这个问题。
 
 ## FreeBSD 在 Microsoft HyperV 和 Azure 上的支持
 
@@ -222,8 +222,8 @@ FreeBSD Azure Release Engineering 团队的成员 Li-Wen Hsu、Wei Hu <whu@FreeB
 来自 Wei Hu 和 Souradeep Chakrabarti 的工作涉及多项由微软赞助的任务，包括：
 
 - 将 Hyper-V 客户支持移植到 aarch64 架构
-  - https://bugs.freebsd.org/267654
-  - https://bugs.freebsd.org/272461
+  - <https://bugs.freebsd.org/267654>
+  - <https://bugs.freebsd.org/272461>
 
 待处理任务：
 
