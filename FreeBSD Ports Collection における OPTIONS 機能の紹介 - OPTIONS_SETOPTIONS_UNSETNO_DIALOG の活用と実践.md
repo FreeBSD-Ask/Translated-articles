@@ -22,9 +22,9 @@
 
 ## OPTIONS 机制
 
-通过引入 OPTIONS（/usr/ports/Mk/bsd.options.mk），在使用 Ports 编译第三方应用程序时，定制的方法得到了统一。
+通过引入 OPTIONS（/usr/ports/Mk/bsd.options.mk）【注 1】，在使用 Ports 编译第三方应用程序时，定制的方法得到了统一。
 
-在引入这个机制之前和之后，Makefile 的编写方式发生了变化，OPTIONS 引入之前的机制（基本上）已经不复存在。
+在引入这个机制之前和之后，Makefile 的编写方式发生了变化，OPTIONS 引入之前的机制（基本上）已经不复存在。【注 2】
 
 嗯，严格地说经过详细的研究，这个机制还是有残留的，或者说有时候也会被使用，但由于它过于特殊，主要用于一些黑客式的定制目的，所以在这里我们将跳过不谈。"
 
@@ -41,7 +41,7 @@ OPTIONS 是用于控制每个 Port 可定制的项目的开关机制，为以下
 
 ## 通过对话框进行选择
 
-在编译时会显示对话框，您可以以交互方式选择这些定制项的启用或禁用。具体来说，可以通过以下命令进行配置，这些配置项如下：34。"
+在编译时会显示对话框，您可以以交互方式选择这些定制项的启用或禁用。具体来说，可以通过以下命令进行配置，这些配置项如下：【注 3、4】。"
 
 ```
 make config
@@ -101,7 +101,7 @@ ${OPTIONS_NAME}" 是通过在每个 Port 上运行 "make -VOPTIONS_NAME" 命令�
 3. make config
 4. /etc/make.conf （${OPTIONS_NAME}_SET／${OPTIONS_NAME}\_UNSET）
 5. /etc/make.conf （OPTIONS_SET／OPTIONS_UNSET）
-6. 使用 make WITH="选项 1 选项 2..." WITHOUT="选项 1 选项 2..." 的情况 5
+6. 使用 make WITH="选项 1 选项 2..." WITHOUT="选项 1 选项 2..." 的情况 【注 5】
 7. bsd.options.mk
 8. Makefile／Makefile.local
 
@@ -109,7 +109,7 @@ ${OPTIONS_NAME}" 是通过在每个 Port 上运行 "make -VOPTIONS_NAME" 命令�
 
 ## 无需定制！
 
-换句话说，软件包系统应该是在没有定制的情况下进行编译的，并且应该在不显示对话框的情况下进行处理！6
+换句话说，软件包系统应该是在没有定制的情况下进行编译的，并且应该在不显示对话框的情况下进行处理！【注 6】
 
 实际上，确实存在这样的选项。如果在/etc/make.conf 中按照以下方式写入，将会在所有 Port 上启动编译时无需显示对话框（≒ 无需定制）：
 
