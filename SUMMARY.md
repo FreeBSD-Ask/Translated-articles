@@ -29,4 +29,5 @@
 * [用于研究的 FreeBSD：CHERI/Morello](FreeBSD%20for%20Research%20CHERIMorello.md)
 * [FreeBSD 与研究社区](FreeBSD%20and%20the%20Research%20Community.md)
 * [2023 年 7 月软件开发项目进展报道](July%202023%20Software%20Development%20Projects%20Update.md)
+* [FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG 进行操作和实践](FreeBSD%20Ports%20Collection%20における%20OPTIONS%20機能の紹介%20-%20OPTIONS_SETOPTIONS_UNSETNO_DIALOG%20の活用と実践.md)
  
