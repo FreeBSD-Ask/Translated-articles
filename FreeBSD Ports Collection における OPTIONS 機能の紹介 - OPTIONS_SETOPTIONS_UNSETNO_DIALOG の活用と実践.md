@@ -59,7 +59,8 @@ make rmconfig-recursive
 ## 全局设置
 
 您可以通过在 `/etc/make.conf` 文件中进行配置，从而全局性地定义定制内容（开启或关闭）。
-如果不需要 X11，或者想要在所有 Port 中统一地使用 LZ4 作为压缩算法等情况，可以在这里进行设置。
+
+如果不需要 X11，或者想要在所有 Port 中统一地使用 LZ4 作为压缩算法等情况，可以在这里进行设置:
 
 `/etc/make.conf`:
 
@@ -71,7 +72,8 @@ OPTIONS_UNSET+= X11 CUPS GDBM TEST DEBUG TESTS
 ## 针对全局的 Port 特定设置
 
 在 `/etc/make.conf` 文件中，您还可以进一步针对各个 Port 进行定制设置。
-例如，基本上您可能想要安装文档类文件，但在为了安装这些文档而开始安装 TeX 的情况下，您可能会感到不满意，希望不安装文档。在这种情况下，您可以通过 `${OPTIONS_NAME}_SET或${OPTIONS_NAME}_UNSET` 来定义。
+
+例如，基本上您可能想要安装文档类文件，但在为了安装这些文档而开始安装 TeX 的情况下，您可能会感到不满意，希望不安装文档。在这种情况下，您可以通过 `${OPTIONS_NAME}_SET`或`${OPTIONS_NAME}_UNSET` 来定义。
 
 `/etc/make.conf`:
 
@@ -83,9 +85,9 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 
 值得注意的是，在引入 OPTIONS 时，最初使用的是 `UNIQUENAME` 而不是 `OPTIONS_NAME`。但由于存在与其他机制的冲突，已经更改为使用 OPTIONS_NAME。
 
-## "bsd.options.mk 中的默认设置
+## bsd.options.mk 中的默认设置
 
-在 bsd.options.mk 中，以下设置与 Port 的默认设置无关，始终会启用：
+在 `bsd.options.mk` 中，以下设置与 Port 的默认设置无关，始终会启用：
 
 - DOCS
 - NLS
@@ -101,7 +103,7 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 3.` make config`
 4. `/etc/make.conf` （`${OPTIONS_NAME}_SET`／`${OPTIONS_NAME}_UNSET`）
 5. `/etc/make.conf` （`OPTIONS_SET`／`OPTIONS_UNSET`）
-6. 使用 `make WITH="选项 1 选项 2..." WITHOUT="选项 1 选项 2..."` 的情况 【注 5】
+6. 使用 `make WITH="参数 1 参数 2..." WITHOUT="参数 1 参数 2..."` 的情况 【注 5】
 7. `bsd.options.mk`
 8. `Makefile／Makefile.local`
 
@@ -113,7 +115,7 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 
 实际上，确实存在这样的选项。如果在 `/etc/make.conf` 中按照以下方式写入，将会在所有 Port 上启动编译时无需显示对话框（≒ 无需定制）：
 
-请注意，"无定制"\"无对话框显示"和其他上下文中的翻译会因语境不同而有所变化。
+请注意，“无定制”\“无对话框显示”和其他上下文中的翻译会因语境不同而有所变化。
 
 ```
 NO_DIALOG= yes
@@ -167,7 +169,7 @@ lang/perl5.*:      NO_DIALOG=yes
 
 - 问：开启和关闭，SET 和 UNSET 之间好像有些突然跳跃的感觉！
 - 
-答：没关系，没问题。您的理解是正确的。虽然确实需要做出一些解释，但我有点累了，所以我要睡觉了。"
+答：没关系，没问题。您的理解是正确的。虽然确实需要做出一些解释，但我有点累了，所以我要睡觉了。
 
 ## 参考文献
 
@@ -178,7 +180,7 @@ lang/perl5.*:      NO_DIALOG=yes
 - [bsd.port.options.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.options.mk)
 - [portconf](https://www.freshports.org/ports-mgmt/portconf/)
 
-【注 1】"自 2012 年 5 月以来。当然，虽然这个机制刚被引入时，并不是所有的 Port 都支持，但已经过去了 8 年多的时间...
+【注 1】自 2012 年 5 月以来。当然，虽然这个机制刚被引入时，并不是所有的 Port 都支持，但已经过去了 8 年多的时间...
 
 【注 2】像 WITHOUT_X11 这样的主要定制设置... 已经不复存在...（确切地说是错误的使用方式）。f( --;
 
