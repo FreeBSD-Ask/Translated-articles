@@ -1,6 +1,6 @@
 # 2023 年 FreebBSD 谷歌编程之夏学生介绍：Raghav Sharma
 
-- 原文链接：[Meet the 2023 FreeBSD 谷歌编程夏 Students: Raghav Sharma](https://freebsdfoundation.org/blog/meet-the-2023-freebsd-google-summer-of-code-students-raghav-sharma/)
+- 原文链接：[Meet the 2023 FreeBSD 谷歌编程之夏 Students: Raghav Sharma](https://freebsdfoundation.org/blog/meet-the-2023-freebsd-google-summer-of-code-students-raghav-sharma/)
 - 发布日期：2023 年 8 月 24 日
 - 译者：ykla & ChatGPT
 
