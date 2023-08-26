@@ -31,4 +31,5 @@
 * [2023 年 7 月软件开发项目进展报道](July%202023%20Software%20Development%20Projects%20Update.md)
 * [FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG 进行操作和实践](FreeBSD%20Ports%20Collection%20における%20OPTIONS%20機能の紹介%20-%20OPTIONS_SETOPTIONS_UNSETNO_DIALOG%20の活用と実践.md)
 * [FreeBSD Bhyve 上的 PCI 直通](FreeBSD%20BhyveでPCI%20passthrough.md)
+* [2023 年 FreebBSD 谷歌代码之夏学生介绍：Raghav Sharma](Meet%20the%202023%20FreeBSD%20Google%20Summer%20of%20Code%20Students%20Raghav%20Sharma.md)
  
