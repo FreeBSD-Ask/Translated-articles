@@ -1,8 +1,10 @@
 # Table of contents
 
+## 2023 年 9月
 * [Translated-articles](README.md)
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Soobin Rho](meet-the-2023-freebsd-google-summer-of-code-students-soobin-rho.md)
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Aymeric Wibo](meet-the-2023-freebsd-google-summer-of-code-students-aymeric-wibo.md)
+* [FreeBSD 企业工作组首次会议总结](2023-nian-9-yue-yi-qian/freebsd-ports-collection-niokeru-options-no-optionssetoptionsunsetnodialog-noto/recap-of-first-meeting-of-the-freebsd-enterprise-working-group.md)
 
 ## 2023 年 9 月以前
 
@@ -32,7 +34,6 @@
 * [留意日期：2023 年 11 月的自由软件组织厂商峰会](2023-nian-9-yue-yi-qian/save-the-date\_november-2023-freebsd-vendor-summit.md)
 * [JENNY 日常使用的系统：FreeBSD 13.2](2023-nian-9-yue-yi-qian/jennys-daily-drivers\_freebsd-13.2.md)
 * [FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS\_SET/OPTIONS\_UNSET/NO\_DIALOG 进行操作和实践](2023-nian-9-yue-yi-qian/freebsd-ports-collection-niokeru-options-no-optionssetoptionsunsetnodialog-noto/README.md)
-  * [FreeBSD 企业工作组首次会议总结](2023-nian-9-yue-yi-qian/freebsd-ports-collection-niokeru-options-no-optionssetoptionsunsetnodialog-noto/recap-of-first-meeting-of-the-freebsd-enterprise-working-group.md)
 * [FreeBSD Bhyve 上的 PCI 直通](2023-nian-9-yue-yi-qian/freebsd-bhyvedepci-passthrough.md)
 * [2023 年 FreebBSD 谷歌编程之夏学生介绍：Raghav Sharma](2023-nian-9-yue-yi-qian/meet-the-2023-freebsd-google-summer-of-code-students-raghav-sharma.md)
 * [2023 年 7 月软件开发项目进展报道](2023-nian-9-yue-yi-qian/july-2023-software-development-projects-update.md)
