@@ -1,6 +1,6 @@
 # 认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Soobin Rho
 
-- 原链接：[Meet the 2023 FreeBSD谷歌编程之夏Students: Soobin Rho](https://freebsdfoundation.org/blog/meet-the-2023-freebsd-google-summer-of-code-students-soobin-rho/)
+- 原链接：[Meet the 2023 FreeBSD Google Summer Of Code Students: Soobin Rho](https://freebsdfoundation.org/blog/meet-the-2023-freebsd-google-summer-of-code-students-soobin-rho/)
 - 发布日期：2023-8-24
 - 译者：ykla & ChatGPT
 
