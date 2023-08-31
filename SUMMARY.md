@@ -7,7 +7,7 @@
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Soobin Rho](2023-nian-9-yue/ren-shi-2023-nian-can-yu-freebsd-gu-ge-bian-cheng-zhi-xia-xiang-mu-de-xue-sheng-soobin-rho.md)
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Aymeric Wibo](2023-nian-9-yuemeet-the-2023-freebsd-google-summer-of-code-students-aymeric-wibo.md)
 * [FreeBSD 企业工作组首次会议总结](2023-nian-9-yue/recap-of-first-meeting-of-the-freebsd-enterprise-working-group.md)
-* [OpenBSD 路由器指南](2023-nian-9-yue/OpenBSD Router Guide.md)
+* [OpenBSD 路由器指南](2023-nian-9-yue/OpenBSD%20Router%20Guide.md)
 ## 2023 年 9 月以前
 
 * [参与宣传：2023 年 5 月的 FreeBSD 开发者峰会和 BSDCan](2023-nian-9-yue-yi-qian/advocating-at-events-may-2023-freebsd-dev-summit-and-bsdcan.md)
