@@ -7,7 +7,9 @@
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Soobin Rho](2023-nian-9-yue/ren-shi-2023-nian-can-yu-freebsd-gu-ge-bian-cheng-zhi-xia-xiang-mu-de-xue-sheng-soobin-rho.md)
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Aymeric Wibo](2023-nian-9-yue/meet-the-2023-freebsd-google-summer-of-code-students-aymeric-wibo.md)
 * [FreeBSD 企业工作组首次会议总结](2023-nian-9-yue/recap-of-first-meeting-of-the-freebsd-enterprise-working-group.md)
-* [OpenBSD 路由器指南](2023-nian-9-yue/OpenBSD%20Router%20Guide.md)
+* [OpenBSD 路由器指南](<2023-nian-9-yue/OpenBSD Router Guide.md>)
+* [认识 2023 年 FreeBSD 谷歌编程之夏的学生：Sudhanshu Mohan Kashyap](2023-nian-9-yue/meet-the-2023-freebsd-google-summer-of-code-students-sudhanshu-mohan-kashyap.md)
+
 ## 2023 年 9 月以前
 
 * [参与宣传：2023 年 5 月的 FreeBSD 开发者峰会和 BSDCan](2023-nian-9-yue-yi-qian/advocating-at-events-may-2023-freebsd-dev-summit-and-bsdcan.md)
@@ -35,7 +37,7 @@
 * [FreeBSD 是一个令人惊叹的操作系统](2023-nian-9-yue-yi-qian/freebsd-is-an-amazing-operating-system.md)
 * [留意日期：2023 年 11 月的自由软件组织厂商峰会](2023-nian-9-yue-yi-qian/save-the-date\_november-2023-freebsd-vendor-summit.md)
 * [JENNY 日常使用的系统：FreeBSD 13.2](2023-nian-9-yue-yi-qian/jennys-daily-drivers\_freebsd-13.2.md)
-* [FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS\_SET/OPTIONS\_UNSET/NO\_DIALOG 进行操作和实践](2023-nian-9-yue-yi-qian/freebsd-ports-collection-niokeru-options-no-optionssetoptionsunsetnodialog-noto/README.md)
+* [FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS\_SET/OPTIONS\_UNSET/NO\_DIALOG 进行操作和实践](2023-nian-9-yue-yi-qian/freebsd-ports-zhong-de-options-gong-neng-jie-shao-shi-yong-optionssetoptionsunsetnodialog-jin-hang-c.md)
 * [FreeBSD Bhyve 上的 PCI 直通](2023-nian-9-yue-yi-qian/freebsd-bhyvedepci-passthrough.md)
 * [2023 年 FreebBSD 谷歌编程之夏学生介绍：Raghav Sharma](2023-nian-9-yue-yi-qian/meet-the-2023-freebsd-google-summer-of-code-students-raghav-sharma.md)
 * [2023 年 7 月软件开发项目进展报道](2023-nian-9-yue-yi-qian/july-2023-software-development-projects-update.md)
