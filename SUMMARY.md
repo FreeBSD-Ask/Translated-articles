@@ -9,6 +9,7 @@
 * [FreeBSD 企业工作组首次会议总结](2023-nian-9-yue/recap-of-first-meeting-of-the-freebsd-enterprise-working-group.md)
 * [OpenBSD 路由器指南](<2023-nian-9-yue/OpenBSD Router Guide.md>)
 * [认识 2023 年 FreeBSD 谷歌编程之夏的学生：Sudhanshu Mohan Kashyap](2023-nian-9-yue/meet-the-2023-freebsd-google-summer-of-code-students-sudhanshu-mohan-kashyap.md)
+* [认识 2023 年夏季滑铁卢大学合作学生：Naman Sood](2023-nian-9-yue/meet-the-summer-2023-university-of-waterloo-co-op-student-naman-sood.md)
 
 ## 2023 年 9 月以前
 
