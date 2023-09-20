@@ -23,7 +23,7 @@ TL;DR 以下表格总结了优先项目的状态。蓝色行似乎是我们可�
 | **Enterprise CA**                    | **是**         | **Greg W**               | **是**         | **是**     |
 
 
-鉴于这个工作组在"Zero Trust Builds"和"Ports Automation"项目上可能取得有限进展，建议我们将它们放到停车区，而不是将更好的证书机构支持纳入范围，因为社区似乎可以采取明确的下一步行动。
+鉴于这个工作组在“Zero Trust Builds”和“Ports Automation”项目上可能取得的进展有限，我们建议将它们放到一旁，而不是将更好的证书机构支持纳入范围，因为社区似乎可以采取明确的下一步行动。
 
 我们回顾了功能和基础设施优先级和难度调查的结果，并开始制定下一步计划，以解决最高优先级的问题。
 
@@ -73,10 +73,10 @@ TL;DR 以下表格总结了优先项目的状态。蓝色行似乎是我们可�
 
 我提供了两个链接，以提供特性请求给 Nvidia：
 
-- [Nvidia 论坛链接 1](https://forums.developer.nvidia.com/t/will-cuda-work-with-freebsd/926/4)
-- [Nvidia 论坛链接 2](https://forums.developer.nvidia.com/t/cuda-and-nv-un-register-os-un-lock-user-pages/174678)
+- [Will CUDA work with FreeBSD?](https://forums.developer.nvidia.com/t/will-cuda-work-with-freebsd/926/4)
+- [UDA and /(nv_(un|)register|os_(un|)lock)_user_pages/](https://forums.developer.nvidia.com/t/cuda-and-nv-un-register-os-un-lock-user-pages/174678)
 
-如果社区可以持续请求 FreeBSD 上的支持，希望能够得到 NVIDIA 的一些帮助。
+如果社区可以持续请求对 FreeBSD 的支持，希望能够得到 NVIDIA 的一些帮助。
 
 工作组中的其他两名成员表示愿意提供帮助。感谢他们！
 
@@ -86,7 +86,7 @@ TL;DR 以下表格总结了优先项目的状态。蓝色行似乎是我们可�
 
 ### Samba
 
-在上周早些时候，我们与一位有着与 Samba 团队合作经验的开发者进行了交谈。他们将通过电子邮件联系 Samba 团队，并提供帮助将补丁上游。
+在上周早些时候，我们与一位有着与 Samba 团队合作经验的开发者进行了交谈。他们将通过电子邮件联系 Samba 团队，并提供帮助将补丁（回馈给）上游。
 
 Samba 团队和其他项目要求的一个事项是使用 FreeBSD 进行 GitHub Actions，以帮助自动化工作。FreeBSD 基金会将联系 GitHub 和 Microsoft 的人，尝试将这个功能引入。
 
@@ -104,7 +104,7 @@ Samba 团队和其他项目要求的一个事项是使用 FreeBSD 进行 GitHub 
 
 ### 企业 CA（推进的原因是似乎需要的工作量较小，而“Zero Trust Builds”和“Ports Automation”目前对工作组无效）
 
-与 AD/DNS 类似，这里的下一步是进行快速电话会议 - 查看目前的情况，还需要做什么，需要有人可以提交补丁。
+与 AD/DNS 类似，这里的下一步是进行快速电话会议——查看目前的情况，还需要做什么，需要有人可以提交补丁。
 
 Greg 将采取行动，与 Joe/Ed/其他人一起确定谁是最适合提供帮助的人。
 
