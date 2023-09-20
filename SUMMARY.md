@@ -11,6 +11,7 @@
 * [认识 2023 年 FreeBSD 谷歌编程之夏的学生：Sudhanshu Mohan Kashyap](2023-nian-9-yue/meet-the-2023-freebsd-google-summer-of-code-students-sudhanshu-mohan-kashyap.md)
 * [认识 2023 年夏季滑铁卢大学合作学生：Naman Sood](2023-nian-9-yue/meet-the-summer-2023-university-of-waterloo-co-op-student-naman-sood.md)
 * [FreeBSD 基金会 2023 年暑期实习生：Jake Freeland](2023-nian-9-yue/meet-freebsd-foundation-2023-summer-intern-jake-freeland.md)
+* [第二次企业工作组会议回顾](2023-nian-9-yue/recap-of-second-enterprise-working-group-meeting.md)
 
 ## 2023 年 9 月以前
 
