@@ -12,6 +12,7 @@
 * [认识 2023 年夏季滑铁卢大学合作学生：Naman Sood](2023-nian-9-yue/meet-the-summer-2023-university-of-waterloo-co-op-student-naman-sood.md)
 * [FreeBSD 基金会 2023 年暑期实习生：Jake Freeland](2023-nian-9-yue/meet-freebsd-foundation-2023-summer-intern-jake-freeland.md)
 * [第二次企业工作组会议回顾](2023-nian-9-yue/recap-of-second-enterprise-working-group-meeting.md)
+* [OpenBSD 与 FreeBSD：有何不同，哪个更好？](2023-nian-9-yue/openbsd-vs.-freebsd-what-is-the-difference-which-is-best.md)
 
 ## 2023 年 9 月以前
 
