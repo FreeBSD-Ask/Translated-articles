@@ -9,15 +9,15 @@
 
 >**主要要点**
 >
->**OpenBSD 和 FreeBSD 在安装过程上有所不同，OpenBSD 假定用户具备更多的计算机经验，界面较为简约，而 FreeBSD 则具有更为精致的安装程序。**
+>**OpenBSD 和 FreeBSD 在安装过程上有所不同，OpenBSD 假定用户具备更多的计算机经验，（安装）界面较为简约，而 FreeBSD 则具有更为精致的安装程序。**
 >
->**OpenBSD 专注于安全性，并以其对代码正确性的担保而闻名。另一方面，FreeBSD 被定位为通用系统，有着支持点对点互联网基础设施的历史。**
+>**OpenBSD 专注于安全性，并以其对代码正确性的承诺而闻名。另一方面，FreeBSD 被定位为通用系统，有着支持点对点互联网基础设施的历史。**
 >
 >**FreeBSD 拥有更好的文档，包括一本写得很好的手册，既可以作为专家的参考，也可以作为初学者的入门指南。而 OpenBSD 的文档更面向专家，并在视觉上根植于上世纪 90 年代。**
 
 [OpenBSD](https://www.makeuseof.com/what-is-openbsd/) 和 [FreeBSD](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555652387021&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fwww.freebsd.org%2F&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=FreeBSD) 都是原始的服务器专用的伯克利软件发行版（BSD）的后继者，该发行版在 20 世纪 70 年代末至 90 年代由加州大学伯克利分校（UC Berkeley）开发。
 
-作为流行的开源项目，它们有着忠实的用户群，被视为 Linux 的替代选择。它们有哪些不同之处，哪一个可能适合你呢？
+作为流行的开源项目，它们有着忠实的用户群，被视为 Linux 的替代选择。它们有哪些不同之处，哪一个可能更适合你呢？
 
 ## 安装过程：OpenBSD 与 FreeBSD
 
@@ -25,9 +25,9 @@ OpenBSD 和 FreeBSD 都有安装程序，可让你在计算机上分区并安装
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/4f8917f3-6b27-4030-ab98-7416822c8dd2)
 
-OpenBSD 假定用户具备丰富的计算机经验，其界面相对简约。你需要从其网站下载安装镜像，就像在下载 Linux 时一样，然后将其[提取到存储设备](https://www.makeuseof.com/tag/extract-iso-files-linux/)中，并启动计算机。
+OpenBSD 假定用户具备丰富的计算机经验，其（安装）界面相对简约。你需要从其网站下载安装镜像，就像在下载 Linux 时一样，然后将其[提取到存储设备](https://www.makeuseof.com/tag/extract-iso-files-linux/)中，并启动计算机。
 
-当你的计算机启动时，你会看到一个控制台界面。与主要的 Linux 发行版不同，OpenBSD 没有图形化的安装程序或 live CD。你需要从终端运行安装程序，并回答有关键盘类型和区域的问题。
+当你的计算机启动时，你会看到一个控制台界面。与主要的 Linux 发行版不同，OpenBSD 没有图形化的安装程序和 live CD。你需要从终端运行安装程序，并回答有关键盘类型和区域的问题。
 
 如果你犯了错误，你唯一能做的就是按下 **Ctrl + C**，然后重新开始。这个安装程序类似于专注于专家用户的发行版——如 Arch 或 Gentoo。
 
@@ -35,7 +35,7 @@ OpenBSD 假定用户具备丰富的计算机经验，其界面相对简约。你
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/3d37befc-ff49-410d-86d0-94a35a74ac1e)
 
-FreeBSD 的安装程序类似，但界面更为精致。不过，它仍然是基于文本的。如果你在上世纪 90 年代曾在 MS-DOS 系统上安装过游戏，那么 FreeBSD 的安装程序会让你感到熟悉。
+FreeBSD 的安装程序类似，但（安装）界面更为精致。不过，它仍然是基于文本的。如果你在上世纪 90 年代曾在 MS-DOS 系统上安装过游戏，那么 FreeBSD 的安装程序会让你感到熟悉。
 
 它还会引导你完成 FreeBSD 机器的设置，如格式化分区（FreeBSD 称之为 "slices"）、选择软件、设置互联网连接以及设置用户和时区。
 
@@ -49,7 +49,7 @@ OpenBSD 和 FreeBSD 都源自 386BSD 项目，该项目旨在将 BSD 源代码�
 
 OpenBSD 由 Theo De Raadt 创建，此前他与其他 NetBSD 开发者发生了多次分歧。NetBSD 本身是 386BSD 的另一个分支。
 
-OpenBSD 以其关注安全性而闻名。截至 2023 年 9 月，该项目的官方网站声称在默认安装中已经很长一段时间内只发现了两个远程漏洞。
+OpenBSD 以其对安全性的关注而闻名。截至 2023 年 9 月，该项目的官方网站声称在默认安装中已经在很长一段时间内只发现了两个远程漏洞。
 
 在上世纪 90 年代的互联网繁荣时期，OpenBSD 最初因在小型 ISP 中使用二手零件从头开始构建路由器和网关而广受欢迎。随着互联网服务的集中化和专业化，专用硬件变得更加普遍，但 OpenBSD 通过强调代码正确性来保持对安全性的关注。
 
