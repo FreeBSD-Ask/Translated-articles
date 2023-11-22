@@ -2,6 +2,16 @@
 
 * [Translated-articles](README.md)
 
+## 2023 年 11 月
+
+* [OpenBSD 路由器指南](2023-nian-11-yue/openbsd-router-guide.md)
+* [如何在 FreeBSD 中指定 CPUTYPE](2023-nian-11-yue/denono.md)
+* [BIOS 启动和 UEFI 启动的区别以及如何制作 GPT 分区](2023-nian-11-yue/btotobtodeptishonnoitori.md)
+* [ZFS 镜像池更换磁盘扩容](2023-nian-11-yue/zfsmirprunodisukuniyoru.md)
+* [通过为 ZFS 池配置镜像来消除无效数据的影响](2023-nian-11-yue/zfspruwomirdesurukotodedtanowokusu.md)
+* [FreeBSD Bhyve 上的 PCI 直通](2023-nian-11-yue/freebsd-bhyvedepci-passthrough.md)
+* [我尝试破坏 ZFS 池](2023-nian-11-yue/zfspruwoshitemita.md)
+
 ## 2023 年 9 月
 
 * [认识 2023 年参与 FreeBSD 谷歌编程之夏项目的学生：Soobin Rho](2023-nian-9-yue/ren-shi-2023-nian-can-yu-freebsd-gu-ge-bian-cheng-zhi-xia-xiang-mu-de-xue-sheng-soobin-rho.md)
