@@ -2,6 +2,18 @@
 
 * [Translated-articles](README.md)
 
+## 2023 年 12 月
+
+* [FreeBSD 新手？来参与社区吧](2023-nian-12-yue/new-to-freebsd-heres-where-to-connect-with-the-community.md)
+* [介绍来 FreeBSD 的学生](2023-nian-12-yue/introducing-students-to-freebsd.md)
+* [EuroBSDCon 2023 旅行报告——Bojan Novković](2023-nian-12-yue/eurobsdcon-2023-trip-report-bojan-novkovic.md)
+* [什么是开发播客？FreeBSD 项目的演变](2023-nian-12-yue/what-the-dev-podcast-the-evolution-of-the-freebsd-project.md)
+* [EuroBSDCon 2023 旅行报告——Mark Johnston](2023-nian-12-yue/eurobsdcon-2023-trip-report-mark-johnston.md)
+* [TalkDev：探索开源的未来](2023-nian-12-yue/talkdev-exploring-the-future-of-open-source.md)
+* [为什么选择 FreeBSD？Metify 展示迁移到 FreeBSD 如何对两个新产品进行增强](2023-nian-12-yue/why-freebsd-metify-to-showcase-how-moving-to-freebsd-enhanced-two-new-products.md)
+* [FreeBSD 基金会宣布通过 SSDF 认证](2023-nian-12-yue/freebsd-foundation-announces-ssdf-attestation.md)
+* [2023 年全球开放大会报告](2023-nian-12-yue/all-things-open-2023-conference-report.md)
+
 ## 2023 年 11 月
 
 * [OpenBSD 路由器指南](2023-nian-11-yue/openbsd-router-guide.md)
@@ -57,15 +69,3 @@
 * [2023 年 7 月软件开发项目进展报道](2023-nian-9-yue-yi-qian/july-2023-software-development-projects-update.md)
 * [用于研究的 FreeBSD：CHERI/Morello](2023-nian-9-yue-yi-qian/freebsd-for-research-cherimorello.md)
 * [在 FreeBSD Jail 中使用 OpenRC 启动并运行 Devuan GNU+Linux 系统](2023-nian-9-yue-yi-qian/freebsd-jail-booting-and-running-devuan-gnu+linux-with-openrc.md)
-
-## 2023 年 12 月
-
-* [FreeBSD 新手？来参与社区吧](2023-nian-12-yue/new-to-freebsd-heres-where-to-connect-with-the-community.md)
-* [介绍来 FreeBSD 的学生](2023-nian-12-yue/introducing-students-to-freebsd.md)
-* [EuroBSDCon 2023 旅行报告——Bojan Novković](2023-nian-12-yue/eurobsdcon-2023-trip-report-bojan-novkovic.md)
-* [什么是开发播客？FreeBSD 项目的演变](2023-nian-12-yue/what-the-dev-podcast-the-evolution-of-the-freebsd-project.md)
-* [EuroBSDCon 2023 旅行报告——Mark Johnston](2023-nian-12-yue/eurobsdcon-2023-trip-report-mark-johnston.md)
-* [TalkDev：探索开源的未来](2023-nian-12-yue/talkdev-exploring-the-future-of-open-source.md)
-* [为什么选择 FreeBSD？Metify 展示迁移到 FreeBSD 如何对两个新产品进行增强](2023-nian-12-yue/why-freebsd-metify-to-showcase-how-moving-to-freebsd-enhanced-two-new-products.md)
-* [FreeBSD 基金会宣布通过 SSDF 认证](2023-nian-12-yue/freebsd-foundation-announces-ssdf-attestation.md)
-* [2023 年全球开放大会报告](2023-nian-12-yue/all-things-open-2023-conference-report.md)
