@@ -3,6 +3,8 @@
 - 原文链接：<https://freebsdfoundation.org/blog/new-to-freebsd-heres-where-to-connect-with-the-community/>
 - 译者：Canvis-Me & ChatGPT
 
+2023 年 10 月 4 日
+
 ![image](https://github.com/Canvis-Me/Translated-articles/assets/55122738/e82be60e-4e71-4acd-a992-53987e5ee5e2)
 
 FreeBSD 项目始终对新用户和贡献者充满期待！参与其中的最简单方式是通过社区本身：邮件列表、社交媒体和本地聚会。这些空间充满了热衷于帮助新用户的 FreeBSD 用户、开发者和爱好者。它们是讨论 FreeBSD、认识社区成员以及询问有关操作系统的问题的绝佳场所。
