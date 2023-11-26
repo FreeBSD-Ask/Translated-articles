@@ -1,5 +1,9 @@
 # 2023 年全球开放大会报告
 
+- 原文链接：<https://freebsdfoundation.org/blog/all-things-open-2023-conference-report/>
+- 作者：Drew Gurkowski
+- 译者：Canvis-Me & ChatGPT
+
 2023 年 11 月 14 日
 
 上个月，我前往北卡罗来纳州的罗利参加了 2023 年的 All Things Open 大会。虽然基金会过去曾在展台设有工作人员，但这是我第一次亲自参加这个会议。我在会议前一天飞到了罗利，并在设置基金会展台之前有时间参观了这个城市。我结束了这一天，尝试了我的第一顿北卡罗来纳烤肉，真是让人满意！
