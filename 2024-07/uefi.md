@@ -1,5 +1,8 @@
 # 使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法
 
+- <https://qiita.com/nanorkyo/items/429d7382a418b38de4d3>
+
+
 * [FreeBSD](https://qiita.com/tags/freebsd)
 * [BIOS](https://qiita.com/tags/bios)
 * [UEFI](https://qiita.com/tags/uefi)
