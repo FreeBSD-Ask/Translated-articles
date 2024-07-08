@@ -14,7 +14,7 @@ Michael J. Karels 曾在加利福尼亚大学伯克利分校(University of Calif
 
 ### Unix V6/V7: 从 0 开始
 
-这台机器上运行着第六版 Unix（V6 Unix），附带了一些来自 2.8BSD、2.9BSD 的增强功能。PDP11/40 引起了他的兴趣，为了科学评估，他编写了个 Fortran 程序。在系统发生错误后，员工将 V6 Unix 替换为第 7 版 Unix（V7）--这位员工就于 2022 年 3 月去世的 Bill Jolitz。Bill 和他的妻子在 386BSD 的开发中发挥了重要作用。Unix V7 并不能完美运行在 PDP11/40 上，技术仪器的设备也无法正常驱动。在掌握很少的计算机知识的情况下，Michael J. Karels 开始研究这个问题，并在 Bill Jolitz 的帮助下适配了 V7 Unix 的软件和驱动。
+这台机器上运行着第六版 Unix（V6 Unix），附带了一些来自 2.8BSD、2.9BSD 的增强功能。PDP11/40 引起了他的兴趣，为了科学评估，他编写了个 Fortran 程序。在系统发生错误后，一位员工将 V6 Unix 替换为第 7 版 Unix（V7）--他就是于 2022 年 3 月去世的 Bill Jolitz。Bill 和他的妻子在 386BSD 的开发中发挥了重要作用。Unix V7 并不能完美运行在 PDP11/40 上，技术仪器的设备也无法正常驱动。在掌握很少的计算机知识的情况下，Michael J. Karels 开始研究这个问题，并在 Bill Jolitz 的帮助下适配了 V7 Unix 的软件和驱动。
 
 ### 计算机系统研究小组（CSRG）
 
