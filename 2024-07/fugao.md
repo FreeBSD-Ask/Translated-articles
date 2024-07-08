@@ -4,7 +4,7 @@
 
 Michael "Mike" John Karels（1956 年 8 月 2 日 - 2024 年 6 月 2 日），享年 67 岁，来自伊甸草原。
 
-Michael 于加拿大渥太华因突发心脏病突然离世。仅余他挚爱的妻子 Theresa “Teri”（娘家姓 Spartz）仍在人世间；女儿 Sarah 及其男友 Ivan Munkres、姐妹 Colleen (Stuart) Lind、Mary Beth (Brad) Schleif 和 Katherine Karels、兄弟 Eugene (Ann) Karels 以及许多家人和朋友，包括他的父母 Patricia 和 Charles Karels 都在他之前去世了。
+Michael 于加拿大渥太华因突发心脏病猝然离世。仅余他挚爱的妻子 Theresa “Teri”（娘家姓 Spartz）仍在人世间；女儿 Sarah 及其男友 Ivan Munkres、姐妹 Colleen (Stuart) Lind、Mary Beth (Brad) Schleif 和 Katherine Karels、兄弟 Eugene (Ann) Karels 以及许多家人和朋友，包括他的父母 Patricia 和 Charles Karels 都在他之前去世了。
 
 Michael 毕业于圣母大学（即诺特丹大学），取得微生物学学士学位，并在加州大学伯克利分校完成了研究生学业。在攻读博士学位期间，他接触到了计算机，使他的兴趣发生转向。他最终成为了一名软件工程师，并在 BSD UNIX 历史上扮演了重要角色，这是现代计算史上一个重要的里程碑。通过在伯克利大学的工作，他为早期互联网的实现做出了贡献，为现代网络奠定了基础。他是《4.4 BSD 操作系统的设计与实现》的作者之一，这是该领域的重要著作。”
 
