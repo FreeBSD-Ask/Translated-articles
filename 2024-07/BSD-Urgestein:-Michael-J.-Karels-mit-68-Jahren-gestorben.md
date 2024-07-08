@@ -31,5 +31,3 @@ Michael J. Karels 也早早加入了 CSRG，成为了 BSD TCP 堆栈开发的一
 1993 年，USENIX 协会授予加利福尼亚大学伯克利分校计算机系统研究组终身成就奖（Flame），以表彰包括 Karels 在内的 180 位人士，他们为 CSRG 发布 4.4BSD-Lite 做出了贡献。
 
 Michael J. Karels 与 Marshall Kirk McKusick 合著了多本关于《4.3BSD UNIX 操作系统的设计与实现》的书籍。去年五月，Karels 在渥太华举行的 FreeBSD 开发者峰会 2023 上谈到了他在 BSD 生态系统内的职业生涯。
-
- （福）
