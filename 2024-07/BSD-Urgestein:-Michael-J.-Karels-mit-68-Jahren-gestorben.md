@@ -20,7 +20,7 @@ Michael J. Karels 曾在加利福尼亚大学伯克利分校（University of Cal
 
 1974 年，加州大学伯克利分校的 Bob Fabry 教授从 AT&T 获得了 UNIX 源代码许可证。他与同事开始修改 UNIX，并将修改成果以伯克利软件发行板（BSD）的名义进行销售。 1980 年 4 月，为了满足 ARPAnet（美国国防部高级研究计划局）的特殊需求，Fabry 与 DARPA 签订合同，以继续开发 UNIX。在此资助下，Fabry 成立了计算机系统研究小组（CSRG）。
 
-Michael J. Karels 也早早加入了 CSRG，成为负责 BSD TCP 堆栈开发。BSD4.2 中并没有版权声明，但许多美国公司在略微修改后却加入了自己的版权信息，Karels 对此感到不满。因此，他与律师合作，创造了如今在每个源代码文件中都存在的版权声明，该声明随 4.3BSD 分发。随着时间的推移，FreeBSD、NetBSD、OpenBSD、DragonFly BSD 或 Sun Solaris 等系统因此诞生。
+Michael J. Karels 也早早加入了 CSRG，成为负责 BSD TCP 堆栈开发的一员。BSD4.2 中并没有版权声明，但许多美国公司在略微修改后却加入了自己的版权信息，Karels 对此感到不满。因此，他与律师合作，创造了如今在每个源代码文件中都存在的版权声明，该声明随 4.3BSD 分发。随着时间的推移，FreeBSD、NetBSD、OpenBSD、DragonFly BSD 或 Sun Solaris 等系统因此诞生。
 
 ### 转职为 BSDi 的首席系统架构师
 
