@@ -1,5 +1,8 @@
 # FreeBSD 中如何指定 CPU 类型
 
+- <https://qiita.com/nanorkyo/items/e0417d8c1388750cb72c>
+
+
 * [FreeBSD](https://qiita.com/tags/freebsd)
 * [CPU](https://qiita.com/tags/cpu)
 * [ 编译器](https://qiita.com/tags/%e3%82%b3%e3%83%b3%e3%83%91%e3%82%a4%e3%83%a9)
