@@ -1,12 +1,10 @@
 # BSD 老将：Michael J. Karels 逝世，享年 68 岁
 
-<https://www.heise.de/news/BSD-Urgestein-Michael-J-Karels-mit-68-Jahren-gestorben-9751528.html>
+- 原文地址：<https://www.heise.de/news/BSD-Urgestein-Michael-J-Karels-mit-68-Jahren-gestorben-9751528.html>
+- 作者：Michael Plura
+- 发布时间：2024 年 6 月 7 日上午 10:07
 
-作者：Michael Plura
-
-2024 年 6 月 7 日上午 10:07
-
-他在开源 BSD-Unix 项目中发挥了重要作用，创立了 BSD 许可证，并一直致力于 FreeBSD 的开发——追忆逝世想 Michael J. Karels 先生。
+他在 BSD-Unix 开源项目中发挥了重要作用，正是他创立了 BSD 许可证，并一直致力于开发 FreeBSD。让我们一起追忆永远离开我们的 Michael J. Karels 先生。
 
 ![](https://heise.cloudimg.io/width/610/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/6/0/7/7/5/3/IMG_1018-1-5f2b0351b7c569ce.jpeg)
 
@@ -14,7 +12,7 @@
 
  作者：Michael Plura
 
-迈克尔·J·卡雷尔斯(Michael J. Karels)在加利福尼亚大学伯克利分校(University of California, Berkeley)攻读分子生物学时第一次接触到伯克利软件发行计划(Berkeley Software Distribution，BSD)。他工作的实验室分为两个领域：一个是细菌基因的遗传学研究，他表示那里的高科技设备是由牙签和培养皿组成的。另一个领域是分析细菌基因的一部分，这个部分提供了某种特定酶的建模说明书。那里有许多技术设备，包括一台用于数据收集和分析的 PDP 11/40。
+Michael J. Karels 曾在加利福尼亚大学伯克利分校(University of California, Berkeley)攻读分子生物学，那是他首次接触到伯克利软件发行版计划(Berkeley Software Distribution，BSD)。他所在的实验室涉足了两个领域：细菌基因的遗传学研究，他曾说那里的高科技设备是由牙签和培养皿构成的。另一个领域是分析细菌基因的子部分，该部分提供了某种特定酶的建模说明。实验室有许多专业设备，其中就包含了一台用于数据收集和数据分析的 PDP 11/40。
 
 ### Unix V6/V7: 从头开始
 
