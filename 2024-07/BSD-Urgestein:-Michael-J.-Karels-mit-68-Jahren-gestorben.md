@@ -28,10 +28,10 @@ Michael J. Karels 也早早加入了 CSRG，成为负责 BSD TCP 堆栈开发。
 
 1992 年 2 月，Karels 转职到 BSDi（伯克利软件设计公司），参与 BSD/OS 的开发。BSD/OS 曾是多年唯一在英特尔平台上提供的商业化类 BSD Unix 操作系统。BSDi 的所有软件资产于 2001 年 4 月被凤河收购，Karels 随后成为风河的首席技术专家，负责 BSD/OS 平台。
 
-2003 年，Karels 转职成为 Secure Computing Corporation 的高级首席工程师，该公司使用 BSD/OS 作为 SecureOS 的基础。在这里，他主要开发了一个产品：Sidewinder 防火墙，后来被称为 McAfee Firewall Enterprise（迈克菲防火墙企业版），并以其声名狼藉。由于 BSD/OS 的开发逐渐停滞，Karels 提议将 SecureOS 从 BSD/OS 迁移到 FreeBSD。多年来，该项目中的许多重要成果都回馈给了 FreeBSD。Karels 在 2017 年被正式任命为 FreeBSD 的提交者。退休后，他继续在业余时间为 FreeBSD 做贡献。
+2003 年，Karels 转职成为 Secure Computing Corporation 的高级首席工程师，该公司以 BSD/OS 作为 SecureOS 的基石。在这，他主要开发了的产品是Sidewinder 防火墙，后来被称为 McAfee Firewall Enterprise（迈克菲防火墙企业版），并以其声名狼藉。由于 BSD/OS 的开发逐渐停滞，Karels 提议将 SecureOS 从 BSD/OS 迁移到 FreeBSD。多年来，该项目中的许多重要成果都回馈给了 FreeBSD。Karels 在 2017 年被正式任命为 FreeBSD 的提交者。退休后，他继续在业余时间为 FreeBSD 做贡献。
 
 ### 奖项、书籍和演讲
 
-1993 年，USENIX 协会授予加利福尼亚大学伯克利分校计算机系统研究组终身成就奖（Flame），以表彰包括 Karels 在内的 180 位人士，他们为 CSRG 发布 4.4BSD-Lite 做出了贡献。
+1993 年，USENIX 协会授予加利福尼亚大学伯克利分校计算机系统研究小组终身成就奖（Flame），以表彰包括 Karels 在内的 180 位人士，他们为 CSRG 发布 4.4BSD-Lite 做出了贡献。
 
-Michael J. Karels 与 Marshall Kirk McKusick 合著了多本关于《4.3BSD UNIX 操作系统的设计与实现》的书籍。去年五月，Karels 在渥太华举行的 FreeBSD 开发者峰会 2023 上谈到了他在 BSD 生态系统内的职业生涯。
+Michael J. Karels 与 Marshall Kirk McKusick 合著了多本关于《4.3BSD UNIX 操作系统设计与实现》的书籍。去年五月，Karels 在渥太华举行的 FreeBSD 开发者峰会 2023 上谈到了他在 BSD 生态系统内的职业生涯。
