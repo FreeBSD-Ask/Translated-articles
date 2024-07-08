@@ -1,5 +1,11 @@
 # BSD 老将：Michael J. Karels 逝世，享年 68 岁
 
+<https://www.heise.de/news/BSD-Urgestein-Michael-J-Karels-mit-68-Jahren-gestorben-9751528.html>
+
+作者：Michael Plura
+
+2024 年 6 月 7 日上午 10:07
+
 他在开源 BSD-Unix 项目中发挥了重要作用，创立了 BSD 许可证，并一直致力于 FreeBSD 的开发——追忆逝世想 Michael J. Karels 先生。
 
 ![](https://heise.cloudimg.io/width/610/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/6/0/7/7/5/3/IMG_1018-1-5f2b0351b7c569ce.jpeg)
