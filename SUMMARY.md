@@ -12,7 +12,7 @@
 * [通过为 ZFS 池配置镜像来消除无效数据的影响](2024-07/zfs.md)
 * [FreeBSD Bhyve PCI 直通](2024-07/pci.md)
 * [ZFS 池破坏实验](2024-07/zfs-po-huai.md)
-* [FreeBSD ports 开发技术研究](2024-07/https://qiita.com/nanorkyo/items/bc1860f624823501e197)
+* [FreeBSD ports 开发技术研究](2024-07/ports.md)
 
 ## 2023 年 12 月
 
