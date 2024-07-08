@@ -1,5 +1,7 @@
 ## 讣告——Michael "Mike" John Karels
 
+[点击此处](https://www.paxchristi.com/video.aspx?v=fcd6af92-ffab-4c5b-abf8-a2c8d392f83f&subheadertext=Funeral+-+Michael+Karels+-+June+18th%2c+2024)可以观看弥撒的录制视频。
+
 - 原文位于 <https://www.gearty-delmore.com/obituaries/michael-mike-karels>（网上扫墓）
 
 Michael "Mike" John Karels（1956 年 8 月 2 日 - 2024 年 6 月 2 日），享年 67 岁，来自伊甸草原。
