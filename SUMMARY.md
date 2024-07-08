@@ -14,6 +14,7 @@
 * [ZFS 池破坏实验](2024-07/zfs-po-huai.md)
 * [FreeBSD ports 开发技术研究](2024-07/ports.md)
 * [FreeBSD pkg 命令概述](2024-07/pkg.ports)
+* [portsnap 被淘汰了，本应由 git 代替，但结果我发现自己用的是 got](2024-07/git.md)
 
 ## 2023 年 12 月
 
