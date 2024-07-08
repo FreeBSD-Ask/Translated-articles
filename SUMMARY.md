@@ -10,6 +10,7 @@
 * [使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法](2024-07/uefi.md)
 * [通过替换 ZFS 镜像池中的磁盘来扩容](2024-07/disk.md)
 * [通过为 ZFS 池配置镜像来消除无效数据的影响](2024-07/zfs.md)
+* [FreeBSD Bhyve PCI 直通](2024-07/pci.md)
 
 
 ## 2023 年 12 月
@@ -24,16 +25,6 @@
 * [FreeBSD 基金会宣布通过 SSDF 认证](2023-nian-12-yue/freebsd-foundation-announces-ssdf-attestation.md)
 * [2023 年全球开放大会报告](2023-nian-12-yue/all-things-open-2023-conference-report.md)
 * [ FreeBSD v14：恪守类 Unix 操作系统传统，提升安全性与性能](2023-nian-12-yue/freebsd-keeps-unix-like-os-alive-boosts-security-and-performance-with-v14.md)
-
-## 2023 年 11 月
-
-* [OpenBSD 路由器指南](2023-nian-11-yue/openbsd-router-guide.md)
-* [如何在 FreeBSD 中指定 CPUTYPE](2023-nian-11-yue/denono.md)
-* [BIOS 启动和 UEFI 启动的区别以及如何制作 GPT 分区](2023-nian-11-yue/btotobtodeptishonnoitori.md)
-* [ZFS 镜像池更换磁盘扩容](2023-nian-11-yue/zfsmirprunodisukuniyoru.md)
-* [通过为 ZFS 池配置镜像来消除无效数据的影响](2023-nian-11-yue/zfspruwomirdesurukotodedtanowokusu.md)
-* [FreeBSD Bhyve 上的 PCI 直通](2023-nian-11-yue/freebsd-bhyvedepci-passthrough.md)
-* [我尝试破坏 ZFS 池](2023-nian-11-yue/zfspruwoshitemita.md)
 
 ## 2023 年 9 月
 
