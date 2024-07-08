@@ -4,9 +4,9 @@
 
 Michael "Mike" John Karels（1956 年 8 月 2 日 - 2024 年 6 月 2 日），享年 67 岁，来自伊甸草原。
 
-Michael 因突发心脏病于加拿大渥太华突然离世。仅余他挚爱的妻子 Theresa “Teri”（娘家姓 Spartz）仍在人世间；女儿 Sarah 及其男友 Ivan Munkres、姐妹 Colleen (Stuart) Lind、Mary Beth (Brad) Schleif 和 Katherine Karels、兄弟 Eugene (Ann) Karels 以及许多家人和朋友，包括他的父母 Patricia 和 Charles Karels 都在他之前去世了。
+Michael 于加拿大渥太华因突发心脏病突然离世。仅余他挚爱的妻子 Theresa “Teri”（娘家姓 Spartz）仍在人世间；女儿 Sarah 及其男友 Ivan Munkres、姐妹 Colleen (Stuart) Lind、Mary Beth (Brad) Schleif 和 Katherine Karels、兄弟 Eugene (Ann) Karels 以及许多家人和朋友，包括他的父母 Patricia 和 Charles Karels 都在他之前去世了。
 
-Michael 毕业于圣母大学（即诺特丹大学），主修微生物学，并在加州大学伯克利分校完成了研究生课程。在攻读博士学位期间，他接触到了计算机，使他的兴趣发生转向。他最终成为了一名软件工程师，在 BSD UNIX 历史上扮演了重要角色，这是现代计算史上一个重要的里程碑。通过在伯克利的工作，他为早期互联网的实施做出了贡献，为现代网络奠定了基础。他是《4.4 BSD 操作系统的设计与实现》的作者之一，这是该领域的重要著作之一。”
+Michael 毕业于圣母大学（即诺特丹大学），取得微生物学学士学位，并在加州大学伯克利分校完成了研究生学业。在攻读博士学位期间，他接触到了计算机，使他的兴趣发生转向。他最终成为了一名软件工程师，并在 BSD UNIX 历史上扮演了重要角色，这是现代计算史上一个重要的里程碑。通过在伯克利大学的工作，他为早期互联网的实现做出了贡献，为现代网络奠定了基础。他是《4.4 BSD 操作系统的设计与实现》的作者之一，这是该领域的重要著作。”
 
 “在伯克利任职后，他曾在多个组织担任高级首席工程师，包括风河公司、安全计算公司、迈克菲、英特尔和 Forcepoint。2021 年他退休了，并将时间和才能倾注于为 FreeBSD（一款的免费操作系统）做志愿工作。尽管他在相关领域取得了成功并占据重要地位，但 Michael 被人描述为是一个非常谦逊、有耐心和善良的人，并且乐于与他人分享知识。”
 
