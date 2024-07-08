@@ -28,7 +28,7 @@ Michael J. Karels 也早早加入了 CSRG，成为负责 BSD TCP 堆栈开发。
 
 1992 年 2 月，Karels 转职到 BSDi（伯克利软件设计公司），参与 BSD/OS 的开发。BSD/OS 曾是多年唯一在英特尔平台上提供的商业化类 BSD Unix 操作系统。BSDi 的所有软件资产于 2001 年 4 月被凤河收购，Karels 随后成为风河的首席技术专家，负责 BSD/OS 平台。
 
-2003 年，Karels 转职成为 Secure Computing Corporation 的高级首席工程师，该公司以 BSD/OS 作为 SecureOS 的基石。在这，他主要开发了的产品是Sidewinder 防火墙，后来被称为 McAfee Firewall Enterprise（迈克菲防火墙企业版），并以其声名狼藉。由于 BSD/OS 的开发逐渐停滞，Karels 提议将 SecureOS 从 BSD/OS 迁移到 FreeBSD。多年来，该项目中的许多重要成果都回馈给了 FreeBSD。Karels 在 2017 年被正式任命为 FreeBSD 的提交者。退休后，他继续在业余时间为 FreeBSD 做贡献。
+2003 年，Karels 转职成为 Secure Computing Corporation 的高级首席工程师，该公司以 BSD/OS 作为 SecureOS 的基石。在这，他主要开发的产品是 Sidewinder 防火墙，后来被称为 McAfee Firewall Enterprise（迈克菲防火墙企业版），并以其声名狼藉。由于 BSD/OS 的开发逐渐停滞，Karels 提议将 SecureOS 从 BSD/OS 迁移到 FreeBSD。多年来，该项目中的许多重要成果都回馈给了 FreeBSD。Karels 在 2017 年被正式任命为 FreeBSD 的提交者。退休后，他继续在业余时间为 FreeBSD 做贡献。
 
 ### 奖项、书籍和演讲
 
