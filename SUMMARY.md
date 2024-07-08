@@ -1,12 +1,16 @@
 # Table of contents
 
 * [Translated-articles](README.md)
-## 2024 年 7 约
+
+## 2024 年 7 月
 
 * [BSD 老将：Michael J. Karels 逝世，享年 68 岁](2024-07/BSD-Urgestein:-Michael-J.-Karels-mit-68-Jahren-gestorben.md)
 * [配置自己的 VPN——内置 FreeBSD、Wireguard、IPv6 和广告拦截（基于 OpenBSD）](2024-07/Make-Your-Own-VPN---Wireguard-Ipv6-and-Ad-Blocking-Included.md)
 * [如何在 FreeBSD 中指定 CPU 类型](2024-07/cpu.md)
 * [使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法](2024-07/uefi.md)
+* [通过替换 ZFS 镜像池中的磁盘来扩容](2024-07/disk.md)
+* [通过为 ZFS 池配置镜像来消除无效数据的影响](2024-07/zfs.md)
+
 
 ## 2023 年 12 月
 
