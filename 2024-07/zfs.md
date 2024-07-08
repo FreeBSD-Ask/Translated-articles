@@ -1,5 +1,7 @@
 # 通过为 ZFS 池配置镜像来消除无效数据的影响
 
+- <https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc>
+
 * [Linux](https://qiita.com/tags/linux)
 * [FreeBSD](https://qiita.com/tags/freebsd)
 * [ZFS](https://qiita.com/tags/zfs)
