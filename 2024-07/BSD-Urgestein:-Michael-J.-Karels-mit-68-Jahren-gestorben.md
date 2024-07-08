@@ -10,7 +10,7 @@
 
 (图片：FreeBSD 基金会)
 
-Michael J. Karels 曾在加利福尼亚大学伯克利分校(University of California, Berkeley)攻读分子生物学，那是他首次接触到伯克利软件发行版计划（Berkeley Software Distribution，BSD）。他所在的实验室涉足了两个领域：研究细菌基因的遗传学，他曾说那里的高科技设备是由牙签和培养皿构成的。另一个领域是分析细菌基因的子部分，该部分提供了某种特定酶的建模说明。实验室有许多专业设备，其中就包含了一台用于数据收集和数据分析的 PDP 11/40。
+Michael J. Karels 曾在加利福尼亚大学伯克利分校（University of California, Berkeley）攻读分子生物学，那是他首次接触到伯克利软件发行版计划（Berkeley Software Distribution，BSD）。他所在的实验室涉足了两个领域：研究细菌基因的遗传学，他曾说那里的高科技设备是由牙签和培养皿构成的。另一个领域是分析细菌基因的子部分，该部分提供了某种特定酶的建模说明。实验室有许多专业设备，其中就包含了一台用于数据收集和数据分析的 PDP 11/40。
 
 ### Unix V6/V7: 从 0 开始
 
