@@ -13,6 +13,7 @@
 * [FreeBSD Bhyve PCI 直通](2024-07/pci.md)
 * [ZFS 池破坏实验](2024-07/zfs-po-huai.md)
 * [FreeBSD ports 开发技术研究](2024-07/ports.md)
+* [FreeBSD pkg 命令概述](2024-07/pkg.ports)
 
 ## 2023 年 12 月
 
