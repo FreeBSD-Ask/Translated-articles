@@ -1,5 +1,7 @@
 # ZFS 池破坏实验
 
+- <https://qiita.com/belgianbeer/items/477de8ddc64787442c0b>
+
 * [Linux](https://qiita.com/tags/linux)
 * [FreeBSD](https://qiita.com/tags/freebsd)
 * [ZFS](https://qiita.com/tags/zfs)
