@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Translated-articles](README.md)
+* [FreeBSD 中文社区翻译的文章集合](README.md)
 
 ## 2024 年 7 月
 
