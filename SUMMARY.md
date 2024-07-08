@@ -16,6 +16,7 @@
 * [FreeBSD pkg 命令概述](2024-07/pkg.ports)
 * [portsnap 被淘汰了，本应由 git 代替，但结果我发现自己用的是 got](2024-07/git.md)
 * [ccache 在构建 FreeBSD 的 buildworld 时的效率](2024-07/ccache.md)
+* [Hyper-V FreeBSD 13 安装感想](2024-07/hyper.md)
 
 ## 2023 年 12 月
 
