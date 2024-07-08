@@ -1,6 +1,9 @@
 # Table of contents
 
 * [Translated-articles](README.md)
+## 2024 年 7 约
+
+* [BSD 老将：Michael J. Karels 逝世，享年 68 岁](2024-07/BSD-Urgestein:-Michael-J.-Karels-mit-68-Jahren-gestorben.md)
 
 ## 2023 年 12 月
 
