@@ -4,7 +4,7 @@
 - 作者：Michael Plura
 - 发布时间：2024 年 6 月 7 日上午 10:07
 
-他在 BSD-Unix 开源项目中发挥了重要作用，BSD 许可证正是由他一手创建的，他一直致力于 FreeBSD 的发展。让我们一起追忆永远离开我们的 Michael J. Karels 先生。
+他在 BSD-Unix 开源项目中发挥了重要作用，BSD 许可证正是由他一手创建，他一直致力于 FreeBSD 的发展。让我们一起追忆永远离开我们的 Michael J. Karels 先生。
 
 ![](https://heise.cloudimg.io/width/610/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/4/6/0/7/7/5/3/IMG_1018-1-5f2b0351b7c569ce.jpeg)
 
