@@ -1,6 +1,6 @@
 # 关于对 FreeBSD 发布计划和生命周期的修订
 
-邮件原文地址：<https://lists.freebsd.org/archives/freebsd-announce/2024-July/000143.html>
+- 邮件原文地址：<https://lists.freebsd.org/archives/freebsd-announce/2024-July/000143.html>
 
 亲爱的 FreeBSD 社区,
 
