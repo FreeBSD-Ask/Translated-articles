@@ -10,11 +10,11 @@
 
 (图片：FreeBSD 基金会)
 
-Michael J. Karels 曾在加利福尼亚大学伯克利分校（University of California, Berkeley）攻读分子生物学，那是他首次接触到伯克利软件发行版计划（Berkeley Software Distribution，BSD）。他所在的实验室涉足了两个领域：研究细菌基因的遗传学，他曾说那里的高科技设备是由牙签和培养皿构成的。另一个领域是分析细菌基因的子部分，该部分提供了某种特定酶的建模说明。实验室有许多专业设备，其中就包含了一台用于数据收集和数据分析的 PDP 11/40。
+Michael J. Karels 曾在加利福尼亚大学伯克利分校（University of California, Berkeley）攻读分子生物学学位，那是他首次接触到伯克利软件发行版计划（Berkeley Software Distribution，BSD）。他所在的实验室涉足了两个领域：研究细菌基因的遗传学，他曾说那里的高科技设备是由牙签和培养皿构成的。另一个领域是分析细菌基因的子部分，该部分提供了某种特定酶的建模说明。实验室有许多专业设备，其中就包含了一台用于数据收集和数据分析的 PDP 11/40。
 
 ### Unix V6/V7: 从 0 开始
 
-这台机器上运行着第六版 Unix（V6 Unix），附带了一些来自 2.8BSD、2.9BSD 的增强功能。PDP11/40 引起了他的兴趣，为了科学评估，他编写了个 Fortran 程序。在系统发生错误后，一位员工将 V6 Unix 替换为第 7 版 Unix（V7）--他就是于 2022 年 3 月去世的 Bill Jolitz。Bill 和他的妻子在 386BSD 的开发中发挥了重要作用。Unix V7 并不能完美运行在 PDP11/40 上，技术仪器的设备也无法正常驱动。在掌握很少的计算机知识的情况下，Michael J. Karels 开始研究这个问题，并在 Bill Jolitz 的帮助下适配了 V7 Unix 的软件和驱动。
+这台机器上运行着第六版 Unix（V6 Unix），附带了一些来自 2.8BSD、2.9BSD 的增强功能。PDP11/40 引起了他的兴趣，为了科学评估，他编写了个 Fortran 程序。在系统发生错误后，一位员工将 V6 Unix 替换为第 7 版 Unix（V7）——他就是于 2022 年 3 月去世的 Bill Jolitz。Bill 和他的妻子在 386BSD 的开发中发挥了重要作用。Unix V7 并不能完美运行在 PDP11/40 上，技术仪器的设备也无法正常驱动。在掌握很少的计算机知识的情况下，Michael J. Karels 开始研究这个问题，并在 Bill Jolitz 的帮助下适配了 V7 Unix 的软件和驱动。
 
 ### 计算机系统研究小组（CSRG）
 
