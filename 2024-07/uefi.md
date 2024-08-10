@@ -143,7 +143,7 @@ MBR 有 2 TiB 的限制，如果使用后续区域，BIOS 可能无法找到引�
 
 答：启动 Live CD 后执行 sysctl machdep.bootmethod 命令，可以确认是 UEFI 启动还是 BIOS 启动。
 
-# 【附录】更新引导加载程序
+## 【附录】更新引导加载程序
 
 ## BIOS 启动时
 
@@ -180,7 +180,7 @@ mount /boot/efi
 cp /boot/loader.efi /boot/efi/EFI/BOOT/BOOTX64.efi
 ```
 
-# 参考文献
+## 参考文献
 
 * [ gpart(8)的手册](https://www.freebsd.org/cgi/man.cgi?gpart(8))
 * [ FreeBSD 的启动过程](https://qiita.com/mzaki/items/76acac14c16ac6789e68)
