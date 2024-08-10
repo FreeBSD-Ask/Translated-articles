@@ -1,4 +1,4 @@
-# 通过替换 ZFS 镜像池中的磁盘来扩容
+# 通过替换 ZFS 镜像池中的磁盘进行扩容
 
 - 原文链接：<https://qiita.com/belgianbeer/items/8df197588462cd7f6b45>
 
