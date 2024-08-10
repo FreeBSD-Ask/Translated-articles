@@ -1,6 +1,6 @@
 # ccache 在构建 FreeBSD 的 buildworld 时的效率
 
-<https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c>
+原文：<https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c>
 
 
 * [FreeBSD](https://qiita.com/tags/freebsd)
