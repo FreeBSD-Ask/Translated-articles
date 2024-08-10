@@ -1,13 +1,13 @@
 # 使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法
 
-- <https://qiita.com/nanorkyo/items/429d7382a418b38de4d3>
+- 原文链接：<https://qiita.com/nanorkyo/items/429d7382a418b38de4d3>
 
 
 * [FreeBSD](https://qiita.com/tags/freebsd)
 * [BIOS](https://qiita.com/tags/bios)
 * [UEFI](https://qiita.com/tags/uefi)
 
-最后更新于 2020-11-11 发布于 2018-12-13
+>最后更新于 2020-11-11 发布于 2018-12-13
 
 近年来在 FreeBSD 中，“分区”几乎总是使用 GPT（GUID Partition Table）无论磁盘大小如何，这几乎是不言而喻的选择。但是，“BIOS 引导”和“UEFI 引导”在分区方案上有细微差异^1^。本文将阐明两者之间的区别，并展示可用于引导的分区配置示例。
 
