@@ -9,64 +9,61 @@
 
 # 开始
 
-在 Windows 10 （ FreeBSD 13.0 ） 上安装 FreeBSD 13 （ Windows 10 Pro 20H2 ） 在 Hyper-V 环境中运行的尝试。
+在 Windows 10、FreeBSD 13.0 上安装 FreeBSD 13 或 Windows 10 Pro 20H2。环境为 Hyper-V。
 
-关于 FreeBSD 安装的各种事项，请参考该部分，同时假定已完成关于 Hyper-V 设置的各种事项。
+有关各种 FreeBSD 安装事项，请参考该部分，同时假定已完成了 Hyper-V 相关设置事项。
 
-再次特别是关于设置方式的部分将被省略。这次我把重点放在与物理环境和其他虚拟环境不同的方面上。
+尤其是有关设置方式的部分将被省略。这次我把重点放在与物理环境和其他虚拟环境不同的方面。
 
-由于这次设置没有考虑到目的和持久性，相当大一部分是“随意”。请根据需要分配资源。
+由于这次设置没有考虑到目的和持久性，相当大一部分是“随意的”。请按需分配资源。
 
 ## 前提条件
 
-* 从ＦｒｅｅＢＳＤ１３（ FreeBSD 13.0 ）的ＩＳＯ镜像安装
-* Windows 10（ Windows 10 Pro 20H2 ）的 Hyper-V
+* 使用 FreeBSD 13（ FreeBSD 13.0 ）的 iso 进行镜像安装
+* Windows 10（ Windows 10 Pro 20H2），安装了 Hyper-V
 * 创建虚拟机时，根据 FreeBSD 兼容设备进行配置
-
-  * 虚拟机世代：第二代（支持 UEFI 环境和 64 位操作系统）
-  * 内存：随意分配并允许使用动态内存
+  * 虚拟机代际：第二代（支持 UEFI 环境和 64 位操作系统）
+  * 内存：随意分配并开启使用动态内存
   * 网络配置：连接到 Default Switch
   * 硬盘：随意分配虚拟硬盘
-  * 安装选项：从引导光盘／光碟安装操作系统，并指定安装 ISO 镜像文件
-* 对创建的虚拟机进行附加设置
-
-  * 安全性：将安全启动“禁用”
+  * 安装参数：从启动光盘／光盘安装操作系统，并指定要安装 ISO 镜像文件
+* 对创建的虚拟机进行额外设置
+  * 安全性：禁用安全启动
   * 处理器：随意更改虚拟处理器的数量
-  * 自动启动・自动停止： 根据用途进行设置
+  * 自动启动 & 自动停止：根据用途进行设置
 * 为创建的虚拟机进行附加设置 :🆕: ※需要 CUI 设置和确认
-
   * 串行控制台：命名管道设置
 
-# Hyper-V 与 FreeBSD 的规范匹配
+# Hyper-V 与 FreeBSD 的规范调整
 
 ## CMOS 时钟时间（BIOS 时间）
 
-在硬件（虚拟机）上被视为 UTC 处理。由于没有定制项，因此假设 CMOS 时钟时间设置为 UTC。
+在硬件（虚拟机）上采用 UTC。由于没有自定义项，因此假设 CMOS 时钟时间设置为 UTC。
 
  具体以下步骤确认。
 
-* /etc/wall_cmos_clock 文件「不存在」。如果存在，则删除。
-* 执行 sysctl machdep.wall_cmos_clock ，结果值为「0」。如果不为「0」，则置为「0」。
+* 没有 /etc/wall_cmos_clock 这个文件。如果有，则删除。
+* 执行 sysctl machdep.wall_cmos_clock ，结果值为 `0`。如果不为 `0`，则置为 `0`。
 
-当今的安装程序不会执行这个设置，因此建议即使在物理环境下也使用 UTC 时间运行。
+现在的安装程序不会执行该设置，因此建议，即使在物理环境下，也使用 UTC 时间。
 
-## PS/2 遗留设备
+## PS/2 旧设备
 
-在第二代虚拟机环境中，所谓的 PS/2 遗留设备已经不存在。这意味着可以不使用标准键盘和鼠标设备驱动程序。反而浪费时间去寻找并禁用，不如将以下设置写入 /boot/loader.conf 以禁用它。
+在第二代虚拟机环境中，所谓的 PS/2 旧设备已经没有了。这意味着可以使用非标准键盘和鼠标设备驱动程序。这反而浪费时间去查找再禁用，不如将以下设置写入 `/boot/loader.conf` 以禁用它。
 
-/boot/loader.conf
+`/boot/loader.conf`：
 
-```
+```sh
 hint.atkbdc.0.disabled="1"
 hint.atkbd.0.disabled="1"
 hint.psm.0.disabled="1"
 ```
 
-键盘输入由 hvkbd0 设备处理。遗憾的是，目前不支持鼠标（HID）的使用。截至 2023/04/01，已经降到 13-STABLE，但未包含在 13.2-RELEASE 中（参见 https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221074）。
+键盘输入由设备 `hvkbd0` 处理。遗憾的是，目前不支持鼠标（HID）的使用。截至 2023/04/01，已经集成到 13-STABLE，但未包含在 13.2-RELEASE 中（参见 <https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221074>）。
 
-对我个人来说，我关注 hvkbd0 尚未整合到 kbdmux0 中，以及 kbd0 尚未完全封装的问题。虽然它在运行中没有问题...
+对我个人来说，我关注的 hvkbd0 尚未集成到 kbdmux0 中，以及 kbd0 尚未完全封装等问题。虽然它在运行中没有问题...
 
-```
+```sh
  :
 WARNING: Device "kbd" is Giant locked and may be deleted before FreeBSD 14.0.
 kbd0 at kbdmux0
@@ -77,12 +74,12 @@ hvkbd0: <Hyper-V KBD> on vmbus0
 
 ## 存储设备和网络接口
 
-* 存储设备（连接 SCSI 控制器的 HDD）可以被引用为 daｎ （n≥0）。
-* 网络接口（连接网络适配器的 NIC）可以被引用为 hnｎ （n≥0）。
+* 存储设备（连接至 SCSI 控制器的 HDD）可以被引用为 daｎ （n≥0）。
+* 网络接口（连接至网络适配器的 NIC）可以被引用为 hnｎ （n≥0）。
 
 关于这一点没有特别说明，但 if_hn(4) 设备可能看起来很陌生，仅供参考。
 
-```
+```sh
 # ifconfig hn0
 hn0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
         options=8051b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,TSO4,LRO,LINKSTATE>
@@ -95,7 +92,7 @@ hn0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
 
 再者， daｎ 处于虚拟化主机总线适配器（ hv_storvsc(4) 驱动程序）之上，因此已 CAM 化。
 
-```
+```sh
 # camcontrol identify da0
 camcontrol: ATA ATA_IDENTIFY via pass_16 failed
 camcontrol: ATA ATAPI_IDENTIFY via pass_16 failed
@@ -109,9 +106,9 @@ camcontrol: ATA ATAPI_IDENTIFY via pass_16 failed
 (pass0:storvsc0:0:0:0): maxtags       255
 ```
 
-暂时支持标签队列，因此要充分利用（以下是在 ZFS 中的设置示例）。
+临时支持标签队列，因此要充分利用（以下是在 ZFS 中的设置示例）。
 
-```
+```sh
 sysctl vfs.zfs.vdev.async_read_max_active=140
 sysctl vfs.zfs.vdev.async_write_max_active=108
 ```
