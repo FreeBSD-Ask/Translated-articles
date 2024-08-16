@@ -9,7 +9,7 @@
 
 # 开始
 
-在 Windows 10 Pro 20H2 上使用 Hyper-V。在 Hyper-V 上安装 FreeBSD 13。
+在 Windows 10 Pro 20H2 上安装 Hyper-V。在 Hyper-V 上安装 FreeBSD 13。
 
 有关各种 FreeBSD 安装事项，请参考该部分，同时假定已完成了 Hyper-V 相关设置事项。
 
