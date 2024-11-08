@@ -84,7 +84,7 @@ Darwin 是苹果操作系统（macOS、iOS、watchOS、tvOS 和 iPadOS）的开�
 
 **Mach IPC 和安全性**：Mach IPC 广泛应用于 macOS 和 iOS 的内核及用户空间，引入了进一步的差异。例如，Mach Security Trailers 是受信任的 IPC 的基础部分。应用程序沙箱中使用的强制访问控制（MAC）机制也与 \*BSD 系统中的机制大相径庭。
 
-**随着时间的推移发生的分歧**：由于 FreeBSD 不愿意整合 UNIX03 兼容性更改，导致了分歧，尽管有一些混合的努力，像 libc 和 libm 这样的库还是出现了复刻。此外，像 NeXTBSD 项目这样的倡议，旨在将像 launchd、Mach IPC 和 Grand Central Dispatch 等苹果的技术带到 FreeBSD，但这些努力未能得到普遍支持。结果，FreeBSD 和 NeXTBSD 的代码库继续出现分歧，尤其是在苹果推进定制芯片支持和优化时，进一步拉大了它们之间的差距。
+**随着时间的推移发生的分歧**：由于 FreeBSD 不愿意整合 UNIX03 兼容性更改，导致了分歧，尽管有一些混合的努力，像 libc 和 libm 这样的库还是出现了复刻。此外，像 NeXTBSD 项目这样的倡议，旨在将像 launchd、Mach IPC 和 Grand Central Dispatch 等苹果的技术带到 FreeBSD，但这些努力未能得到普遍支持。结果，代码库继续出现分歧，尤其是在苹果推进定制芯片支持和优化时，进一步拉大了它们之间的差距。
 
 **已知的集成和贡献**：macOS 在很大程度上受益于 FreeBSD，尤其是在网络概念上。尽管 macOS 并未完全采用 FreeBSD 的网络栈，但它集成了几款 FreeBSD 衍生的组件，经过调整以满足其独特的需求。macOS 中的早期网络元素，如 TCP/IP 栈，受 FreeBSD 设计的影响，以其性能和可靠性而著称。此外，像最初为 FreeBSD 开发的 kqueue 事件通知接口也被集成到 macOS 中，增强了它处理 I/O 事件的能力。
 
