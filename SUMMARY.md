@@ -6,6 +6,7 @@
 
 * [苹果的开源基石：macOS 和 iOS 背后的 BSD 传统](2024-nian-11-yue/apple.md)
 * [在动荡的开源世界中保持稳定：FreeBSD 的持久稳定性](2024-nian-11-yue/Open.md)
+* [为什么你应该使用 FreeBSD](2024-nian-11-yue/why.md)
 
 ## 2024 年 7 月
 
