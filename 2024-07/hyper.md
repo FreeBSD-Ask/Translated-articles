@@ -1,5 +1,7 @@
 # Hyper-V FreeBSD 13 安装感想
 
+**目前该文章已经过期，没有翻译的必要。仅做存档**
+
 <https://qiita.com/nanorkyo/items/d33e1befd4eb9c004fcd>
 
 * [FreeBSD](https://qiita.com/tags/freebsd)
