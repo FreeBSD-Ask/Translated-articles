@@ -6,7 +6,7 @@
 
 认识到 BSD 在苹果成功中的重要性，有助于我们更好地理解开源贡献在塑造我们日常使用的技术中之价值。
 
-想一想：苹果时尚且易用的设备，如强大的 MacBook 和无处不在的 iPhone，它们的可靠性和性能，在很大程度上得益于开源操作系统。那么，苹果使用的究竟是什么开源操作系统呢？尽管常有人说，苹果的 macOS、iOS、iPadOS、watchOS、visionOS 和 tvOS 直接源自 FreeBSD，但其实这是一种误解。
+想一想：苹果时尚且易用的设备，如强大的 MacBook 和无处不在的 iPhone，它们的可靠性和性能，在很大程度上得益于开源操作系统。那么，苹果究竟使用的是哪款开源操作系统呢？尽管常有人说，苹果的 macOS、iOS、iPadOS、watchOS、visionOS 和 tvOS 直接源自 FreeBSD，但其实这是一种误解。
 
 这些操作系统的真正基石在于苹果较早期的操作系统技术与 NeXTSTEP 的结合，而 NeXTSTEP 本身是 Mach 和 BSD 的混合体——早于 FreeBSD。尽管多年来，FreeBSD 的一些用户空间元素被整合进上述操作系统，但苹果的内核（XNU）并不直接来源于 FreeBSD。然而，它们确实共享一脉共同的 BSD 传统。
 
