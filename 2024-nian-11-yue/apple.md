@@ -2,7 +2,7 @@
 
 - 原文地址：[Apple’s Open Source Roots: The BSD Heritage Behind macOS and iOS](https://thenewstack.io/apples-open-source-roots-the-bsd-heritage-behind-macos-and-ios/)
 - 原作者：[Jason Perlow](https://thenewstack.io/author/jason-perlow/)
-- 发布时间：2024 年 7 月 8 日凌晨 5:00
+- 原文发布时间：2024 年 7 月 8 日凌晨 5:00
 
 认识到 BSD 在苹果成功中的重要性，有助于我们更好地理解开源贡献在塑造我们日常使用的技术中之价值。
 
