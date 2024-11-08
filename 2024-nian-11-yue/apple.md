@@ -157,3 +157,6 @@ BSD的先进内存管理、进程调度和高性能网络能力确保了苹果�
 * [FreeBSD Project](https://www.freebsd.org/)
 * [PureDarwin Project](http://www.puredarwin.org/)
 
+---
+
+Jason Perlow 是一位技术专家，拥有超过二十年的经验，曾在财富 500 强公司中整合大型异构多供应商计算环境。他曾担任 Linux 基金会的前编辑总监。目前，他在佛罗里达州科勒尔斯普林斯经营着自己的技术媒体咨询公司——Argonaut Media Communications LLC。
