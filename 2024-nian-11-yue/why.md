@@ -2,7 +2,7 @@
 
 - 原地址：[Why You Should Use FreeBSD](https://freebsdfoundation.org/blog/why-you-should-use-freebsd/)
 - 作者：FreeBSD 基金会
-- 发布时间：2024 年 8 月 28 日
+- 原文发布时间：2024 年 8 月 28 日
 
 [FreeBSD](https://www.freebsd.org/) 是一款稳定可靠的开源操作系统，历史悠久，已成为一些全球关键基础设施的支撑平台。FreeBSD 以其稳定性、安全性和卓越性能著称，服务于广泛的用户群体，从寻求大规模部署可靠基础的经验丰富的系统管理员，到重视良好文档和社区驱动环境的开源新手。
 
