@@ -2,27 +2,27 @@
 
 原文链接：<https://it-notes.dragas.net/2023/04/03/make-your-own-vpn-wireguard-ipv6-and-ad-blocking-included/>
 
-VPN 是连接到自己的服务器和设备的基本工具。许多人出于各种原因使用商业 VPN，从不信任其提供商（特别是在连接到公共热点时）到希望使用不同 IP 地址（也许是来自其他国家）在互联网上“出去”。
+VPN 是连接到自己的服务器和设备的基本工具。许多人出于各种原因使用商业 VPN，从不信任其提供商（尤其在连接到公共热点时）到希望使用不同 IP 地址（也许是其他国家的）在互联网上“活跃”。
 
-无论出于何种原因，解决方案都不会缺乏。我一直在设置管理 VPN，以允许服务器和/或客户端使用安全通道进行通信。最近，我在所有设备上（包括桌面/服务器和移动设备）启用了 IPv6 连接，我需要快速创建一个节点，集中一些网络并允许它们在 IPv6 网络上出站。我使用并将要描述的工具是：
+无论出于何种原因，解决方案都不会匮乏。我一直在设置管理 VPN，以允许服务器、客户端使用安全通道进行通信。最近，我在所有设备上（包括桌面/服务器和移动设备）启用了 IPv6 连接，我需要快速创建一个节点，集中一些网络并允许它们在 IPv6 网络上出站。我使用并将要描述的工具是：
 
-* VPS - 在这种情况下，我使用了基本的 Hetzner Cloud VPS（使用此链接，您将获得 20 欧元的云信用），但任何提供 IPv6 连接的提供商都可以 - 如果您需要 IPv6 的话。
-* OpenBSD - 一个干净、稳定且安全的操作系统。
-* Wireguard - 轻量级、安全，同时也不会“喋喋不休”，因此对移动设备电池也很友好。在没有流量时，它不会传输/接收任何内容。被所有主要的桌面和服务器操作系统以及 Android 和 iOS 设备广泛支持。
-* Unbound - 可以直接向根域名服务器发出 DNS 查询，而不是通过转发器。还允许插入阻止列表，类似于 Pi-Hole 的结果（即广告拦截）。
-* 列表 - 立即停止与黑名单用户之间的连接。
+* VPS——在这种情况下，我使用了基本的 Hetzner Cloud VPS，但所有提供 IPv6 连接的提供商都可以：如果您需要 IPv6 的话。
+* OpenBSD——一款干净、稳定且安全的操作系统。
+* Wireguard——轻量级、安全，同时也不会“唠叨”，因此对移动设备电池也很友好。在没有流量时，它不会传输/接收任何内容。被所有主要的桌面和服务器操作系统以及 Android 和 iOS 设备广泛支持。
+* Unbound——可以直接向根域名服务器发出 DNS 查询，而非转发器。还允许插入阻止列表，类似于 Pi-Hole 的结果（即广告拦截）。
+* 列表——立即阻断与黑名单用户之间的连接。
 
-第一步是激活 VPS 并安装 OpenBSD。在 Hetzner 云控制台上，不会有预置的 OpenBSD 映像，只有 Linux 发行版可供选择。别担心，只需选择其中任何一个并创建 VPS。创建完成后，OpenBSD ISO 映像将出现在 "ISO 映像 "中。只需插入虚拟光驱，重启 VPS，OpenBSD 安装程序就会出现在控制台中。
+第一步是激活 VPS 并安装 OpenBSD。在 Hetzner 云控制台上，没有有预置的 OpenBSD 镜像，只有 Linux 发行版可选。别怕，只需选择其中一个 Linux 并创建 VPS。创建完成后，OpenBSD ISO 镜像将出现在“ISO 映像”中。只需插入虚拟光驱，重启 VPS，OpenBSD 安装程序就会出现在控制台中。
 
-我就不细说了，操作简单明了。唯一的注意事项（对于 Hetzner Cloud VPS）是使用 "autoconf "进行 IPv4 设置，但暂时不要配置 IPv6。稍后再配置。
+我就不细说了，操作简单明了。唯一的注意事项（对于 Hetzner Cloud VPS）是使用“自动配置”进行 IPv4 设置，但暂时别配置 IPv6。稍后再配置。
 
-使用 syspatch 命令安装所有 OpenBSD 更新并重新启动，内核将被重新链接。
+使用 `syspatch` 命令安装所有 OpenBSD 更新并重新启动，内核将被重新链接。
 
-在 OpenBSD 上，Wireguard 完全集成到基础系统中，不需要安装外部软件包。这是一个重大优势，因为随着时间的推移，与 Wireguard 相关的所有支持将由主要的 OpenBSD 开发团队直接管理。
+在 OpenBSD 上，Wireguard 完全集成到了基本系统中，无需安装外部软件包。这是一个重大优势，因为随着时间的推移，所有与 Wireguard 相关的支持将由主要的 OpenBSD 开发团队直接管理。
 
-第一步是在 VPS 上配置 IPv6。在 Hetzner 的情况下，不幸的是，他们只提供 /64 的地址，因此需要对分配的网络进行分段。在这个例子中，它将被划分为 /72 子网络 - 可以使用计算器来查找有效的子类。
+第一步是在 VPS 上配置 IPv6。在 Hetzner 下，不幸的是，他们只提供 /64 的地址，因此需要对分配的网络进行分段。在这个例子中，它将被划分为 /72 子网络 - 可以使用[计算器](https://subnettingpractice.com/ipv6-subnet-calculator.html)来查找有效的子类。
 
-/etc/hostname.vio0 文件应该看起来像这样：
+文件 `/etc/hostname.vio0` 应该看起来如下：
 
 ```fallback
 inet autoconf
@@ -42,9 +42,9 @@ sh /etc/netstart vio0
 ping6 google.com
 ```
 
-如果一切配置正确，将执行 ping 命令并且 google.com 将会回复。
+若一切配置正确，可执行 ping 命令且 google.com 将回复。
 
-现在需要为 IPv4 和 IPv6 启用转发。在 /etc/sysctl.conf 文件中输入以下内容：
+现在需要为 IPv4 和 IPv6 启用转发。在文件 `/etc/sysctl.conf` 中输入以下内容：
 
 ```fallback
 net.inet.ip.forwarding=1
@@ -66,16 +66,16 @@ openssl rand -base64 32
 
 会出现类似以下内容：
 
-> YUkS6cNTyPbXmtVf/23ppVW3gX2hZIBzlHtXNFRp80w=
+> `YUkS6cNTyPbXmtVf/23ppVW3gX2hZIBzlHtXNFRp80w=`
 
-现在创建一个名为 /etc/hostname.wg0 的新文件：
+现在创建一个名为 `/etc/hostname.wg0` 的新文件：
 
 ```fallback
 172.14.0.1/24 wgport 51820 wgkey YUkS6cNTyPbXmtVf/23ppVW3gX2hZIBzlHtXNFRp80w=
 inet6 2a01:4f8:cafe:cafe:100::1 72
 ```
 
-正在创建一个新的 Wireguard 接口，名为 wg0。它将拥有 IPv4 地址“172.14.0.1”，Wireguard 将监听port 51820 端口，并使用稍后创建的私钥。它还将在供应商提供的子类别之一上拥有 IPv6 地址。
+正在创建一个新的 Wireguard 接口，名为 wg0。它将拥有 IPv4 地址“172.14.0.1”，Wireguard 将监听端口 51820，并使用稍后创建的私钥。它还将在供应商提供的子类别之一上拥有 IPv6 地址。
 
 保存并激活该接口：
 
@@ -101,15 +101,15 @@ wg0: flags=80c3<UP,BROADCAST,RUNNING,NOARP,MULTICAST> mtu 1420
 	inet6 2a01:4f8:cafe:cafe:100::1 prefixlen 72
 ```
 
-记录下 wgpubkey - 它将用于配置客户端。
+记录下 wgpubkey——它将用于配置客户端。
 
-就防火墙而言，OpenBSD 带有基本的 pf 配置。在我的设置中，我倾向于阻止不需要的内容，并允许可能有用的内容。但是，我喜欢把“坏人”挡在门外，所以我使用黑名单。pf 允许在运行时向表中插入和移除元素，因此防火墙可以相应地进行配置。
+就防火墙而言，OpenBSD 带有基本的 pf 配置。在我的设置中，我倾向于阻断不需要的内容，并允许可能有用的内容。但是，我喜欢把“坏人”挡在门外，所以我使用黑名单。pf 允许在运行时向表中插入和移除元素，因此防火墙可以相应地进行配置。
 
 要下载并应用 Spamhaus 列表，我使用在互联网上找到的一个简单而有效的脚本。
 
 所以在/usr/local/sbin/spamhaus.sh 中创建脚本：
 
-```bash
+```sh
 #!/bin/sh
 #
 # this is normally run once per day via /etc/daily.local.
@@ -130,7 +130,7 @@ chmod a+rx /usr/local/sbin/spamhaus.sh
 /usr/local/sbin/spamhaus.sh
 ```
 
-配置 pf 的可能性很多。一个相当简单的例子可能是这样的：
+配置 pf 的方法很多。一个相当简单的例子可能是这样的：
 
 这是一个非常简单的配置：它阻止了来自 Spamhaus 下载列表中的所有内容，允许 Wireguard 网络到公共接口的 NAT，允许 IPv6 中的 icmp 流量（这对网络正常运行至关重要），同时阻止了针对 Wireguard IPv6 LAN 的传入流量（请记住，IP 地址将是公共的且可直接到达，因此我们不希望默认情况下公开我们的设备）。允许 Wireguard 接口上的所有流量通过。然后将阻止所有流量并指定异常，即允许 ssh 和 Wireguard 连接（当然）。还将授权允许流量从公共网络接口流出。
 
@@ -140,11 +140,11 @@ chmod a+rx /usr/local/sbin/spamhaus.sh
 pfctl -f /etc/pf.conf
 ```
 
-如果一切正常，防火墙应该已加载新的选项。
+倘若一切正常，防火墙应该已加载新的参数。
 
-现在是配置 Unbound 来实现 DNS 查询缓存和相关广告拦截的时候了。一段时间前，我找到了一个脚本，稍作调整后使用。我记不清楚原始作者是谁了，所以我在这里贴出来。
+现在是配置 Unbound 来实现 DNS 查询缓存和相关广告拦截的时候了。一段时间前，我找到了一个脚本，稍作调整后使用。我记不清楚原始作者是谁了，所以我只在这里贴出来脚本。
 
-创建一个脚本来更新 /usr/local/sbin/unbound-adhosts.sh 中的 unbound 广告拦截。
+创建一个脚本来更新 `/usr/local/sbin/unbound-adhosts.sh` 中的 unbound 广告拦截。
 
 类似地，使脚本可执行并运行它：
 
@@ -153,7 +153,7 @@ chmod a+rx /usr/local/sbin/unbound-adhosts.sh
 /usr/local/sbin/unbound-adhosts.sh
 ```
 
-现在，可以修改位于 /var/unbound/etc/unbound.conf 的 Unbound 配置文件如下：
+现在，可以修改位于 `/var/unbound/etc/unbound.conf` 的 Unbound 配置文件如下：
 
 在启动 unbound 之前，必须给予适当的权限：
 
@@ -168,11 +168,11 @@ rcctl enable unbound
 rcctl start unbound
 ```
 
-如果一切都做得正确，unbound 将能够响应来自各自 LAN 的请求，位于 172.14.0.1 和 2a01:4f8:cafe:cafe:100::1 上。
+如果一切都正确，unbound 将能够响应来自各自 LAN 的请求，位于 `172.14.0.1` 和` 2a01:4f8:cafe:cafe:100::1` 上。
 
 现在可以配置 Wireguard 客户端了。每种实现都有其自己的过程（Android、iOS、MikroTik、Linux 等），但基本上只需在服务器和客户端上创建正确的配置即可。例如，在 OpenBSD 服务器上输入“ifconfig wg0”命令可查看服务器的公钥，应将其插入到客户端上将创建的“peer”配置中；而客户端的公钥则将在服务器上这样使用：
 
-重新打开文件 /etc/hostname.wg0 并添加：
+重新打开文件 `/etc/hostname.wg0` 添加：
 
 ```fallback
 172.14.0.1/24 wgport 51820 wgkey YUkS6cNTyPbXmtVf/23ppVW3gX2hZIBzlHtXNFRp80w=
