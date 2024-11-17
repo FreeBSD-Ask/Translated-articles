@@ -1,5 +1,7 @@
 # Quantum Leap Research 和 FreeBSD 基金会将投资 75 万美元以改善笔记本电脑支持和用户体验
 
+原文地址：[Quantum Leap Research and FreeBSD Foundation to Invest $750,000 to Improve Laptop Support and Usability](https://freebsdfoundation.org/news-and-events/latest-news/quantum-leap-research-and-freebsd-foundation-to-invest-750000-to-improve-laptop-support-and-usability/)
+
 **2024 年 9 月 24 日**
 
 （2024 年 9 月 20 日，科罗拉多州博尔德市）FreeBSD 基金会宣布与 Quantum Leap Research（量子跃迁研究）建立战略合作伙伴关系，共同投资总额达 75 万美元，用于增强对 FreeBSD 在笔记本电脑和通用平台的支持。Quantum Leap Research 是一家专注于为国家安全威胁提供解决方案的公司，承诺捐赠 25 万美元，而 FreeBSD 基金会将投资 50 万美元。
