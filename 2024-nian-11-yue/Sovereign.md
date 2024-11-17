@@ -1,5 +1,7 @@
 # 主权科技基金将投资 68.64 万欧元用于 FreeBSD 基础设施现代化
 
+原文地址：[Sovereign Tech Fund to Invest €686,400 in FreeBSD Infrastructure Modernization](https://freebsdfoundation.org/blog/sovereign-tech-fund-to-invest-e686400-in-freebsd-infrastructure-modernization/)
+
 **2024 年 8 月 26 日**
 
 **投资将加速零信任构建、软件物料清单（SBOM）、安全工具和开发者体验的提升**
