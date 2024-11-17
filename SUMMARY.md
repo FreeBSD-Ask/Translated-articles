@@ -8,6 +8,8 @@
 * [在动荡的开源世界中保持稳定：FreeBSD 的持久稳定性](2024-nian-11-yue/Open.md)
 * [为什么你应该使用 FreeBSD](2024-nian-11-yue/why.md)
 * [FreeBSD 13.4: 新特性及其发展历程](2024-nian-11-yue/13.md)
+* [Quantum Leap Research 和 FreeBSD 基金会将投资 75 万美元以改善笔记本电脑支持和用户体验](2024-nian-11-yue/Quantum.md)
+* [主权科技基金将投资 68.64 万欧元用于 FreeBSD 基础设施现代化](2024-nian-11-yue/Sovereign.md)
 
 ## 2024 年 7 月
 
