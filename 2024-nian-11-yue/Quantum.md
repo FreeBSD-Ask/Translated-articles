@@ -22,7 +22,7 @@ FreeBSD 基金会执行董事 Deb Goodkin 补充道：“这一举措是 FreeBSD
 
 ### 关于 Quantum Leap Research
 
-Quantum Leap Research, LLC 为美国政府开发符合未来需求的能力，专注于解决国防部和美国情报界面临的一些最复杂的问题。更多信息请访问 [http://www.ql-research.com](http://www.ql-research.com)。
+Quantum Leap Research, LLC 为美国政府开发符合未来需求的技术，专注于解决国防部和美国情报界面临的一些最复杂的问题。更多信息请访问 [http://www.ql-research.com](http://www.ql-research.com)。
 
 ---
 
