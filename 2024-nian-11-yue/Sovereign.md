@@ -4,7 +4,7 @@
 
 **投资将加速零信任构建、软件物料清单（SBOM）、安全工具和开发者体验的提升**
 
-**2024 年 8 月 26 日，科罗拉多州博尔德市** 致力于推动开源 FreeBSD 操作系统发展及支持社区的 FreeBSD 基金会宣布，德国主权科技基金（Sovereign Tech Fund，STF）已同意向 FreeBSD 项目投资 68.64 万欧元，以推动改进基础设施、安全性、合规性及开发者体验。
+**2024 年 8 月 26 日，科罗拉多州博尔德市** 致力于推动开源 FreeBSD 操作系统发展及支持社区的 FreeBSD 基金会宣布，德国主权科技基金（Sovereign Tech Fund，STF）已同意向 FreeBSD 项目投资 68.64 万欧元（约人民币 524 万元），以推动改进基础设施、安全性、合规性及开发者体验。
 
 由 FreeBSD 基金会组织和管理的这一工作将于 2024 年 8 月开始，并持续到 2025 年，主要涉及以下五个关键项目：
 
@@ -14,7 +14,7 @@
 - **安全控制**：现代化、加固安全工件，包括 FreeBSD Ports 和软件包，助力合规性  
 - **SBOM 改进**：优化和实施 FreeBSD 软件物料清单（SBOM）的新工具和流程  
 
-开发者是每个开源项目的核心。主权科技基金对 FreeBSD 基础设施的投资将确保开发者一流的体验，同时维护和扩展 FreeBSD 以其闻名的安全性和数字主权。
+开发者是每个开源项目的核心。主权科技基金对 FreeBSD 基础设施的投资将确保开发者的一流体验，同时维护和扩展 FreeBSD 以其闻名的安全性和数字主权。
 
 德国主权科技基金委托的工作与美国国家网络总监办公室（ONCD）于 2024 年 8 月 9 日发布的[总结报告](https://www.whitehouse.gov/oncd/briefing-room/2024/08/09/fact-sheet-biden-harris-administration-releases-end-of-year-report-on-open-source-software-security-initiative-2/)密切相关。该报告整合了 2023 年有关加强开源软件生态系统安全的关键优先事项的反馈意见。通过增强安全控制和 SBOM 工具，FreeBSD 基金会帮助确保 FreeBSD 在改进漏洞披露机制和软件安全基础方面处于前沿。
 
@@ -26,7 +26,7 @@
 
 ### 关于主权科技基金（STF）
 
-主权科技基金（[https://www.sovereigntechfund.de](https://www.sovereigntechfund.de/)）支持开放数字基础设施的开发、改进和维护，以服务于公共利益。其目标是可持续地加强开源生态系统，关注安全性、韧性、技术多样性以及代码背后的人。主权科技基金由德国联邦经济事务与气候行动部（BMWK）资助，并由德国联邦颠覆性创新署（SPRIND）主办和赞助。
+主权科技基金（[https://www.sovereigntechfund.de](https://www.sovereigntechfund.de/)）支持开放数字基础设施的开发、改进和维护，以服务于公共利益。其目标是可持续地加强开源生态系统，关注安全性、韧性、技术多样性以及代码背后的人。主权科技基金由德国联邦经济事务和气候行动部（BMWK）资助，并由德国联邦颠覆性创新署（SPRIND）主办和赞助。
 
 ---
 
