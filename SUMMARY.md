@@ -2,7 +2,11 @@
 
 * [FreeBSD 中文社区翻译的文章集合](README.md)
 
-## 2024 年 11月
+## 2025 年 1 月
+
+* [FreeBSD：原始操作系统发行版的火炬传承者](2025-01/bsd.md)
+
+## 2024 年 11 月
 
 * [苹果的开源基石：macOS 和 iOS 背后的 BSD 传统](2024-nian-11-yue/apple.md)
 * [在动荡的开源世界中保持稳定：FreeBSD 的持久稳定性](2024-nian-11-yue/Open.md)
