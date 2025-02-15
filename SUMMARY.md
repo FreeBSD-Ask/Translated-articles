@@ -6,6 +6,7 @@
 
 * [FreeBSD：原始操作系统发行版的火炬传承者](2025-01/bsd.md)
 * [浏览 FreeBSD 新的季度和两年一次发布计划](2025-01/time.md)
+* [FreeBSD 日专访 BSD 守护神 Beastie](2025-01/Beastie.md)
 
 ## 2024 年 11 月
 
