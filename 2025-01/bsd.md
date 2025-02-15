@@ -20,14 +20,14 @@ FreeBSD 哲学的核心是坚定不移地高扬 [BSD 许可证](https://opensour
 
 原始的伯克利软件发行版启发了 FreeBSD 的开发方法，并采用了集中的开发模式，这与 Linux 的高度分散的开发生态系统有很大不同。
 
-与第三方 Linux 发行版（如 Debian、Ubuntu、Fedora 等）不同，后者将由 [Linux 内核项目](https://www.kernel.org/)（一个由 Linux 基金会管理的项目）开发的内核与来自许多外部项目的软件结合，FreeBSD 在一个单一的项目框架内开发所有系统组件和文档。这种方法确保了无与伦比的系统一致性和安全性，凸显了 FreeBSD 对统一操作系统的承诺。
+与第三方 Linux 发行版（如 Debian、Ubuntu、Fedora 等）不同，后者将由 [Linux 内核项目](https://www.kernel.org/)（由 Linux 基金会管理的项目）开发的内核与来自许多外部项目的软件结合，FreeBSD 在一个单一的项目框架内开发所有系统组件和文档。这种方法确保了无与伦比的系统一致性和安全性，凸显了 FreeBSD 对统一操作系统的承诺。
 
 >FreeBSD 的方法根植于原始伯克利软件发行版的原则，强调一个全面且统一的操作系统。与此相反，Linux 是一个通用内核基石，众多独立实体在其上构建了不同的发行版。因此，Linux 发行版在行为、功能和用户体验上有显著差异。
 
 
 FreeBSD 的方法在所有系统组件之间创建了一个集成关系，允许轻松顺利的更新和改进、向后兼容性，以及对生产环境的保证，等等。与 Linux 的模块化方法不同，FreeBSD 的方法简化了安全审计并提高了性能。开发者可以全面了解整个系统的架构，而不是孤立的部分。所有系统组件都一起开发，然后由其发布工程团队[打包](https://freebsdfoundation.org/blog/guiding-the-future-of-freebsd-releases-colin-percival-the-new-release-engineering-team-lead/)进行每个版本的发布。这种方法确保了更新的系统性一致性，缓解了 Linux 环境中常见的依赖冲突问题。
 
-## 一个安全的构建环境
+## 安全的构建环境
 
 FreeBSD 的一个关键特点是，其基本系统（核心）的构建环境是以安全为基础原则设计的。通过隔离、最小化、一致性和可验证的构建过程，FreeBSD 有效地减少了与更复杂、控制较少的构建环境相关的风险，确保了系统的完整性和安全性。
 
