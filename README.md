@@ -1,5 +1,3 @@
-# FreeBSD 中文社区翻译的文章集合
+# FreeBSD 网络文章集锦
 
-在线浏览地址：
 
-<https://freebsd.gitbook.io/translated-articles/>
