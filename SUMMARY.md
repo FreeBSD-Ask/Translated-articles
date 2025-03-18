@@ -20,7 +20,7 @@
 
 ## 2024 年 7 月
 
-* [BSD 老将：Michael J. Karels 逝世，享年 68 岁](2024-07/BSD-Urgestein:-Michael-J.-Karels-mit-68-Jahren-gestorben.md)
+* [BSD 老将：Michael J. Karels 逝世，享年 68 岁](2024-07/BSD-Urgestein-Michael-J.-Karels-mit-68-Jahren-gestorben.md)
 * [讣告——Michael "Mike" John Karels](2024-07/fugao.md)
 * [配置自己的 VPN——基于 OpenBSD、Wireguard、IPv6 和广告拦截](2024-07/Make-Your-Own-VPN---Wireguard-Ipv6-and-Ad-Blocking-Included.md)
 * [如何在 FreeBSD 中指定 CPU 类型](2024-07/cpu.md)
