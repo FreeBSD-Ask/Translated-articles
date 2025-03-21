@@ -4,6 +4,7 @@
 
 ## 2025 年 1 月
 
+* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
 * [FreeBSD 特色开发项目](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
 * [如何将基于 Electron 的应用程序移植到 FreeBSD](2025-01/ele.md)
