@@ -1,6 +1,6 @@
 # Table of contents
 
-* [FreeBSD 中文社区翻译的文章集合](README.md)
+* [FreeBSD 网络文章集锦](README.md)
 
 ## 2025 年 1 月
 
