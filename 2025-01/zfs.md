@@ -4,6 +4,9 @@
 - 作者：Benedict Reuschling (benedict@reuschling.org)
 - 原发布时间：2025 年 3 月
 
+![](https://github.com/user-attachments/assets/5e63f6dd-1e88-40d8-af30-dbfc9f83c56d)
+
+
 ### 存储池配置  
 
 **单个磁盘**  
@@ -25,7 +28,7 @@ zpool create mymirror mirror disk1 disk2
 ```
 
 **单奇偶校验（RAID-Z1）**  
-至少需要 3 块磁盘，可承受 1 块磁盘损坏，奇偶校验信息分布在所有磁盘上，读写速度较快，性能可比，容量约为 66%。在 `zpool status` 输出中显示为 `raidz1-0` VDEV。  
+至少需要 3 块磁盘，可承受 1 块磁盘损坏，奇偶校验信息分布在所有磁盘上，读写速度较快，性能相当，容量约为 66%。在 `zpool status` 输出中显示为 `raidz1-0` VDEV。  
 ```sh
 zpool create paritypool raidz disk1 disk2 disk3
 ```
@@ -50,7 +53,7 @@ zpool create myz3 raidz3 disk1 disk2 disk3 disk4 disk5
 
 ### 显示存储池状态  
 
-**显示存储池状态**（包括磁盘配置、错误信息、适用的更新、上次 scrub 时间（如果有））  
+**显示存储池状态**【包括磁盘配置、错误信息、适用的更新、上次 scrub 时间（若有）】
 ```sh
 zpool status
 ```
@@ -92,14 +95,14 @@ zpool get
 zpool add mypool cache /dev/nda0
 ```
 
-#### **ZFS 意图日志（ZIL）**  
-将同步写入转换为异步写入（不影响读取），使应用程序能更快确认数据已写入，类似于数据库事务日志。当写入完成并存储到底层存储介质后，ZIL 将被清除。ZIL 需要快速存储设备，但不需要大容量。使用 `log` 关键字将设备添加到存储池。  
+#### **ZFS 意图日志（ZFS intent log, ZIL）**  
+将同步写入转换为异步写入（不影响读取），使应用程序能更快确认数据已写入，类似于数据库事务日志。当写入完成并存储到底层存储介质后，ZIL 将被清除。ZIL 需要快速存储设备，但无需大容量。使用关键字 `log` 将设备添加到存储池。  
 ```sh
 zpool add mypool log /dev/nda1
 ```
 
 #### **备用盘（Spare）**  
-备用盘在替换故障磁盘之前不会参与 I/O 操作，可以由手动操作或外部故障管理软件触发替换。使用 `spare` 关键字添加备用盘。  
+备用盘在替换故障磁盘之前不会参与 I/O 操作，可以由手动操作或外部故障管理软件触发替换。使用关键字 `spare` 添加备用盘。  
 ```sh
 zpool add mypool spare /dev/nda2
 ```
@@ -344,7 +347,7 @@ zpool scrub mypool
 zpool status
 ```
 
-**ZFS 不需要 `fsck`**，因为其自带数据完整性检查机制。
+**ZFS 无需 `fsck`**，因为 ZFS 自带数据完整性检查机制。
 
 ### **卷（Volumes）**  
 
@@ -472,7 +475,7 @@ zfs set reservation=none mypool/home/eve
 
 快照提供了一种**快速保存数据集只读状态**的方法，可用于恢复数据集到特定时间点的状态。无需回滚整个快照，也可以单独恢复其中的文件。  
 
-**ZFS 通过 `.zfs` 目录提供只读访问**，允许从快照中读取文件。  
+**ZFS 通过 `.zfs` 目录提供只读访问**，可从快照中读取文件。  
 
 ---
 
@@ -526,14 +529,15 @@ zfs diff mypool/ds@backup
 ```
 
 **输出说明**：
+
 | 符号 | 说明 |
-|------|------|
+|:------:|:------|
 | `+` | 新增文件 |
 | `-` | 删除文件 |
 | `M` | 修改文件 |
 | `R` | 重命名文件（应用于目录时表示元数据更改） |
 
-对比**两个快照**之间的更改：  
+对比 **两个快照** 之间的更改：  
 
 ```sh
 zfs diff mypool/ds@backup1 mypool/ds@backup2
@@ -547,7 +551,7 @@ zfs diff mypool/ds@backup1 mypool/ds@backup2
 zfs rollback mypool/ds@backup2
 ```
 
-如果要回滚到更早的快照，**必须先删除所有中间快照**，使用 `-r` 选项：  
+如果要回滚到更早的快照，**必须先使用选项 `-r` 删除所有中间快照**：  
 
 ```sh
 zfs rollback -r mypool/ds@backup1
@@ -569,7 +573,7 @@ mount -t zfs mypool/ds@backup /mnt/backup
 
 #### **模拟删除（Dry Run）**  
 
-建议先执行**模拟删除**（`-n` 选项）查看即将删除的内容，配合 `-v` 显示详细信息：  
+建议先执行**模拟删除**（选项 `-n`）查看即将删除的内容，配合 `-v` 显示详细信息：  
 
 ```sh
 zfs destroy -vn mypool/ds@backup
@@ -592,7 +596,7 @@ zfs destroy -rv mypool/ds@backup
 #### **删除快照范围（Delete Range）**  
 
 假设快照列表如下：
-```
+```sh
 mypool@a  
 mypool@b  
 mypool@c  
@@ -617,7 +621,7 @@ mypool@e
 
 ### **快照保护（ZFS Holds）**  
 
-ZFS 允许为快照创建**保护标记**（tag），被标记的快照不能删除。可以对一个快照添加**多个**保护标记，只有**所有标记都被移除**后，快照才可以删除。  
+ZFS 能为快照创建**保护标记**（tag），被标记的快照不能删除。可以对一个快照添加**多个**保护标记，只有 **所有标记都被移除** 后，快照才可以删除。  
 
 #### **创建快照保护（Hold）**  
 
@@ -670,7 +674,7 @@ zfs promote mypool/myclone
 
 #### **删除克隆（Clone Removal）**  
 
-克隆可像普通数据集一样删除：  
+可像删除普通数据集一样删除克隆：  
 
 ```sh
 zfs destroy mypool/myclone
@@ -678,7 +682,7 @@ zfs destroy mypool/myclone
 
 ### **加密（Encryption）**  
 
-ZFS 允许为数据集加密，每个数据集可以有独立的密钥。一些元数据仍然保持未加密，以便执行 **scrub** 等操作。  
+ZFS 支持数据集加密，每个数据集可以有独立的密钥。一些元数据仍然保持未加密状态，以便执行 **scrub** 等操作。  
 
 #### **创建加密数据集（Create Encrypted Dataset）**  
 
@@ -768,7 +772,7 @@ zfs allow -u jill @myset mypool/dataset
 
 ### **快照发送与接收（Sending and Receiving Snapshots）**  
 
-ZFS 允许以字节流的方式**本地或通过网络传输快照**，可用于备份。  
+ZFS 能以字节流的方式**本地和通过网络传输快照**，可用于备份。  
 
 #### **将快照写入文件（Write Snapshot to a File）**  
 
