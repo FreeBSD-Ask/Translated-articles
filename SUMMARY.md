@@ -2,8 +2,9 @@
 
 * [FreeBSD 网络文章集锦](README.md)
 
-## 2025 年 1 月
+## 2025 年
 
+* [zfs 速查手册](2025-01/zfs.md)
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
 * [FreeBSD 特色开发项目](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
