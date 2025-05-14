@@ -1,79 +1,75 @@
 # portsnap 被淘汰了，本应由 git 代替，但结果我发现自己用的是 got
 
-<https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2>
+- 原文：[追放された portsnap、変わりに git が入ってくはずだったのに、気がつけば got がいる](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2)
+- 作者：重村法克
+- 2023-12-02
 
-* [Git](https://qiita.com/tags/git)
-* [FreeBSD](https://qiita.com/tags/freebsd)
-* [ 开源操作系统](https://qiita.com/tags/openbsd)
-* [ 获得](https://qiita.com/tags/got)
-* [portsnap](https://qiita.com/tags/portsnap)
+## 前言
 
-最后更新于 2023-12-02 发布于 2023-12-02
+本文介绍了 [Got](https://gameoftrees.org/)，这是源自 OpenBSD 项目的 [Git](https://git-scm.com/) 替代工具。
+这是一种所谓的 `git` 命令的替代品，但如果你对 `git` 命令的使用以及其许可证完全没有疑问的话，那就[完全没有必要](https://gameoftrees.org/faq.html#pointless)使用这个工具。由于开发者的立场，这个工具的使用场景也具有独特性。
 
-# 开始
+据称 Got 旨在实现对 Git 的裸数据仓库的兼容[1]。它在针对裸数据仓库的操作方面具有兼容性。相对地，在所谓的工作区（包括索引）层面上则不兼容。在工作流程中需要根据命令加以区分使用。
 
-介绍了一个名为 Ｇｏｔ 的由ＯｐｅｎＢＳＤ项目衍生出来的 Ｇｉｔ 替代品。虽然它是一个 git 命令的替代品，但对于那些对 git 命令的使用没有疑问，并且对其许可证没有疑问的人来说，这是一个完全不必要的工具。由于开发者是开发者，因此其用途非常独特。
+虽然开篇是以通用视角进行介绍的，但说实话，是因为最近 FreeBSD 中移除了 `portsnap` 命令，所以大家看到了一些提示说“请改用 Git”[2]。本文正是面向那些觉得“为了替代 portsnap 而引入 Git 实在有点……”的人所写的内容。
 
-据说它的目标是支持 Ｇｉｔ 的裸仓库兼容^ 1^。对于裸仓库的操作是兼容的。但是在所谓的工作目录（包括索引）级别上不兼容。因此，需要根据工作流程切换命令。
+由于 Got 以实现 OpenBSD 开发工作流为目标进行开发，因此其代码量极少，依赖项也几乎没有。可以毫不夸张地称其为“轻量紧凑”。不过至于运行是否轻快……这一点暂且不予置评。
+此外，由于它要求用户接受其独特的使用体验，因此如果你打算“用得很 Git”，那还是不建议使用 Got。
 
-既然开始写一个泛论的介绍，最近的 FreeBSD 中删除了 portsnap 命令，看到使用 Git 的建议^ 2^，对于那些希望使用 portsnap 而不是 git 的人来说，可能有点不情愿……
+后续的使用案例将以替代 `portsnap` 为目标进行说明。
 
-由于 Got 专注于实现 OpenBSD 开发的工作流程，因此其代码量非常少，几乎没有依赖。它被宣称为轻量级、紧凑且不会造成头痛的工具。然而，关于其轻便性能的评价，我就不发表评论了。另外，由于要求独特的使用体验，我认为在需要严格使用 Git 的情况下最好不要使用它。
+## 试着安装一下
 
-以下用例将描述目标作为 portsnap 的替代。
-
-# 尝试安装
-
-```
+```sh
 $ pkg install got
 ```
 
-这周围也没有变化。由于没有依赖项，因此不会安装其他软件包。
+这部分和安装 `git` 没什么不同。由于没有依赖项，因此不会安装其他包。
 
-通过 GOT 的版本验证为 0.93 。由于版本升级，此处记录的内容可能不再适用。
+测试中使用的 Got 版本为 `0.93`。如果版本升级，文中内容可能会不适用。
 
-# 首先尝试克隆
+# 首先试试 clone
 
-got clone 和 git clone 之间的区别如下。
+`got clone` 和 `git clone` 的区别如下：
 
-* 仅克隆裸库（相当于 git clone --bare ）
-* 无法指定来源（裸仓库指定来源没有意义？）
-* 可以指定分支，默认好像是单分支
-* 但是好像不能进行浅克隆
-* 存在镜像模式（无法向克隆的存储库提交更改的模式）
-* 支持的模式较少 ※ 详见下文
-* 非常慢（在多线程下不执行解析差异） 详见下文
+* 仅支持克隆裸数据仓库（相当于 `git clone --bare`）
+* 无法指定 origin（可能因为裸仓库下 origin 没意义？）
+* 可以指定分支，默认好像是单分支模式
+* 不支持 shallow clone（浅克隆）
+* 有镜像模式（无法向克隆的仓库提交）
+* 支持的协议（schema）较少 ※[后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E)
+* 总之就是很慢（不会多线程进行 Resolving deltas） [后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#gitclone%E3%81%A8gotclone%E3%81%AE%E5%AE%9F%E8%A1%8C%E6%99%82%E9%96%93)
 
-## 克隆案例
+## 克隆示例
 
-```
+```sh
 $ git clone https://git.freebsd.org/ports.git /usr/ports
 ```
 
-与上述命令相对应的是 got 命令，具体如下。首先需要展开裸存储库的区域。由于这个过程非常耗时（后文将介绍），如果有余地的话，可能最好直接使用 git 命令。
+对应的 `got` 命令如下。首先需要一个目录用于放置裸仓库。
+另外这个操作会非常慢（[后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%AB%E3%81%8B%E3%81%8B%E3%82%8B%E6%99%82%E9%96%93%E3%81%AE%E8%A8%88%E6%B8%AC)），如果条件允许，还是建议使用 `git` 命令来完成。
 
-```
+```sh
 $ got clone -am ssh://anongit@git.freebsd.org/ports.git /home/ports.git
 $ got checkout /home/ports.git /usr/ports
 ```
-
-## 支持的模式
+## 支持的协议（スキーマ）
 
 * `git://`
-* git+ssh:// （或 ssh:// ）
+* `git+ssh://`（或者 `ssh://`）
 
-## 不支持的模式
+## 不支持的协议（スキーマ）
 
-* git+http:// （或 http:// ）※错误（策略上不打算支持）
-* https:// ※未实装错误（待办事项）
-* ftp:// ※那是什么？（确认存在与否）
-* ftps:// ※那是什么？（确认存在与否）
+* `git+http://`（或者 `http://`）※ 错误（因为政策原因，未来不打算支持）
+* `https://` ※ 尚未实现的错误（TODO）
+* `ftp://` ※ 什么？（不确定是否被识别）
+* `ftps://` ※ 什么？（不确定是否被识别）
 
-## 克隆所需的时间测量
+## 克隆时间的测量
 
-### git clone 的消息
+### 使用 `git clone` 时的输出信息
 
-```
+```sh
 $ git clone --bare --single-branch ssh://anongit@git.freebsd.org/ports.git
 Cloning into bare repository 'ports.git'...
 remote: Enumerating objects: 5942473, done.
@@ -84,9 +80,9 @@ Receiving objects: 100% (5942473/5942473), 1.12 GiB | 11.01 MiB/s, done.
 Resolving deltas: 100% (3577978/3577978), done.
 ```
 
-### got clone 的消息
+### 使用 `got clone` 时的输出信息
 
-```
+```sh
 $ got clone ssh://anongit@git.freebsd.org/ports.git
 Connecting to ssh://anongit@git.freebsd.org/ports.git
 server: Enumerating objects: 5963414, done.
@@ -98,9 +94,9 @@ Fetched 0d39a9d41ecbf5cd111bcc9ae9f2cfcf7e30a616.pack
 Created cloned repository 'ports.git'
 ```
 
-### git clone 和 got clone 的执行时间
+### `git clone` 和 `got clone` 的执行时间对比
 
-```
+```sh
 git clone --bare --single-branch ssh://anongit@git.freebsd.org/ports.git
 511.72s user 40.21s system 163% cpu 5:36.76 total
 
@@ -108,44 +104,47 @@ got clone ssh://anongit@git.freebsd.org/ports.git
 660.88s user 75.82s system 87% cpu 14:00.91 total
 ```
 
-* 执行环境大约 5 分 37 秒与 14 分 1 秒的差异，有 2.5 倍的差距。
-* 另外，Git 的 CPU 使用率较高，表明处理效率偏向于 CPU 带宽（由多线程处理产生的效果）。
-* 相反地，GOT 具有較高的系統使用率，可以看出瓶頸往往偏向 I/O 帶寬。
+* 执行环境约为 5 分 37 秒 与 14 分 1 秒之间的差异，差距为 2.5 倍。
+* 另外，Git 的 CPU 使用率较高，处理效率偏向 CPU 绑定（通过多线程处理实现）。
+* 相反，Got 的系统使用率较高，瓶颈主要集中在 I/O 绑定上。
 
-## 關於克隆時的選項指定造成的容量差異
+## 克隆时的选项指定对容量的影响
 
-| 命令 | 单分支※    | 多分支※    |
-| ------ | ------------- | ------------- |
-| `got`     | 1,306,944KB | 1,326,872KB |
-| `git`     | 1,322,480KB | 1,350,344KB |
+| 命令    | 单分支模式\*     | 多分支模式\*     |
+| ----- | ----------- | ----------- |
+| `got` | 1,306,944KB | 1,326,872KB |
+| `git` | 1,322,480KB | 1,350,344KB |
 
-※单分支： git clone --single-branch 或 got clone ※多分支： git clone 或 got clone -a
+* 单分支：`git clone --single-branch` 或 `got clone`
+* 多分支：`git clone` 或 `got clone -a`
 
-一応通过选项指定确认了容量的变化。此外， git 和 got 之间的差异很大，尽管为什么会出现这种差异尚不明确。可能是某种开销导致的……。
+这里确认了不同选项指定时的容量差异。`git` 和 `got` 之间的差异较大，但为何会产生这种差异尚不明确，可能是某种开销造成的。
 
-# 更新工作树
+## 工作树更新
 
-```
+```sh
 $ cd /usr/ports && git pull
 ```
 
-对上述命令的执行相当于下面的 got 命令。
+上面执行的命令，相当于 `got` 命令如下：
 
-```
+```sh
 $ cd /usr/ports && got fetch && got update
 ```
 
-本案例中的大致用法如下。有关在开发流程中可能需要的用法，请参阅命令对应表以及其他参考文献。
+这个是典型的使用方式。关于开发流程中需要的使用方法，请参考[命令对照表](https://gameoftrees.org/comparison.html)等参考资料。
 
-# 关于 tog 命令的额外内容
+## 附加的 `tog` 命令
 
-这是一个基于 ncurses 的日志查看器。它可以显示一行日志，同时在选择该日志（按下回车键）时，会显示详细日志和修改内容，非常实用。据说类似于 Git 的第三方工具中的 tig 命令。
+`tog` 是一款基于 ncurses 的日志查看器。它显示一行日志，当按下回车键时，会显示详细日志和修正内容，这是个非常方便的工具。它相当于 Git 的第三方工具 `tig`。
 
-# 信息
+## 信息展示
 
-在 gotadmin 和 got 命令应用于存储库和工作树时有所不同。具体而言，安全使用的子命令大约是 info 。根据存储库或工作树的状态，显示内容会有所变化。
+`Got` 中用于管理仓库和工作树的命令不同。具体来说，分别是 `gotadmin` 和 `got`。
 
-```
+不过，安全使用的子命令大概只有 `info`。根据仓库或工作树的状态，显示不同的信息。
+
+```sh
 $ gotadmin info -r /home/ports.git
 repository: /home/ports.git
 remote "origin": ssh://anongit@git.freebsd.org/ports.git
@@ -155,11 +154,13 @@ packed total size: 1318M
 loose objects: 0
 ```
 
-在 git clone --bare 目录中运行 gotadmin info 并比较，显示增加了 remote 行。查看存储库下的文件时，发现不是 remote "origin" 文件中的 config ，而是 got.conf 中的 remote "origin" 设置。实际上，创建了 got.conf 文件后，显示了 remote 行。
+如果在通过 `git clone --bare` 克隆的目录内运行 `gotadmin info`，会看到 `remote` 行显示了更多的信息。
 
-另外，如果在工作树上运行 gotadmin info ，将显示存储库的状态。此外， got info 的执行结果将提供有关工作树的信息。
+查看仓库下的文件时，发现 `config` 文件中的 `remote "origin"` 配置被 `got.conf` 中的 `remote "origin"` 配置所替代。如果创建了 `got.conf` 文件，`remote` 行便会显示出来。
 
-```
+另外，在工作树上执行 `gotadmin info` 时，会显示仓库的状态。而执行 `got info` 则会显示工作树相关的信息。
+
+```sh
 $ cd /usr/ports
 $ gotadmin info
 repository: /home/ports.git
@@ -177,21 +178,21 @@ work tree UUID: 0c2bbcf5-8a1d-11ee-8d56-9ca3ba01eed8
 repository: /home/ports.git
 ```
 
-# 常见问题及其答案
+## 常见问题及其解答
 
-## 问： https 模式不可用吗？
+### 问：`https` 协议不能使用吗？
 
-Ａ． 可能是因为它不依赖于 curl 。在普通的 HTTP 通信实现中，可能会遇到无法进行并行处理的问题……这只是我的猜测。如果使用 ssh:// ，那里到处都安装了 ssh 命令，感觉很安心【需要出典】。
+答：可能是因为没有依赖 `curl`。如果实现普通的 HTTP 通信，可能会遇到无法并行处理的问题……这是我个人的推测。而使用 `ssh://` 则更加稳妥，因为很多系统中已经安装了 `ssh` 命令【需要引用来源】。
 
-## Ｑ． got update ／ got merge ／ got rebase ／ got integrate 有什么区别？
+### 问：`got update`、`got merge`、`got rebase`、`got integrate` 有什么区别？
 
- Ａ． 未调查。可能情况与 Git 类似。
+答：尚未研究。估计与 Git 中的用法相同。
 
-## Ｑ． 如果 got clone ... /usr/ports/.git ，就可以创建与 git clone 完全相同的情况了！
+### 问：`got clone ... /usr/ports/.git`，不是就能创建与 `git clone` 完全相同的情况吗？
 
-Ａ． 我已验证。 got clone 可成功，但 got checkout 将失败。
+答：经过验证，`got clone` 可以成功执行，但 `got checkout` 会失败。
 
-```
+```sh
 $ got clone -m ssh://anongit@git.freebsd.org/ports.git /usr/ports/.git
 Connecting to ssh://anongit@git.freebsd.org/ports.git
    :
@@ -200,31 +201,33 @@ $ got checkout /usr/ports/.git /usr/ports/
 got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 ```
 
-## Ｑ． 嗯？ /usr/ports/.git 是什么意思？
+### 问：`/usr/ports/.git` 是怎么回事？
 
-即是说实际上是个裸仓库的目录！ 做完 git clone 后接着做 gotadmin info 就会得到惊人的结果。
+答：实际上这是一个裸仓库的目录！在 `git clone` 后，运行 `gotadmin info`，结果非常令人吃惊……
 
-## 问：做完 git status 就会得到惊人的结果！
+### 问：运行 `git status` 后看到惊人的结果！
 
-答：处理 .gitignore 文件时出现了一个错误，这是个 bug。按照正常情况 .gitignore 文件指定的目录或文件等不会显示。轻轻地调查了一下，应该并不是没有处理 .gitignore 文件。所以这就是 bug 所在。
+答：关于 `.gitignore` 文件的处理，~~有一个 bug~~ 这是设计上的特性。本来 `.gitignore` 文件中指定的目录和文件是不应显示的。根据略微的研究，它并不是完全没有处理 `.gitignore` 文件。所以这是~~一个 bug~~ 设计上的特性。
 
-## Ｑ．别名功能呢？
+### 问：有没有别名功能？
 
-Ａ．没有。希望有这个功能。请有心人实现。
+答：没有。这个功能确实很需要，真希望有人能实现它。
 
-## Ｑ．这么好用了，加到基础系统里也可以吧？
+### 问：既然能这么做，为什么不把它加入到基本系统中？
 
-Ａ．好好使用并报告。在当前时点可能无法评价基础系统的质量是否足够。至少在我所接触的范围内，似乎还未达到那种质量水平。
+答：在彻底使用并报告其效果之前，不能肯定它的质量是否足够达到基本系统的要求。至少在我使用的范围内，它似乎还没有达到那个质量标准。
 
-# 参考文献
+## 参考文献
 
 * [git](https://git-scm.com/)
-* [ 得到](https://gameoftrees.org/)
-* [ 与 got、cvs、svn、git 的比较](https://gameoftrees.org/comparison.html)
-* [ 常见问题及其答案](https://gameoftrees.org/faq.html)
-* [ FOSDEM 2023 的演讲资料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
-* [ 在 EuroBSDcon 2019 年的演讲材料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
-* [ FreeBSD 的获取方式（使用 Git）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
+* [got](https://gameoftrees.org/)
+* [got、cvs、svn、git との比較](https://gameoftrees.org/comparison.html)
+* [よくある質問とその答え](https://gameoftrees.org/faq.html)
+* [FOSDEM 2023 での発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
+* [EuroBSDcon 2019 での発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
+* [ＦｒｅｅＢＳＤの入手方法（Ｇｉｔの利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
 
-1. 从 Game of Trees Goals ↩
-2. Ports Collection 的安装 ↩
+---
+
+1. [Game of Trees Goals](https://gameoftrees.org/goals.html)より
+2. [Ports Collection のインストール](https://docs.freebsd.org/ja/books/handbook/ports/#ports-using-installation-methods) 
