@@ -255,10 +255,10 @@ Bastille 使用 FreeBSD jail 作为容器平台，并添加了模板自动化，
 ## Capsicum
 Capsicum 是在[剑桥大学计算机实验室](https://www.cl.cam.ac.uk/)开发的一个沙箱框架，得到了 Google、FreeBSD 基金会和 DARPA 的资助。Capsicum 扩展了 POSIX API，提供了几个新的操作系统原语，以支持 UNIX 类操作系统上的对象功能安全性：
 
-- Capability 权限-具有细粒度权限的精炼文件描述符
-- Capability 模式-拒绝访问全局命名空间的进程沙箱
-- 进程描述符-以能力为中心的进程 ID 替换
-- 匿名共享内存对象-扩展 POSIX 共享内存 API，支持与文件描述符（Capability）关联的匿名交换对象
+- Capability 权限 - 具有细粒度权限的精炼文件描述符
+- Capability 模式 - 拒绝访问全局命名空间的进程沙箱
+- 进程描述符 - 以能力为中心的进程 ID 替换
+- 匿名共享内存对象 - 扩展 POSIX 共享内存 API，支持与文件描述符（Capability）关联的匿名交换对象
 - rtld-elf-cap-修改的 ELF 运行时链接器，用于构建沙箱应用程序
 - libcapsicum-用于创建和使用能力和沙箱组件的库
 - libuserangel-允许沙箱应用程序或组件与用户 angel（如 Power Boxes）交互的库

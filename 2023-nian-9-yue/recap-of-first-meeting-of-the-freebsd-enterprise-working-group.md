@@ -1,6 +1,6 @@
 # FreeBSD 企业工作组首次会议总结
 
-- 原地址:[Recap of first meeting of the FreeBSD Enterprise Working Group](https://freebsdfoundation.org/blog/recap-of-first-meeting-of-the-freebsd-enterprise-working-group/)
+- 原地址：[Recap of first meeting of the FreeBSD Enterprise Working Group](https://freebsdfoundation.org/blog/recap-of-first-meeting-of-the-freebsd-enterprise-working-group/)
 - 发布日期：2023-8-24
 - 译者：ykla & ChatGPT
 

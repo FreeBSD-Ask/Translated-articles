@@ -134,7 +134,7 @@ lang/perl5.*:      NO_DIALOG=yes
 
 ### 与 OPTIONS 的区别
 
-在 OPTIONS 的情况下，像 `${OPTIONS_NAME}_SET` 和 `${OPTIONS_NAME}_UNSET` 这样的选项可以明确地为每个 Port （`${OPTIONS_NAME}`）指定 `OPTIONS_SET` 和 `OPTIONS_UNSET`。但是，像 `NO_DIALOG` 这样的全局设置不能为每个 Port 单独设置。这时，就可以使用 `portconf`。
+在 OPTIONS 的情况下，像 `${OPTIONS_NAME}_SET` 和 `${OPTIONS_NAME}_UNSET` 这样的选项可以明确地为每个 Port（`${OPTIONS_NAME}`）指定 `OPTIONS_SET` 和 `OPTIONS_UNSET`。但是，像 `NO_DIALOG` 这样的全局设置不能为每个 Port 单独设置。这时，就可以使用 `portconf`。
 
 当然，也可以不使用 `${OPTIONS_NAME}_SET` 或 `${OPTIONS_NAME}_UNSET`，而是使用 `OPTIONS_SET` 或 `OPTIONS_UNSET` 来在 `ports.conf` 中配置，但在没有安装 `portconf` 的环境中构建时，这可能会有较大影响。因此，在影响较小的地方使用 `portconf` 会是更高效的做法。
 
@@ -167,7 +167,7 @@ A. 没问题的。你的理解是正确的。虽然这应该解释清楚，但�
 
 ---
 
-1. **2012 年 05 月以降**：当然，新的系统引入时，并不是所有的 Ports 都立刻支持，但已经过去 8年多了。
+1. **2012 年 05 月以降**：当然，新的系统引入时，并不是所有的 Ports 都立刻支持，但已经过去 8 年多了。
 
 2. **`WITHOUT_X11` 等的定制设置不再使用**：这些主要的定制选项已经不再使用（严格来说，这是一种错误的用法）。
 

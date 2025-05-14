@@ -4,7 +4,7 @@
 
 **今天的主题：许可证**
 
-在决定新项目要使用什么许可证时，有许多许可证可供选择。今天，我们将专注于 Berkeley （伯克利）软件发行（BSD）许可证的 2 条款变体，也被称为 FreeBSD 许可证。对于许多人来说，商业友好的 FreeBSD 许可证提供了他们所寻求的灵活性。为什么呢？首先让我们看一下许可证本身。
+在决定新项目要使用什么许可证时，有许多许可证可供选择。今天，我们将专注于 Berkeley（伯克利）软件发行（BSD）许可证的 2 条款变体，也被称为 FreeBSD 许可证。对于许多人来说，商业友好的 FreeBSD 许可证提供了他们所寻求的灵活性。为什么呢？首先让我们看一下许可证本身。
 
 **FreeBSD 许可证**
 ```
@@ -40,11 +40,11 @@ FreeBSD 许可证
 
 FreeBSD 及其组件可以用于构建专有软件，没有任何限制。从法律角度来看，这也对开发者具有吸引力。你可以随心所欲地使用（他的）代码。
 
-此外，FreeBSD 许可证已被自由软件基金会验证为与 GPL 兼容，也经过了开放源代码促进会【注1】的审查，被确认为开源许可证。这意味着 FreeBSD 仍然是作为开发产品的参考平台的绝佳选择。FreeBSD 的代码具有最广泛的适用性。你可以从 FreeBSD 入手，然后在任何地方发布。
+此外，FreeBSD 许可证已被自由软件基金会验证为与 GPL 兼容，也经过了开放源代码促进会【注 1】的审查，被确认为开源许可证。这意味着 FreeBSD 仍然是作为开发产品的参考平台的绝佳选择。FreeBSD 的代码具有最广泛的适用性。你可以从 FreeBSD 入手，然后在任何地方发布。
 
-像 Nextflix 和他们开发的 Open Connect Appliances【Open Connect Appliance 软件内置了一个 FreeBSD 操作系统和 NGINX 服务器，许可证是 BSD】。像这样的公司，最初就是因为宽松的许可证才吸引了 Open Connect 工程师使用 FreeBSD【注2】。
+像 Nextflix 和他们开发的 Open Connect Appliances【Open Connect Appliance 软件内置了一个 FreeBSD 操作系统和 NGINX 服务器，许可证是 BSD】。像这样的公司，最初就是因为宽松的许可证才吸引了 Open Connect 工程师使用 FreeBSD【注 2】。
 
-其他公司，例如 Beckhoff 之所以选择 FreeBSD 和宽松的许可证，部分原因是因为 GPL【注3】不能满足要求。
+其他公司，例如 Beckhoff 之所以选择 FreeBSD 和宽松的许可证，部分原因是因为 GPL【注 3】不能满足要求。
 
 简而言之，BSD 许可证，尤其是 FreeBSD 许可证，在构建产品和服务时提供了灵活性和安心感。
 

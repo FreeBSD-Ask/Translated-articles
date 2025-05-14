@@ -8,7 +8,7 @@
 
 ## 目前，我正在努力将其转化为 `Ansible Playbook =D` ，我也刚刚从 mwl.io 订购了 *FreeBSD Mastery Jails* 一书，这将是非常有用的。
 
-### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1 ，它还充当我的 DNS 。下面我们将使用 `zroot` 作为 zpool 的名称。
+### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，它还充当我的 DNS。下面我们将使用 `zroot` 作为 zpool 的名称。
 
 
 在主机上执行：
@@ -179,7 +179,7 @@ service sshd start
 vi /etc/ssh/sshd_config
 ```
 
-将 ListenAddress 改为 jaill 的 IP 。同时在文件末尾添加一个新行，显示以下配置：
+将 ListenAddress 改为 jaill 的 IP。同时在文件末尾添加一个新行，显示以下配置：
 
 ```
 AllowUsers ansible
@@ -228,7 +228,7 @@ visudo
 
 不需要一直输入  `-K` 和 sudo 密码，只需使用按键即可。
 
-我在我的主机上添加了一个 `[jails]` 部分，其中有 jail 的 IP ，像以下这样：
+我在我的主机上添加了一个 `[jails]` 部分，其中有 jail 的 IP，像以下这样：
 
 ```
 [jails]
@@ -238,7 +238,7 @@ visudo
 ansible_python_interpreter=/usr/local/bin/python3.7
 ```
 
-现在我可以成为 sudo ，而不必输入密码了:
+现在我可以成为 sudo，而不必输入密码了：
 
 ```
 ansible jails -m package -a "name=git-lite state=present" -b

@@ -1,6 +1,6 @@
 # 如何在 FreeBSD 中指定 CPU 类型
 
-- [ＦｒｅｅＢＳＤでのＣＰＵＴＹＰＥの指定方法](https://qiita.com/nanorkyo/items/e0417d8c1388750cb72c)
+- [FreeBSDでのCPUTYPEの指定方法](https://qiita.com/nanorkyo/items/e0417d8c1388750cb72c)
 - 作者：重村法克
 - 发布于 2021 年 03 月 11 日，最后更新于 2021 年 03 月 18 日
 

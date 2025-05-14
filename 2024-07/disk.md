@@ -1,6 +1,6 @@
 # 通过替换 ZFS 镜像池中的磁盘来扩容
 
-- 原文链接：[ZFSミラープールのディスク交換による容量増設](https://qiita.com/belgianbeer/items/8df197588462cd7f6b45)
+- 原文链接：[ZFS ミラープールのディスク交換による容量増設](https://qiita.com/belgianbeer/items/8df197588462cd7f6b45)
 - 作者：みんみん
 - 上次更新于 2023 年 07 月 16 日
 
@@ -342,7 +342,7 @@ config:
 errors: No known data errors
 ```
 
-第二台的同步大约用了14个小时。
+第二台的同步大约用了 14 个小时。
 
 ```sh
 $ zpool status zvol0

@@ -40,7 +40,7 @@ Naman Sood 是 FreeBSD 基金会的暑期实习生，他一直在从事与网络
 
 Naman 还修复了 pw(8) 和 du(1) 中的错误，并已开始探索由 Klaus P. Ohrhallinger 开始的 tcp 检查点和故障转移工作的完成。
 
-## 使用 ktrace(1)进行安全沙箱化
+## 使用 ktrace(1) 进行安全沙箱化
 
 从 6 月开始，Jake Freeland 开始在基金会实习，从事与 Capsicum 相关的项目。Capsicum 是用于限制应用程序和库所赋予的功能的工具。其核心思想很直观；进入能力模式后，资源获取和外部通信将受到限制。围绕这个原则设计程序相对容易，但是当不是设计为沙箱化的应用程序需要在此环境中运行时就会出现问题。很难确定哪些操作会引起 Capsicum 违规，并且无法预先打开尚未被请求或命名的资源。此外，开发人员在实施 Capsicum 功能之前需要对程序有深入了解。由于这些挑战，近年来围绕该框架的进展和开发逐渐减少。
 
@@ -50,7 +50,7 @@ Naman 还修复了 pw(8) 和 du(1) 中的错误，并已开始探索由 Klaus P.
 
 由 Jake 编写的新 ktrace 扩展可以在程序不处于能力模式时记录违规。这意味着能力违规跟踪可以在未经修改的程序上运行，而且由于不需要在能力模式下运行程序，即使在发生能力违规时，它仍将获取资源并正常执行。
 
-完成 ktrace 扩展后，Jake 将开始对各种实用程序进行 Capsicum 化，包括 syslogd(8)、NFS 守护程序、ggatec(8)/ggated(8)、tftpd(8)、ntpd(8)和 libarchive(8)。
+完成 ktrace 扩展后，Jake 将开始对各种实用程序进行 Capsicum 化，包括 syslogd(8)、NFS 守护程序、ggatec(8)/ggated(8)、tftpd(8)、ntpd(8) 和 libarchive(8)。
 
 ## 无线实习
 
@@ -82,7 +82,7 @@ kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 
 
 ## FreeBSD 作为一级 cloud-init 平台
 
-cloud-init 是在云中配置服务器的标准方式。不幸的是，除了 Linux 以外的操作系统对 cloud-init 的支持相当有限，而且缺乏对 FreeBSD 的 cloud-init 支持阻碍了将 FreeBSD 作为一级平台提供的云提供商这一愿望。为了解决这个问题，FreeBSD 基金会与 Mina Galić 签订合同，使 FreeBSD 的 cloud-init 支持与 Linux 支持保持一致。项目交付成果包括完成对特定网络类的提取，实现 ifconfig(8)和 login.conf(5)解析器，实现 IPv6 配置，为 Azure 创建 devd 规则，并编写有关将 FreeBSD 投入生产的手册文档。
+cloud-init 是在云中配置服务器的标准方式。不幸的是，除了 Linux 以外的操作系统对 cloud-init 的支持相当有限，而且缺乏对 FreeBSD 的 cloud-init 支持阻碍了将 FreeBSD 作为一级平台提供的云提供商这一愿望。为了解决这个问题，FreeBSD 基金会与 Mina Galić 签订合同，使 FreeBSD 的 cloud-init 支持与 Linux 支持保持一致。项目交付成果包括完成对特定网络类的提取，实现 ifconfig(8) 和 login.conf(5) 解析器，实现 IPv6 配置，为 Azure 创建 devd 规则，并编写有关将 FreeBSD 投入生产的手册文档。
 
 在上个季度完成了一些项目里程碑：
 

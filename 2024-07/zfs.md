@@ -1,6 +1,6 @@
 # 通过将 ZFS 池构建为镜像结构，消除异常数据的影响
 
-- 原文：[ZFSプールをミラーで構成することで、不正データの影響を無くす](https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc)
+- 原文：[ZFS プールをミラーで構成することで、不正データの影響を無くす](https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc)
 - 作者：みんみん
 - 上次更新于 2022-12-26
 

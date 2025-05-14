@@ -5,7 +5,7 @@
 - 发布时间：2023 年 8 月 1 日
 - 译者：basebit
 
-两年前，我写了一篇名为 ["VoidLinux in FreeBSD Jail; with init"](https://weblog.antranigv.am/posts/2021/08/2021-08-21-00-37/) 的博文，在文中我们在一个 FreeBSD Jail 环境里安装并“启动”了 VoidLinux 。我认为现在是时候对那篇博文进行修订了。
+两年前，我写了一篇名为 ["VoidLinux in FreeBSD Jail; with init"](https://weblog.antranigv.am/posts/2021/08/2021-08-21-00-37/) 的博文，在文中我们在一个 FreeBSD Jail 环境里安装并“启动”了 VoidLinux。我认为现在是时候对那篇博文进行修订了。
 
 这次，我们将使用 [Devuan GNU+Linux](https://www.devuan.org/) 以及用 [OpenRC](https://wiki.gentoo.org/wiki/Project:OpenRC) 来启动系统，并在 Linux Jail 中放置一些本地的 FreeBSD 二进制程序。
 

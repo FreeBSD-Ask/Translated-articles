@@ -52,19 +52,19 @@ DIFFUSE——Lawrence Stewart、Grenville Armitage、斯威本理工大学（Swi
 
 Nigel Williams、Grenville Armitage、斯威本理工大学（Swinburne University of Technology）适用于 FreeBSD 的多路径 TCP
 
-Maffione, V., Rizzo, L., Lettieri, G.一个 “使用 Netmap Passthrough 实现灵活的虚拟网络。” IEEE Lanman 2016。
+Maffione, V., Rizzo, L., Lettieri, G.一个“使用 Netmap Passthrough 实现灵活的虚拟网络。”IEEE Lanman 2016。
 
 Honda, M., Huici, F., Lettieri, G., 和 Rizzo, L. “mSwitch: 一个高度可扩展的模块化软件交换机”; SOSR 15, ACM Press (2015)
 
 Spinellis, D., Louridas, P., Kechagia, M. “C 编程实践的演变：Unix 操作系统 1973–2015 的研究”; 2016 IEEE/ACM 38th IEEE 国际软件工程研讨会。
 
-Watson, Robert N. M.; Anderson, Jonathan; Laurie, Ben; 和 Kennaway, Kris. “Capsicum: 实用的 UNIX 能力”; USENIX Security ’10: 第 19 届 USENIX 安全会议。USENIX 协会。 (2010 年 8 月)
+Watson, Robert N. M.; Anderson, Jonathan; Laurie, Ben; 和 Kennaway, Kris. “Capsicum: 实用的 UNIX 能力”; USENIX Security’10: 第 19 届 USENIX 安全会议。USENIX 协会。 (2010 年 8 月)
 
 Criswell, John; Dautenhahn, Nathan; 和 Adve, Vikram. “虚拟 Ghost”; ASPLOS 2014. ACM Press。 (2014 年)
 
 Rizzo, Luigi. “Netmap: 一个快速数据包 IO 的新颖框架”; 2012 USENIX 年度技术会议。USENIX 协会。 (2012 年)
 
-McKusick, M. K.; Joy, W. N.; 和 Leffler, S. J. “用于 UNIX 的快速文件系统”; 美国计算机学会计算机系统汇刊. (1984 年)
+McKusick, M. K.; Joy, W. N.; 和 Leffler, S. J. “用于 UNIX 的快速文件系统”; 美国计算机学会计算机系统汇刊。(1984 年)
 
 ## 还不太确定吗？
 

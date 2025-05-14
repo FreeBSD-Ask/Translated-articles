@@ -3,7 +3,7 @@
  - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Python_on_Freebsd.md>
  - 作者：Roller Angel
  - 译者：飞鱼
- - 校对整理：ykla 【】部分为 ykla 注解。
+ - 校对整理：ykla【】部分为 ykla 注解。
 
 ## 使用 Python 3.8 和 Pipenv 管理虚拟环境并通过 pip 安装软件包
 
@@ -15,7 +15,7 @@ sudo -H pip3.8 install pipenv
 ```
 【`-H` 参数将环境变数中的 HOME（家目录）指定为要变更身份的使用者家目录，在上述中即 `/root`。】
 
-## 最后一个配置步骤是在 FreeBSD 上设置 UTF-8 。如果你还没有这样做，请查看下面链接的 FreeBSD Workshop 简介中的说明
+## 最后一个配置步骤是在 FreeBSD 上设置 UTF-8。如果你还没有这样做，请查看下面链接的 FreeBSD Workshop 简介中的说明
 
 [FreeBSD 简介](https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Intro_to_FreeBSD_Workshop.md#iocage)
 
@@ -35,7 +35,7 @@ pipenv 将为你创建虚拟环境，并可在其中安装软件包。
 pipenv shell
 ```
 
-创建一个虚拟环境并打开其中的 shell ，这样你就可以键入一些正常的内容，如：
+创建一个虚拟环境并打开其中的 shell，这样你就可以键入一些正常的内容，如：
 
 ```
 pip install b2
