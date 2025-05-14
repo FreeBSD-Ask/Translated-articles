@@ -1,4 +1,4 @@
-# FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS\_SET/OPTIONS\_UNSET/NO\_DIALOG 进行操作和实践
+# FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG 进行操作和实践
 
 - 原文：[FreeBSD Ports Collection における OPTIONS 機能の紹介 - OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG の活用と実践 -](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b)
 - 作者：重村法克
