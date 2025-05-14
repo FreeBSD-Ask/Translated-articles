@@ -1,34 +1,30 @@
 # 通过为 ZFS 池配置镜像来消除无效数据的影响
 
-- <https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc>
+- 原文：[ZFSプールをミラーで構成することで、不正データの影響を無くす](https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc)
+- 作者：みんみん
+- 上次更新于 2022-12-26
 
-* [Linux](https://qiita.com/tags/linux)
-* [FreeBSD](https://qiita.com/tags/freebsd)
-* [ZFS](https://qiita.com/tags/zfs)
+## 开始之前
 
-上次更新于 2022-12-26 发布于 2022-12-23
+在上一篇文章 [试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)中，我们确认了 ZFS 能够正确地检测出磁盘上的非法数据。
 
-# 开始
+能够检测出非法数据这一点，比起那些无法检测到非法数据而可能在读取时引发错误行为的文件系统，要好得多。但既然能检测到非法数据，自然而然就会想到：那是否可以将其恢复呢？
 
-在之前发布的“尝试破坏 ZFS 池”的文章中，我们发现 ZFS 能够正确检测到磁盘上的非法数据。
+在 ZFS 中，如果构建了具备冗余性的池，即使存在非法数据，也可以获取到正确的数据。具体来说，可以使用镜像（mirror）、RAID-Z 或 RAID-Z2 等池结构。
 
-能够检测到非法数据要比读取无法检测到非法数据的文件系统并导致错误操作要好得多。但是如果能够检测到非法数据，那么是否无法恢复它呢？这种想法也是很自然的。
+本文将基于与[试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)相同的实验，在镜像结构的 ZFS 池上进行测试。
 
-如果配置冗余池，则即使存在非法数据，也可以获得正确的数据。具体来说，使用镜像、RAID-Z、RAID-Z2 等池。
+**2022 年 12 月 26 日补充了执行 scrub 后的磁盘状态**
 
-在这里，将尝试使用镜像配置的 ZFS 池进行类似于破坏 ZFS 池的实验。
+## 准备 ZFS 镜像池
 
-**在 2022-12-26 进行 scrub 后，补充了磁盘状态。**
+为了实验，准备了 2 台通过 USB 连接的 HDD，并在每台硬盘上创建了 4GB 的分区，用于构建镜像结构的 ZFS 池。
 
-# 准备 ZFS 镜像池
+[![DSCF2553.JPG](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2F789a1ff3-ea8a-ab11-3f7b-f3db1c5364cb.jpeg?ixlib=rb-4.0.0\&auto=format\&gif-q=60\&q=75\&s=5c42c540ecb2ec6b7b329fb3bb1e565b)](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2F789a1ff3-ea8a-ab11-3f7b-f3db1c5364cb.jpeg?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=5c42c540ecb2ec6b7b329fb3bb1e565b)
 
-为实验准备两台 USB 连接的硬盘，分别创建一个 4GB 的分区，并准备一个镜像配置的 ZFS 池。
+这两块 HDD 分别是 `/dev/da1` 和 `/dev/da2`，使用 GPT 创建分区表，并在每块硬盘上创建了带有 tt1 和 tt2 标签的分区。
 
-![DSCF2553.JPG](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2F789a1ff3-ea8a-ab11-3f7b-f3db1c5364cb.jpeg?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=5c42c540ecb2ec6b7b329fb3bb1e565b)
-
-硬盘为/dev/da1，/dev/da2，在 GPT 下创建分区，并分别创建标记为 tt1 和 tt2 的分区。
-
-```
+```sh
 $ gpart create -s gpt da1
 da1 created
 $ gpart create -s gpt da2
@@ -61,18 +57,18 @@ $ gpart show -l da2
 $
 ```
 
-这样，两个 HDD 上的每一个都创建了一个用于镜像的分区。
+至此，镜像所需的两个 HDD 各自的分区已创建完成。
 
-将这两个分区组合起来创建一个 ZFS 镜像池。当然，就像上次实验一样，不会进行 ZFS 压缩。
+接下来，将这两个分区组合成一个 ZFS 镜像池。当然和[上次的实验](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)一样，不启用 ZFS 压缩。
 
-```
+```sh
 $ zpool create -O atime=off ztest mirror gpt/tt1 gpt/tt2
 $
 ```
 
-如下所示，已经完成了镜像配置的 ZFS 池。
+如下所示，镜像结构的 ZFS 池已创建完成。
 
-```
+```sh
 $ zpool status ztest
   pool: ztest
  state: ONLINE
@@ -100,14 +96,13 @@ ztest	420K  3.62G	  96K  /ztest
 $ df /ztest/
 Filesystem 512-blocks Used   Avail Capacity  Mounted on
 ztest         7601576  192 7601384     0%    /ztest
-
 ```
 
-# 写入虚拟数据
+## 写入伪数据
 
-现在使用 dd 命令以零数据填充文件系统，就像上次的实验一样。
+那么就像上次实验一样，使用 `dd` 命令用零数据填满文件系统。
 
-```
+```sh
 $ dd if=/dev/zero of=/ztest/dummy bs=1m
 dd: /ztest/dummy: No space left on device
 3711+0 records in
@@ -126,13 +121,13 @@ $ ls -l /ztest/dummy
 -rw-r--r--  1 root  wheel  3891134464 Dec 22 17:43 /ztest/dummy
 ```
 
-# 破坏写入的数据
+## 破坏写入的数据
 
-然后强行写入垃圾数据，故意制造 ZFS 错误。这是为了验证镜像冗余和 ZFS 修复功能，因此仅在 da1 侧写入垃圾数据。
+接着像上次一样，强行写入垃圾数据，使其在 ZFS 中触发错误。由于是为了验证镜像冗余性和 ZFS 的修复功能，因此只向 da1 这一侧写入垃圾数据。
 
-通常从镜像配置的磁盘读取时，为了负载平衡和加速，会交替访问两个磁盘。在 ZFS 镜像配置下也会有类似的行为。因此，与上次一样破坏一个块是无法访问到该块的正常驱动器侧的，而是会访问到另一个正常的驱动器侧。因此，这次我们将写入约数十 MB 的数据，更大的区域数据将会引起错误。正好内核接近 30MB，我们将写入它并试图破坏它。
+通常，从构成镜像的磁盘中读取数据时，为了分散负载和提升性能，会交替访问两个磁盘。ZFS 的镜像结构也有类似行为。因此，如果像上次一样仅破坏一个区块，读取时可能会正好绕过被破坏的区块，访问正常的磁盘。因此，这次将写入几十 MB 的数据，以制造更大范围的错误。刚好内核有将近 30MB，就用它来破坏数据。
 
-```
+```sh
 $ zpool export ztest
 $ ls -l /boot/kernel/kernel
 -r-xr-xr-x  2 root  wheel  29343392 Nov  4 10:27 /boot/kernel/kernel
@@ -144,13 +139,13 @@ dd: /dev/gpt/tt1: Invalid argument
 $
 ```
 
-# 读取损坏数据部分
+## 读取被破坏的数据部分
 
-为了确认是否发生错误，仅使用 da1 一侧进行导入。由于这是 USB 硬盘，因此物理上拔掉 da2 会更容易。
+为了确认是否发生错误，仅使用 da1 这一侧进行导入。因为是 USB 接口的 HDD，把 da2 实体移除是最简单的方法。
 
-![DSCF2555.JPG](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2Fbd2d7cd7-fc2f-2fd1-4389-d554d26c438d.jpeg?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=ba0b5066b66b10ea7f44067b1ef43c30)
+[![DSCF2555.JPG](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2Fbd2d7cd7-fc2f-2fd1-4389-d554d26c438d.jpeg?ixlib=rb-4.0.0\&auto=format\&gif-q=60\&q=75\&s=ba0b5066b66b10ea7f44067b1ef43c30)](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F130638%2Fbd2d7cd7-fc2f-2fd1-4389-d554d26c438d.jpeg?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=ba0b5066b66b10ea7f44067b1ef43c30)
 
-```
+```sh
 $ zpool import
    pool: ztest
      id: 6304409293823647838
@@ -167,9 +162,9 @@ status: One or more devices are missing from the system.
             gpt/tt2  UNAVAIL  cannot open
 ```
 
-无法访问 da2 侧的 gpt/tt2。将继续导入 ztest。
+如上所示，无法访问 da2 侧的 `gpt/tt2`。就这样将 ztest 导入。
 
-```
+```sh
 $ zpool import ztest
 $ zpool status ztest
   pool: ztest
@@ -193,10 +188,9 @@ Filesystem 512-blocks    Used Avail Capacity  Mounted on
 ztest         7601264 7601024   240   100%    /ztest
 $ ls /ztest
 dummy
-#
 ```
 
-只有一个驱动器，但/ztest/dummy 确实存在。那么让我们实际读取它。为了使数据内容可见，我们将使用 hd 命令进行读取。
+虽然只有一侧的驱动器，但 `/ztest/dummy` 确实存在。那么现在尝试实际读取它的内容。为了确认数据内容，这里使用 `hd` 命令进行读取。
 
 ```
 $ hd /ztest/dummy
@@ -209,17 +203,17 @@ $
 
 无法读取文件，发生了错误。
 
-# 镜像配置下的读取
+## 镜像结构下的读取
 
-尝试重新配置为镜像并进行相同操作。
+现在重新恢复镜像结构，再次进行同样的操作。
 
-```
+```sh
 $ zpool export ztest
 ```
 
-在这里连接已拆下的 DA2 端的 USB HDD。
+此时，重新连接之前拔下的 da2 侧 USB 硬盘。
 
-```
+```sh
 $ zpool import
    pool: ztest
      id: 6304409293823647838
@@ -233,9 +227,9 @@ $ zpool import
             gpt/tt2  ONLINE
 ```
 
-GPT / TT2 端目前处于在线状态。现在将导入 ztest。
+可以看到，`gpt/tt2` 一侧的状态已经是 ONLINE。那么就将 ztest 导入。
 
-```
+```sh
 $ zpool import ztest
 $ zpool status ztest
   pool: ztest
@@ -252,9 +246,9 @@ errors: No known data errors
 $
 ```
 
-导入成功，现在让我们像刚才一样读取/ztest/dummy。
+成功地导入了 ztest。接下来就像之前一样，尝试读取 `/ztest/dummy` 文件。
 
-```
+```sh
 $ hd /ztest/dummy
 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 *
@@ -262,9 +256,11 @@ e7ee0000
 $
 ```
 
-能够正常读取，并确认所有内容都为 0。检查 ztest 的状态后，似乎没有问题。
+正如所见，文件已被正常读取，并且可以确认其内容全部为 0。
 
-```
+接着确认一下 ztest 的状态，可以看到一切正常，没有问题。
+
+```sh
 $ zpool status ztest
   pool: ztest
  state: ONLINE
@@ -281,11 +277,11 @@ errors: No known data errors
 $
 ```
 
-# 使用 scrub 检查磁盘完整性
+# 通过 scrub 检查磁盘一致性
 
-因为 ZFS 可能存在无法读取的部分，所以执行 scrub 以确认完整性。
+ZFS 理论上应该存在无法读取的损坏块，因此执行了 `scrub` 操作来进行一致性检查。
 
-```
+```sh
 $ zpool scrub ztest
 $ zpool status ztest
   pool: ztest
@@ -302,12 +298,11 @@ config:
             gpt/tt2  ONLINE       0     0     0
 
 errors: No known data errors
-$
 ```
 
-等待 scrub 完成后，再查看状态。
+经过一段时间后，确认 scrub 完成后的状态如下：
 
-```
+```sh
 $ zpool status ztest
   pool: ztest
  state: ONLINE
@@ -326,16 +321,16 @@ config:
             gpt/tt2  ONLINE       0     0     0
 
 errors: No known data errors
-$
 ```
 
-可以看到 da1 侧的 tt1 出现了大量的校验和错误。
+从该结果可以看出，`gpt/tt1`（da1 一侧）发生了 130 次校验和错误。但由于镜像（mirror）结构，从健康的 `gpt/tt2` 一侧获取了正确的数据，并在 scrub 过程中修复了损坏的数据。
 
-# 再次读取数据
 
-最后再次尝试读取数据。为了排除操作系统磁盘缓存的影响，先导出再导入后再执行。
+## 重新读取数据
 
-```
+为了排除操作系统磁盘缓存的影响，先将池导出再重新导入，并重新进行读取操作：
+
+```sh
 $ zpool export ztest
 $ zpool import ztest
 $ hd /ztest/dummy
@@ -345,17 +340,9 @@ e7ee0000
 $
 ```
 
-尽管发生了错误，但由于镜像配置的帮助，成功读取了正确的数据。
+如上所示，尽管存在发生错误的磁盘，但由于镜像结构的作用，依然成功读取到了正确的数据。
 
-# 【补充】执行 scrub 后的 da1 状态
-
-文章发布后，我们收到了一个问题：“通过 scrub，da1 侧是否被修复并可读取？”实际上，scrub 执行后显示 scan: scrub repaired ，因此我进行了确认。
-
-尽管实验环境已被销毁，我会重新进行部分内容的省略，破坏 da1 侧数据并进行 scrub，然后尝试读取 da1 侧数据。
-
-从创建 ZFS 镜像池到破坏 da1 侧数据，执行 scrub，然后将池导出。
-
-```
+```sh
 $ zpool create -O atime=off ztest mirror gpt/tt1 gpt/tt2
 $ dd if=/dev/zero of=/ztest/dummy bs=1m
 dd: /ztest/dummy: No space left on device
@@ -391,9 +378,9 @@ errors: No known data errors
 $ zpool export ztest
 ```
 
-由于导出成功，我将物理地移除 da2 端口，尝试导入并读取 da1 端口。
+已经成功导出，因此现在物理上移除 da2 一侧，只使用 da1 一侧进行导入并尝试读取数据。
 
-```
+```sh
 $ zpool import
    pool: ztest
      id: 11275383091719095959
@@ -414,14 +401,13 @@ $ hd /ztest/dummy
 *
 e7ee0000
 $ zpool export ztest
-
 ```
 
-我成功无误地读取了被破坏的 da1 端口的全部数据。也就是说，通过 Scrub 写回并修复了数据。而且实际导入后检查 status，CKSUM 的值也是 0(截屏失败…)。
+成功读取了损坏侧 da1 上的所有数据，完全没有问题。也就是说，通过 scrub 操作，数据被写回并得到了修复。而且实际在导入之后通过 `status` 确认，CKSUM 的值也确实是 0（可惜没来得及截图……）。
 
-再次尝试，将 da2 连接到导出的 ztest 并进行导入。
+接下来，再次为已经导出的 ztest 连接上 da2，并尝试导入。
 
-```
+```sh
 $ zpool import ztest
 $ zpool status ztest
   pool: ztest
@@ -439,10 +425,10 @@ errors: No known data errors
 $
 ```
 
- 这样错误已被清除。
+如上所示，错误已经被清除。
 
-# 汇总
+## 总结
 
-通过在 ZFS 中将磁盘配置为镜像或 RAID-Z，我们确认可以避免部分数据错误。此外，通过执行 scrub 可以修复数据，我们也发现修复后的数据可以恢复到原始状态。
+通过本次实验可以确认，在 ZFS 中将磁盘配置为镜像或 RAID-Z 结构，可以避免部分数据错误的影响。同时也验证了，对于可以修复的数据，执行 scrub 后能够恢复为原来的状态。
 
-无论是 ZFS 还是其他卷管理器或 RAID 系统，正确地配置镜像或 RAID 可帮助规避部分数据错误。修复能力可能取决于具体实现。
+不仅仅是 ZFS，其他的卷管理器或 RAID 系统，如果正确配置了镜像或 RAID，也同样能够避免部分数据错误。而是否能够实现自动修复，则取决于各个系统的具体实现。
