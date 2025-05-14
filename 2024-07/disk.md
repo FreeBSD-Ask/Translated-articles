@@ -1,32 +1,24 @@
 # 通过替换 ZFS 镜像池中的磁盘进行扩容
 
-- 原文链接：<https://qiita.com/belgianbeer/items/8df197588462cd7f6b45>
+- 原文链接：[ZFSミラープールのディスク交換による容量増設](https://qiita.com/belgianbeer/items/8df197588462cd7f6b45)
+- 作者：みんみん
+- 上次更新于 2023 年 07 月 16 日
 
-* [FreeBSD](https://qiita.com/tags/freebsd)
-* [RAID](https://qiita.com/tags/raid)
-* [ 硬盘驱动器](https://qiita.com/tags/hdd)
-* [ZFS](https://qiita.com/tags/zfs)
-* [ZFSonLinux](https://qiita.com/tags/zfsonlinux)
+## 引言
 
-上次更新于 2023 年 07 月 16 日发布于 2023 年 06 月 24 日
+自家服务器的硬盘使用量已经快超过 80%[1]，同时硬盘也已经使用了 10 多年。出于安全考虑，决定更换硬盘。因此，我购买了新的硬盘并进行了更换。本文记录了实际更换硬盘的过程。
 
-## ZFS 镜像池的磁盘更换与容量扩展
+值得一提的是，笔者的服务器操作系统是 FreeBSD，但如果是在 Linux 上使用 ZFS，相关操作也是类似的（笔者也在 Linux 上使用 ZFS）。
 
-## 开始
+## 服务器存储结构
 
-自家服务器的硬盘使用量即将超过 80%^ 1^，再加上使用已经超过了 10 年，因此判断还是该更换硬盘了。于是我购买了新的硬盘并进行了更换。本文记录了实际进行硬盘更换的过程。
+目标服务器的操作系统为 FreeBSD，存储结构如下：用于系统的固态硬盘（256GB）1 块，用于数据存储的硬盘（2TB）2 块，所有硬盘均使用 ZFS 进行配置。这两块硬盘通过 ZFS 配置为镜像（mirror）方式，意味着即使有两块硬盘，容量仅相当于一块硬盘的容量。此次操作将把这两块 2TB 的硬盘分别更换为 6TB 的硬盘。
 
-尽管本文作者的服务器操作系统是 FreeBSD，但是即使在 Linux 上使用 ZFS 的情况下，ZFS 相关操作也是类似的（作者也在 Linux 上使用 ZFS）。
+## 更换前的检查
 
-## 服务器存储配置
+在实际进行更换操作之前，我们先检查当前的状态。通过执行 `zpool list` 命令，查看硬盘的使用情况，输出如下：
 
-目标服务器的操作系统是 FreeBSD，作为系统存储有一台 256GB 的 SSD，作为数据存储有两台 2TB 的硬盘，全部使用 ZFS 配置。为了数据保护，两台硬盘配置为 ZFS 镜像，因此尽管有两台硬盘，但容量上等同于一台。本次将两台 2TB 的硬盘更换为各自 6TB 的硬盘。
-
-## 更換操作前的檢查
-
-在實際進行更換操作之前，請確認當前狀況。使用 zpool list 來確認硬碟的使用量等信息如下所示。
-
-```
+```sh
 $ zpool list
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP  HEALTH  ALTROOT
 zroot   228G  16.8G   211G        -         -    12%     7%  1.00x  ONLINE  -
@@ -34,11 +26,11 @@ zvol0  1.81T  1.49T   333G        -         -     5%    82%  1.00x  ONLINE  -
 $
 ```
 
-zroot 是用於系統的 SSD。而 zvol0 是此次更換的硬碟目標，可以看到 ZFS 鏡像配置的使用量達到了 82%。
+zroot 是系统用的 SSD，而 zvol0 是这次更换的硬盘，ZFS 镜像结构的使用量为 82%。
 
-配置的详细信息可以在 zpool list -v 和 zpool status 中查看。
+可以通过 `zpool list -v` 或 `zpool status` 命令查看更详细的配置：
 
-```
+```sh
 $ zpool list -v zvol0
 NAME             SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  
 zvol0           1.81T  1.49T   333G        -         -     5%    82%  1.00x    ONLINE  -
@@ -48,7 +40,7 @@ zvol0           1.81T  1.49T   333G        -         -     5%    82%  1.00x    O
 $
 ```
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: ONLINE
@@ -65,9 +57,9 @@ errors: No known data errors
 $
 ```
 
-从这些信息我们可以看出，ndisk1 和 ndisk2 的磁盘分区已经设置成了镜像。实际上，这 3 个存储设备分别是 ada0（固态硬盘）、ada1（硬盘）、ada2（硬盘），硬盘分区的配置如下。
+从中可以看到，ndisk1 和 ndisk2 是组成镜像的硬盘分区。三块存储设备分别为 ada0（SSD）、ada1（硬盘）和 ada2（硬盘）。硬盘的分区信息如下：
 
-```
+```sh
 $ gpart show ada1 ada2
 =>        40  3907029088  ada1  GPT  (1.8T)
           40  3907029088     1  freebsd-zfs  (1.8T)
@@ -85,32 +77,32 @@ $ gpart show -l ada1 ada2
 $
 ```
 
-可以看出 ada1 和 ada2 都是采用 GPT 格式，ada1 的用于 ZFS 的分区命名为 ndisk1，ada2 的分区则命名为 ndisk2。
+从中可以看出，ada1 和 ada2 均使用 GPT 分区，ada1 的 ZFS 用分区被命名为 ndisk1，ada2 的则为 ndisk2。
 
-## 使用镜像配置更换硬盘的步骤
+## 镜像结构下的硬盘更换步骤
 
-不仅限于 ZFS，对于镜像（RAID 1）配置的两个硬盘都需要更换的步骤，大概有以下两种方法。
+对于 ZFS 或其他 RAID 1 镜像（Mirror）结构的硬盘，更换两块硬盘的步骤大致有两种方法：
 
-* 使用新硬盘准备镜像，然后从现有镜像复制数据，复制完成后再进行更换。或者先更换再从原始硬盘复制数据。
-* 更换一侧硬盘，使用镜像功能同步数据，完成后再更换另一侧硬盘重新同步数据
+* 使用新的硬盘构建镜像，然后从现有镜像中复制数据，复制完成后再更换硬盘。或者先更换硬盘，再从原硬盘复制数据。
+* 更换其中一块硬盘，利用镜像功能同步数据，完成后再更换另一块硬盘并重新同步数据。
 
-使用前一种方法，数据复制只需一次，但同时需要连接 3 台或 4 台硬盘，还需要考虑 SATA 接口数量等。在这种情况下，虽然硬盘可以使用 USB 连接，但由于 USB 2.0 传输速度慢，复制所需时间较长，因此最好使用 USB 3.0。
+如果采用第一种方法，数据复制仅需进行一次，但需要同时连接 3 或 4 台硬盘，这可能会受到 SATA 接口数量等限制。虽然硬盘可以通过 USB 连接，但如果使用 USB 2.0 接口，传输速度较慢，复制时间较长，因此建议使用 USB 3.0 接口。
 
-作者选择了后一种逐一更换的方法。这种方法在更换硬盘时可能会有些影响，但即使在同步期间（性能会有所降低），也能像平常一样继续使用服务器，这是其优点。
+笔者选择了第二种方法，即逐个更换硬盘。这样，即便在数据同步期间（虽然会有性能下降），服务器仍然可以正常使用，这是一大优势。
 
-## 硬盘更换和数据同步
+## 更换硬盘与数据同步
 
-### 注意：在 ZFS 镜像中更换驱动器时
+### ZFS 镜像中硬盘更换时的注意事项
 
-在更换 ZFS 镜像中的驱动器时，请注意在执行任何操作（如 zpool detach zvol0 gpt/ndisk2 ）之前最好不要从 ZFS 池中移除 ndisk2。因为一旦使用 zpool detach 命令将 ndisk2 从池中移除，ndisk2 中的数据将被视为已清除。如果在数据同步到新硬盘时发生 ndisk1 读取错误，并且需要用 ndisk2 重新进行同步，那么一旦 ndisk2 被移除，就无法再次使用它进行同步了。如果只是关闭电源并移除 ndisk2，那么 ndisk2 中的数据将保持与 ndisk1 相同，这样即使发生意外，也可以使用 ndisk2 进行重新同步。
+在更换 ZFS 镜像中的硬盘时，有一点非常重要：**切勿在更换前执行 ZFS 池的操作，如 `zpool detach zvol0 gpt/ndisk2` 等**。因为如果使用 `zpool detach` 将 ndisk2 从池中分离，ndisk2 上的数据会被视为已删除。若在数据同步过程中，ndisk1 读取出现错误，就无法使用新硬盘来重新同步数据了[2]。如果只是切断电源并拆下 ndisk2，ndisk2 上的数据仍然会与 ndisk1 相同，因此万一出现问题时，可以使用 ndisk2 来进行恢复。
 
-### 更换第一台硬盘
+### 更换第一块硬盘
 
-首先更换第一台硬盘，将包含 ndisk2 分区的硬盘取出进行更换。关闭服务器并切断电源，取下旧硬盘，连接新硬盘后通电。
+首先更换第一块硬盘，即拆下包含 ndisk2 分区的硬盘。关机并切断电源后，取下旧硬盘并连接新硬盘，然后重新开机。
 
- 启动后确认 zvol0 的状态。
+启动后，检查 zvol0 的状态：
 
-```
+```sh
 $ zpool list
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 zroot   228G  16.8G   211G        -         -    12%     7%  1.00x    ONLINE  -
@@ -118,7 +110,7 @@ zvol0  1.81T  1.49T   333G        -         -     5%    82%  1.00x  DEGRADED  -
 $
 ```
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: DEGRADED
@@ -136,17 +128,18 @@ config:
             gpt/ndisk1            ONLINE       0     0     0
 
 errors: No known data errors
+$
 ```
 
-两个硬盘应该构成镜像，但其中一个 gpt / ndisk2 不见了，只剩下一个，因此在 HEALTH 或 STATE 方面显示为 DEGRADED。另外，在 zpool status 中，显示了 gpt / ndisk2 所在位置的 config：部分中不见了，而是显示为“12897545936258916783”，并以“was /dev/gpt/ndisk2”结尾。稍后将使用此 ID。
+此时，虽然硬盘是镜像配置，但由于一侧的 gpt/ndisk2 缺失，状态变为 DEGRADED（降级）。在 `zpool status` 的输出中，`config:` 部分显示 gpt/ndisk2 不再出现，而是用一个 ID（`12897545936258916783`）代替，并且行尾标记为 "was /dev/gpt/ndisk2"。这个 ID 后续将会用到。
 
-### 创建备用分区
+### 创建交换分区
 
-为备用硬盘准备工作，要进行 GPT 初始化，并准备用于 ZFS 的分区。
+为了准备更换用的硬盘，我们首先需要对其进行 GPT 初始化，并为 ZFS 创建一个分区。
 
- 首先，使用 GPT 初始化硬盘。
+首先，我们使用 GPT 初始化硬盘：
 
-```
+```sh
 $ gpart show ada1
 gpart: No such geom: ada1.
 $ gpart create -s gpt ada1
@@ -158,9 +151,9 @@ $ gpart show ada1
 $
 ```
 
-然后为 ZFS 分配分区。我将新分区命名为 sdisk1 以区别于旧分区。
+接下来，我们为 ZFS 创建一个分区。为了便于区分，我们将新分区命名为 `sdisk1`。
 
-```
+```sh
 $ gpart add -t freebsd-zfs -a 4k -l sdisk1 ada1
 ada1p1 added
 $ gpart show ada1
@@ -174,22 +167,22 @@ $ gpart show -l ada1
 $
 ```
 
-### 同步第一台数据
+### 同步第一台硬盘的数据
 
-由于已准备好新分区，因此将用 sdisk1 替换旧 ndisk2。为此操作使用 zpool replace 。
+新分区创建完成后，接下来用 `sdisk1` 替换旧的 `ndisk2`。我们使用 `zpool replace` 命令来完成此操作。
 
-通常情况下，您需要指定构成池的设备作为 zpool replace 的源设备，但是在这种情况下，由于设备已被取下，因此没有这样的设备。在这种情况下，请指定显示的 ID，即 zpool status zvol0 。
+通常，`zpool replace` 命令的第一个参数是要替换的设备，而第二个参数是新的设备。在本例中，由于硬盘已经被移除，所以原来的设备已经不存在了，因此我们需要指定 `zpool status zvol0` 中显示的 ID。
 
-```
+```sh
 $ zpool replace zvol0 12897545936258916783 gpt/sdisk1
 $
 ```
 
-这将开始同步来自 ndisk1 的镜像到 sdisk1。
+此时，`ndisk1` 的镜像同步将在 `sdisk1` 上开始。
 
-同期在后台进行，如前所述，在此期间通常可以正常使用服务器。由于数据量大约为 1.5TB，因此同步需要相当长的时间，而在此期间如果无法了解进展情况，可能会感到有些不安。在 ZFS 中可以通过 zpool status 确认同步进度，从而获得结束时间的大致参考。
+同步过程将在后台进行，并且正如之前提到的，在此期间，服务器可以正常使用。由于数据量大约为 1.5TB，所需的同步时间会比较长。不过，ZFS 可以通过 `zpool status` 来查看同步的进度，这样我们就能得到一个结束时间的大致估算。
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: DEGRADED
@@ -213,23 +206,25 @@ errors: No known data errors
 $
 ```
 
-在 status: 下显示 One or more devices is currently being resilvered 和 resilver^ 3^ 中（同步中）的状态。在 action: 下显示指示等待 resilver 完成。而在 scan: 中显示处理量和预计时间，但正如 no estimated completion time 所示，同步刚开始时由于无法预知时间，因此不会显示。
+在 `zpool status` 中，您会看到 `One or more devices is currently being resilvered`[3]，这表明正在进行 resilver 操作（即同步）。在 `action` 部分，系统会指示您等待 resilver 操作完成。同时，`scan` 部分显示了处理的进度和预计完成时间，但在同步开始时，通常会看到 `no estimated completion time`，这意味着系统无法立即估算预计时间。
 
-过一段时间，将会显示预计完成时间，但根据经验，在这个阶段这些时间通常不可靠。
+稍等片刻，预计时间会逐渐显示，但根据经验，这个估算并不总是准确的。
 
-```
+例如，刚开始时，您可能会看到类似下面的输出：
+
+```sh
 $ zpool status zvol0
 ===== <省略> =====
   scan: resilver in progress since Sat Jan 28 14:25:44 2023
         265G scanned at 664M/s, 6.51G issued at 16.3M/s, 1.49T total
         6.51G resilvered, 0.43% done, 1 days 02:27:43 to go
 ===== <省略> =====
-$ 
+$
 ```
 
-进一步确认后，显示需要大约 14 小时才能完成。
+过了一段时间，预计完成时间可能会变为：
 
-```
+```sh
 $ zpool status zvol0
 ===== <省略> =====
   scan: resilver in progress since Sat Jan 28 14:25:44 2023
@@ -239,9 +234,11 @@ $ zpool status zvol0
 $
 ```
 
-一小时后再次确认时，显示时间已减少到约 6 小时，但第一台镜像的同步最终花了约 15 个半小时。以下是第一台同步完成时检查到的 zpool list 和 zpool status 的结果。
+一小时后，您可能会看到预估的时间减少到 6 小时左右，但最终同步的实际时间可能比预估的要长。最终，第一台硬盘的同步总共花费了大约 15 小时半。
 
-```
+以下是第一台硬盘同步完成时，检查 `zpool list` 和 `zpool status` 的结果：
+
+```sh
 $ zpool list -v zvol0
 NAME             SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 zvol0           1.81T  1.49T   333G        -         -     5%    82%  1.00x    ONLINE  -
@@ -251,7 +248,7 @@ zvol0           1.81T  1.49T   333G        -         -     5%    82%  1.00x    O
 $
 ```
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: ONLINE
@@ -268,15 +265,15 @@ errors: No known data errors
 $
 ```
 
-HEALTH 和 STATE 均为 ONLINE，无错误发生，第一台同步顺利完成。
+HEALTH 和 STATE 都显示为 ONLINE，且没有出现任何错误，可以确认第一台硬盘的同步已经顺利完成。
 
-### 第二个硬盘的同步
+### 第二台硬盘的同步
 
-由于第二个硬盘的更换和同步步骤与第一个完全相同，因此只记录命令的执行和结果。
+第二台硬盘的更换和同步步骤与第一台完全相同，因此这里只展示相关命令的执行和结果。
 
- 更换第二个硬盘并启动。
+更换第二台硬盘并启动后。
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: DEGRADED
@@ -297,9 +294,9 @@ errors: No known data errors
 $
 ```
 
- 镜子用隔板准备
+准备用于镜像的分区
 
-```
+```sh
 # gpart create -s gpt ada2
 ada2 created
 # gpart show ada2
@@ -319,9 +316,9 @@ ada2p1 added
 #
 ```
 
- 启动第二台同步
+第二台同步开始
 
-```
+```sh
 $ zpool replace zvol0 13953654332474917058 gpt/sdisk2
 $ zpool status zvol0
   pool: zvol0
@@ -345,9 +342,9 @@ config:
 errors: No known data errors
 ```
 
- 第二台同步大约需要 14 小时。
+第二台的同步大约用了14个小时。
 
-```
+```sh
 $ zpool status zvol0
   pool: zvol0
  state: ONLINE
@@ -364,31 +361,31 @@ errors: No known data errors
 $
 ```
 
-## 容量扩展
+## 容量的扩展
 
-交换和数据同步已顺利完成，但仍有一些工作要做。因为仅仅更换了硬盘，2TB→6TB 的容量扩展还没有生效。
+硬盘交换和数据同步顺利完成，但仍有一些工作需要完成。因为目前仅仅是更换了硬盘，并没有启用 2TB → 6TB 的容量扩展。
 
-再次确认 zvol0 的容量时，SIZE 显示为 1.81T，与更换前相同。但仔细观察到 EXPANSZ 显示为 3.62T，可知有 3.62TB 的扩展空间。
+重新检查 `zvol0` 的容量时，发现 SIZE 仍为 1.81T，与更换前相同。然而，EXPANDSZ 显示为 3.62T，这意味着还可以扩展 3.62TB 的空间。
 
-```
+```sh
 $ zpool list zvol0
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 zvol0  1.81T  1.49T   333G        -     3.62T     5%    82%  1.00x    ONLINE  -
 $
 ```
 
-这个容量扩展的设置是 ZFS 池的 autoexpand 属性。首先检查当前的 autoexpand 值，通常默认为 off。
+这个容量扩展是通过设置 ZFS 池的 `autoexpand` 属性来实现的。首先，检查当前 `autoexpand` 的值，发现默认值为 `off`。
 
-```
+```sh
 $ zpool get autoexpand zvol0
 NAME   PROPERTY    VALUE   SOURCE
 zvol0  autoexpand  off     default
 $
 ```
 
- 尝试将 autoexpand 设置为 on。
+将 `autoexpand` 设置为 `on`。
 
-```
+```sh
 $ zpool set autoexpand=on zvol0
 $ zpool get autoexpand zvol0
 NAME   PROPERTY    VALUE   SOURCE
@@ -396,18 +393,18 @@ zvol0  autoexpand  on      local
 $
 ```
 
-但仅仅将 autoexpand 设置为 on 并不会改变容量。
+但是，仅将 `autoexpand` 设置为 `on` 并不会改变容量。
 
-```
+```sh
 $ zpool list zvol0
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
 zvol0  1.81T  1.49T   333G        -     3.62T     5%    82%  1.00x    ONLINE  -
 $
 ```
 
-为了扩展容量，您需要设置 autoexpand=on 并执行 zpool online -e 。
+要扩展容量，需要在设置了 `autoexpand=on` 之后，执行 `zpool online -e`。
 
-```
+```sh
 $ zpool online -e zvol0
 missing device name
 usage:
@@ -415,11 +412,11 @@ usage:
 $
 ```
 
-由于忘记指定设备名称导致错误😅，但在正常情况下，指定设备名称是必需的。当使用 -e 选项时，好像可以不指定设备名称。无论如何，在 zpool online -e 中，只需指定池内的任何一个设备名称即可解决问题。
+忘记指定设备名导致了错误 😅，但实际上，使用 `zpool online` 时必须指定设备名，而当使用 `-e` 选项时，应该指定池内某个设备名才可以执行。
 
-如果重新指定设备名称并执行，容量增加到了 5.45TB^ 4^。
+重新指定设备名并执行后，容量成功扩展到 5.45TB[4]。
 
-```
+```sh
 $ zpool online -e zvol0 gpt/sdisk1
 $ zpool list zvol0
 NAME    SIZE  ALLOC   FREE  CKPOINT  EXPANDSZ   FRAG    CAP  DEDUP    HEALTH  ALTROOT
@@ -427,15 +424,17 @@ zvol0  5.45T  1.49T  3.97T        -         -     1%    27%  1.00x    ONLINE  -
 $
 ```
 
-这次在更换硬盘后，我们修改了 autoexpand 属性，如果在更换之前设置好，那么在第二台同步完成后容量将会自动扩展。此外，autoexpand 不仅在镜像中可以使用，在 raidz 等配置中也同样适用。
+这次是硬盘更换后才修改 `autoexpand` 属性，如果在更换前就设置，容量会在第二台硬盘同步完成时自动扩展。同时，`autoexpand` 不仅适用于镜像，还可以在 RAIDZ 等结构中使用。
 
-2023 年 07 月 16 日添加：收到关于使用 zpool online -e 进行扩展时不需要设置 autoexpand 属性的指示。autoexpand 属性被用于自动扩展容量的设置。
+**2023-07-16 补充**：通过 `zpool online -e` 扩展时，其实不需要设置 `autoexpand` 属性。`autoexpand` 属性是为了自动扩展容量而设计的。
 
-## 更换完成后
+## 交换完成后
 
-由于新硬盘的传输速度提高，我能感受到整体性能有所提升。虽然 CPU 已经使用了 10 年以上，但主要用途是文件服务器，所以似乎可以继续使用。
+由于新硬盘的传输速度提高，因此整体性能得到了提升。尽管CPU已经使用了超过 10 年，但由于主要用途是文件服务器，仍然可以继续使用一段时间。
 
-1. 因为在 ZFS 中采用写时复制的方式进行数据更新，当剩余空间不足时，与其他文件系统相比性能会急剧下降(在硬盘上更为明显)，因此不建议使用到容量的极限。使用到什么程度会导致性能下降取决于工作集的配合，因此不能简单地说清空容量是否会对 ZFS 的性能造成影响，就算是其他文件系统中不受影响的剩余空间，在 ZFS 中也可能导致性能下降。
-2. 即使将 ndisk2 分离，使用 zpool import -D 可以恢复数据，但我没有尝试过。
-3. 「resilver」这个词是我开始使用 ZFS 时了解到的，原意是指擦拭银饰品，但在 ZFS 中表示 RAID 正在进行恢复。
-4. 硬盘的 TB 容量以十进制表示，所以 6TB 相当于 6,000,000,000,000 字节，而以二进制表示的 1TB 是 1,099,511,627,776 字节，因此是 5.45TB。
+---
+
+1. 在 ZFS 中，由于采用了 Copy on Write 数据更新机制，当空闲空间不足时，性能通常会比其他文件系统低得多（在硬盘上尤为明显）。因此，将容量使用到极限并不明智。关于多少空间使用会导致性能下降，这取决于工作集，因此无法简单地确定。但即使是其他文件系统认为影响不大的空闲空间，在 ZFS 中也可能导致性能下降。
+2. 即使是卸载（detach）了 `ndisk2`，也可以通过 `zpool import -D` 来恢复数据，但我并没有试过。
+3. 我是在使用 ZFS 后才知道“resilver”这个词，原本它是指磨光银饰品，在 ZFS 中则表示 RAID 恢复中。
+4. 硬盘的 TB 是按十进制容量表示的，因此 6TB 是 6,000,000,000,000 字节，而二进制的 1TB 为 1,099,511,627,776 字节，所以实际容量为 5.45TB。
