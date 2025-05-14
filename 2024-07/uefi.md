@@ -91,19 +91,19 @@ gpart bootcode -p /boot/boot1.efifat -i 1 ada0
 
 ## 常见问题与解答
 
-### 问：为什么与[Bootable UEFI memory stick or Hard Disk](https://wiki.freebsd.org/UEFI#Bootable_UEFI_memory_stick_or_Hard_Disk)上的步骤不同？
+### 问：为什么与 [Bootable UEFI memory stick or Hard Disk](https://wiki.freebsd.org/UEFI#Bootable_UEFI_memory_stick_or_Hard_Disk) 上的步骤不同？
 
 答：没问题，完全没问题。时代已经跟上了。
 
-### 问：通过各种资料查看，似乎有很多方法来写入 /boot/boot1.efifat 分区，该采用哪种方式才正确？
+### 问：通过各种资料查看，似乎有很多方法来写入 `/boot/boot1.efifat` 分区，该采用哪种方式才正确？
 
 答：没问题，任何方法都可以。但我不推荐任何方法。
 
-/boot/boot1.efifat 实际上是分区镜像本身。极端地说，可以认为是 `dd if=/dev/ada0p1 of=/boot/boot1.efifat` 的结果。实际构建时也会做类似的操作。
+`/boot/boot1.efifat` 实际上是分区镜像本身。极端地说，可以认为是 `dd if=/dev/ada0p1 of=/boot/boot1.efifat` 的结果。实际构建时也会做类似的操作。
 
 因此，无论是使用 dd(8) 还是 gpart(8) 写入都没问题，但显然，gpart(8) 是更聪明的选择。
 
-不过，最好避免使用 /boot/boot1.efifat。正如前面提到的，扩展到 200MiB 后，这个分区只能访问 800KiB 的空间。
+不过，最好避免使用 `/boot/boot1.efifat`。正如前面提到的，扩展到 200MiB 后，这个分区只能访问 800KiB 的空间。
 
 尽管分配了 200MiB 的空间，但 EFI 应用程序无法在这 200MiB 中运行。
 
@@ -138,7 +138,7 @@ gpart bootcode -p /boot/boot1.efifat -i 1 ada0
 
 ### 问：我不确定系统是 UEFI 启动还是 BIOS 启动，怎么确定？
 
-答：很简单！在安装 CD 上启动为 LiveCD 后，执行 `sysctl machdep.bootmethod` 命令。如果是 UEFI 启动，显示的是 UEFI；如果是 BIOS 启动，则显示的是 BIOS。
+答：很简单！在安装 CD 上启动为 LiveCD 后，执行命令 `sysctl machdep.bootmethod`。如果是 UEFI 启动，显示的是 UEFI；如果是 BIOS 启动，则显示的是 BIOS。
 
 ## 【附录】启动加载器更新
 
