@@ -27,7 +27,7 @@ PCI passthrough 需要使用 VT-d 功能。由于通常情况下默认是禁用�
 
 首先查找要使用的设备 ID。 尽管可以使用 pciconf，但 vm-bhyve 的 vm passthru 命令更简单。
 
-```
+```sh
 # vm passthru
 DEVICE     BHYVE ID     READY        DESCRIPTION
 hostb0     0/0/0        No           12th Gen Core Processor Host Bridge/DRAM Registers
@@ -59,7 +59,7 @@ xhci1       4/0/0       No           -
 
 /boot/loader.conf：
 
-```
+```sh
 
 kern.geom.label.disk_ident.enable="0"
 kern.geom.label.gptid.enable="0"
@@ -73,8 +73,7 @@ pptdevs 现在会记录刚才在 vm passthru 中显示的 ID。此外，必须�
 
 编辑 loader.conf 后，重新启动操作系统后再次运行 vm passthru。
 
-```
-
+```sh
 # vm passthru
 DEVICE     BHYVE ID     READY        DESCRIPTION
 hostb0     0/0/0        No           12th Gen Core Processor Host Bridge/DRAM Registers
@@ -102,12 +101,11 @@ ppt1       4/0/0        Yes          -
 
 指定的设备已被注册为 ppt0、ppt1 并作为透传设备。
 
-# 4. 客人的启动设定
+## 4. 虚拟机的启动设定
 
-在 vm-bhyve 的设定文件中注册透传设备。因为已经创建了名为 Windows 的客人，所以使用 vm config windows 来编辑设定文件。
+在 vm-bhyve 的设定文件中注册透传设备。因为已经创建了名为 Windows 的虚拟机，所以使用 vm config windows 来编辑设定文件。
 
-```
-
+```ini
 loader="uefi"
 graphics="yes"
 xhci_mouse="yes"
@@ -130,7 +128,7 @@ graphics_res="1920x1080"
 # windows expects the host to expose localtime by default, not UTC
 utctime="no"
 
-# JP keyboard
+# 日式键盘
 bhyve_options="-K jp"
 uuid="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 network0_mac="58:9c:fc:xx:xx:xx"
@@ -157,7 +155,7 @@ passthru1="4/0/0"
 
  在日志中如下所示。
 
-```
+```sh
 12月 16 19:13:17: bhyve exited with status 0
 12月 16 19:13:17: restarting
 12月 16 19:13:17:  [bhyve options: -c 4,sockets=1,cores=4,threads=1 -m 16G -Hwl bootrom,/usr/local/share/uefi-firmware/BHYVE_UEFI.fd -K jp -U 0e7bf333-96b9-11ea-bb29-e8611f133073 -S]
