@@ -113,6 +113,6 @@ A. 继续关注网站上的更新吧！
 
 * [Mk/bsd.port.mk](https://cgit.freebsd.org/ports/tree/Mk/bsd.port.mk)
 * [make(1)](https://man.freebsd.org/cgi/man.cgi?make%281%29)
-* [FreeBSD port 作成者的手册](https://docs.freebsd.org/ja/books/porters-handbook/)
-* [FreeBSD Porter's Handbook](https://docs.freebsd.org/en/books/porters-handbook/)
+* [FreeBSD port 日语开发者手册](https://docs.freebsd.org/ja/books/porters-handbook/)
+* [FreeBSD Port 开发者手册](https://docs.freebsd.org/en/books/porters-handbook/)
 * [Ports 的 Makefile 模板](https://cgit.freebsd.org/ports/tree/Templates/Makefile)
