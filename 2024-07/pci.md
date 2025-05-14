@@ -9,13 +9,13 @@
 
 最后更新于 2023-01-27 发布于 2022-12-18
 
-# 1.首先
+## 1.首先
 
 我想在 Bhyve 的 Windows 宾客中使用主机设备，因此尝试设置 PCI 直通。我使用 vm-bhyve 作为管理软件，基于这一前提，我将进行以下说明。关于 vm-bhyve，您可以在搜索时找到相当多的解释，请参考那些解释。
 
 这些硬件是我去年购买的，就是这篇文章中提到的硬件。https://qiita.com/yshdsnd/items/e8ba8d417851ae56f2fc 但是，内存已扩展到 128GB。我正在使用 FreeBSD 13.1-STABLE。
 
-# 2. 主机端(硬件)设置
+## 2. 主机端(硬件)设置
 
 PCI passthrough 需要使用 VT-d 功能。由于通常情况下默认是禁用的，所以请进入 UEFI 菜单启用 VT-d。
 
@@ -23,7 +23,7 @@ PCI passthrough 需要使用 VT-d 功能。由于通常情况下默认是禁用�
 
 虽然本次不使用，但同时也启用了 SR-IOV。
 
-# 3. 主机端（软件）设置
+## 3. 主机端（软件）设置
 
 首先查找要使用的设备 ID。 尽管可以使用 pciconf，但 vm-bhyve 的 vm passthru 命令更简单。
 
@@ -141,11 +141,9 @@ passthru1="4/0/0"
 
 以 "passthruX="BUS/SLOT/FUNC"" 的形式进行记录。只需直接记录 vm passthru 显示的内容即可。 虽然与透传无关，但最近的-STABLE 版本增加了通过 VNC 连接时指定键盘映射的选项（-K），因此即使通过日本键盘使用，也不会出现无法正确输入符号的情况。我已将该选项指定为 bhyve_options。
 
-# 5. 尝试启动客户端
+## 5. 尝试启动客户端
 
  到这一步只需启动即可。
-
-# 虚拟机启动窗口
 
 在 Windows 设备管理器中确认是否已添加。如有需要，请安装驱动程序。
 
@@ -153,7 +151,7 @@ passthru1="4/0/0"
 
 ![截图2022-12-16 190045.png](https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F373056%2F95619590-f66e-8023-88b3-4e35373460b7.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=ece585965d94c9f96f571b9b0c216bf0)
 
-# 6. 但是问题是...
+## 6. 但是问题是...
 
 在 Windows 端安装驱动并重启后，bhyve 进程异常终止。无论启动多少次都不行。查看日志显示，以 status 4 结束。
 
