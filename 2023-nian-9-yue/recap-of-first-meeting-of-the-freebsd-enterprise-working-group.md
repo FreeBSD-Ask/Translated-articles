@@ -27,10 +27,10 @@
 
 
 ## 科学计算
-讨论的第一个重点涉及相近但我认为稍有不同的科学计算用例。这是很好的时机，因为就在那周早些时候，我与长期使用 FreeBSD 的用户和社区成员进行通话，他正在努力改进 FreeBSD 在这个领域的应用。通话结束后，我将所有人联系在了一起，我的基金会同事 Joe Mingrone 还加入了在这个领域工作的一些 Port 维护者。如果您有兴趣在这个领域提供帮助，请让我知道，我会将您与合适的人联系起来。
+讨论的第一个重点涉及相近但我认为稍有不同的科学计算用例。这是很好的时机，因为就在那周早些时候，我与长期使用 FreeBSD 的用户和社区成员进行通话，他正在努力改进 FreeBSD 在这个领域的应用。通话结束后，我将所有人联系在了一起，我的基金会同事 Joe Mingrone 还加入了在这个领域工作的一些 Port 维护者。如果你有兴趣在这个领域提供帮助，请让我知道，我会将你与合适的人联系起来。
 
 ## Samba
-下一个讨论涉及加强对 Samba 的支持。Allan Jude 提到 Klara 正在开发一个特殊的 Samba 模块，以便在上游使用，从而使其能够利用新的块引用树 ZFS 功能。要在 Samba CI 系统中获得更通用的 FreeBSD 上游支持，我们需要在 Samba 中引入 FreeBSD 的工作人员。下一步是从社区中寻找愿意在 FreeBSD 支持上游方面工作的志愿者。如果您可以提供帮助，请与我联系。
+下一个讨论涉及加强对 Samba 的支持。Allan Jude 提到 Klara 正在开发一个特殊的 Samba 模块，以便在上游使用，从而使其能够利用新的块引用树 ZFS 功能。要在 Samba CI 系统中获得更通用的 FreeBSD 上游支持，我们需要在 Samba 中引入 FreeBSD 的工作人员。下一步是从社区中寻找愿意在 FreeBSD 支持上游方面工作的志愿者。如果你可以提供帮助，请与我联系。
 
 ## 云原生
 一位与会者评论说，在所有议题中，在他们看来云原生是最重要的，可能比其他所有议题加在一起还要重要。Allan 向大家介绍了一个名为 XC 的新项目：<https://github.com/michael-yuji/xc> 其他人询问了这与 runj 有什么关系。开放容器倡议社区正在为 FreeBSD 提供支持，一些企业工作组的参与者表示有兴趣提供帮助。谢谢大家！
@@ -61,6 +61,6 @@
 - Puppet
   - <https://wiki.freebsd.org/Puppet/GettingStarted/>
 
-您可以在此处查看会议的录像：[FreeBSD 基金会企业工作组会议＃1](https://youtu.be/0TQUlipFvXM)
+你可以在此处查看会议的录像：[FreeBSD 基金会企业工作组会议＃1](https://youtu.be/0TQUlipFvXM)
 
-如果您对此感兴趣，并且希望提供帮助，[请填写此 Google 表单](https://forms.gle/beKQFL9nBpG11CFB7)，帮助使 FreeBSD 成为一个更好的通用企业操作系统。
+如果你对此感兴趣，并且希望提供帮助，[请填写此 Google 表单](https://forms.gle/beKQFL9nBpG11CFB7)，帮助使 FreeBSD 成为一个更好的通用企业操作系统。

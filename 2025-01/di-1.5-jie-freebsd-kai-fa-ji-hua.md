@@ -114,7 +114,7 @@
 | 预提交 CI ports                                         | lwhsu 将与 bapt 和 decke 审查 | bofh 似乎有一些 PoC                                                                     |
 | 通用闪存存储（UFS）驱动程序                                    | loos                          | 需要用于一些嵌入式部署、但未来将更具通用性。即将登陆英特尔平台。同样支持 LinuxBoot。 |
 | DTrace 的 `-C`（大写字母）参数再次生效                  | antranigv、markj              | PR 尚未提交、只需运行 `dtrace -c` 就可查看所含文件                                          |
-| ~~优化 bsd-user 对发布过程的支持~~ | imp, dfr, cperciva | 解决 32 位在 64 位上的问题，更新非常旧的 qemu-bsd-user-static 端口。完成 STA 工作后，对发布工程不再相关。 |
+| ~~优化 bsd-user 对发布过程的支持~~ | imp, dfr, cperciva | 解决 32 位在 64 位上的问题，更新非常旧的 Port qemu-bsd-user-static。完成 STA 工作后，对发布工程不再相关。 |
 | ~~优化 bsd-user binfmt 等以适应 jail~~ | cperciva, imp | ~~Colin 希望为这些设置提供每个 jail 的配置。~~  完成 STA 工作后，对发布工程不再相关。 |                                                       
 | bsd bsd-user + poudriere 支持 RISCV                         | imp、 mhorne、 jrtc27           | 软件包构建完全损坏、但基本功能正常、需要修复以便我们可以再次使用 riscv 软件包           |
 |使用 GitHub runner 拉取请求                             | 	imp                         | 针对 cirrus-ci 漏洞中的解决方案之一                                                           |

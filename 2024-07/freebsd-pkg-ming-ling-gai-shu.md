@@ -72,7 +72,7 @@
 
 用于比较任意指定的版本号（实际上是字符串）。这个功能更多是用于测试不同版本号之间的关系，而不是特定包的功能。它与其他子命令有所不同，主要用于测试版本号的替换（例如，在替换 alpha 版、beta 版时），帮助用户确定哪个版本更大（更新），哪个版本更小（更旧）。
 
-关于版本比较的规则，您可以参阅 [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)。
+关于版本比较的规则，你可以参阅 [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)。
 
 ### pkg upgrade \[R]
 

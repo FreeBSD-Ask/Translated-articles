@@ -82,4 +82,4 @@ zroot/var/log  logicalreferenced  91.0M   -
 
 对于如此小的改动，获得如此多的空间节省是十分可观的。新的日志文件在今后轮转时也将采用新的命名方案。若想进一步了解 FreeBSD 中的日志系统，可阅读 [《系统日志配置》](https://docs.freebsd.org/en/books/handbook/config/#configtuning-syslog) 手册章节。
 
-虽然这些更改很少而且简单，我们还为您编写了一个 Ansible playbook 来实现自动化 😊 [点击这里查看](https://github.com/FreeBSDFoundation/blog/tree/main/zfs-log-compression-on-freebsd)。
+虽然这些更改很少而且简单，我们还为你编写了一个 Ansible playbook 来实现自动化 😊 [点击这里查看](https://github.com/FreeBSDFoundation/blog/tree/main/zfs-log-compression-on-freebsd)。

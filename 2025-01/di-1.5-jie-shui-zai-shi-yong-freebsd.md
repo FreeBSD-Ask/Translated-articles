@@ -260,7 +260,7 @@ TwinCAT/BSD 支持所有 TwinCAT 3 运行时功能，为倍福提供了一种低
 
 #### 开始使用 FreeBSD
 
-倍福给所有希望实施 FreeBSD 的组织的忠告是，尽早且频繁地咨询 FreeBSD 基金会。FreeBSD 基金会不仅可以帮助解决技术和实施问题，还可以帮助建立网络，联系社区成员。如果您的组织考虑开始使用 FreeBSD，请通过他们网站的[联系我们](https://freebsdfoundation.org/about-us/contact-us/)页面向 FreeBSD 基金会发送电子邮件，或[下载 FreeBSD](https://www.freebsd.org/where/)以便今天就开始。
+倍福给所有希望实施 FreeBSD 的组织的忠告是，尽早且频繁地咨询 FreeBSD 基金会。FreeBSD 基金会不仅可以帮助解决技术和实施问题，还可以帮助建立网络，联系社区成员。如果你的组织考虑开始使用 FreeBSD，请通过他们网站的[联系我们](https://freebsdfoundation.org/about-us/contact-us/)页面向 FreeBSD 基金会发送电子邮件，或[下载 FreeBSD](https://www.freebsd.org/where/)以便今天就开始。
 
 TwinCAT®、TwinCAT/BSD® 和 EtherCAT® 是 Beckhoff Automation GmbH 的注册商标。
 

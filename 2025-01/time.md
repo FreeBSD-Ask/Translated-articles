@@ -3,7 +3,7 @@
 - 原文链接：[Navigating FreeBSD’s New Quarterly and Biennial Release Schedule](https://freebsdfoundation.org/blog/navigating-freebsds-new-quarterly-and-biennial-release-schedule/)
 - 发布时间：2024 年 7 月 16 日
 
-FreeBSD 用户，准备好迎接更流畅、更可预测的系统管理体验吧！我们很高兴地宣布 [FreeBSD 发布计划和支持周期的变化](https://lists.freebsd.org/archives/freebsd-announce/2024-July/000143.html)。这些更新将改善您的整体体验，增强系统安全性，并简化维护工作。
+FreeBSD 用户，准备好迎接更流畅、更可预测的系统管理体验吧！我们很高兴地宣布 [FreeBSD 发布计划和支持周期的变化](https://lists.freebsd.org/archives/freebsd-announce/2024-July/000143.html)。这些更新将改善你的整体体验，增强系统安全性，并简化维护工作。
 
 ## 主要变化：
 
@@ -15,11 +15,11 @@ FreeBSD 用户，准备好迎接更流畅、更可预测的系统管理体验吧
 这些调整基于对我们发布流程的全面审查。目标是提高效率、改善用户体验，并更好地与 FreeBSD 社区不断变化的需求对接。我们计划通过以下方式实现这一目标：
 
 - **简化发布流程：** 更集中的发布流程意味着更新和 bug 修复的交付更快，从而加速问题解决并提供更稳定的系统。
-- **定期更新：** 更频繁的发布确保您可以获得最新的功能、性能提升和安全补丁。
-- **改进的规划：** 可预测的发布计划帮助您更有效地规划系统升级和维护。
+- **定期更新：** 更频繁的发布确保你可以获得最新的功能、性能提升和安全补丁。
+- **改进的规划：** 可预测的发布计划帮助你更有效地规划系统升级和维护。
 - **平衡的支持：** 缩短至四年的支持周期在维护稳定性与应对新兴安全威胁之间提供了实际的平衡。
 
-**新发布计划：** 为了帮助您更好地规划系统管理，以下是新发布计划的详细内容：
+**新发布计划：** 为了帮助你更好地规划系统管理，以下是新发布计划的详细内容：
 
 ![](https://github.com/user-attachments/assets/0c46acc0-74b6-41e9-8999-47938dcdee50)
 

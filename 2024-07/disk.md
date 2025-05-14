@@ -206,11 +206,11 @@ errors: No known data errors
 $
 ```
 
-在 `zpool status` 中，您会看到 `One or more devices is currently being resilvered`[3]，这表明正在进行 resilver 操作（即同步）。在 `action` 部分，系统会指示您等待 resilver 操作完成。同时，`scan` 部分显示了处理的进度和预计完成时间，但在同步开始时，通常会看到 `no estimated completion time`，这意味着系统无法立即估算预计时间。
+在 `zpool status` 中，你会看到 `One or more devices is currently being resilvered`[3]，这表明正在进行 resilver 操作（即同步）。在 `action` 部分，系统会指示你等待 resilver 操作完成。同时，`scan` 部分显示了处理的进度和预计完成时间，但在同步开始时，通常会看到 `no estimated completion time`，这意味着系统无法立即估算预计时间。
 
 稍等片刻，预计时间会逐渐显示，但根据经验，这个估算并不总是准确的。
 
-例如，刚开始时，您可能会看到类似下面的输出：
+例如，刚开始时，你可能会看到类似下面的输出：
 
 ```sh
 $ zpool status zvol0
@@ -234,7 +234,7 @@ $ zpool status zvol0
 $
 ```
 
-一小时后，您可能会看到预估的时间减少到 6 小时左右，但最终同步的实际时间可能比预估的要长。最终，第一台硬盘的同步总共花费了大约 15 小时半。
+一小时后，你可能会看到预估的时间减少到 6 小时左右，但最终同步的实际时间可能比预估的要长。最终，第一台硬盘的同步总共花费了大约 15 小时半。
 
 以下是第一台硬盘同步完成时，检查 `zpool list` 和 `zpool status` 的结果：
 

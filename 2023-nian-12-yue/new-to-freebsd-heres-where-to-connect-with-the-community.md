@@ -9,7 +9,7 @@
 
 FreeBSD 项目始终对新用户和贡献者充满期待！参与其中的最简单方式是通过社区本身：邮件列表、社交媒体和本地聚会。这里充满了热衷于帮助新用户的 FreeBSD 用户、开发者和爱好者。它们是讨论 FreeBSD、认识社区成员以及询问有关操作系统的问题的绝佳场所。
 
-想要回馈社区吗？新的贡献者可以帮助校对现有文档、提供全新的详细文档、推荐错误修复，并将新软件移植到 FreeBSD。无论您的专业知识如何，都有一个适合每个人的地方！
+想要回馈社区吗？新的贡献者可以帮助校对现有文档、提供全新的详细文档、推荐错误修复，并将新软件移植到 FreeBSD。无论你的专业知识如何，都有一个适合每个人的地方！
 
 通过 [FreeBSD 邮件列表](https://www.freebsd.org/community/mailinglists/)建立联系！
 
@@ -25,5 +25,5 @@ FreeBSD 项目始终对新用户和贡献者充满期待！参与其中的最简
 
 找到本地用户组和活动！
 
-- 查找您最近的 [FreeBSD 用户组](https://www.freebsd.org/usergroups/)。
-- 在您所在地区查找即将举行的 [FreeBSD/Unix 活动](https://freebsdfoundation.org/our-work/events/)。
+- 查找你最近的 [FreeBSD 用户组](https://www.freebsd.org/usergroups/)。
+- 在你所在地区查找即将举行的 [FreeBSD/Unix 活动](https://freebsdfoundation.org/our-work/events/)。

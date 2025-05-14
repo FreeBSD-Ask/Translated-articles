@@ -49,7 +49,7 @@ FreeBSD 项目成员 Doug Rabson 开发了 **ocijail**，这是一种兼容 OCI 
 * **高效性：** 轻量且高效，具备快速启动时间和最佳资源利用率，减少了与传统虚拟机相比的开销。
 * **隔离性：** 提供类似虚拟机的强隔离功能，但开销较小，适合微服务和现代架构。它确保应用程序独立安全运行，避免冲突，增强了系统稳定性。
 
-Doug Rabson 的 [GitHub 仓库](https://github.com/dfr/ocijail) 有与 Podman 和 Buildah 集成的初始代码。您还可以观看 Doug Rabson 在 Open Source Summit Seattle 前的 Container Plumbing Day 活动上关于实现 **ocijail** 的演讲 [这里](https://www.youtube.com/watch?v=pggcc6fi-ow)。
+Doug Rabson 的 [GitHub 仓库](https://github.com/dfr/ocijail) 有与 Podman 和 Buildah 集成的初始代码。你还可以观看 Doug Rabson 在 Open Source Summit Seattle 前的 Container Plumbing Day 活动上关于实现 **ocijail** 的演讲 [这里](https://www.youtube.com/watch?v=pggcc6fi-ow)。
 
 Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-images/)，讨论了预构建的 FreeBSD OCI 容器镜像的实现功能。FreeBSD 项目设想将使用现有的容器镜像基础设施（例如 Docker Hub 和 [GitHub 容器注册表](https://github.blog/2020-09-01-introducing-github-container-registry/)）进行管理，或者通过 FreeBSD 自有基础设施托管镜像注册表。
 
@@ -872,7 +872,7 @@ Rafal Jaworowski 和 Semihalf 获得了一笔资助，以为 FreeBSD 提供对�
 
 这一功能的主要消费者是嵌入式系统，其硬件资源分配无法探测或自我发现。FDT 的概念源自 Open Firmware IEEE 1275 设备树的概念（常规 Open Firmware 实现的一部分），并且在其他部署中作为 Power.org 嵌入式平台参考规范（ePAPR）的基础。
 
-您可以在 [http://wiki.freebsd.org/FlattenedDeviceTree](http://wiki.freebsd.org/FlattenedDeviceTree) 上了解更多关于该项目的信息。
+你可以在 [http://wiki.freebsd.org/FlattenedDeviceTree](http://wiki.freebsd.org/FlattenedDeviceTree) 上了解更多关于该项目的信息。
 
 该项目于 2010 年完成。
 

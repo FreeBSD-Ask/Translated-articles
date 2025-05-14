@@ -26,4 +26,4 @@ Metify 提供两个产品：
 - 灵活性和创新：Metify 将讨论 FreeBSD 许可结构如何在未来允许更大的灵活性（特别是与 Linux 相比）。它还将讨论 Metify 如何使用 FreeBSD 开发设备，用于通过 4G 和 5G 网络进行远程设置，以及基于 FreeBSD 的边缘设备，通过 4G 和 5G 网络实现远程裸机配置。
 - 增强的安全性：Metify 还将分享如何将 FreeBSD 用作 Mojo 的安全网关。这将包括围绕 pf、ipfw、dummynet 和 NTOPNG 的流量监控的讨论。
 
-您可以在峰会上[亲自](https://freebsdfoundation.org/news-and-events/event-calendar/november-2023-freebsd-vendor-summit/)听到 Ian 的演讲，也可以通过[直播](https://youtube.com/live/k-AzShVdAHo)在线观看。
+你可以在峰会上[亲自](https://freebsdfoundation.org/news-and-events/event-calendar/november-2023-freebsd-vendor-summit/)听到 Ian 的演讲，也可以通过[直播](https://youtube.com/live/k-AzShVdAHo)在线观看。

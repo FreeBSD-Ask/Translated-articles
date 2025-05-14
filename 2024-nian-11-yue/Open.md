@@ -55,7 +55,7 @@ FreeBSD 的开发模型秉承了伯克利 BSD 的协作精神。社区的[上游
 
 展望未来，FreeBSD 将继续适应和发展。转向双年度发布周期以及引入四年支持期限是确保项目继续与时俱进、响应用户需求的重要步骤。这些变化，加上 FreeBSD 已经建立的稳定性，使其在开源生态系统中继续成功发展的前景广阔。
 
-对于有兴趣参与 FreeBSD 的新成员，有很多方式可以参与。无论是担任导师、推广 FreeBSD，还是参与论坛和邮件列表，您的努力都会推动项目的创新和发展。今天就支持 FreeBSD 项目，加入其充满活力的社区，帮助构建这个长期发展的开源生态系统。您可以通过[改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理[错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter)和[参与讨论](https://www.freebsd.org/community/mailinglists/)来帮助提升 FreeBSD。每份贡献，无论大小，都会帮助 FreeBSD 成为一款更稳定、安全和高效的开源操作系统。
+对于有兴趣参与 FreeBSD 的新成员，有很多方式可以参与。无论是担任导师、推广 FreeBSD，还是参与论坛和邮件列表，你的努力都会推动项目的创新和发展。今天就支持 FreeBSD 项目，加入其充满活力的社区，帮助构建这个长期发展的开源生态系统。你可以通过[改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理[错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter)和[参与讨论](https://www.freebsd.org/community/mailinglists/)来帮助提升 FreeBSD。每份贡献，无论大小，都会帮助 FreeBSD 成为一款更稳定、安全和高效的开源操作系统。
 
 ## 结论
 
