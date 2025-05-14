@@ -4,6 +4,7 @@
 
 ## 2025 年
 
+* [为 FreeBSD 发声：FOSDEM 2025 参会报告](fosd.md)
 * [zfs 速查手册](2025-01/zfs.md)
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
