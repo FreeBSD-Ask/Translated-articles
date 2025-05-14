@@ -1,207 +1,204 @@
 # 使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法
 
-- 原文链接：<https://qiita.com/nanorkyo/items/429d7382a418b38de4d3>
+- 原文：[](https://qiita.com/nanorkyo/items/429d7382a418b38de4d3)
+- 作者：重村法克
+- 2020-11-11
 
-
-* [FreeBSD](https://qiita.com/tags/freebsd)
-* [BIOS](https://qiita.com/tags/bios)
-* [UEFI](https://qiita.com/tags/uefi)
-
->最后更新于 2020-11-11 发布于 2018-12-13
-
-近年来在 FreeBSD 中，“分区”几乎总是使用 GPT（GUID Partition Table）无论磁盘大小如何，这几乎是不言而喻的选择。但是，“BIOS 引导”和“UEFI 引导”在分区方案上有细微差异^1^。本文将阐明两者之间的区别，并展示可用于引导的分区配置示例。
+在当前的 FreeBSD 中，不论磁盘大小，几乎都建议使用 GPT（GUID 分区表）来进行分区配置。然而，在传统的 BIOS 启动和 UEFI 启动的情况下，分区配置会有所不同[1]。以下将介绍两者的区别，并提供可用的启动分区配置示例。
 
 ## 前提条件
 
-本文假定操作的是 SATA 硬盘，设备名称表示为（/dev/）ada0。如果操作的是 SAS/USB 硬盘，则设备名称应为 daｎ；对于 NVMe 硬盘应为 nvdｎ；对于 eMMC 存储则为 mmcsdｎ（其中ｎ为 0 或更大的整数）。
+在这里，我们假设操作的是 SATA 磁盘，设备名称表示为 `/dev/ada0`。如果是 SAS/USB 磁盘，设备名为 `dan`，NVMe 磁盘为 `nvdn`，eMMC 磁盘为 `mmcsdn`（其中 `n` 是大于等于 0 的整数）。
 
-## 共同事项
+## 通用操作
 
-因为它是 GPT 分区，所以在任何步骤中，都有一些必须执行的命令^ 2^。
+由于使用的是 GPT 分区，在所有操作步骤中，都必须执行以下命令[2]：
 
-```
+```sh
 gpart create -s GPT ada0
 ```
 
-为了简化讨论，假定要划分如下所示的分区。
+为了简化讨论，假设我们分配了以下分区：
 
-| 设备名称 | 分区类型             | 用途            |
-| ---------- | ---------------------- | ----------------- |
-| ada0p1   | FreeBSD 引导或者 EFI | 引导区域        |
-| ada0p2   | 免费 bsd-ufs^ 3^     | 自由的 BSD 領域 |
-| ada0p3   | 免费 bsd 交换        | 交換空間        |
+| 设备名    | 分区类型               | 用途         |
+| ------ | ------------------ | ---------- |
+| ada0p1 | freebsd-boot 或 efi | 启动分区       |
+| ada0p2 | freebsd-ufs[3]        | FreeBSD 分区 |
+| ada0p3 | freebsd-swap       | 交换分区       |
 
-在本次講話中，ada0p2 和 ada0p3 被視為相同的共同步驟。換句話說，執行以下命令在「當前時刻無實際用處」^4^^5^^6^。
+在本讨论中，`ada0p2` 和 `ada0p3` 使用相同的通用步骤。即执行以下命令，虽然这些命令在当前场景中可能并不立即有用[4][5][6]：
 
-```
+```sh
 gpart add -t freebsd-ufs  ada0
 gpart add -t freebsd-swap ada0
 ```
 
-## BIOS 启动的情况下
+## 在 BIOS 启动情况下
 
-```
+```sh
 gpart add -t freebsd-boot -b 40 -s 984  ada0
 ```
 
-* 定义“freebsd-boot”分区作为引导分区。如果不是“freebsd-boot”，引导程序将无法找到该区域。
-* 从逻辑块地址（LBA）40 处开始，指定起始位置为 40 个扇区（LBA 40）。
+* 我们为启动分区定义了 freebsd-boot 类型。如果不是 freebsd-boot，引导加载器将无法发现该分区。
+* 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
 
-  * GPT 分区头大小（GPT 头大小）为 34 扇区^ 7 ^，但对于 4KiB 扇区兼容磁盘，扇区起始位置将被舍入为 8 的倍数。
-  * 可能为了考虑这一点，最近 GPT 头大小变成了 40 扇区（从哪个版本开始尚未确认）。
-* 个人建议指定区域大小（ -s ）为 984 个扇区。
+  * GPT 分区表头大小为 34 扇区，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
+  * 近期版本中，GPT 分区表头的大小已经增加为 40 扇区（具体从哪个版本开始的尚未确认）。
+* 分区大小（`-s`）推荐为 984 扇区。
 
-  * 下一个区域（freebsd-ufs）从 512Kib 起始位置开始有好处 ^ 8 ^。
-  * 由于引导加载程序的限制，必须将大小限制在 545Kib 以下（本次大小为 492Kib）。
-  * 因此，缩小没有意义，也没有必要进一步扩大。
+  * 这样可以确保下一分区（freebsd-ufs）从 512KiB 边界开始[8]。
+  * 由于引导加载器的限制，分区大小不得小于 545KiB，所以下面的大小为 492KiB。
+  * 因此，调整分区大小没有必要，也没有更多的空间来增大它。
 
-```
+```sh
 gpart bootcode -b /boot/pmbr -p /boot/gptboot    -i 1 ada0
-        または
+        或者
 gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada0
 ```
 
-完成引导加载程序的安装。引导加载程序将在ＦｒｅｅＢＳＤ分区^ 9^^ 10^上搜索，并将控制转移到 /boot/loader 或 /boot/zfsloader。
+以上步骤完成后，引导加载器安装完毕了。引导加载器会查找 FreeBSD 分区[9][10]，然后将控制权交给 `/boot/loader` 或 `/boot/zfsloader`。
 
-## 对于ＵＥＦＩ启动
+## 在 UEFI 启动情况下
 
-```
+```sh
 gpart add -t efi -b 40 -s 409560 ada0
 ```
 
-* 定义一个名为「efi」的分区作为引导分区。如果不是「efi」，ＵＥＦＩ将无法检测到这个区域。
-* 从扇区 40（LBA40）指定开始位置（ -b ）。
+* 我们为启动分区定义了 efi 类型。如果不是 efi，UEFI 将无法发现该分区。
+* 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
 
-  * GPT 分区标头大小（GPT 标头大小）为 34 个扇区^7^，但是对于 4Kib 扇区对齐的磁盘来说，扇区起始位置会被舍入到 8 的倍数。
-  * 最近，为了考虑这一点，GPT 标头大小可能变为了 40 个扇区（版本未知）。
-* 领域大小的指定（ -s ）建议指定为 40960 个扇区。
+  * GPT 分区表头的大小为 34 扇区[7]，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
+  * 近期版本中，GPT 分区表头的大小已调整为 40 扇区（具体从哪个版本开始尚未确认）。
+* 分区大小（`-s`）建议设置为 409560 扇区。
 
-  * 对于这个设置，freebsd-ufs 的下一个区域的起始位置将从 200 MiB 的边界开始 ^ 8 ^。
-  * 领域大小严格来说略小于 200 MiB（少了 40 个扇区，即 20 KB），不过这个误差可以忽略。
-  * 目前（11.2-R 版本）/boot/boot1.efifat 引导区的大小为 800KiB。
-  * 在 10.4-R 或 11.1-R 版本中，建议将此区域保留 200MiB，考虑到与其他操作系统（如 macOS）的兼容性设置，因此如果单独启动 FreeBSD，当前的 800KiB 大小是没有问题的。
-  * 在 bsdisnstall: increase EFI partition size to 200MB 的讨论中，认识到对于类似固件更新工具的 EFI 应用程序还需要空间，因此认为 800KiB 的大小实在是太少了。
+  * 这个设置确保下一个分区（freebsd-ufs）从 200MiB 边界开始。
+  * 该分区的实际大小略小于 200MiB（少 40 扇区，即 20KB），但可以忽略不计。
+  * 目前，11.2-R 的启动分区（`/boot/boot1.efifat`）的大小为 800KiB。
+  * 在 10.4-R 或 11.1-R 版本中，推荐为该分区分配 200MiB，以考虑与其他操作系统（如 macOS）的兼容性。如果仅启动 FreeBSD，800KiB 的大小应无问题。
+  * 在 [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935) 的讨论中指出，为了支持固件更新工具等 EFI 应用程序，800KiB 的分区大小可能过小。
 
-```
+```sh
 newfs_msdos -F 32 -c 1 -L EFISYS /dev/ada0p1
 mount -t msdosfs /dev/ada0p1 /mnt
 mkdir -p /mnt/EFI/BOOT
 cp /boot/loader.efi /mnt/EFI/BOOT/BOOTX64.efi
 umount /mnt
-        または
+        或者
 gpart bootcode -p /boot/boot1.efifat -i 1 ada0
 ```
 
-到此为止，启动加载程序的安装就完成了。启动加载程序会查找 FreeBSD 区域^ 11^ 来继续引导过程。
+完成上述步骤后，启动加载器将安装完毕。启动加载器会查找 FreeBSD 分区，并继续启动过程。
 
-# 常见问题及解答
+## 常见问题与解答
 
-## 问：怎么跟 Bootable UEFI U 盘或硬盘上的步骤不一样啊？
+### 问：为什么与[Bootable UEFI memory stick or Hard Disk](https://wiki.freebsd.org/UEFI#Bootable_UEFI_memory_stick_or_Hard_Disk)上的步骤不同？
 
-一切都好。沒問題。時代已經追上我了。
+答：没问题，完全没问题。时代已经跟上了。
 
-## 問：經過一番調查，似乎對於在 /boot/boot1.efifat 目錄中寫入內容，有許多不同的步驟，哪一個才是正確的？
+### 问：通过各种资料查看，似乎有很多方法来写入 /boot/boot1.efifat 分区，该采用哪种方式才正确？
 
-一切都好。沒問題。但是不建議使用任何這些步驟。
+答：没问题，任何方法都可以。但我不推荐任何方法。
 
-/boot/boot1.efifat 是分区镜像本身。极端来说可以认为是 dd if=/dev/ada0p1 of=/boot/boot1.efifat 的内容。实际在构建时正在做类似的事情。
+/boot/boot1.efifat 实际上是分区镜像本身。极端地说，可以认为是 `dd if=/dev/ada0p1 of=/boot/boot1.efifat` 的结果。实际构建时也会做类似的操作。
 
-因此，无论是使用 dd(8)还是 gpart(8)写入都是一样的。但毫无疑问，更智能的选择是使用 gpart(8)。
+因此，无论是使用 dd(8) 还是 gpart(8) 写入都没问题，但显然，gpart(8) 是更聪明的选择。
 
-但最好不要使用/boot/boot1.efifat。关于之前提到的 200 MiB 扩展的问题，使用它会将 200 MiB 区域中的 800 KiB 变成只能访问的区域。
+不过，最好避免使用 /boot/boot1.efifat。正如前面提到的，扩展到 200MiB 后，这个分区只能访问 800KiB 的空间。
 
-尽管已经保留了 200 MiB 的空间，但却无法运行 EFI 应用程序。
+尽管分配了 200MiB 的空间，但 EFI 应用程序无法在这 200MiB 中运行。
 
-在新安装中没有问题，但如果想要更新，可能会走入不必要的方向而消失。
+新安装不会有问题，但更新时，使用这种方式可能会不必要地删除一些内容。
 
-## 在进行操作系统更新时，是否需要更新引导分区？
+### 问：在操作系统更新时，是否需要更新启动分区？
 
- 常常需要但并非总是必要。然而…
+答：并非每次都需要，但有时需要，具体情况如下：
 
-1. 如果从 UFS 启动，由于 UFS 格式的稳定性，bootloader 代码没有更改，因此几乎不会出错。如果出现问题，可能是在从 UFS1 升级到 UFS2 时。因此，即使未更新，也不会出现问题，或者可能不会被发现。
-2. 如果从 ZFS 启动，由于 ZFS 格式的不稳定性，bootloader 代码会发生变化，因此需要经常维护，否则可能无法启动。在这方面， /usr/src/UPDATING 的 ZFS notes 中提到了“当升级启动的 ZFS 池版本时，需要更新 bootloader”的说明。
+1. **从 UFS 启动**时，由于 UFS 的格式稳定性，启动加载器代码通常不会发生变化，所以几乎不会出现问题。即使没有更新启动分区，通常也不会发现问题，除非从 UFS1 升级到 UFS2。
+2. **从 ZFS 启动**时，由于 ZFS 格式的不稳定性，启动加载器代码会发生变化。因此，必须定期维护启动分区，否则可能无法启动。有关这一点，`/usr/src/UPDATING` 中的 `ZFS notes` 提到：“如果更新启动的 ZFS 池的版本，请确保更新启动加载器。”
 
-从这个角度来看，更新引导程序的步骤也应该进行系统化。
+因此，除了更新步骤外，更新启动加载器的步骤也应纳入操作流程。
 
-对于 freebsd-boot 分区，只需使用 gpart bootcode -p 进行覆盖即可，但对于 efi 分区，则需要在挂载后，使用 cp 进行覆盖（详见后文）。
+对于 freebsd-boot 分区，可以通过 `gpart bootcode -p` 命令覆盖，但对于 EFI 分区，需要先挂载，再通过 `cp` 命令进行覆盖（[后续说明](https://qiita.com/nanorkyo/items/429d7382a418b38de4d3#%E4%BB%98%E9%8C%B2%E3%83%96%E3%83%BC%E3%83%88%E3%83%AD%E3%83%BC%E3%83%80%E3%83%BC%E3%81%AE%E6%9B%B4%E6%96%B0)）。
 
-## 问：如果分区号不是 1，那么任何号码都可以吗？
+### 问：如果分区号不是 1，那么是否可以随意设置？
 
- 不要紧，最好不要做。
+答：不行，最好不要这样做。
 
-MBR 有 2 TiB 的限制，如果使用后续区域，BIOS 可能无法找到引导加载程序（freebsd-boot）。此外，如果分区编号与区域顺序不匹配，将会变得很麻烦。
+由于 MBR 存在 2TiB 的限制，如果使用超过 2TiB 的空间，BIOS 可能无法找到启动加载器（freebsd-boot）。
 
-## 我们处理的是 GPT，所以 MBR 应该不相关。
+另外，如果分区号和分区顺序不一致，管理起来会很麻烦。
 
-很遗憾。因为 GPT 是 MBR 的更高兼容性版本，所以别想了。
+### 问：我们使用的是 GPT 分区，为什么还要管 MBR？
 
-就 UEFI 启动来说，GPT 会被解释为 GPT，所以可以断然地说“无关紧要”。
+答：遗憾的是，GPT 是 MBR 的上位兼容，所以不能完全忽略它。
 
-但对于 BIOS 启动，GPT 会被看作 MBR 来操作。因此，在前 2TiB 的区域内需要存在引导加载程序（freebsd-boot）。不过，仅仅存在是问题的关键，并不关心分区号是多少。
+对于 UEFI 启动，GPT 被视为 GPT，不用担心 MBR 的问题。
 
-## 问：系统是 UEFI 启动还是 BIOS 启动我不知道！
+然而对于 BIOS 启动，GPT 会表现得像 MBR，因此需要在前 2TiB 内有启动加载器（freebsd-boot）。不过，是否使用分区号 1 并不重要。
 
-答：启动 Live CD 后执行 sysctl machdep.bootmethod 命令，可以确认是 UEFI 启动还是 BIOS 启动。
+### 问：我不确定系统是 UEFI 启动还是 BIOS 启动，怎么确定？
 
-## 【附录】更新引导加载程序
+答：很简单！在安装 CD 上启动为 LiveCD 后，执行 `sysctl machdep.bootmethod` 命令。如果是 UEFI 启动，显示的是 UEFI；如果是 BIOS 启动，则显示的是 BIOS。
 
-## BIOS 启动时
+## 【附录】启动加载器更新
 
-```
+### BIOS 启动情况下
+
+```sh
 gpart bootcode -p /boot/gptboot    -i 1 ada0
-        または
+        或
 gpart bootcode -p /boot/gptzfsboot -i 1 ada0
 ```
 
-## UEFI 启动时
+### UEFI 启动的情况
 
-首先，在 /etc/fstab 中添加以下设置。
+首先，在 `/etc/fstab` 中添加以下设置。
 
-```
+```sh
 # Device    Mountpoint FStype  Options Dump Pass #
 /dev/ada0p1 /boot/efi  msdosfs rw      0    0
 ```
 
-接下来创建 /boot/efi 目录。
+接着，创建 `/boot/efi` 目录。
 
-```
+```sh
 mkdir -p /boot/efi
 ```
 
-手动挂载一次，当然也可以忽略重启后的问题。
+首次可以手动执行挂载。当然，也可以重启后无需特别关注。
 
-```
+```sh
 mount /boot/efi
 ```
 
- 以后的更新如下。
+之后的更新操作如下：
 
-```
+```sh
 cp /boot/loader.efi /boot/efi/EFI/BOOT/BOOTX64.efi
 ```
 
-## 参考文献
+### 参考文献
 
-* [ gpart(8)的手册](https://www.freebsd.org/cgi/man.cgi?gpart(8))
-* [ FreeBSD 的启动过程](https://qiita.com/mzaki/items/76acac14c16ac6789e68)
-* [UEFI - FreeBSD 维基](https://wiki.freebsd.org/UEFI)
-* [FreeBSD 10.4 发布说明](https://www.freebsd.org/releases/10.4R/relnotes.html)
-* [FreeBSD 11.1 发布说明](https://www.freebsd.org/releases/11.1R/relnotes.html)
-* [bsdinstall：将 EFI 分区大小增加到 200MB](https://reviews.freebsd.org/D6935)
-* [ GPT 和 MBR 有什么区别？](http://syuu1228.hatenablog.com/entry/20130103/1357165915)
+* [gpart(8) 的手册](https://www.freebsd.org/cgi/man.cgi?gpart%288%29)
+* [FreeBSD 的启动过程](https://qiita.com/mzaki/items/76acac14c16ac6789e68)
+* [UEFI - FreeBSD Wiki](https://wiki.freebsd.org/UEFI)
+* [FreeBSD 10.4 版本说明](https://www.freebsd.org/releases/10.4R/relnotes.html)
+* [FreeBSD 11.1 版本说明](https://www.freebsd.org/releases/11.1R/relnotes.html)
+* [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935)
+* [GPT 和 MBR 的区别是什么？](http://syuu1228.hatenablog.com/entry/20130103/1357165915)
 * [通过命令行创建 FreeBSD 启动分区等](http://nao550.hateblo.jp/entry/2018/02/12/214146)
-* [ 有关 FreeBSD/UEFI](http://zenno.com/pukiwiki/index.php?FreeBSD%2FUEFI%A4%CB%A4%C4%A4%A4%A4%C6)
+* [FreeBSD/UEFI 相关信息](http://zenno.com/pukiwiki/index.php?FreeBSD%2FUEFI%A4%CB%A4%C4%A4%A4%A4%C6)
 
 ---
 
-1. 在 BIOS 中通常被称为“MBR（Master Boot Record）引导”，但由于 2TB 限制和几乎消失了多重引导需求，现在已经统一为 GPT 启动（？）
-2. 此命令的执行无需任何更改。从兼容性的角度看，根本不应修改默认值。
-3. 虽然有时可能想将 freebsd-ufs 更改为 freebsd-zfs，但本次讨论将略过此内容。
-4. 实际上，需要使用 -s サイズ 选项来指定大小。如果未指定，则表示将剩余的全部内容作为意味着不能分配交换空间。
-5. 注意执行顺序。如果继续进行，将无法分配启动区域（分区编号将错一位）。
-6. 尽管可以使用 -i パーティション番号 或 -b 開始位置 -i パーティション番号 选项进行控制，但作为基本说明，我们愿意放弃。
+1. 在 BIOS 中，通常使用“MBR（主引导记录）引导”，但是由于 2 TiB 限制的严格性以及几乎没有多重引导需求，因此已经统一采用了 GPT 引导（？）
+2. 执行此命令没有过多或不足之处。从兼容性的角度来看，根本没有修改默认值的余地。
+3. 虽然有时可能希望将 freebsd-ufs 改为 freebsd-zfs，但在本次讨论中暂且省略这一点。
+4. 实际上，需要使用 `-s 尺寸` 选项来指定大小。如果没有指定，意味着使用剩余的所有空间。也就是说，如果直接执行，将无法为交换空间分配空间。
+5. 执行顺序需要注意。如果按此顺序执行，将无法分配启动分区（分区号会错位）。
+6. 可以使用 `-i 分区号` 或 `-b 起始位置 -i 分区号` 选项来进行控制，但作为基本说明，建议不使用这些选项。
 7. LBA 0 到 LBA 33 是 GPT 头区域。
-8. 近来，各种媒体（包括 4Kibytes HDD 和 NAND Flash 等）中充当边界的最小公倍数（即使有 512KiB，也适用于任何媒体）并不是一个糟糕的数字（应该）。
-9. gptboot 在 freebsd-ufs 区域中查找 /boot/loader，gptzfsboot 在 freebsd-zfs 区域中查找 /boot/zfsloader。 ↩
-10. 仅与存储着"/boot/(zfs)loader"的领域的文件系统相关联，因此在引导时会被视为 UFS，而在根目录中会被视为 ZFS，因此对于混合环境中的解释将作为"UFS"来处理。
-11. 尽管在搜索 freebsd-ufs 或 freebsd-zfs 领域时，它们的优先级和控制在这里很难解释，因此请参考参考资料。虽然并不复杂。但是由于需要对文件系统级别进行调整，因此需要深入了解一下。
+8. 在现代各种介质（例如 4 KiB 扇区的 HDD 或 NAND 闪存等）中，**边界**的最小公倍数（如果有 512 KiB 则适用于任何介质）是一个相当合理的数字（应该如此）。
+9. gptboot 会查找 freebsd-ufs 分区中的 /boot/loader，gptzfsboot 会查找 freebsd-zfs 分区中的 /boot/zfsloader。
+10. 由于“/boot/(zfs)loader”绑定到存储该文件的分区的文件系统，因此在引导时会解释为 UFS，而根文件系统使用 ZFS 的混合环境会解释为“UFS”。
+11. 会查找 freebsd-ufs 或 freebsd-zfs 分区，但其优先级和控制方式较难解释，因此请参考[参考文献](https://qiita.com/mzaki/items/76acac14c16ac6789e68#loaderefi)。虽然并不复杂，但因为需要对文件系统级别进行调整，所以需要进一步深入了解。
