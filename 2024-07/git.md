@@ -28,7 +28,7 @@ $ pkg install got
 
 测试中使用的 Got 版本为 `0.93`。如果版本升级，文中内容可能会不适用。
 
-# 首先试试 clone
+## 首先试试 clone
 
 `got clone` 和 `git clone` 的区别如下：
 
