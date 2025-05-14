@@ -168,7 +168,7 @@ rcctl enable unbound
 rcctl start unbound
 ```
 
-如果一切都正确，unbound 将能够响应来自各自 LAN 的请求，位于 `172.14.0.1` 和` 2a01:4f8:cafe:cafe:100::1` 上。
+如果一切都正确，unbound 将能够响应来自各自 LAN 的请求，位于 `172.14.0.1` 和`2a01:4f8:cafe:cafe:100::1` 上。
 
 现在可以配置 Wireguard 客户端了。每种实现都有其自己的过程（Android、iOS、MikroTik、Linux 等），但基本上只需在服务器和客户端上创建正确的配置即可。例如，在 OpenBSD 服务器上输入“ifconfig wg0”命令可查看服务器的公钥，应将其插入到客户端上将创建的“peer”配置中；而客户端的公钥则将在服务器上这样使用：
 

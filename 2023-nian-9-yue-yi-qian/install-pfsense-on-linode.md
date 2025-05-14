@@ -1,9 +1,9 @@
 # 在 Linode 上安装 pfSense
 
- - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_pfSense_on_Linode.md>
- - 作者：Roller Angel
- - 译者：罗胜 (superluosheng)
- - 校对整理：ykla【】部分为 ykla 注解。
+- 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_pfSense_on_Linode.md>
+- 作者：Roller Angel
+- 译者：罗胜 (superluosheng)
+- 校对整理：ykla【】部分为 ykla 注解。
 
 【Linode】一个 VPS 提供商
 
@@ -17,9 +17,11 @@
 第一个是 1024MB 大小的镜像，标记为安装程序。
 第二个使用 Linode 的剩余空间。标记为 pfSense。
 ```
+
 用以下设置创建两个配置文件（profile）。在每个配置文件中，你将需要禁用文件系统/引导助手下的所有选项。
 
 Installer profile 配置文件：
+
 ```
 Label: Installer
 Kernel: Direct Disk
@@ -27,7 +29,9 @@ Kernel: Direct Disk
 /dev/sdb: Installer disk image.
 root / boot device: Standard /dev/sdb
 ```
+
 Boot profile 配置文件：
+
 ```
 Label: pfSense
 Kernel: Direct Disk

@@ -26,10 +26,10 @@
 
 OPTIONS 是一种控制机制，用于控制每个 Port 中可以自定义的选项的启用与禁用。它提供了以下功能：
 
-* 定义可自定义的选项（选项名称）
-* 解释这些选项的功能（说明）
-* 默认启用或禁用的值
-* 提供有关行为（如依赖关系、安装方法等）的帮助
+- 定义可自定义的选项（选项名称）
+- 解释这些选项的功能（说明）
+- 默认启用或禁用的值
+- 提供有关行为（如依赖关系、安装方法等）的帮助
 
 Port 维护者通过将这些内容记录在 Makefile 中，允许用户仅通过选择开启或关闭选项来进行自定义。
 
@@ -79,10 +79,10 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 
 在 `bsd.options.mk` 中，以下设置无论 Port 的默认配置如何，都会被启用：
 
-* `DOCS`
-* `NLS`
-* `EXAMPLES`
-* `IPV6`
+- `DOCS`
+- `NLS`
+- `EXAMPLES`
+- `IPV6`
 
 即使在 Port 的默认设置中没有启用 `DOCS`，但如果对话框选项中包含 `DOCS`，则实际会启用该选项。这就是为什么即使 Port 默认没有启用 `DOCS`，它仍然被启用的原因。
 
@@ -99,7 +99,7 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 
 需要注意的是，`_SET` 在处理后，才会处理 `_UNSET`，因此优先级是 `_UNSET` > `_SET`，即 `_UNSET` 的效果更强。
 
-## 不需要自定义！
+## 不需要自定义
 
 也就是说，包管理系统默认是没有进行自定义的，应该是没有显示对话框的情况下直接处理的！[6]
 
@@ -158,12 +158,12 @@ A. 没问题的。你的理解是正确的。虽然这应该解释清楚，但�
 
 # 参考文献
 
-* [[FreeBSD-Ports-Announce] Configuring options in make.conf](https://lists.freebsd.org/pipermail/freebsd-ports-announce/2013-June/000062.html)
-* アプリケーションのインストール - packages と ports [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
-* Ports Collection の利用 [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports-using.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports-using.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
-* [bsd.port.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.mk)
-* [bsd.port.options.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.options.mk)
-* [portconf](https://www.freshports.org/ports-mgmt/portconf/)
+- [[FreeBSD-Ports-Announce] Configuring options in make.conf](https://lists.freebsd.org/pipermail/freebsd-ports-announce/2013-June/000062.html)
+- アプリケーションのインストール - packages と ports [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
+- Ports Collection の利用 [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports-using.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports-using.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
+- [bsd.port.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.mk)
+- [bsd.port.options.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.options.mk)
+- [portconf](https://www.freshports.org/ports-mgmt/portconf/)
 
 ---
 

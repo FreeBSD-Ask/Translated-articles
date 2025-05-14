@@ -14,21 +14,21 @@
 
 在这里，我会在命令名称（或子命令名称）后标注 `[R]` 和 `[L]`，它们的含义如下：
 
-* `[R]`：参考外部包/仓库中的信息。
-* `[L]`：参考已安装的包或本地文件系统中的包。
-* `[RL]`：根据环境的不同，既可以是 `[R]` 也可以是 `[L]`。
+- `[R]`：参考外部包/仓库中的信息。
+- `[L]`：参考已安装的包或本地文件系统中的包。
+- `[RL]`：根据环境的不同，既可以是 `[R]` 也可以是 `[L]`。
 
 ### pkg update \[R]
 
 这是用来收集包元数据的命令。首先需要收集元数据，其他命令的执行依赖于此。这与 `yum check-update` 很相似。
 需要注意的是，这并不是一个每次都需要执行的命令，许多命令会在自动更新元数据后再执行，因此如果你不介意自动更新，便不需要手动执行该命令。以下子命令会基于最新的元数据执行：
 
-* `pkg install`
-* `pkg upgrade`
-* `pkg version`
-* `pkg search`
-* `pkg fetch`
-* `pkg rquery`
+- `pkg install`
+- `pkg upgrade`
+- `pkg version`
+- `pkg search`
+- `pkg fetch`
+- `pkg rquery`
 
 ### pkg install \[R]
 
@@ -50,9 +50,9 @@
 
 用于进行包的版本比较。由于其特殊性，使用时需要分解具体的用例来理解。
 
-* 默认情况下，`pkg version` 会与 `/usr/ports/INDEX-ＯＳ major version` 这样的元数据文件进行比较。
-* 如果该文件不存在，会参考每个 Ports 的源目录（相当于指定 `-P` 选项）。
-* 如果该目录也不存在，则会参考远程仓库（相当于指定 `-R` 选项）。
+- 默认情况下，`pkg version` 会与 `/usr/ports/INDEX-ＯＳ major version` 这样的元数据文件进行比较。
+- 如果该文件不存在，会参考每个 Ports 的源目录（相当于指定 `-P` 选项）。
+- 如果该目录也不存在，则会参考远程仓库（相当于指定 `-R` 选项）。
 
 前两种情况属于 `[L]` 范畴，而后者则属于 `[R]` 范畴。
 
@@ -62,11 +62,11 @@
 
 以下是每个符号的含义，但在使用 `-L` 选项时，表示的是“非该符号”的情况。若需要查找该符号的含义，则需要使用 `-l` 选项。
 
-* `>`：当前安装的版本有较新的版本可用。
-* `=`：当前安装的版本与发布的版本相同。
-* `<`：当前安装的版本有较旧的版本可用，通常是元数据未更新或者进行新版本的测试安装时会出现。
-* `?`：当前安装的包来源（origin）不存在，无法进行版本比较（可能已被删除或重命名）。
-* `!`：当前安装的版本无法进行版本比较。
+- `>`：当前安装的版本有较新的版本可用。
+- `=`：当前安装的版本与发布的版本相同。
+- `<`：当前安装的版本有较旧的版本可用，通常是元数据未更新或者进行新版本的测试安装时会出现。
+- `?`：当前安装的包来源（origin）不存在，无法进行版本比较（可能已被删除或重命名）。
+- `!`：当前安装的版本无法进行版本比较。
 
 ### pkg version -t
 
@@ -98,10 +98,10 @@
 
 锁定指定包，防止其被更新。锁定的效果不仅限于防止包本身的更改，还包括以下功能：
 
-* 阻止锁定包的重新安装、升级、降级和删除。
-* 阻止依赖于锁定包的其他包的升级或降级，特别是当依赖关系指向另一个版本的锁定包时。
-* 阻止锁定包依赖的其他包的删除、升级或降级。
-* 即使间接共享依赖关系，也会被锁定。
+- 阻止锁定包的重新安装、升级、降级和删除。
+- 阻止依赖于锁定包的其他包的升级或降级，特别是当依赖关系指向另一个版本的锁定包时。
+- 阻止锁定包依赖的其他包的删除、升级或降级。
+- 即使间接共享依赖关系，也会被锁定。
 
 ### pkg unlock \[L]
 
@@ -149,8 +149,8 @@
 
 通过为 `-A` 选项指定以下值，来修改指定包的元数据。此更改会影响 `pkg autoremove` 的行为结果。
 
-* `0`：使指定的包不成为 `pkg autoremove` 的删除对象。
-* `1`：使指定的包成为 `pkg autoremove` 的删除对象。
+- `0`：使指定的包不成为 `pkg autoremove` 的删除对象。
+- `1`：使指定的包成为 `pkg autoremove` 的删除对象。
 
 对这个选项感兴趣的人，可能也会关心 `pkg autoremove` 的工作原理。实际上，仅设置这个标志并不足以使包成为 `pkg autoremove` 的目标；还需要判断该包没有被其他包依赖等条件。
 
@@ -175,38 +175,38 @@
 以指定的格式显示软件包的元信息。如果未指定包名，则会针对所有已安装的包进行查询。
 可用于格式字符串中的占位符如下所示：
 
-* `%n`：包名
-* `%v`：包的版本
-* `%o`：包的 origin
-* `%p`：包的 prefix
-* `%m`：包的维护者（电子邮件地址）
-* `%c`：包的注释
-* `%e`：包的描述
-* `%w`：包的网址
-* `%l`：包的许可证逻辑（无／单一／and／or）
-* `%sb` 或 `%sh`：包的大小（字节单位或更适合人类阅读的单位）
-* `%a`：包的自动安装标志
-* `%Q`：包支持的架构候选项
-* `%q`：包的架构（操作系统、版本、CPU 架构）
-* `%k`：包的锁定标志
-* `%M`：包的信息消息
-* `%t`：包的安装时间戳
-* `%R`：包的安装来源仓库
-* `%X`：包的校验和
-* `%?C`：表示某种条件 `C` 是否成立的布尔标志（`d`/`r`/`C`/`F`/`O`/`D`/`L`/`U`/`G`/`B`/`b`/`A`，各自说明略）
-* `%#C`：满足某种条件 `C` 的项目数（与上同）
-* `%dC`：该包依赖的其他包列表，通过 `C`（具体为 `n`/`o`/`v`）来选择输出 Name／Origin／Version
-* `%rC`：依赖于该包的其他包列表，通过 `C`（具体为 `n`/`o`/`v`）来选择输出 Name／Origin／Version
-* `%C`：包所属的分类列表
-* `%FC`：包包含的文件列表，通过 `C`（`p`/`s`）来选择 Path 或校验和 Sum
-* `%D`：包包含的目录列表
-* `%OC`：包的选项列表，通过 `C`（`k`/`v`/`d`/`D`）来选择 key、value、默认值、描述
-* `%L`：包的许可证列表
-* `%U`：包使用的用户列表
-* `%G`：包使用的用户组列表
-* `%B`：包在程序中使用的共享库列表
-* `%b`：包所提供的共享库列表
-* `%AC`：包的注解标签列表，通过 `C`（`t`/`v`）选择 tag 或 value
+- `%n`：包名
+- `%v`：包的版本
+- `%o`：包的 origin
+- `%p`：包的 prefix
+- `%m`：包的维护者（电子邮件地址）
+- `%c`：包的注释
+- `%e`：包的描述
+- `%w`：包的网址
+- `%l`：包的许可证逻辑（无／单一／and／or）
+- `%sb` 或 `%sh`：包的大小（字节单位或更适合人类阅读的单位）
+- `%a`：包的自动安装标志
+- `%Q`：包支持的架构候选项
+- `%q`：包的架构（操作系统、版本、CPU 架构）
+- `%k`：包的锁定标志
+- `%M`：包的信息消息
+- `%t`：包的安装时间戳
+- `%R`：包的安装来源仓库
+- `%X`：包的校验和
+- `%?C`：表示某种条件 `C` 是否成立的布尔标志（`d`/`r`/`C`/`F`/`O`/`D`/`L`/`U`/`G`/`B`/`b`/`A`，各自说明略）
+- `%#C`：满足某种条件 `C` 的项目数（与上同）
+- `%dC`：该包依赖的其他包列表，通过 `C`（具体为 `n`/`o`/`v`）来选择输出 Name／Origin／Version
+- `%rC`：依赖于该包的其他包列表，通过 `C`（具体为 `n`/`o`/`v`）来选择输出 Name／Origin／Version
+- `%C`：包所属的分类列表
+- `%FC`：包包含的文件列表，通过 `C`（`p`/`s`）来选择 Path 或校验和 Sum
+- `%D`：包包含的目录列表
+- `%OC`：包的选项列表，通过 `C`（`k`/`v`/`d`/`D`）来选择 key、value、默认值、描述
+- `%L`：包的许可证列表
+- `%U`：包使用的用户列表
+- `%G`：包使用的用户组列表
+- `%B`：包在程序中使用的共享库列表
+- `%b`：包所提供的共享库列表
+- `%AC`：包的注解标签列表，通过 `C`（`t`/`v`）选择 tag 或 value
 
 常见的用法之一是 `%n-%v`，用于输出包名和版本的组合形式。
 
@@ -214,34 +214,34 @@
 
 用于根据指定的查询条件筛选符合条件的软件包。以下是可用于右侧（不能用于左侧）条件表达式的字段：
 
-* `%n`：包名（字符串型）
-* `%o`：包的 origin（字符串型）
-* `%p`：包的 prefix（字符串型）
-* `%m`：包的维护者（邮箱，字符串型）
-* `%c`：包的注释（字符串型）
-* `%e`：包的描述（字符串型）
-* `%w`：包的网址（字符串型）
-* `%s`：包的大小（字节单位，数值型）
-* `%a`：包的自动安装标志（数值型）
-* `%q`：包的架构（操作系统、版本、CPU 架构，字符串型）
-* `%k`：包的锁定标志（数值型）
-* `%M`：包的信息消息（字符串型）
-* `%t`：包的安装时间戳（数值型）
-* `%i`：包的附加信息（字符串型）
-* `%#C`：表示某类项目的数量（`C` 可为 `d`/`r`/`C`/`F`/`O`/`D`/`L`/`U`/`G`/`B`/`b`/`A`，说明略）
+- `%n`：包名（字符串型）
+- `%o`：包的 origin（字符串型）
+- `%p`：包的 prefix（字符串型）
+- `%m`：包的维护者（邮箱，字符串型）
+- `%c`：包的注释（字符串型）
+- `%e`：包的描述（字符串型）
+- `%w`：包的网址（字符串型）
+- `%s`：包的大小（字节单位，数值型）
+- `%a`：包的自动安装标志（数值型）
+- `%q`：包的架构（操作系统、版本、CPU 架构，字符串型）
+- `%k`：包的锁定标志（数值型）
+- `%M`：包的信息消息（字符串型）
+- `%t`：包的安装时间戳（数值型）
+- `%i`：包的附加信息（字符串型）
+- `%#C`：表示某类项目的数量（`C` 可为 `d`/`r`/`C`/`F`/`O`/`D`/`L`/`U`/`G`/`B`/`b`/`A`，说明略）
 
 可使用的运算符如下：
 
-* `||`：逻辑“或”，用于连接两个判断条件
-* `&&`：逻辑“与”，用于连接两个判断条件
-* `~`：用于匹配 glob 模式，例如 `%var ~ 模式`，判断是否匹配
-* `!~`：用于判断是否不匹配 glob 模式
-* `>` / `>=`：用于数值比较，大于或大于等于
-* `<` / `<=`：用于数值比较，小于或小于等于
-* `=` / `==`：判断是否等于（数字或字符串）
-* `!=`：判断是否不等于（数字或字符串）
-* `=~`：判断是否大小写不敏感地等于（数字或字符串）
-* `!=~`：判断是否大小写不敏感地不等于（数字或字符串）
+- `||`：逻辑“或”，用于连接两个判断条件
+- `&&`：逻辑“与”，用于连接两个判断条件
+- `~`：用于匹配 glob 模式，例如 `%var ~ 模式`，判断是否匹配
+- `!~`：用于判断是否不匹配 glob 模式
+- `>` / `>=`：用于数值比较，大于或大于等于
+- `<` / `<=`：用于数值比较，小于或小于等于
+- `=` / `==`：判断是否等于（数字或字符串）
+- `!=`：判断是否不等于（数字或字符串）
+- `=~`：判断是否大小写不敏感地等于（数字或字符串）
+- `!=~`：判断是否大小写不敏感地不等于（数字或字符串）
 
 ### pkg rquery \[R]
 
@@ -265,9 +265,9 @@
 
 以下命令是别名，用于筛选出“自动安装标志为 0”的软件包，即那些是用户显式安装的包：
 
-* `pkg prime-list` \[L]
-* `pkg prime-origins` \[L]
-* `pkg noauto` \[L]
+- `pkg prime-list` \[L]
+- `pkg prime-origins` \[L]
+- `pkg noauto` \[L]
 
 
 
@@ -288,7 +288,7 @@
 甚至你可以用像 `pkg vanish`（消失）这种中二感满满的词自定义别名，只要你愿意。
 系统默认提供了一些比较中性的别名。
 
-* `pkg remove` 等价于 `pkg delete`
+- `pkg remove` 等价于 `pkg delete`
 
 
 ## 不需要在意的 pkg 命令们
@@ -296,16 +296,16 @@
 这些命令大多是供内部使用的，或是给其他工具调用使用（比如把别的包管理系统的软件包信息注册到 FreeBSD 的 pkg 系统中）。
 一般用户不需要关心：
 
-* `pkg stats`：显示统计信息
-* `pkg clean`：清理包缓存
-* `pkg config`：查看 `/usr/local/etc/pkg.conf` 中的设置（大小写不敏感）
-* `pkg create`：创建软件包。虽然在 Ports 构建过程中常用，但很少单独使用
-* `pkg fetch`：下载包。`pkg install` 实际上等价于 `pkg fetch` 加上 `pkg add`
-* `pkg register`：将包注册进本地数据库。纯粹是内部用途
-* `pkg repo`：生成包仓库目录，相关内容建议参考 `pkg-repository(5)` 手册
-* `pkg shlib`：显示软件包所提供的共享库以及依赖这些库的其他包，主要用于安全审计
-* `pkg ssh`：完全用于内部，不适合人类用户使用，省略
-* `pkg triggers`：执行延迟触发器。这是什么时候谁延迟的？总之也是内部使用，省略
+- `pkg stats`：显示统计信息
+- `pkg clean`：清理包缓存
+- `pkg config`：查看 `/usr/local/etc/pkg.conf` 中的设置（大小写不敏感）
+- `pkg create`：创建软件包。虽然在 Ports 构建过程中常用，但很少单独使用
+- `pkg fetch`：下载包。`pkg install` 实际上等价于 `pkg fetch` 加上 `pkg add`
+- `pkg register`：将包注册进本地数据库。纯粹是内部用途
+- `pkg repo`：生成包仓库目录，相关内容建议参考 `pkg-repository(5)` 手册
+- `pkg shlib`：显示软件包所提供的共享库以及依赖这些库的其他包，主要用于安全审计
+- `pkg ssh`：完全用于内部，不适合人类用户使用，省略
+- `pkg triggers`：执行延迟触发器。这是什么时候谁延迟的？总之也是内部使用，省略
 
 ## 查询（pkg-query）
 
@@ -377,7 +377,7 @@ A．常用的当然记得住。原以为我也就记了三五个而已，没想�
 
 顺便说一下，`pkg query` 和 `pkg shell` 以前我其实用得不多，这次因为研究查数据才顺手补上的。虽然 `pkg shell` 基本就是只查结果而已。
 
-### Q．pkg update / upgrade / updating 总是傻傻分不清楚。
+### Q．pkg update / upgrade / updating 总是傻傻分不清楚
 
 A．很遗憾，这是必须记下来的。
 其他包管理器有时 `update` 和 `upgrade` 是同一个东西，但在 FreeBSD 上……很遗憾（信息在此中断了）。
@@ -397,49 +397,49 @@ A．这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无�
 
 ## 参考文献
 
-* [FreeBSD pkg](https://github.com/freebsd/pkg)
-* [pkg(8)](https://man.freebsd.org/cgi/man.cgi?pkg)
-* [pkg update(8)](https://man.freebsd.org/cgi/man.cgi?pkg-update)
-* [pkg install(8)](https://man.freebsd.org/cgi/man.cgi?pkg-install)
-* [pkg add(8)](https://man.freebsd.org/cgi/man.cgi?pkg-add)
-* [pkg delete(8)](https://man.freebsd.org/cgi/man.cgi?pkg-delete)
-* [pkg version(8)](https://man.freebsd.org/cgi/man.cgi?pkg-version)
-* [pkg upgrade(8)](https://man.freebsd.org/cgi/man.cgi?pkg-upgrade)
-* [pkg info(8)](https://man.freebsd.org/cgi/man.cgi?pkg-info)
-* [pkg lock(8)](https://man.freebsd.org/cgi/man.cgi?pkg-lock)
-* [pkg unlock(8)](https://man.freebsd.org/cgi/man.cgi?pkg-unlock)
-* [pkg-search(8)](https://man.freebsd.org/cgi/man.cgi?pkg-search)
-* [pkg-which(8)](https://man.freebsd.org/cgi/man.cgi?pkg-which)
-* [pkg-audit(8)](https://man.freebsd.org/cgi/man.cgi?pkg-audit)
-* [pkg-check(8)](https://man.freebsd.org/cgi/man.cgi?pkg-check)
-* [pkg-autoremove(8)](https://man.freebsd.org/cgi/man.cgi?pkg-autoremove)
-* [pkg-updating(8)](https://man.freebsd.org/cgi/man.cgi?pkg-updating)
-* [pkg-set(8)](https://man.freebsd.org/cgi/man.cgi?pkg-set)
-* [pkg-alias(8)](https://man.freebsd.org/cgi/man.cgi?pkg-alias)
-* [pkg-query(8)](https://man.freebsd.org/cgi/man.cgi?pkg-query)
-* [pkg-rquery(8)](https://man.freebsd.org/cgi/man.cgi?pkg-rquery)
-* [pkg-anotate(8)](https://man.freebsd.org/cgi/man.cgi?pkg-anotate)
-* [pkg-shell(8)](https://man.freebsd.org/cgi/man.cgi?pkg-shell)
-* [pkg-stats(8)](https://man.freebsd.org/cgi/man.cgi?pkg-stats)
-* [pkg-clean(8)](https://man.freebsd.org/cgi/man.cgi?pkg-clean)
-* [pkg-config(8)](https://man.freebsd.org/cgi/man.cgi?pkg-config)
-* [pkg-create(8)](https://man.freebsd.org/cgi/man.cgi?pkg-create)
-* [pkg-fetch(8)](https://man.freebsd.org/cgi/man.cgi?pkg-fetch)
-* [pkg-register(8)](https://man.freebsd.org/cgi/man.cgi?pkg-register)
-* [pkg-repo(8)](https://man.freebsd.org/cgi/man.cgi?pkg-repo)
-* [pkg-shlib(8)](https://man.freebsd.org/cgi/man.cgi?pkg-shlib)
-* [pkg-ssh(8)](https://man.freebsd.org/cgi/man.cgi?pkg-ssh)
-* [pkg-triggers(8)](https://man.freebsd.org/cgi/man.cgi?pkg-triggers)
-* [pkg-repository(5)](https://man.freebsd.org/cgi/man.cgi?pkg-repository)
-* [FreeBSD Ports Flavors](https://www.slideshare.net/YuichiroNaito/freebsd-ports-flavors)
-* [FreeBSD Porter's Handbook - 7. Flavors](https://docs.freebsd.org/en/books/porters-handbook/flavors/)
-* [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)
-* [FreeBSD Porter's Handbook - 13. pkg-\* files](https://docs.freebsd.org/ja/books/porters-handbook/pkg-files/)
-* [FreeBSD pkg コマンドチート](https://qiita.com/taku39@github/items/c29a47d5ac07492d4857)
-* [【FreeBSD】pkg で普段使うサブコマンド達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
-* [pkg](https://kaworu.jpn.org/freebsd/pkg)
-* [FreeBSD – パッケージソフトのインストールと削除、アップデートのやり方](https://blog.it-see.net/it-dokata/freebsd/pkg/)
-* [パッケージコマンド早見表](https://freebsd.seirios.org/doku.php?id=ports:pkg_yum_apt)
-* [アプリケーションをインストールする (前編): packages](https://retrotecture.jp/freebsd/app1_packages.html)
-* [FreeBSD 13.0 RELEASE - ports・pkg - pkg](https://freebsd.sing.ne.jp/fbsd/1300/03/03.html)
+- [FreeBSD pkg](https://github.com/freebsd/pkg)
+- [pkg(8)](https://man.freebsd.org/cgi/man.cgi?pkg)
+- [pkg update(8)](https://man.freebsd.org/cgi/man.cgi?pkg-update)
+- [pkg install(8)](https://man.freebsd.org/cgi/man.cgi?pkg-install)
+- [pkg add(8)](https://man.freebsd.org/cgi/man.cgi?pkg-add)
+- [pkg delete(8)](https://man.freebsd.org/cgi/man.cgi?pkg-delete)
+- [pkg version(8)](https://man.freebsd.org/cgi/man.cgi?pkg-version)
+- [pkg upgrade(8)](https://man.freebsd.org/cgi/man.cgi?pkg-upgrade)
+- [pkg info(8)](https://man.freebsd.org/cgi/man.cgi?pkg-info)
+- [pkg lock(8)](https://man.freebsd.org/cgi/man.cgi?pkg-lock)
+- [pkg unlock(8)](https://man.freebsd.org/cgi/man.cgi?pkg-unlock)
+- [pkg-search(8)](https://man.freebsd.org/cgi/man.cgi?pkg-search)
+- [pkg-which(8)](https://man.freebsd.org/cgi/man.cgi?pkg-which)
+- [pkg-audit(8)](https://man.freebsd.org/cgi/man.cgi?pkg-audit)
+- [pkg-check(8)](https://man.freebsd.org/cgi/man.cgi?pkg-check)
+- [pkg-autoremove(8)](https://man.freebsd.org/cgi/man.cgi?pkg-autoremove)
+- [pkg-updating(8)](https://man.freebsd.org/cgi/man.cgi?pkg-updating)
+- [pkg-set(8)](https://man.freebsd.org/cgi/man.cgi?pkg-set)
+- [pkg-alias(8)](https://man.freebsd.org/cgi/man.cgi?pkg-alias)
+- [pkg-query(8)](https://man.freebsd.org/cgi/man.cgi?pkg-query)
+- [pkg-rquery(8)](https://man.freebsd.org/cgi/man.cgi?pkg-rquery)
+- [pkg-anotate(8)](https://man.freebsd.org/cgi/man.cgi?pkg-anotate)
+- [pkg-shell(8)](https://man.freebsd.org/cgi/man.cgi?pkg-shell)
+- [pkg-stats(8)](https://man.freebsd.org/cgi/man.cgi?pkg-stats)
+- [pkg-clean(8)](https://man.freebsd.org/cgi/man.cgi?pkg-clean)
+- [pkg-config(8)](https://man.freebsd.org/cgi/man.cgi?pkg-config)
+- [pkg-create(8)](https://man.freebsd.org/cgi/man.cgi?pkg-create)
+- [pkg-fetch(8)](https://man.freebsd.org/cgi/man.cgi?pkg-fetch)
+- [pkg-register(8)](https://man.freebsd.org/cgi/man.cgi?pkg-register)
+- [pkg-repo(8)](https://man.freebsd.org/cgi/man.cgi?pkg-repo)
+- [pkg-shlib(8)](https://man.freebsd.org/cgi/man.cgi?pkg-shlib)
+- [pkg-ssh(8)](https://man.freebsd.org/cgi/man.cgi?pkg-ssh)
+- [pkg-triggers(8)](https://man.freebsd.org/cgi/man.cgi?pkg-triggers)
+- [pkg-repository(5)](https://man.freebsd.org/cgi/man.cgi?pkg-repository)
+- [FreeBSD Ports Flavors](https://www.slideshare.net/YuichiroNaito/freebsd-ports-flavors)
+- [FreeBSD Porter's Handbook - 7. Flavors](https://docs.freebsd.org/en/books/porters-handbook/flavors/)
+- [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)
+- [FreeBSD Porter's Handbook - 13. pkg-\* files](https://docs.freebsd.org/ja/books/porters-handbook/pkg-files/)
+- [FreeBSD pkg コマンドチート](https://qiita.com/taku39@github/items/c29a47d5ac07492d4857)
+- [【FreeBSD】pkg で普段使うサブコマンド達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
+- [pkg](https://kaworu.jpn.org/freebsd/pkg)
+- [FreeBSD – パッケージソフトのインストールと削除、アップデートのやり方](https://blog.it-see.net/it-dokata/freebsd/pkg/)
+- [パッケージコマンド早見表](https://freebsd.seirios.org/doku.php?id=ports:pkg_yum_apt)
+- [アプリケーションをインストールする (前編): packages](https://retrotecture.jp/freebsd/app1_packages.html)
+- [FreeBSD 13.0 RELEASE - ports・pkg - pkg](https://freebsd.sing.ne.jp/fbsd/1300/03/03.html)
   

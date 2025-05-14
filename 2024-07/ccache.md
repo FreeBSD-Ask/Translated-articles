@@ -12,8 +12,8 @@
 
 ### 测试环境
 
-* FreeBSD 13.0-RELEASE-p5
-* FreeBSD 12.2-RELEASE-p11
+- FreeBSD 13.0-RELEASE-p5
+- FreeBSD 12.2-RELEASE-p11
 
 这次不讨论 `ccache` 的安装过程（没有特别的步骤）。为了进行磁盘使用量调查，我们提前执行了以下命令，确保不会出现缓存无法生效的情况。结论是，默认的 5GB 使用量在 FreeBSD 的构建过程中是完全没有问题的。
 
@@ -147,10 +147,10 @@ max cache size                      32.0 GB
 
 从 [karl](https://twitter.com/karl0204) 收到以下环境下的 `make buildkernel` 测量结果，并将其整理成表格。
 
-* CPU： AMD Ryzen9 3900（3.10GHz／4.30GHz）
-* 内存：32GB
-* 存储：WesternDigital SN550（NVMe 连接）· ZFS 操作
-* 构建目标：FreeBSD 14-CURRENT
+- CPU： AMD Ryzen9 3900（3.10GHz／4.30GHz）
+- 内存：32GB
+- 存储：WesternDigital SN550（NVMe 连接）· ZFS 操作
+- 构建目标：FreeBSD 14-CURRENT
 
 | 构建步骤                    | 无 CCache 时间 | 有 CCache 时间 |
 | ----------------------- | ----------- | ----------- |
@@ -166,10 +166,10 @@ max cache size                      32.0 GB
 
 ### buildworld 示例
 
-* CPU：Intel Pentium N4200（1.10GHz／2.50GHz·Apollo Lake·Goldmont 架构）
-* 内存：16GB
-* 存储：Transcend MTS400S（SATA 连接）· ZFS 操作
-* 构建目标：12.2-RELEASE-p11
+- CPU：Intel Pentium N4200（1.10GHz／2.50GHz·Apollo Lake·Goldmont 架构）
+- 内存：16GB
+- 存储：Transcend MTS400S（SATA 连接）· ZFS 操作
+- 构建目标：12.2-RELEASE-p11
 
 | 构建步骤※        | 构建时间    |
 | ------------ | ------- |
@@ -182,13 +182,13 @@ max cache size                      32.0 GB
 
 ## 总结
 
-* 无论构建并行度（`-j` 选项的设置）高低如何，100% 缓存命中时都会带来几倍级别的时间缩短效果（几分钟内完成构建）。
-* 对于 `buildkernel` 这种几乎全由 C 语言构成的构建，效果约为两倍；而对于包含 LLVM 这类重型构建的 `buildworld`，效果可达到六倍左右。
-* 引入 ccache 后的初始开销为 14%，但作为二次及后续构建效果的代价，这一开销可以忽略。
-* 在开发等场景下，经常需要稍微修改并重新构建的情况，ccache 的效果非常显著。
-* 本次测试还表明，在纯粹的重新构建场景下，100% 不会重新编译。这一点在执行 `make clean` 后，即使对象文件被删除，也得到了验证。
-* 近年来，FreeBSD 的开发环境（如 LLVM）的构建时间显著增加，而 ccache 在缩短构建时间（无论是时间上还是内存上）方面效果极为显著。
-* 然而，初次编译时所需的内存仍然是个问题，因此在内存较小的环境下进行构建仍然是一个挑战。
+- 无论构建并行度（`-j` 选项的设置）高低如何，100% 缓存命中时都会带来几倍级别的时间缩短效果（几分钟内完成构建）。
+- 对于 `buildkernel` 这种几乎全由 C 语言构成的构建，效果约为两倍；而对于包含 LLVM 这类重型构建的 `buildworld`，效果可达到六倍左右。
+- 引入 ccache 后的初始开销为 14%，但作为二次及后续构建效果的代价，这一开销可以忽略。
+- 在开发等场景下，经常需要稍微修改并重新构建的情况，ccache 的效果非常显著。
+- 本次测试还表明，在纯粹的重新构建场景下，100% 不会重新编译。这一点在执行 `make clean` 后，即使对象文件被删除，也得到了验证。
+- 近年来，FreeBSD 的开发环境（如 LLVM）的构建时间显著增加，而 ccache 在缩短构建时间（无论是时间上还是内存上）方面效果极为显著。
+- 然而，初次编译时所需的内存仍然是个问题，因此在内存较小的环境下进行构建仍然是一个挑战。
 
 ### ccache 的代表性命令与选项
 

@@ -2,7 +2,7 @@
 
 >**警告**
 >
->正在校对，请谨慎参考。 
+>正在校对，请谨慎参考。
 
 本节是对 FreeBSD 基金会赞助的项目进行的说明。
 
@@ -34,7 +34,7 @@ FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，
 
 **正在进行**
 
-### 基于 Jail/Bhyve 实现 OCI 容器，支持 Podman 和 Buildah。
+### 基于 Jail/Bhyve 实现 OCI 容器，支持 Podman 和 Buildah
 
 **联系人：** Doug Rabson [dfr@rabson.org](mailto:dfr@rabson.org)
 
@@ -59,7 +59,7 @@ Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-
 
 **正在进行**
 
-### UnionFS 项目旨在使其稳定、增强其在 FreeBSD 上的实用性，重点包括：支持对只读文件系统的表面修改，支持多个共享相同基础的 jail 并简化升级，以及通过分层的预打包镜像促进容器场景的实现。
+### UnionFS 项目旨在使其稳定、增强其在 FreeBSD 上的实用性，重点包括：支持对只读文件系统的表面修改，支持多个共享相同基础的 jail 并简化升级，以及通过分层的预打包镜像促进容器场景的实现
 
 **联系人：** Olivier Certner [olce@freebsd.org](mailto:olce@freebsd.org)
 
@@ -97,7 +97,7 @@ Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-
 
 **正在进行**
 
-### 该项目旨在通过引入类似配额可配置的分级速率限制，控制读/写操作次数和读/写带宽，从而提升系统性能和资源管理。
+### 该项目旨在通过引入类似配额可配置的分级速率限制，控制读/写操作次数和读/写带宽，从而提升系统性能和资源管理
 
 **联系人：** Pawel Dawidek [pjd@freebsd.org](mailto:pjd@freebsd.org)
 
@@ -125,7 +125,7 @@ OpenZFS 尤为适合大规模和高要求的应用程序，如虚拟化和容器
 
 **正在进行**
 
-### 开发完整的 FreeBSD AMD IOMMU（输入输出内存管理单元）驱动的项目。
+### 开发完整的 FreeBSD AMD IOMMU（输入输出内存管理单元）驱动的项目
 
 **联系人：** Konstantin Belousov [kib@FreeBSD.org](mailto:kib@FreeBSD.org)
 
@@ -181,19 +181,19 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 项目交付物包括：
 
-- 修改基础系统中的 TUI 工具，以提供高对比度选项，可能处理 GUI 终端模拟器和环境变量 vt(4) 的“NO COLOR”。更新手册描述新功能。
-- 新选项可以通过启动对话框菜单选择“安装”和“高对比度安装”来以高对比度运行 bsdinstall(8)。
-- 为 vt(4) 和语音合成器提供新通信方法。手册将更新以描述新功能。
-- 盲文设备框架，可能作为 <https://brltty.app> 的 Port，具有其盲文刷新显示“驱动程序”。如果时间允许，还包括其语音能力功能。
-- 新工具实现 bsdinstall(8) 对话框，作为适合屏幕阅读器的简单文本界面。
-- 新的“语音安装”选项通过新的 CLI 工具运行 bsdinstall(8)。该功能将作为概念验证提供（会议和社交网络的视频和演示），因为语音合成器和 BRLTTY 在类似 GPL 的许可下发布。
-- 在文档库中新增“可访问性”书籍，以描述新的视觉辅助子系统和 Ports 中的工具。
+* 修改基础系统中的 TUI 工具，以提供高对比度选项，可能处理 GUI 终端模拟器和环境变量 vt(4) 的“NO COLOR”。更新手册描述新功能。
+* 新选项可以通过启动对话框菜单选择“安装”和“高对比度安装”来以高对比度运行 bsdinstall(8)。
+* 为 vt(4) 和语音合成器提供新通信方法。手册将更新以描述新功能。
+* 盲文设备框架，可能作为 <https://brltty.app> 的 Port，具有其盲文刷新显示“驱动程序”。如果时间允许，还包括其语音能力功能。
+* 新工具实现 bsdinstall(8) 对话框，作为适合屏幕阅读器的简单文本界面。
+* 新的“语音安装”选项通过新的 CLI 工具运行 bsdinstall(8)。该功能将作为概念验证提供（会议和社交网络的视频和演示），因为语音合成器和 BRLTTY 在类似 GPL 的许可下发布。
+* 在文档库中新增“可访问性”书籍，以描述新的视觉辅助子系统和 Ports 中的工具。
 
 ## 改进音频
 
 **正在进行**中
 
-### 加强 FreeBSD 的音频堆栈，以改善对现代音频硬件和软件应用程序的支持。
+### 加强 FreeBSD 的音频堆栈，以改善对现代音频硬件和软件应用程序的支持
 
 **联系人：** Christos Margiolis [christos@FreeBSD.org](mailto:christos@FreeBSD.org)
 
@@ -211,11 +211,11 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 **更多信息：**  **[音频堆栈改进 (GitHub)](https://github.com/Jehops/freebsd-doc/blob/2024q2_ff/website/content/en/status/report-2024-04-2024-06/audio.adoc)**
 
-## 完善 CI 
+## 完善 CI
 
 **正在进行**
 
-### 改进持续集成 (CI) 基础设施，以确保更可靠和高效的软件开发和测试过程。
+### 改进持续集成 (CI) 基础设施，以确保更可靠和高效的软件开发和测试过程
 
 **联系人：** Li-Wen Hsu: [lwhsu@FreeBSD.org](mailto:lwhsu@FreeBSD.org)
 
@@ -231,11 +231,11 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 **更多信息：**  **[持续集成 (GitHub)](https://github.com/Jehops/freebsd-doc/blob/2024q2_ff/website/content/en/status/report-2024-01-2024-03/ci.adoc)**
 
-##  将 FreeBSD 作为 cloud-init 一级平台
+## 将 FreeBSD 作为 cloud-init 一级平台
 
 **正在进行**
 
-### 增强对 cloud-init 的支持，使 FreeBSD 成为 Tier I 平台，改善 FreeBSD 在云环境中的集成和可用性。
+### 增强对 cloud-init 的支持，使 FreeBSD 成为 Tier I 平台，改善 FreeBSD 在云环境中的集成和可用性
 
 **联系人：** Mina Galić [freebsd@igalic.co](mailto:freebsd@igalic.co)
 
@@ -255,7 +255,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 **正在进行**
 
-### FreeBSD 上的 OpenStack 项目旨在将 OpenStack 云基础设施与 FreeBSD 操作系统无缝集成，利用 FreeBSD 的独特功能，同时保持与 OpenStack 标准的兼容性。
+### FreeBSD 上的 OpenStack 项目旨在将 OpenStack 云基础设施与 FreeBSD 操作系统无缝集成，利用 FreeBSD 的独特功能，同时保持与 OpenStack 标准的兼容性
 
 **联系人：** Chih-Hsin Chang [starbops@hey.com](mailto:starbops@hey.com)，Li-Wen Hsu [lwhsu@FreeBSD.org](mailto:lwhsu@FreeBSD.org)
 
@@ -279,7 +279,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 **正在进行**
 
-### 此更新支持了当前一代 Intel WiFi 设备和 802.11ac 标准，来改善无线连接性。
+### 此更新支持了当前一代 Intel WiFi 设备和 802.11ac 标准，来改善无线连接性
 
 **联系人：** Björn Zeeb [bz@freebsd.org](mailto:bz@freebsd.org)
 
@@ -341,14 +341,14 @@ Mark Johnston 和 Andrew Turner 合作创建了构建 arm64 bhyve 客户的扁�
 
 在第一季度，团队成功解决了所有阻塞问题，并在 Azure Marketplace 上发布了 FreeBSD 13.3-RELEASE，使其可以在云环境中供用户使用。
 
-### 进行中的工作：
+### 进行中的工作
 
 团队目前专注于几个关键任务：
 
 * **自动化镜像构建和发布过程：**  **正在进行**的努力旨在自动化镜像构建和发布过程，以将这些改进合并到 FreeBSD 的 src/release/ 仓库中。
 * **构建和发布快照构建：**  快照构建正在开发和发布到 Azure 社区画廊，为用户提供最新的开发和更新。
 
-## 移植 .NET (dotnet) 
+## 移植 .NET (dotnet)
 
 ### 将“dotnet”原生移植到 FreeBSD，初始版本为 8，后续版本的移植**正在进行**
 
@@ -429,7 +429,7 @@ FreeBSD clusteradm 团队在新集群的集成阶段发挥了关键作用。
 
 ## 在 FreeBSD 上的 VPP
 
-### 将矢量数据包处理（VPP）框架移植到 FreeBSD，来增强网络性能能力。
+### 将矢量数据包处理（VPP）框架移植到 FreeBSD，来增强网络性能能力
 
 **联系人：** Tom Jones [tj@freebsdfoundation.org](mailto:tj@freebsdfoundation.org)
 
@@ -699,7 +699,7 @@ Fuse(4) 的内核 API（内核与文件系统守护进程之间的通信协议�
 预计于 2019 年夏季完成。
 
 
-## 集成 SDIO 
+## 集成 SDIO
 
 **已完成**
 
@@ -718,7 +718,7 @@ Fuse(4) 的内核 API（内核与文件系统守护进程之间的通信协议�
 
 许多嵌入式板，例如 Beaglebone Black，提供 USB 目标或 USB On-the-Go (OTG) 接口。这允许嵌入式目标充当 USB 设备，并向 USB 主机（可能运行 FreeBSD、Linux、Mac OS、Windows、Android 或其他操作系统）呈现一个/多个接口（USB 设备类）。USB 设备类包括音频输入或输出（例如耳机）、大容量存储（USB 闪存驱动器）、人机接口设备（键盘、鼠标）、通信（以太网适配器）等。
 
-## 现代化博通 Wi-Fi 
+## 现代化博通 Wi-Fi
 
 **已完成**
 
@@ -793,7 +793,7 @@ FreeBSD 开发者：Bjoern Zeeb
 
 基金会很高兴能够支持使用 FreeBSD 的大学研究，并通过这样的赞助为项目的增强作出贡献。
 
-## 移植 FreeBSD ARMv8 64 位 ARM 
+## 移植 FreeBSD ARMv8 64 位 ARM
 
 **已完成**
 
@@ -1076,7 +1076,7 @@ FreeBSD 基金会很高兴宣布已向 Bjoern Zeeb 提供资助，用来分析 F
 
 “随着全球开始部署 IPv6，流量模式从 IPv4 向 IPv6 转移，不仅需要关注正确性和稳定性，功能一致性和性能也至关重要，”开发者 Bjoern Zeeb 说道。“使性能数据与 IPv4 看齐将确保用户在使用 IPv6 时不会消耗更多的资源。”
 
-## 实现守护进程 auditdistd 
+## 实现守护进程 auditdistd
 
 **已完成**
 

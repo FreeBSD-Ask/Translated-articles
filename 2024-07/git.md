@@ -32,13 +32,13 @@ $ pkg install got
 
 `got clone` 和 `git clone` 的区别如下：
 
-* 仅支持克隆裸数据仓库（相当于 `git clone --bare`）
-* 无法指定 origin（可能因为裸仓库下 origin 没意义？）
-* 可以指定分支，默认好像是单分支模式
-* 不支持 shallow clone（浅克隆）
-* 有镜像模式（无法向克隆的仓库提交）
-* 支持的协议（schema）较少 ※[后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E)
-* 总之就是很慢（不会多线程进行 Resolving deltas） [后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#gitclone%E3%81%A8gotclone%E3%81%AE%E5%AE%9F%E8%A1%8C%E6%99%82%E9%96%93)
+- 仅支持克隆裸数据仓库（相当于 `git clone --bare`）
+- 无法指定 origin（可能因为裸仓库下 origin 没意义？）
+- 可以指定分支，默认好像是单分支模式
+- 不支持 shallow clone（浅克隆）
+- 有镜像模式（无法向克隆的仓库提交）
+- 支持的协议（schema）较少 ※[后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E)
+- 总之就是很慢（不会多线程进行 Resolving deltas） [后述](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2#gitclone%E3%81%A8gotclone%E3%81%AE%E5%AE%9F%E8%A1%8C%E6%99%82%E9%96%93)
 
 ## 克隆示例
 
@@ -53,17 +53,18 @@ $ git clone https://git.freebsd.org/ports.git /usr/ports
 $ got clone -am ssh://anongit@git.freebsd.org/ports.git /home/ports.git
 $ got checkout /home/ports.git /usr/ports
 ```
+
 ## 支持的协议（スキーマ）
 
-* `git://`
-* `git+ssh://`（或者 `ssh://`）
+- `git://`
+- `git+ssh://`（或者 `ssh://`）
 
 ## 不支持的协议（スキーマ）
 
-* `git+http://`（或者 `http://`）※ 错误（因为政策原因，未来不打算支持）
-* `https://` ※ 尚未实现的错误（TODO）
-* `ftp://` ※ 什么？（不确定是否被识别）
-* `ftps://` ※ 什么？（不确定是否被识别）
+- `git+http://`（或者 `http://`）※ 错误（因为政策原因，未来不打算支持）
+- `https://` ※ 尚未实现的错误（TODO）
+- `ftp://` ※ 什么？（不确定是否被识别）
+- `ftps://` ※ 什么？（不确定是否被识别）
 
 ## 克隆时间的测量
 
@@ -104,9 +105,9 @@ got clone ssh://anongit@git.freebsd.org/ports.git
 660.88s user 75.82s system 87% cpu 14:00.91 total
 ```
 
-* 执行环境约为 5 分 37 秒 与 14 分 1 秒之间的差异，差距为 2.5 倍。
-* 另外，Git 的 CPU 使用率较高，处理效率偏向 CPU 绑定（通过多线程处理实现）。
-* 相反，Got 的系统使用率较高，瓶颈主要集中在 I/O 绑定上。
+- 执行环境约为 5 分 37 秒 与 14 分 1 秒之间的差异，差距为 2.5 倍。
+- 另外，Git 的 CPU 使用率较高，处理效率偏向 CPU 绑定（通过多线程处理实现）。
+- 相反，Got 的系统使用率较高，瓶颈主要集中在 I/O 绑定上。
 
 ## 克隆时的选项指定对容量的影响
 
@@ -115,8 +116,8 @@ got clone ssh://anongit@git.freebsd.org/ports.git
 | `got` | 1,306,944KB | 1,326,872KB |
 | `git` | 1,322,480KB | 1,350,344KB |
 
-* 单分支：`git clone --single-branch` 或 `got clone`
-* 多分支：`git clone` 或 `got clone -a`
+- 单分支：`git clone --single-branch` 或 `got clone`
+- 多分支：`git clone` 或 `got clone -a`
 
 这里确认了不同选项指定时的容量差异。`git` 和 `got` 之间的差异较大，但为何会产生这种差异尚不明确，可能是某种开销造成的。
 
@@ -205,7 +206,7 @@ got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 
 答：实际上这是一个裸仓库的目录！在 `git clone` 后，运行 `gotadmin info`，结果非常令人吃惊……
 
-### 问：运行 `git status` 后看到惊人的结果！
+### 问：运行 `git status` 后看到惊人的结果
 
 答：关于 `.gitignore` 文件的处理，~~有一个 bug~~ 这是设计上的特性。本来 `.gitignore` 文件中指定的目录和文件是不应显示的。根据略微的研究，它并不是完全没有处理 `.gitignore` 文件。所以这是~~一个 bug~~ 设计上的特性。
 
@@ -219,15 +220,15 @@ got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 
 ## 参考文献
 
-* [git](https://git-scm.com/)
-* [got](https://gameoftrees.org/)
-* [got、cvs、svn、git との比較](https://gameoftrees.org/comparison.html)
-* [よくある質問とその答え](https://gameoftrees.org/faq.html)
-* [FOSDEM 2023 での発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
-* [EuroBSDcon 2019 での発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
-* [FreeBSDの入手方法（Gitの利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
+- [git](https://git-scm.com/)
+- [got](https://gameoftrees.org/)
+- [got、cvs、svn、git との比較](https://gameoftrees.org/comparison.html)
+- [よくある質問とその答え](https://gameoftrees.org/faq.html)
+- [FOSDEM 2023 での発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
+- [EuroBSDcon 2019 での発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
+- [FreeBSDの入手方法（Gitの利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
 
 ---
 
 1. [Game of Trees Goals](https://gameoftrees.org/goals.html)より
-2. [Ports Collection のインストール](https://docs.freebsd.org/ja/books/handbook/ports/#ports-using-installation-methods) 
+2. [Ports Collection のインストール](https://docs.freebsd.org/ja/books/handbook/ports/#ports-using-installation-methods)

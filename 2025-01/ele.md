@@ -39,6 +39,7 @@ less ytmdesktop-1.8.2/package.json
 - **包管理器** —— 应用程序项目通常使用一个文件来锁定所有依赖项（Node 模块）的版本，以确保项目的可复现性。如果存在 `package-lock.json` 文件，则表示使用的是“NPM”包管理器；而 `yarn.lock` 文件表示使用的是“Yarn”。在本例中，该归档文件包含了这两个文件，这可能意味着可以使用任意一款包管理器。这里我们选择 NPM 作为包管理器（纯粹是个人决定 :-）。  
 
 ### 总结  
+
 我们将使用以下版本：  
 
 - Electron: **7**  
@@ -105,10 +106,10 @@ USE_ELECTRON=   prefetch extract prebuild build:builder
 PREFETCH_TIMESTAMP=     1582793516
 ```  
 
-* `prefetch` —— 如果在 `${DISTDIR}` 目录中找不到分发文件，则在 fetch 阶段会使用预存的 `package.json` 和 `package-lock.json` 下载应用程序所依赖的所有 Node 模块。下载的 Node 模块会被打包成一个自动命名的 tar 文件，作为 `DISTFILES` 之一。  
-  * `PREFETCH_TIMESTAMP` —— 如果使用 `prefetch` 功能，则必须定义此变量。该变量是时间戳，会赋值给 tar 归档中的所有目录、文件和链接，以确保归档文件的可复现性。你可以使用命令 `date '+%s'` 获取一个合适的值。  
-* `extract` —— 在 extract 阶段，将预获取的 Node 模块安装到 port 的工作源码目录中。  
-* `prebuild` —— 在 build 阶段，会针对指定版本的 Node 重新编译本机 Node 模块，使其能够被 Node 执行，以便构建应用程序。此外，该功能还会在应用程序打包之前，针对指定版本的 Electron 重新编译本机 Node 模块。  
+- `prefetch` —— 如果在 `${DISTDIR}` 目录中找不到分发文件，则在 fetch 阶段会使用预存的 `package.json` 和 `package-lock.json` 下载应用程序所依赖的所有 Node 模块。下载的 Node 模块会被打包成一个自动命名的 tar 文件，作为 `DISTFILES` 之一。  
+  - `PREFETCH_TIMESTAMP` —— 如果使用 `prefetch` 功能，则必须定义此变量。该变量是时间戳，会赋值给 tar 归档中的所有目录、文件和链接，以确保归档文件的可复现性。你可以使用命令 `date '+%s'` 获取一个合适的值。  
+- `extract` —— 在 extract 阶段，将预获取的 Node 模块安装到 port 的工作源码目录中。  
+- `prebuild` —— 在 build 阶段，会针对指定版本的 Node 重新编译本机 Node 模块，使其能够被 Node 执行，以便构建应用程序。此外，该功能还会在应用程序打包之前，针对指定版本的 Electron 重新编译本机 Node 模块。  
 
 简单来说，这三个特性将 `npm install` 过程拆分为三个阶段，使其适用于 port 构建流程。  
 

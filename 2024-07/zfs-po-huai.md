@@ -164,6 +164,7 @@ config:
 errors: No known data errors
 $ 
 ```
+
 等待 scrub 完成后，使用 status 进行确认。
 
 ```sh

@@ -77,6 +77,6 @@ Linux 发行版需要 Linux 内核、GNU 工具和库，可能还需要额外的
 
 我还强烈推荐 Michael W. Lucas 的书[《Absolute FreeBSD》](https://nostarch.com/absfreebsd3)，他是一位在 FreeBSD 上工作多年的网络/安全工程师，拥有丰富的高可用系统经验。这本书详细介绍了 FreeBSD 操作系统的许多细节，写得很好，包含许多相关内容。
 
-Michael W. Lucas 与[ Allan Jude](http://www.allanjude.com/resume/) 还合著了[《FreeBSD Mastery: ZFS》](https://www.goodreads.com/book/show/25595471-freebsd-mastery)和[《FreeBSD Mastery: Advanced ZFS》](https://www.goodreads.com/book/show/29894975-freebsd-mastery)这两本关于在 FreeBSD 上运行 ZFS 文件系统的书籍。第二本是第一本的续集，介绍了更高级的用例。这两本书都非常宝贵。
+Michael W. Lucas 与[Allan Jude](http://www.allanjude.com/resume/) 还合著了[《FreeBSD Mastery: ZFS》](https://www.goodreads.com/book/show/25595471-freebsd-mastery)和[《FreeBSD Mastery: Advanced ZFS》](https://www.goodreads.com/book/show/29894975-freebsd-mastery)这两本关于在 FreeBSD 上运行 ZFS 文件系统的书籍。第二本是第一本的续集，介绍了更高级的用例。这两本书都非常宝贵。
 
 FreeBSD 是一个令人惊叹的操作系统！
