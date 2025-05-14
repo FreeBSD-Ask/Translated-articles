@@ -1,4 +1,4 @@
-# FreeBSD 中如何指定 CPU 类型
+# 如何在 FreeBSD 中指定 CPU 类型
 
 - [ＦｒｅｅＢＳＤでのＣＰＵＴＹＰＥの指定方法](https://qiita.com/nanorkyo/items/e0417d8c1388750cb72c)
 - 作者：重村法克

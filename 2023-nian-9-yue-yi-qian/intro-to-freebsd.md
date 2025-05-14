@@ -1,4 +1,4 @@
-# FreeBSD 简介| BSD.pw 研讨会
+# FreeBSD 简介 | BSD.pw 研讨会
 
 ## 必要条件
 

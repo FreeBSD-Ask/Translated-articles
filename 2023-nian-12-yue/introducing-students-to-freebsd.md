@@ -1,4 +1,4 @@
-# 为学生介绍 FreeBSD
+# 介绍来 FreeBSD 的学生
 - 原文链接：<https://freebsdfoundation.org/blog/introducing-students-to-freebsd/>
 - 作者：Deb Goodkin
 - 译者：Canvis-Me & ChatGPT
