@@ -39,16 +39,16 @@ gpart add -t freebsd-swap ada0
 gpart add -t freebsd-boot -b 40 -s 984  ada0
 ```
 
-* 我们为启动分区定义了 freebsd-boot 类型。如果不是 freebsd-boot，引导加载器将无法发现该分区。
-* 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
+- 我们为启动分区定义了 freebsd-boot 类型。如果不是 freebsd-boot，引导加载器将无法发现该分区。
+- 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
 
-  * GPT 分区表头大小为 34 扇区，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
-  * 近期版本中，GPT 分区表头的大小已经增加为 40 扇区（具体从哪个版本开始的尚未确认）。
-* 分区大小（`-s`）推荐为 984 扇区。
+  - GPT 分区表头大小为 34 扇区，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
+  - 近期版本中，GPT 分区表头的大小已经增加为 40 扇区（具体从哪个版本开始的尚未确认）。
+- 分区大小（`-s`）推荐为 984 扇区。
 
-  * 这样可以确保下一分区（freebsd-ufs）从 512KiB 边界开始[8]。
-  * 由于引导加载器的限制，分区大小不得小于 545KiB，所以下面的大小为 492KiB。
-  * 因此，调整分区大小没有必要，也没有更多的空间来增大它。
+  - 这样可以确保下一分区（freebsd-ufs）从 512KiB 边界开始[8]。
+  - 由于引导加载器的限制，分区大小不得小于 545KiB，所以下面的大小为 492KiB。
+  - 因此，调整分区大小没有必要，也没有更多的空间来增大它。
 
 ```sh
 gpart bootcode -b /boot/pmbr -p /boot/gptboot    -i 1 ada0
@@ -64,18 +64,18 @@ gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada0
 gpart add -t efi -b 40 -s 409560 ada0
 ```
 
-* 我们为启动分区定义了 efi 类型。如果不是 efi，UEFI 将无法发现该分区。
-* 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
+- 我们为启动分区定义了 efi 类型。如果不是 efi，UEFI 将无法发现该分区。
+- 起始位置（`-b`）指定为从第 40 扇区（LBA 40）开始。
 
-  * GPT 分区表头的大小为 34 扇区[7]，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
-  * 近期版本中，GPT 分区表头的大小已调整为 40 扇区（具体从哪个版本开始尚未确认）。
-* 分区大小（`-s`）建议设置为 409560 扇区。
+  - GPT 分区表头的大小为 34 扇区[7]，但在支持 4KiB 扇区的磁盘上，起始位置可能会被四舍五入为 8 的倍数。
+  - 近期版本中，GPT 分区表头的大小已调整为 40 扇区（具体从哪个版本开始尚未确认）。
+- 分区大小（`-s`）建议设置为 409560 扇区。
 
-  * 这个设置确保下一个分区（freebsd-ufs）从 200MiB 边界开始。
-  * 该分区的实际大小略小于 200MiB（少 40 扇区，即 20KB），但可以忽略不计。
-  * 目前，11.2-R 的启动分区（`/boot/boot1.efifat`）的大小为 800KiB。
-  * 在 10.4-R 或 11.1-R 版本中，推荐为该分区分配 200MiB，以考虑与其他操作系统（如 macOS）的兼容性。如果仅启动 FreeBSD，800KiB 的大小应无问题。
-  * 在 [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935) 的讨论中指出，为了支持固件更新工具等 EFI 应用程序，800KiB 的分区大小可能过小。
+  - 这个设置确保下一个分区（freebsd-ufs）从 200MiB 边界开始。
+  - 该分区的实际大小略小于 200MiB（少 40 扇区，即 20KB），但可以忽略不计。
+  - 目前，11.2-R 的启动分区（`/boot/boot1.efifat`）的大小为 800KiB。
+  - 在 10.4-R 或 11.1-R 版本中，推荐为该分区分配 200MiB，以考虑与其他操作系统（如 macOS）的兼容性。如果仅启动 FreeBSD，800KiB 的大小应无问题。
+  - 在 [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935) 的讨论中指出，为了支持固件更新工具等 EFI 应用程序，800KiB 的分区大小可能过小。
 
 ```sh
 newfs_msdos -F 32 -c 1 -L EFISYS /dev/ada0p1
@@ -179,15 +179,15 @@ cp /boot/loader.efi /boot/efi/EFI/BOOT/BOOTX64.efi
 
 ### 参考文献
 
-* [gpart(8) 的手册](https://www.freebsd.org/cgi/man.cgi?gpart%288%29)
-* [FreeBSD 的启动过程](https://qiita.com/mzaki/items/76acac14c16ac6789e68)
-* [UEFI - FreeBSD Wiki](https://wiki.freebsd.org/UEFI)
-* [FreeBSD 10.4 版本说明](https://www.freebsd.org/releases/10.4R/relnotes.html)
-* [FreeBSD 11.1 版本说明](https://www.freebsd.org/releases/11.1R/relnotes.html)
-* [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935)
-* [GPT 和 MBR 的区别是什么？](http://syuu1228.hatenablog.com/entry/20130103/1357165915)
-* [通过命令行创建 FreeBSD 启动分区等](http://nao550.hateblo.jp/entry/2018/02/12/214146)
-* [FreeBSD/UEFI 相关信息](http://zenno.com/pukiwiki/index.php?FreeBSD%2FUEFI%A4%CB%A4%C4%A4%A4%A4%C6)
+- [gpart(8) 的手册](https://www.freebsd.org/cgi/man.cgi?gpart%288%29)
+- [FreeBSD 的启动过程](https://qiita.com/mzaki/items/76acac14c16ac6789e68)
+- [UEFI - FreeBSD Wiki](https://wiki.freebsd.org/UEFI)
+- [FreeBSD 10.4 版本说明](https://www.freebsd.org/releases/10.4R/relnotes.html)
+- [FreeBSD 11.1 版本说明](https://www.freebsd.org/releases/11.1R/relnotes.html)
+- [bsdinstall: 增加 EFI 分区大小至 200MB](https://reviews.freebsd.org/D6935)
+- [GPT 和 MBR 的区别是什么？](http://syuu1228.hatenablog.com/entry/20130103/1357165915)
+- [通过命令行创建 FreeBSD 启动分区等](http://nao550.hateblo.jp/entry/2018/02/12/214146)
+- [FreeBSD/UEFI 相关信息](http://zenno.com/pukiwiki/index.php?FreeBSD%2FUEFI%A4%CB%A4%C4%A4%A4%A4%C6)
 
 ---
 

@@ -203,8 +203,8 @@ FreeBSD Azure Release Engineering 团队的成员 Li-Wen Hsu、Wei Hu <whu@FreeB
 
 要使用这些镜像，在创建虚拟机时：
 
-1. 在 _Select an Image_ 步骤中，在“*Other items*”中选择“_Community Images (PREVIEW)_”。
-2. 搜索 _FreeBSD_。
+1. 在 *Select an Image* 步骤中，在“*Other items*”中选择“*Community Images (PREVIEW)*”。
+2. 搜索 *FreeBSD*。
 
 正在进行的工作包括：
 

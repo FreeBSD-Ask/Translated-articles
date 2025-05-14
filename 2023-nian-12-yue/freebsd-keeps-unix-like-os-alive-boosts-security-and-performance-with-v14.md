@@ -16,7 +16,7 @@ FreeBSD 项目于 1993 年首次发布，是最早的开源操作系统项目之
 
 “FreeBSD 14 代表了一些新功能和对各个子系统的大量更新，以提高性能、稳定性和安全性，”FreeBSD 基金会技术高级总监 Ed Maste 与 SDxCentral 说道。
 
-## 在 FreeBSD 14 中，ZFS 文件系统获得了大幅提升。
+## 在 FreeBSD 14 中，ZFS 文件系统获得了大幅提升
 
 FreeBSD 14 的新特性之一是将 ZFS 文件系统更新为 OpenZFS 2.2 版本。
 

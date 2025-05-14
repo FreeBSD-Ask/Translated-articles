@@ -51,7 +51,7 @@
 * [为什么选择 FreeBSD？Metify 展示迁移到 FreeBSD 如何对两个新产品进行增强](2023-nian-12-yue/why-freebsd-metify-to-showcase-how-moving-to-freebsd-enhanced-two-new-products.md)
 * [FreeBSD 基金会宣布通过 SSDF 认证](2023-nian-12-yue/freebsd-foundation-announces-ssdf-attestation.md)
 * [2023 年全球开放大会报告](2023-nian-12-yue/all-things-open-2023-conference-report.md)
-* [ FreeBSD v14：恪守类 Unix 操作系统传统，提升安全性与性能](2023-nian-12-yue/freebsd-keeps-unix-like-os-alive-boosts-security-and-performance-with-v14.md)
+* [FreeBSD v14：恪守类 Unix 操作系统传统，提升安全性与性能](2023-nian-12-yue/freebsd-keeps-unix-like-os-alive-boosts-security-and-performance-with-v14.md)
 
 ## 2023 年 9 月
 

@@ -55,22 +55,22 @@ make install
 
 如前所述，常见的目标包括：
 
-* `all`
-* `fetch`
-* `extract`
-* `patch`
-* `configure`
-* `build`
-* `install`
+- `all`
+- `fetch`
+- `extract`
+- `patch`
+- `configure`
+- `build`
+- `install`
 
 除此之外，还应了解一些其他目标：
 
-* `config` / `showconfig` / `rmconfig`
-* `package` / `repackage`
-* `test`
-* `clean`
-* `deinstall` / `reinstall`
-* `makesum` / `makepatch`
+- `config` / `showconfig` / `rmconfig`
+- `package` / `repackage`
+- `test`
+- `clean`
+- `deinstall` / `reinstall`
+- `makesum` / `makepatch`
 
 在 Ports 构建过程中，执行的一系列目标由 `_TARGETS_STAGES` 变量定义。这个变量在 `bsd.port.mk` 中定义，并不打算被覆盖。在适当的 Ports 目录中运行 `make -V_TARGETS_STAGES`，可以看到类似 `SANITY PKG FETCH EXTRACT PATCH CONFIGURE BUILD INSTALL TEST PACKAGE STAGE` 的内容。
 
@@ -111,8 +111,8 @@ A. 继续关注网站上的更新吧！
 
 ## 参考文献
 
-* [Mk/bsd.port.mk](https://cgit.freebsd.org/ports/tree/Mk/bsd.port.mk)
-* [make(1)](https://man.freebsd.org/cgi/man.cgi?make%281%29)
-* [FreeBSD port 日语开发者手册](https://docs.freebsd.org/ja/books/porters-handbook/)
-* [FreeBSD Port 开发者手册](https://docs.freebsd.org/en/books/porters-handbook/)
-* [Ports 的 Makefile 模板](https://cgit.freebsd.org/ports/tree/Templates/Makefile)
+- [Mk/bsd.port.mk](https://cgit.freebsd.org/ports/tree/Mk/bsd.port.mk)
+- [make(1)](https://man.freebsd.org/cgi/man.cgi?make%281%29)
+- [FreeBSD port 日语开发者手册](https://docs.freebsd.org/ja/books/porters-handbook/)
+- [FreeBSD Port 开发者手册](https://docs.freebsd.org/en/books/porters-handbook/)
+- [Ports 的 Makefile 模板](https://cgit.freebsd.org/ports/tree/Templates/Makefile)

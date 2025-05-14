@@ -96,6 +96,7 @@ systemd-resolved 在 Cloudflare、Quad9 和 Google 中硬编码了备用 DNS 服
 Red Hat 的另一个问题是，如果其他主要 GNU/Linux 发行版拒绝了 systemd，他们将很难将与 systemd 相关的更改和代码推入内核。但当其他主要发行版也采用了 systemd 时，这变得容易得多。
 
 ## 结论
+
 systemd 的主要问题在于其持续的发展是出于一家公司的经济利益，而不是 Linux 开源社区的利益。
 
 从安全的角度来看，也不能信任 Red Hat，如果美国军方或其他某个三字缩写组织希望 Red Hat 在 systemd 中加入后门，那么这可能在很多年内都不会被察觉，就像 [Heartbleed Bug](https://en.wikipedia.org/wiki/Heartbleed) 一样。

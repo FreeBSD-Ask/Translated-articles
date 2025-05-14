@@ -32,13 +32,13 @@ FreeBSD 项目早期的经典 logo（在“Orb”标志出现之前的版本）�
 
 以下是一些典型问题：
 
-* FreeBSD 支持什么桌面环境？
-* FreeBSD 可以做什么？
-* 我能拿个贴纸吗？
-* 谁在用 FreeBSD？
-* 为什么选择 FreeBSD 而不是某个 Linux 发行版？
-* 你能说服我朋友用 FreeBSD 吗？
-* FreeBSD 能跑容器吗？
+- FreeBSD 支持什么桌面环境？
+- FreeBSD 可以做什么？
+- 我能拿个贴纸吗？
+- 谁在用 FreeBSD？
+- 为什么选择 FreeBSD 而不是某个 Linux 发行版？
+- 你能说服我朋友用 FreeBSD 吗？
+- FreeBSD 能跑容器吗？
 
 我觉得“FreeBSD 能运行什么”和“我能用 FreeBSD 做什么”这类问题非常有趣。这说明我们正被与一些更具专业定位的 Linux 发行版进行比较。在这样的背景下，我们作为一个通用操作系统确实显得很特别。
 

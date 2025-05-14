@@ -106,7 +106,7 @@ Red Hat 需要这些重大改变成为主要 Linux 发行版的一部分，以�
 
 GPL 所设立的限制本质上是非自由的，并且这不是从哲学的角度而是从真正的实施角度来看的。GPL 是导致许多采用宽松许可证发布的开源项目无法集成到 Linux 的根本原因。
 
-这与[宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license)相悖，在[ OpenBSD 的目标网站](https://www.openbsd.org/goals.html)上，它声明：
+这与[宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license)相悖，在[OpenBSD 的目标网站](https://www.openbsd.org/goals.html)上，它声明：
 
 >我们希望提供源代码，任何人都可以出于任何目的使用，没有限制。我们努力使我们的软件强大和安全，并鼓励公司使用他们想要的任何部分。
 
@@ -159,6 +159,7 @@ GPL 的拥护者说，我们将面临的巨大问题是公司将拿走我们的 
 
 [我请求确保有个副本发到 Linux 内核邮件列表上]
 ```
+
 ## GPL 错失了重点
 
 当人们使用 GPL 时，他们主要是试图阻止某些公司将他们的软件带走，对其进行改进或更改，然后将该软件作为专有产品出售。

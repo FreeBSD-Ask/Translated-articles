@@ -149,7 +149,7 @@ passthru1="4/0/0"
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/d199ff5a-427d-43cf-9540-c4a3c7e88115)
 
-## 6. 但是遇到了问题...
+## 6. 但是遇到了问题
 
 在 Windows 侧安装驱动程序并重新启动后，bhyve 进程异常终止了。无论尝试多少次都无效。查看日志，显示为 status 4 终止。
 

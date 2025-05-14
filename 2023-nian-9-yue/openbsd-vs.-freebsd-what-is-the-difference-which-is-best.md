@@ -124,12 +124,15 @@ OpenBSD 使用 `pkg_add` 和 `pkg_info` 程序来安装和搜索软件包。
 FreeBSD 的软件包命令称为"pkg"，并且所有操作都在一个程序中执行。后一种方法似乎更加简单。
 
 ## 哪个更安全？OpenBSD 还是 FreeBSD
+
 OpenBSD 和 FreeBSD 都强调它们对安全性的承诺。FreeBSD 是一个更通用的系统，但显然可以看出，OpenBSD 在编码和系统设计方面非常专注。那些真正关心安全性的人可能会选择后者。
 
 ## 知名度
+
 尽管仅仅因为流行度而选择操作系统不应该是唯一的考虑因素，但它将影响到寻找软件和支持的能力。虽然 OpenBSD 在开源社区中以其对安全性的忠诚以及在发布主题方面的俏皮一面而声名远扬，但 FreeBSD 似乎得到了更广泛的支持。
 
 很难准确衡量这两个系统在实际中有多广泛的使用，但截至 2023 年 9 月，根据对其网页的点击量，FreeBSD 在 [distrowatch.com](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555670553524&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fdistrowatch.com%2F&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=distrowatch.com)上的排名高于 OpenBSD。
 
 ## 现在，你可以根据工作的性质选择适合的 BSD
+
 在 OpenBSD 和 FreeBSD 之间做出决策可能令人生畏，但决策很可能取决于你希望系统有多么安全。如果你需要一个安全、坚不可摧的操作系统，最好选择 OpenBSD。如果需要一个更通用的 BSD 系统，可以选择 FreeBSD 或 NetBSD。

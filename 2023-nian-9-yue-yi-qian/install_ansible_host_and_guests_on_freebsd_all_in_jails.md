@@ -1,14 +1,14 @@
 # 将 FreeBSD 上的 Ansible 主机和客户机都安装在 Jail 中
 
- - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Ansible_host_and_guests_on_FreeBSD_all_in_Jails.md>
- - 作者：Roller Angel
- - 译者：飞鱼
- - 校对整理：ykla
+- 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Ansible_host_and_guests_on_FreeBSD_all_in_Jails.md>
+- 作者：Roller Angel
+- 译者：飞鱼
+- 校对整理：ykla
 
 
-## 目前，我正在努力将其转化为 `Ansible Playbook =D` ，我也刚刚从 mwl.io 订购了 *FreeBSD Mastery Jails* 一书，这将是非常有用的。
+## 目前，我正在努力将其转化为 `Ansible Playbook =D` ，我也刚刚从 mwl.io 订购了 *FreeBSD Mastery Jails* 一书，这将是非常有用的
 
-### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，它还充当我的 DNS。下面我们将使用 `zroot` 作为 zpool 的名称。
+### 在我的实验室里，我使用 OPNSense 防火墙，它也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，它还充当我的 DNS。下面我们将使用 `zroot` 作为 zpool 的名称
 
 
 在主机上执行：

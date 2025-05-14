@@ -1,9 +1,9 @@
 # 在 FreeBSD 的 jail 中安装 NextCloud
 
- - 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Nextcloud_on_FreeBSD_in_Jail.md>
- - 作者：Roller Angel
- - 译者：飞鱼
- - 校对整理：ykla
+- 原文链接：<https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Install_Nextcloud_on_FreeBSD_in_Jail.md>
+- 作者：Roller Angel
+- 译者：飞鱼
+- 校对整理：ykla
 
 
 ### 在我的实验室里，我的 OPNSense 防火墙同时也是我的 DHCP 服务器，默认网关设置为 172.16.28.1，而且它还充当我的 DNS
@@ -343,7 +343,7 @@ pkg update && pkg upgrade -y
 
 ## 设置 PostgreSQL
 
-### 我确定我开启了 `poudriere options` 参数，并在 nextcloud 上启用了 memcached 支持，稍后我将把它添加到 `make.conf` 文件中。
+### 我确定我开启了 `poudriere options` 参数，并在 nextcloud 上启用了 memcached 支持，稍后我将把它添加到 `make.conf` 文件中
 
 在 jail 中运行以下命令：
 
@@ -370,6 +370,7 @@ jexec nextcloud tcsh
 chown postgres:postgres /var/db/postgres/data
 vi /etc/rc.conf
 ```
+
 ：
 更新配置：
 

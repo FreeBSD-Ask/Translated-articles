@@ -51,7 +51,7 @@ TL;DR 以下表格总结了优先项目的状态。蓝色行似乎是我们可�
 | 在 Kubelet 上加入基本的 FreeBSD 支持 | 用于在 FreeBSD 上启动 kubelet 并与 CRI 运行时（在我这里是 containerd+runj）通信以运行（目前是）FreeBSD 容器的第一个基础构件。                                                                                                                              | [链接](https://github.com/kubernetes/kubernetes/pull/115870)                                                                 |                                                                       |
 
 
-## 接下来的步骤：
+## 接下来的步骤
 
 - 我们同意完成一个非常轻量级的 PRD（产品需求文档），以便我们就最终目标达成一致。
   - 需要志愿者。

@@ -18,7 +18,7 @@ Ubuntu 则更糟糕。因为它是基于 Debian 的，它在很多方面都使�
 
 在 FreeBSD 上，你会立即注意到你正在处理一个“完整的操作系统”，一个非常完美地组合在一起的系统。内核和基本系统完全与第三方应用程序分开。基本系统配置存放在 `/etc` 目录下，而所有第三方配置都存放在 `/usr/local/etc` 目录下。你可以在 man 页中找到关于配置、调优或设置的所有信息。
 
-你有 rc 实用程序，这是在 [init](https://www.freebsd.org/cgi/man.cgi?query=init) 调用它后控制自动引导过程的命令脚本，还有[命令脚本](https://www.freebsd.org/cgi/man.cgi?query=rc)、[sysctl ](https://www.freebsd.org/cgi/man.cgi?query=sysctl)内核管理工具以及所有其他不同的[系统配置](https://www.freebsd.org/cgi/man.cgi?query=rc.conf)，所有这些都非常完美地组合在一起并有很好的文档支持。
+你有 rc 实用程序，这是在 [init](https://www.freebsd.org/cgi/man.cgi?query=init) 调用它后控制自动引导过程的命令脚本，还有[命令脚本](https://www.freebsd.org/cgi/man.cgi?query=rc)、[sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl)内核管理工具以及所有其他不同的[系统配置](https://www.freebsd.org/cgi/man.cgi?query=rc.conf)，所有这些都非常完美地组合在一起并有很好的文档支持。
 
 由于 FreeBSD 是按照一种完整的操作系统和项目的方式进行管理的，而不是像一堆不同的项目被粘在一起形成的一个发行版，所以这一切都经过深思熟虑，基于多年的经验，并且当事情发生改变时，改变是为了整个社区的利益，而且是根据真实使用案例和行业中出现的问题得到反馈的。
 
@@ -226,6 +226,7 @@ sshd_enable="YES"
 ```
 # service sshd onestart
 ```
+
 你可以在[维基百科](https://en.wikipedia.org/wiki/Init)上阅读更多关于初始化系统的内容。
 
 ## Jail
@@ -253,6 +254,7 @@ Bastille 使用 FreeBSD jail 作为容器平台，并添加了模板自动化，
 模板负责安装、配置、启用和启动软件，提供了构建容器化堆栈的自动化方法。
 
 ## Capsicum
+
 Capsicum 是在[剑桥大学计算机实验室](https://www.cl.cam.ac.uk/)开发的一个沙箱框架，得到了 Google、FreeBSD 基金会和 DARPA 的资助。Capsicum 扩展了 POSIX API，提供了几个新的操作系统原语，以支持 UNIX 类操作系统上的对象功能安全性：
 
 - Capability 权限 - 具有细粒度权限的精炼文件描述符
@@ -274,6 +276,7 @@ FreeBSD 对 Capsicum 的实现由 Robert Watson 和 Jonathan Anderson 开发，�
 - [Capsicum technologies](https://wiki.freebsd.org/Capsicum)
 
 ## DTrace
+
 [DTrace](https://www.freebsd.org/cgi/man.cgi?query=dtrace) 是从 Solaris 移植的全面动态跟踪框架。DTrace 提供了强大的基础设施，允许管理员、开发人员和服务人员简明地回答有关操作系统和用户程序行为的任意问题。
 
 DTrace 可以提供运行系统的全局概览，例如活动进程使用的内存、CPU 时间、文件系统和网络资源量。DTrace 还可以提供细粒度的信息，例如正在调用特定函数的参数日志，或者访问特定文件的进程列表。
@@ -283,6 +286,7 @@ DTrace 可以提供运行系统的全局概览，例如活动进程使用的内�
 Hacker News 上也有关于 [Linux 上的 DTrace](https://news.ycombinator.com/item?id=16375938) 的讨论，包含许多相关评论。
 
 ## bhyve
+
 [bhyve](https://www.freebsd.org/cgi/man.cgi?query=bhyve) 是一个原生的 FreeBSD 虚拟化管理程序，可以在虚拟机内运行客户操作系统。可以使用命令行参数指定虚拟 CPU 数量、客户内存量和 I/O 连接。
 
 bhyve 支持虚拟化多个客户操作系统，包括 FreeBSD 9+、OpenBSD、NetBSD、Linux、illumos、DragonFly、Windows Vista 及更高版本以及 Windows Server 2008 及更高版本。当前的开发工作旨在扩展对 x86-64 架构的其他操作系统的支持。
@@ -290,6 +294,7 @@ bhyve 支持虚拟化多个客户操作系统，包括 FreeBSD 9+、OpenBSD、Ne
 bhyve 虚拟化管理程序从 FreeBSD 10.0-RELEASE 起成为基本系统的一部分
 
 ## 防火墙
+
 FreeBSD 注重选择，因此在基本系统中内置了三种不同的防火墙：PF、IPFW 和 IPFILTER，也称为 IPF。
 
 自 FreeBSD 5.3 版本以来，OpenBSD 的 PF 防火墙的移植版本已作为基本系统的一部分整合进来。PF 是一个完整的、功能丰富的防火墙，可选择支持 ALTQ（交替排队），提供服务质量（QoS）支持。PF 的过滤语法类似于 IPF，但进行了一些修改以使其更加清晰。PF 集成了网络地址转换（NAT）和服务质量（QoS），通过导入 ALTQ 排队软件并将其与 PF 的配置链接来实现。PF 还扩展了一些功能，如 pfsync 和 CARP 用于故障转移和冗余，authpf 用于会话认证，ftp-proxy 用于简化复杂的 FTP 协议的防火墙设置。此外，PF 还支持 SMP（对称多处理）和 STO（有状态跟踪选项）。
@@ -305,19 +310,23 @@ IPF 是一个跨平台的开源防火墙，已经移植到多个操作系统，�
 IPF 最初使用“最后匹配规则获胜”的规则处理逻辑，并且只使用无状态规则。此后，IPF 已被增强以包括快速（quick）和保持状态（keep state）选项。
 
 ## 调优
+
 FreeBSD 具有 500 多个可以使用 [sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl)工具读取和设置的系统变量。这些系统变量可用于对运行中的 FreeBSD 系统进行更改。这包括许多 TCP/IP 堆栈和虚拟内存系统的高级选项，可显著提高有经验的系统管理员的性能。
 
 ## GEOM
+
 FreeBSD GEOM 是 FreeBSD 操作系统的主要存储框架。它提供了访问存储层的标准化方式。GEOM 是模块化的，允许 GEOM 模块连接到框架。例如，geom_mirror 模块为系统提供了 RAID1 或镜像功能。已经提供了许多模块，并且新的模块始终由各种 FreeBSD 开发人员进行活跃开发。
 
 由于 GEOM 的模块化设计，可以将模块堆叠在一起形成一系列 GEOM 层。例如，在 geom_mirror 模块之上可以添加一个加密模块，例如 geom_eli，以提供镜像和加密的卷。每个模块都有消费者和提供者。提供者是 GEOM 模块的来源，通常是物理硬盘，但有时也是虚拟化磁盘，例如内存磁盘。反过来，geom 模块提供输出设备。其他 GEOM 模块，称为消费者，可以使用此提供者来创建相互连接的模块链。
 
 ## Linux 二进制兼容性
+
 FreeBSD 提供了与 Linux 的二进制兼容性。这使得用户可在 FreeBSD 系统上安装和运行许多 Linux 二进制文件，而无需首先去修改二进制文件。在某些特定情况下，Linux 二进制文件甚至可能在 FreeBSD 上比在 Linux 上运行更好。
 
 并非所有特定于 Linux 的操作系统功能都在 FreeBSD 上得到支持。例如，如果 Linux 二进制文件过度使用 i386 特定调用，例如启用虚拟 8086 模式，则它们将无法在 FreeBSD 上工作。
 
 ## 安全事件审计
+
 FreeBSD 包含对安全事件审计的支持。事件审计支持可靠、细粒度且可配置的记录各种与安全相关的系统事件，包括登录、配置更改以及文件和网络访问。这些日志记录对于实时系统监视、入侵检测和事后分析非常有价值。FreeBSD 实现了 Sun 发布的基本安全模块（BSM）应用程序编程接口（API）和文件格式，并与 Solaris 和 Mac OS X 的审计实现相互操作。
 
 ## 最后的说明
