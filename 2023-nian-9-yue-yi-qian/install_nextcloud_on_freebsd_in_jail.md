@@ -254,7 +254,7 @@ vi /etc/fstab.nextcloud
 /usr/local/poudriere/data/packages/amd64-12-0-head    /mnt/amd64-12-0-head    nullfs    rw    0    0
 ```
 
-使用 mount 命令来代替 fstab （这是一个手动命令，不会自动运行）。
+使用 mount 命令来代替 fstab（这是一个手动命令，不会自动运行）。
 
 ```
 mount -t nullfs /usr/local/poudriere/data/packages/amd64-12-0-head /jail/nextcloud/mnt/amd64-12-0-head

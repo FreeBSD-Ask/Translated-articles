@@ -88,7 +88,7 @@ Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-
 
 4. **咨询：**
 
-    * **Whiteout 处理 ([D45987](https://reviews.freebsd.org/D45987))：** 与 Kirk McKusick 和 Jason Harmening 合作，解决了在 tmpfs 中rename/rmdir 操作期间 whiteout 条目的问题，涉及 UnionFS 导出的元数据。
+    * **Whiteout 处理 ([D45987](https://reviews.freebsd.org/D45987))：** 与 Kirk McKusick 和 Jason Harmening 合作，解决了在 tmpfs 中 rename/rmdir 操作期间 whiteout 条目的问题，涉及 UnionFS 导出的元数据。
 
 此项目是一项全方位的努力，旨在确保 UnionFS 可靠、高效。适用于 FreeBSD 的现代用例，包括 jail、容器和复杂的存储配置。
 
@@ -199,7 +199,7 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 尽管以其高质量著称，但 FreeBSD 的音频堆栈一直处于欠缺维护的状态。一个新项目旨在全面增强该堆栈，解决框架、实用程序和内核驱动程序的 bug，以改善整体功能。
 
-近期开发中已经取得了几项重大改进。FreeBSD 14.1-RELEASE 和 14-STABLE 现已支持异步音频设备分离，提供了更灵活的音频设备管理。过时的 “snd_clone” 框架已被 DEVFS_CDEVPRIV(9) 取代，该框架也随 FreeBSD 14.1-RELEASE 和 14-STABLE 一同发布，使设备管理框架现代化。
+近期开发中已经取得了几项重大改进。FreeBSD 14.1-RELEASE 和 14-STABLE 现已支持异步音频设备分离，提供了更灵活的音频设备管理。过时的“snd_clone”框架已被 DEVFS_CDEVPRIV(9) 取代，该框架也随 FreeBSD 14.1-RELEASE 和 14-STABLE 一同发布，使设备管理框架现代化。
 
 音频系统进行了多次崩溃和 bug 修复，并且在笔记本电脑上，对 man:snd_hda[4] 的支持得到了改善，确保了更稳定可靠的音频性能。OSS API 的增强改善了 SNDCTL_AUDIOINFO 和 SNDCTL_ENGINEINFO IOCTL 的实现，从而提高了兼容性和功能。
 
@@ -235,7 +235,7 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 **正在进行**
 
-### 增强对 cloud-init 的支持，使 FreeBSD 成为 Tier I 平台，改善FreeBSD 在云环境中的集成和可用性。
+### 增强对 cloud-init 的支持，使 FreeBSD 成为 Tier I 平台，改善 FreeBSD 在云环境中的集成和可用性。
 
 **联系人：** Mina Galić [freebsd@igalic.co](mailto:freebsd@igalic.co)
 
@@ -245,7 +245,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 此外，Linux vsock 测试框架也已移植到 FreeBSD。基于 HyperV Socket 驱动程序创建了 VirtIO Socket 驱动程序的驱动程序框架，导致 HyperV 套接字的多个改进。这些改进已部分接受，但仍需更多工作。
 
-最新的 cloud-init 24.1 系列经过测试并发布，修复了长期存在的错误，例如将 /run/cloud-init 移动到 BSD 上的 /var/run/cloud-init，并纠正了 user_groups 的参数 homedir 。此次发布还包括社区贡献的 OpenBSD 代码路径的多个修复。
+最新的 cloud-init 24.1 系列经过测试并发布，修复了长期存在的错误，例如将 /run/cloud-init 移动到 BSD 上的 /var/run/cloud-init，并纠正了 user_groups 的参数 homedir。此次发布还包括社区贡献的 OpenBSD 代码路径的多个修复。
 
 展望未来，这项工作涉及几个关键任务。完成 FreeBSD VirtIO Socket 驱动程序和修复 Go 的运行时以支持 FreeBSD 上的 VirtIO 是首要任务。将 lxd-agent 的依赖项及 lxd-agent 本身移植到 FreeBSD 也至关重要。这些努力将与对 BSD 上 cloud-init 的进一步改进和在不同云提供商上的额外测试交替进行。
 
@@ -299,7 +299,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 ---
 
-　　　　以下为**已完成**部分
+    以下为**已完成**部分
 
 ---
 
@@ -333,8 +333,8 @@ Mark Johnston 和 Andrew Turner 合作创建了构建 arm64 bhyve 客户的扁�
 
 **联系人：**
 
-* Microsoft FreeBSD 集成服务团队: bsdic@microsoft.com
-* FreeBSD Azure 发布工程团队: releng-azure@FreeBSD.org
+* Microsoft FreeBSD 集成服务团队：bsdic@microsoft.com
+* FreeBSD Azure 发布工程团队：releng-azure@FreeBSD.org
 * Wei Hu: whu@FreeBSD.org
 * Souradeep Chakrabarti: schakrabarti@microsoft.com
 * Li-Wen Hsu: lwhsu@FreeBSD.org
@@ -486,7 +486,7 @@ FreeBSD 手册页面和文档的“专家系统”将是一个尽力而为的概
 
 **文档**
 
-SIMD 增强函数的存在将在新的手册页 simd(7)中记录。该页面将向用户解释 libc 如何选择使用哪个实现以及如何配置这种行为。其他手册页，如 environ(7)、string(3)和 bstring(3)，将根据需要增强交叉引用和附加信息。内部文档将解释调度和函数选择机制。由于不计划将这些机制提供给用户代码，因此不会生成最终用户文档。根据需要，可能会生成关于基准测试和测试设置的附加文档。最终报告将描述所使用的技术，并给出最终性能改进。
+SIMD 增强函数的存在将在新的手册页 simd(7) 中记录。该页面将向用户解释 libc 如何选择使用哪个实现以及如何配置这种行为。其他手册页，如 environ(7)、string(3) 和 bstring(3)，将根据需要增强交叉引用和附加信息。内部文档将解释调度和函数选择机制。由于不计划将这些机制提供给用户代码，因此不会生成最终用户文档。根据需要，可能会生成关于基准测试和测试设置的附加文档。最终报告将描述所使用的技术，并给出最终性能改进。
 
 ## Capsicum 实习
 
@@ -688,7 +688,7 @@ FreeBSD 长期以来提供了一个 Linux 系统调用兼容层，之前能够�
 
 FreeBSD 的 fuse(4) 驱动程序存在错误且过时。它基本上无法用于任何网络文件系统，如 CephFS、MooseFS 或 Tahoe-LAFS。该项目将修复所有已知的 fuse 错误，更新内核 API，并添加新的测试套件。
 
-FUSE（用户空间中的文件系统）能让 FreeBSD 系统挂载由用户空间守护进程提供服务的文件系统，大多数 FUSE 守护进程很容易移植到 FreeBSD。截至本文撰写时， Ports 中包含 41 个 FUSE 文件系统。其中最受欢迎的是 fuse-ntfs，这是使用 FreeBSD 访问微软 NTFS 格式媒体的唯一方法。
+FUSE（用户空间中的文件系统）能让 FreeBSD 系统挂载由用户空间守护进程提供服务的文件系统，大多数 FUSE 守护进程很容易移植到 FreeBSD。截至本文撰写时，Ports 中包含 41 个 FUSE 文件系统。其中最受欢迎的是 fuse-ntfs，这是使用 FreeBSD 访问微软 NTFS 格式媒体的唯一方法。
 
 Fuse(4) 可以使用，但存在错误且不完整。在该项目开始时，错误跟踪器中有 26 个未解决的错误，其中一些已出现多年。最严重的是与缓存相关的错误，这可能导致任何 FUSE 网络文件系统中的数据损坏（在 Ports 中的 11 个，以及一些重要的非 Port 文件系统，如 CephFS 和 MooseFS）。
 
@@ -733,7 +733,7 @@ Fuse(4) 的内核 API（内核与文件系统守护进程之间的通信协议�
 
 **已完成**
 
-该基金会资助了 Edward Napiarala 的工作，以提供 USB 供电功能（USB On The Go，USB OTG）的无头操作支持。虽然 FreeBSD 具备 OTG 支持，但默认情况下未启用/未配置，且往往无法正常工作。这使得在嵌入式设备（如树莓派 Zero）上使用 FreeBSD变得繁琐。
+该基金会资助了 Edward Napiarala 的工作，以提供 USB 供电功能（USB On The Go，USB OTG）的无头操作支持。虽然 FreeBSD 具备 OTG 支持，但默认情况下未启用/未配置，且往往无法正常工作。这使得在嵌入式设备（如树莓派 Zero）上使用 FreeBSD 变得繁琐。
 
 该项目旨在添加开箱即用的 USB OTG 支持，使 FreeBSD 对于缺乏设备来设置无头操作的新手以及寻求更友好的替代品的公司来说，更具吸引力。
 

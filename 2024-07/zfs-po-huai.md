@@ -1,6 +1,6 @@
 # ZFS 池破坏实验
 
-- 原文：[ZFSプールを壊してみた](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)
+- 原文：[ZFS プールを壊してみた](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)
 - 作者：みんみん
 - 最后更新于 2022-12-08
 

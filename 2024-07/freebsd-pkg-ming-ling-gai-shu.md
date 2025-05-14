@@ -337,54 +337,54 @@ pkg shell -cmd "SELECT p.name FROM deps AS d INNER JOIN packages AS p ON package
 
 ## 常见问题及解答
 
-### Ｑ．什么是 origin？
+### Q．什么是 origin？
 
-Ａ．Origin 是什么以后再说吧。有空我再写。
+A．Origin 是什么以后再说吧。有空我再写。
 
-### Ｑ．pkg 命令本身是一个软件包吗？
+### Q．pkg 命令本身是一个软件包吗？
 
-Ａ．是的，`pkg` 命令本身就是一个包。
+A．是的，`pkg` 命令本身就是一个包。
 
-### Ｑ．那 `/usr/sbin/pkg` 是什么？
+### Q．那 `/usr/sbin/pkg` 是什么？
 
-Ａ．那是一个“引导器”，只负责安装真正的 pkg 包。
+A．那是一个“引导器”，只负责安装真正的 pkg 包。
 实际会执行的是 pkg 包里的 `/usr/local/bin/pkg-static`。
 
-### Ｑ．那它不属于基本系统吗？
+### Q．那它不属于基本系统吗？
 
-Ａ．FreeBSD 曾经因为旧的软件包系统吃了太多苦，所以才采用了现在这种结构。
+A．FreeBSD 曾经因为旧的软件包系统吃了太多苦，所以才采用了现在这种结构。
 以前 pkg 命令不升级，整个系统就什么都干不了（即使新版本系统已经发布了，还会强制用老功能）。
 
-### Ｑ．pkg 命令和 pkg-static 命令有什么区别？
+### Q．pkg 命令和 pkg-static 命令有什么区别？
 
-Ａ．功能完全一样。`pkg-static` 主要在某些“极端情况”（如你要删掉 pkg 本身）时才需要。
+A．功能完全一样。`pkg-static` 主要在某些“极端情况”（如你要删掉 pkg 本身）时才需要。
 一般正常使用用 `pkg` 就够了；`pkg-static` 只是为了某些内部处理时更安全。
 
-### Ｑ．如何删除通过 `pkg update` 获取的仓库信息？
+### Q．如何删除通过 `pkg update` 获取的仓库信息？
 
-Ａ．我也很感兴趣，目前还在调查中。
+A．我也很感兴趣，目前还在调查中。
 
-### Ｑ．用 `pkg query` 过滤总是不太顺利啊。比如说，想列出“最后安装的包”怎么办？
+### Q．用 `pkg query` 过滤总是不太顺利啊。比如说，想列出“最后安装的包”怎么办？
 
-Ａ．这种时候可以用 `pkg shell` 来努力一下。虽说“让我们来写 SQL 吧！”这听起来有点夸张，但你说得没错，`pkg query` 并不支持排序或聚合。
+A．这种时候可以用 `pkg shell` 来努力一下。虽说“让我们来写 SQL 吧！”这听起来有点夸张，但你说得没错，`pkg query` 并不支持排序或聚合。
 另一种思路是，把 `pkg query` 的输出通过管道传给其它工具，比如 `sort`、`awk`、`head`、`tail` 等组合使用。
 
-### Ｑ．你真的全都记得住？
+### Q．你真的全都记得住？
 
-Ａ．常用的当然记得住。原以为我也就记了三五个而已，没想到写着写着就十几个浮现脑海。说明这些的确值得记。
+A．常用的当然记得住。原以为我也就记了三五个而已，没想到写着写着就十几个浮现脑海。说明这些的确值得记。
 虽然有些细节的语义可能模糊了，但那种情况就查下手册吧。
 总之，平时不常用的，忘了也无妨。
 
 顺便说一下，`pkg query` 和 `pkg shell` 以前我其实用得不多，这次因为研究查数据才顺手补上的。虽然 `pkg shell` 基本就是只查结果而已。
 
-### Ｑ．pkg update / upgrade / updating 总是傻傻分不清楚。
+### Q．pkg update / upgrade / updating 总是傻傻分不清楚。
 
-Ａ．很遗憾，这是必须记下来的。
+A．很遗憾，这是必须记下来的。
 其他包管理器有时 `update` 和 `upgrade` 是同一个东西，但在 FreeBSD 上……很遗憾（信息在此中断了）。
 
-### Ｑ．WITH\_PKGNG 和 pkg2ng 是什么？
+### Q．WITH\_PKGNG 和 pkg2ng 是什么？
 
-Ａ．这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无视。
+A．这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无视。
 它们只具备历史意义，现在的设置和运维里已经毫无价值。
 
 ---
@@ -436,7 +436,7 @@ pkg shell -cmd "SELECT p.name FROM deps AS d INNER JOIN packages AS p ON package
 * [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)
 * [FreeBSD Porter's Handbook - 13. pkg-\* files](https://docs.freebsd.org/ja/books/porters-handbook/pkg-files/)
 * [FreeBSD pkg コマンドチート](https://qiita.com/taku39@github/items/c29a47d5ac07492d4857)
-* [【FreeBSD】pkgで普段使うサブコマンド達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
+* [【FreeBSD】pkg で普段使うサブコマンド達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
 * [pkg](https://kaworu.jpn.org/freebsd/pkg)
 * [FreeBSD – パッケージソフトのインストールと削除、アップデートのやり方](https://blog.it-see.net/it-dokata/freebsd/pkg/)
 * [パッケージコマンド早見表](https://freebsd.seirios.org/doku.php?id=ports:pkg_yum_apt)

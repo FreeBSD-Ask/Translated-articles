@@ -1,6 +1,6 @@
 # ccache 在构建 FreeBSD 的 buildworld 时的效率
 
-- 原文：[ｃｃａｃｈｅでＦｒｅｅＢＳＤをｂｕｉｌｄｗｏｒｌｄした場合の効率について](https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c)
+- 原文：[ccacheでFreeBSDをbuildworldした場合の効率について](https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c)
 - 作者：重村法克
 - 2022-11-16
 
@@ -148,9 +148,9 @@ max cache size                      32.0 GB
 从 [karl](https://twitter.com/karl0204) 收到以下环境下的 `make buildkernel` 测量结果，并将其整理成表格。
 
 * CPU： AMD Ryzen9 3900（3.10GHz／4.30GHz）
-* 内存： 32GB
-* 存储： WesternDigital SN550（NVMe连接）· ZFS 操作
-* 构建目标： FreeBSD 14-CURRENT
+* 内存：32GB
+* 存储：WesternDigital SN550（NVMe 连接）· ZFS 操作
+* 构建目标：FreeBSD 14-CURRENT
 
 | 构建步骤                    | 无 CCache 时间 | 有 CCache 时间 |
 | ----------------------- | ----------- | ----------- |
@@ -166,10 +166,10 @@ max cache size                      32.0 GB
 
 ### buildworld 示例
 
-* CPU： Intel Pentium N4200（1.10GHz／2.50GHz·Apollo Lake·Goldmont 架构）
-* 内存： 16GB
-* 存储： Transcend MTS400S（SATA连接）· ZFS 操作
-* 构建目标： 12.2-RELEASE-p11
+* CPU：Intel Pentium N4200（1.10GHz／2.50GHz·Apollo Lake·Goldmont 架构）
+* 内存：16GB
+* 存储：Transcend MTS400S（SATA 连接）· ZFS 操作
+* 构建目标：12.2-RELEASE-p11
 
 | 构建步骤※        | 构建时间    |
 | ------------ | ------- |

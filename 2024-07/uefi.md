@@ -1,6 +1,6 @@
 # 使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法
 
-- 原文：[ＢＩＯＳブートとＵＥＦＩブートでＧＰＴパーティションの違いと作り方](https://qiita.com/nanorkyo/items/429d7382a418b38de4d3)
+- 原文：[BIOSブートとUEFIブートでGPTパーティションの違いと作り方](https://qiita.com/nanorkyo/items/429d7382a418b38de4d3)
 - 作者：重村法克
 - 2020-11-11
 

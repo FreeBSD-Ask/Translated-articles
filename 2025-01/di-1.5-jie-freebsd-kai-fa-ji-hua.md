@@ -39,12 +39,12 @@
 | arm64 分支目标识别（BTI）        | andrew      | [d09a64e15d8f](https://cgit.freebsd.org/src/commit/?id=d09a64e15d8fad6588b9aad62979f20afa8441df)                                                                                                   |
 | arm64 bhyve               | andrew      | [47e073941f4e](https://cgit.freebsd.org/src/commit/?id=47e073941f4e7ca6e9bde3fa65abbfcfed6bfa2b)                                                                                                   |
 | 在 bhyve 中的单步 AMD CPU | jhb Bojan   | [e3b4fe645e50](https://cgit.freebsd.org/src/commit/?id=e3b4fe645e50bfd06becb74e52ea958315024d5f)、 [ca96a942cafb](https://cgit.freebsd.org/src/commit/?id=ca96a942cafb58476e10e887240e594e7923a6e8) |
-| 借助 CTF 美化 DDB 的输出| markj Bojan | [c21bc6f3c242](https://cgit.freebsd.org/src/commit/?id=c21bc6f3c2425de74141bfee07b609bf65b5a6b3)                                                                                                   |
+| 借助 CTF 美化 DDB 的输出 | markj Bojan | [c21bc6f3c242](https://cgit.freebsd.org/src/commit/?id=c21bc6f3c2425de74141bfee07b609bf65b5a6b3)                                                                                                   |
 | 跨架构的 kldxref              | jhb         | [0299afdff145](https://cgit.freebsd.org/src/commit/?id=0299afdff145e5d861797fe9c2de8b090c456fba)                                                                                                   |
 | 在 install(1) 中实现 copy_file_range(2) | mmatuska    | [5a50d52f112a](https://cgit.freebsd.org/src/commit/?id=5a50d52f112a86ebd0696da6564c7c7befa27f5d)                                                                                                   |
 | NVMe-oF/TCP               | jhb         | [a8089ea5aee5](https://cgit.freebsd.org/src/commit/?id=a8089ea5aee578e08acab2438e82fc9a9ae50ed8)                                                                                                          |
 |基于单文件的 nullfs        | dfr         | [521fbb722c3](https://cgit.freebsd.org/src/commit/?id=521fbb722c33663cf00a83bca70ad7cb790687b3)（不支持套接字）                                                                                                                                                                        |
-| 移植 9p 文件系统| dfr | [e97ad33a89a7](https://cgit.freebsd.org/src/commit/?id=e97ad33a89a78f55280b0485b3249ee9b907a718) |
+| 移植 9p 文件系统 | dfr | [e97ad33a89a7](https://cgit.freebsd.org/src/commit/?id=e97ad33a89a78f55280b0485b3249ee9b907a718) |
 |改进 NVMe Reset / Recovery | imp | [aa41354349c1](https://cgit.freebsd.org/src/commit/?id=aa41354349c16ea7220893010df78b47d67d0f74) |
 | 移除 OpenSSL FIPS            | gtetlow       | [86dd740dd73a](https://cgit.freebsd.org/src/commit/?id=86dd740dd73aa88477ff450b2359abda1ad68534)                             |
 | arm64 SVE（可伸缩性向量扩展）支持                  | andrew        | [332c426328db](https://cgit.freebsd.org/src/commit/?id=332c426328dbb30a6b2e69d9b1e8298d77d85bd1)                             |
@@ -109,19 +109,19 @@
 | 为无工具链的 Poudriere 提供支持 jail                   | allanjude                     |                                                                                         |
 | 外部工具链支持                                          | brooks                        |                                                                                         |
 | 预提交 CI 源码、文档                                    | lwhsu imp bofh                | `make ci` 仍在开发，需要与 oth 集成                                                            |
-| 改进 `make ci` 以方便提交者                      | imp、 bofh                     |                                                                                         |
+| 改进 `make ci` 以方便提交者                      | imp、bofh                     |                                                                                         |
 | 改进 `make ci` 以对诸如登录 github 拉取请求等事项有益 | imp                           |                                                                                         |
 | 预提交 CI ports                                         | lwhsu 将与 bapt 和 decke 审查 | bofh 似乎有一些 PoC                                                                     |
 | 通用闪存存储（UFS）驱动程序                                    | loos                          | 需要用于一些嵌入式部署、但未来将更具通用性。即将登陆英特尔平台。同样支持 LinuxBoot。 |
 | DTrace 的 `-C`（大写字母）参数再次生效                  | antranigv、markj              | PR 尚未提交、只需运行 `dtrace -c` 就可查看所含文件                                          |
 | ~~优化 bsd-user 对发布过程的支持~~ | imp, dfr, cperciva | 解决 32 位在 64 位上的问题，更新非常旧的 Port qemu-bsd-user-static。完成 STA 工作后，对发布工程不再相关。 |
 | ~~优化 bsd-user binfmt 等以适应 jail~~ | cperciva, imp | ~~Colin 希望为这些设置提供每个 jail 的配置。~~  完成 STA 工作后，对发布工程不再相关。 |                                                       
-| bsd bsd-user + poudriere 支持 RISCV                         | imp、 mhorne、 jrtc27           | 软件包构建完全损坏、但基本功能正常、需要修复以便我们可以再次使用 riscv 软件包           |
+| bsd bsd-user + poudriere 支持 RISCV                         | imp、mhorne、jrtc27           | 软件包构建完全损坏、但基本功能正常、需要修复以便我们可以再次使用 riscv 软件包           |
 |使用 GitHub runner 拉取请求                             | 	imp                         | 针对 cirrus-ci 漏洞中的解决方案之一                                                           |
 | 使用 GitHub Action 改善外部贡献者的体验                 | imp                           | 这里需要帮助                                                                       |
 | 原生 inotify（2）                                       | tcberner                      | 许多软件都需要这个                                                                     |
 | 15.0 应该使用哪个版本的 OpenSSL                         | gtetlow                       | 通过在现行环境中运行更新的版本以获取调试时间。                                                 |
-| PCIe 激活状态电源管理 (ASPM) | jhb | 某些系统上正确实现 PCIe原生热插拔所必需 |
+| PCIe 激活状态电源管理 (ASPM) | jhb | 某些系统上正确实现 PCIe 原生热插拔所必需 |
 | PCIe 下行端口控制 (DPC) | jhb | 雷电（Thunderbolt）所需，取代 PCIe 原生热插拔 |
 
 ### 🥺 想要 🙏
@@ -140,7 +140,7 @@
 | 更多容器支持（OCI）                                                       | dfr                                | 需要志愿者。软件 Containerd 需要维护者。官方镜像/仓库  |
 | 精简内核                                                                | imp                               | 进行中                                                 |
 | 使引导加载程序支持 devmatch                                                 | imp manu	                        | PCI 和 USB                                             |
-| 重写 config(8) （使用 lua ？）                                                | imp kevans                         |                                                        |
+| 重写 config(8) （使用 lua？）                                                | imp kevans                         |                                                        |
 | 合并 devmatch 和 devd（库）                                             | imp                                | Meena 想帮助这个                                       |
 | 调度程序和 VFS 的相关文档                                                   | mhorne、olce                       |                                                        |
 | 在大小核心上进行调度（P、E）                                            | olce                    | 我认为其他人感兴趣                                     |
@@ -156,8 +156,8 @@
 | 登录配置的 UCL 化                                                         | meena                              | allanjude 拥有初始补丁：[D25365](https://reviews.freebsd.org/D25365)                      |
 | 为其余网络工具添加 libxo                                                  | meena                              | 如有问题请在提议的页面上 ping phil@                |
 | 分层动态登录类                                                            | ngor、meena                        |                                                        |
-| 删除 MAC “label”的限制                                                   | 	allanjude des                         | 使用 OSD？建立在 bapt 的 mac_do 使用的每个 jail 机制上 |
-| 用于 jail 的 PID 命名空间                                                | pjd dfr allanjude                  | 你想要哪些其他命名空间?                                |
+| 删除 MAC“label”的限制                                                   | 	allanjude des                         | 使用 OSD？建立在 bapt 的 mac_do 使用的每个 jail 机制上 |
+| 用于 jail 的 PID 命名空间                                                | pjd dfr allanjude                  | 你想要哪些其他命名空间？                               |
 | 将 dhcpcd 引入基本系统                                                    |                                    | 初始（日期）版本在这里：[D22012](https://reviews.freebsd.org/D22012)                         |
 | 通过 netlink 访问 jail vnet                                               | dfr                                |                                                        |
 | 在计算哈希值的同时能够在内存中操作文件。                                          | sjg (想参加)                        | 为 mac_veriexec                                        |
@@ -171,7 +171,7 @@
 
 | 项目                                                                                                          | 负责人          | 提交 / 审核 / 补丁                                                                        |
 | ------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------- |
-| Firewire 🔥（火线）                                                                                                   | imp              | 宁愿晚一些而不是早一点（我们是否应该在更早的时候去除磁盘支持、因为有一个被 GIANT 锁定的 CAM 驱动程序）（我们是否迁移到 16？ 是的）           |
+| Firewire 🔥（火线）                                                                                                   | imp              | 宁愿晚一些而不是早一点（我们是否应该在更早的时候去除磁盘支持、因为有一个被 GIANT 锁定的 CAM 驱动程序）（我们是否迁移到 16？是的）           |
 | i386 内核                                                                                                     | imp             | 时间？                                                                                    |
 | powerpc、powerpcspe 内核                                                                                      | imp              |                                                                                           |
 | PS3 🎮                                                                                                        | imp               | 沒人使用了（我们需要移植 PS5！）                                                         |
@@ -189,7 +189,7 @@
 | 3dfx(4) & `*_isa`                                                                                             | jhb              |                                                                                           |
 | syscons(4)（至少不再推荐使用）                                                                         | emaste / manu    |                                                                                           |
 | 以太网驱动程序（100mbps、冷门的 1/10 gbps）                                                               | brooks           |                                                                                           |
-|  CAM 驱动程序（pms(4)、 hpt\*、 siis、 mvs 等）                                                              | imp              |                                                                                           |
+|  CAM 驱动程序（pms(4)、hpt\*、siis、mvs 等）                                                              | imp              |                                                                                           |
 | freebsd-update                                                                                              | cperciva            | 待 pkgbase 就绪                                                                      |
 | 32 位平台（仅内核、仍保留 compat32）                                                                              | jhb              |                                                                                           |
 | 移除 arm\*soft  (支持构建完整的软系统、这是在我移除了 libsoft hack 构建和 ld.so 支持之后剩下的全部内容) | imp              |                                                                                           |

@@ -2,7 +2,7 @@
 
 - 邮件原文地址：<https://lists.freebsd.org/archives/freebsd-announce/2024-July/000143.html>
 
-亲爱的 FreeBSD 社区,
+亲爱的 FreeBSD 社区，
 
 我们正在对发布工程流程进行两项修改：
 

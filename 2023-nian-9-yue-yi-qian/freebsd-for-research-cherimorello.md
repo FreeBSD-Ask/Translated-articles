@@ -29,7 +29,7 @@ Watson 教授非常愿意与 FreeBSD 基金会一起讨论他的研究。这次�
 
 革命性的学术研究受益于生产系统，可以测试假想并将创新转化为生产系统。Watson 教授解释道：“在软件领域，开源对于这种研究方法至关重要，硬件领域的开源性也越来越重要。你 *可以* 自己构建参考基准制品，但你真正想要的是当前最先进的状态，具有大规模使用带来的复杂性等等。FreeBSD 满足了这些标准。”
 
-对于熟悉 FreeBSD 历史的人来说，教授们在剑桥大学如此广泛地使用它可能并不奇怪。FreeBSD 在学术界有丰富的历史。它源自加利福尼亚大学伯克利分校计算机系统研究小组在 20 世纪 70 年代中期到 90 年代开发的 4.4-Lite 的伯克利软件发行版。在过去的 30 年中，FreeBSD 操作系统继续为学术界提供稳定的基础，可以进行研究，并通过广泛使用的产品和服务的路径，来进行工业采用，这些产品和服务都在运行、基于或合并了 FreeBSD 1。【注1】
+对于熟悉 FreeBSD 历史的人来说，教授们在剑桥大学如此广泛地使用它可能并不奇怪。FreeBSD 在学术界有丰富的历史。它源自加利福尼亚大学伯克利分校计算机系统研究小组在 20 世纪 70 年代中期到 90 年代开发的 4.4-Lite 的伯克利软件发行版。在过去的 30 年中，FreeBSD 操作系统继续为学术界提供稳定的基础，可以进行研究，并通过广泛使用的产品和服务的路径，来进行工业采用，这些产品和服务都在运行、基于或合并了 FreeBSD 1。【注 1】
 
 ## 内核访问控制
 
@@ -43,9 +43,9 @@ Watson 教授的强制访问控制（MAC）框架研究沿着 Jail 的方向继�
 
 CHERI，即 [Capability Hardware Enhanced RISC Instructions](https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/)，通过将架构能力与传统处理器指令集架构（ISA）相结合，实现了细粒度内存保护和高度可扩展的软件隔离。Capsicum 的工作借鉴了 20 世纪 70 年代的一些叫做 capability 系统的想法，并认为它们可以通过与 BSD 中的当前软件进行融合来使其变得现代化。CHERI 的工作将这个概念推得更远，并应用于处理器。Watson 教授表示：“通过 CHERI，我们改变了硬件，也改变了软件。而我们选择改变的软件，以展示这些想法并理解它们，就是 FreeBSD。”
 
-CHERI 关注硬件/软件共设计，需要对软件和硬件进行协调性的变更。两者之间的接口是指令集架构（ISA）。新的 ISA 使处理器的进步可以通过软件来表达。因此，硬件/软件共设计需要对硬件和软件【注2】进行变更。
+CHERI 关注硬件/软件共设计，需要对软件和硬件进行协调性的变更。两者之间的接口是指令集架构（ISA）。新的 ISA 使处理器的进步可以通过软件来表达。因此，硬件/软件共设计需要对硬件和软件【注 2】进行变更。
 
-在 [BSDCan 2023](https://www.bsdcan.org/events/bsdcan_2023/sessions/session/142/slides/58/20230520-memory-safe-desktop-compressed.pdf) 中，来自 SRI International 的 Brooks Davis 解释道：“CHERI 减少了 C/C++ 可信计算基础（如虚拟化程序、操作系统、语言运行时、浏览器等）的漏洞...” CHERI 被证明非常有效。Microsoft Security Response Center（MSRC）发现，CHERI 在 C/C++ 语言软件【注3】中减轻了超过三分之二的关键内存安全性漏洞。
+在 [BSDCan 2023](https://www.bsdcan.org/events/bsdcan_2023/sessions/session/142/slides/58/20230520-memory-safe-desktop-compressed.pdf) 中，来自 SRI International 的 Brooks Davis 解释道：“CHERI 减少了 C/C++ 可信计算基础（如虚拟化程序、操作系统、语言运行时、浏览器等）的漏洞...”CHERI 被证明非常有效。Microsoft Security Response Center（MSRC）发现，CHERI 在 C/C++ 语言软件【注 3】中减轻了超过三分之二的关键内存安全性漏洞。
 
 FreeBSD 对于这种类型的研究至关重要，部分原因在于 BSD 许可证的宽松性，支持整个硬件/软件堆栈的修改，以及通过 LLVM 的全面集成来构建完整的内核和用户空间。当该项目于 2010 年开始时，FreeBSD 正在积极推进 LLVM 集成，这对于 Linux 来说仍然是一个挑战。同样重要的是，对多种 ABI 的清洁内核支持、Capsicum 安全模型的集成以及对 RISC-V 架构的早期支持。
 

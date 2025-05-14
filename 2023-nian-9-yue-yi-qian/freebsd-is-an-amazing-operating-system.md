@@ -4,7 +4,7 @@
 - 译者：ykla & ChatGPT
 - 最后发布日期：2020-01-21
 
->这是一篇关于我在FreeBSD上的一些冒险经历以及为什么我认为它是一个令人惊叹的操作系统的小文章。
+>这是一篇关于我在 FreeBSD 上的一些冒险经历以及为什么我认为它是一个令人惊叹的操作系统的小文章。
 
 **更新于 2020 年 1 月 21 日：** 自从我写了这篇文章后，它在 [Hacker News](https://news.ycombinator.com/item?id=22102372)、[Reddit](https://old.reddit.com/r/freebsd/comments/er5wu0/freebsd_is_an_amazing_operating_system/) 和 [Lobster](https://lobste.rs/s/jedqwr/freebsd_is_amazing_operating_system) 上发布过，也有几个人通过电子邮件给我发来了评论。我已根据评论更新了文章。顺便提一下，我不是 FreeBSD 的开发者，FreeBSD 世界中可能有我完全不了解的事情。我也没有关注过 FreeBSD 的开发者邮件列表。我不是 FreeBSD 的“粉丝”。在过去的二十年里，我在使用 GNU/Linux 方面比 FreeBSD 多得多，主要是由于硬件不兼容（缺乏或有问题的驱动程序）。我同样喜欢 Debian GNU/Linux 和 Arch Linux。然而，我对 GNU/Linux 近来的发展感到担忧。此外，这篇文章并不是让任何人从其他系统转换到 FreeBSD，它只是说明我为什么喜欢 FreeBSD，并推荐对操作系统进行调试的人尝试一下。
 
