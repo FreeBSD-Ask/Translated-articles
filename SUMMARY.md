@@ -33,7 +33,6 @@
 * [使用 BIOS 引导和 UEFI 引导的 GPT 分区的区别和制作方法](2024-07/uefi.md)
 * [通过替换 ZFS 镜像池中的磁盘来扩容](2024-07/disk.md)
 * [通过为 ZFS 池配置镜像来消除无效数据的影响](2024-07/zfs.md)
-* [FreeBSD Bhyve PCI 直通](2024-07/pci.md)
 * [ZFS 池破坏实验](2024-07/zfs-po-huai.md)
 * [FreeBSD ports 开发技术研究](2024-07/ports.md)
 * [FreeBSD pkg 命令概述](2024-07/freebsd-pkg-ming-ling-gai-shu.md)
