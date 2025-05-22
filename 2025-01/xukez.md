@@ -8,7 +8,7 @@
 
 ## BSD 零条款许可证（Zero-Clause BSD，0BSD）
 
-此许可证是 ISC 许可证的变体，并非来自 BSD 家族。
+此许可证是 ISC 许可证的变体，并非来自 BSD 家族，是一种公共领域许可证。
 
 ```
 Zero-Clause BSD
@@ -61,7 +61,7 @@ THIS SOFTWARE IS PROVIDED BY [Name of Organization] “AS IS” AND ANY EXPRESS 
 
 ## BSD 两条款许可证（The 2-Clause BSD License，BSD-2-Clause）
 
-BSD 两条款许可证即 FreeBSD 许可证，亦称为简化版 BSD 许可证，是 FreeBSD 项目优先选用的许可证，删除了原始 BSD 许可证（即 BSD-4-Clause）中的广告条款。
+BSD 两条款许可证即 FreeBSD 许可证，亦称为简化版 BSD 许可证，是 FreeBSD 项目优先选用的许可证，删除了原始 BSD 许可证（即 BSD-4-Clause）中的广告条款，仅要求保留版权声明。
 
 ```
 Copyright <年份> <版权持有者>
@@ -89,7 +89,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
 
 ## BSD 三条款许可证（The 3-Clause BSD License，BSD-3-Clause）
 
-BSD 三条款许可证亦称为新 BSD 许可证、修改版 BSD 许可证。此许可证仅删除了 BSD 四条款许可证中的广告条款。
+BSD 三条款许可证亦称为新 BSD 许可证、修改版 BSD 许可证。此许可证仅删除了 BSD 四条款许可证中的广告条款，额外限制以作者名义推广衍生产品。
 
 ```
 Copyright <年份> <版权持有者>
