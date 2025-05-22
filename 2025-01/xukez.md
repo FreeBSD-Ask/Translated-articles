@@ -85,7 +85,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
 
 ## BSD 三条款许可证
 
-BSD 三条款许可证亦称为新 BSD 许可证、修改版 BSD 许可证。
+BSD 三条款许可证亦称为新 BSD 许可证、修改版 BSD 许可证。此许可证仅删除了 BSD 四条款许可证中的广告条款。
 
 ```
 Copyright <年份> <版权持有者>
@@ -117,7 +117,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” 
 
 ## BSD 四条款许可证（BSD 4-Clause "Original" or "Old" License，BSD-4-Clause）
 
-BSD 四条款许可证即原始的 BSD 许可证，目前不被 OSI 认可。此许可证带有广告条款，要求在软件中声明使用了原作者的产品。
+BSD 四条款许可证即原始的 BSD 许可证，目前不被 OSI 认可。此许可证带有广告条款，要求在软件中声明使用了原作者的产品（参见下文第 3 条）。
 
 ```
 Copyright (c) <年份> <持有者>. All rights reserved.
