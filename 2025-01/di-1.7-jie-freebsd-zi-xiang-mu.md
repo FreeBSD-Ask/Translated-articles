@@ -8,9 +8,6 @@
 
 本节是对 [Projects](https://freebsdfoundation.org/our-work/projects/) 的翻译。
 
-
-
-
 **FreeBSD 基金会赞助和社区贡献的 FreeBSD 特色项目**
 
 FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，重点是提升 FreeBSD 的安全性、性能和可用性。我们与社区携手合作，共同努力，确保 FreeBSD 的恒久生命力。
@@ -19,7 +16,47 @@ FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，
 
 如想参与，请访问 [FreeBSD 项目页面](https://www.freebsd.org/projects/)。
 
+## 改进笔记本睡眠管理
 
+
+**正在进行**
+
+作为更大规模的[笔记本改进项目](https://github.com/FreeBSDFoundation/proj-laptop)的一部分，我们正在开发对更新的 S0ix 睡眠/休眠状态的支持。许多现代笔记本采用的是 S0ix 状态，而非较早的 S3 标准。在 S0ix 状态下，操作系统需要确定哪些设备需要进入睡眠状态，才能关闭 CPU；只有当所有条件满足后，固件才会自动关闭 CPU。
+
+你可以在[此处关注项目进展](https://reviews.freebsd.org/D49595)。
+
+
+## 将 MIT Kerberos 引入 FreeBSD
+
+**正在进行**
+
+实现更常用的 MIT Kerberos，以提升与其他操作系统的互操作性。
+
+
+## 改进 bhyve 虚拟机监视器对 libvirt 的支持。
+
+**正在进行**
+
+改进虚拟化 API（libvirt），使其具备管理 bhyve 虚拟机完整生命周期的能力，包括创建、启动、关机和销毁。该项目还将增强 libvirt 对 bhyve 虚拟机基础网络配置的支持。
+
+
+## 在 FreeBSD 上管理 bhyve 虚拟机监视器的图形用户界面（GUI）
+
+**正在进行**
+
+该项目将为 FreeBSD 开发一款类似 Proxmox 的图形界面，专为管理 bhyve 和 jail 而设计。系统将采用 Golang 进行后端开发，并使用 Svelte 构建现代、响应式的前端界面。
+
+项目的目标是提供直观而强大的图形用户界面，以简化虚拟化和容器化操作。现代化的 GUI 将使 FreeBSD 对系统管理员更为友好，并增强其在虚拟化领域的竞争力。
+
+你可以在 [此处关注项目进展](https://github.com/AlchemillaHQ/Sylve)。
+
+
+
+## FreeBSD 用户空间开发
+
+**正在进行**
+
+FreeBSD 向来被认为是一款稳定性极高、安全可靠的服务器操作系统。毋庸置疑，FreeBSD 也完全可以作为桌面操作系统使用。FreeBSD 项目早已意识到桌面应用的需求，因此发起了用户空间开发计划，以提升用户体验。这一计划也与提升 FreeBSD 在现代笔记本电脑上表现的更大规模赞助工作相契合。
 
 ## 改进 FreeBSD 上的 OpenJDK
 
@@ -38,7 +75,7 @@ FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，
 
 **联系人：** Doug Rabson [dfr@rabson.org](mailto:dfr@rabson.org)
 
-[开放容器计划 (OCI)](https://opencontainers.org/) 为云原生容器格式和运行时制定了开放的行业标准，来确保平台的一致性。一个 [OCI 工作组](https://github.com/opencontainers/wg-freebsd-runtime) 正在为 FreeBSD 制定这些标准，利用 jail 进行实现，并有可能通过 FreeBSD 的 **[bhyve](https://docs.freebsd.org/en/books/handbook/virtualization/#virtualization-host-bhyve)** 虚拟化管理程序支持轻量级虚拟机——可在 FreeBSD 主机上的容器中运行 FreeBSD 以外的其他操作系统。
+[开放容器计划 (OCI)](https://opencontainers.org/) 为云原生容器格式和运行时制定了开放的行业标准，来确保平台的一致性。[OCI 工作组](https://github.com/opencontainers/wg-freebsd-runtime) 正在为 FreeBSD 制定这些标准，利用 jail 进行实现，并有可能通过 FreeBSD 的 **[bhyve](https://docs.freebsd.org/en/books/handbook/virtualization/#virtualization-host-bhyve)** 虚拟化管理程序支持轻量级虚拟机——可在 FreeBSD 主机上的容器中运行 FreeBSD 以外的其他操作系统。
 
 FreeBSD 项目成员 Doug Rabson 开发了 **ocijail**，这是一种兼容 OCI 的 FreeBSD jail 运行时实验工具。该工具旨在与容器管理系统（如 Podman 和 Buildah）集成，提供完善的容器管理体验。
 
@@ -269,7 +306,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 此外，手动安装步骤和代码补丁开始转换为 FreeBSD Port，简化安装过程。一个重要的里程碑是启动了对 FreeBSD 实例和 OpenStack Ironic 服务主机进行裸机配置的工作。
 
-**未来计划：**
+**后续计划：**
 
 展望下一个季度，重点将放在完善这些进展并进一步增强项目的稳健性和易用性。具体计划包括将 OpenStack 组件从 Xena 版本升级到更近期的版本，因为 Xena 正接近生命周期的尽头。欢迎社区的建议和贡献，以帮助实现这些目标。
 
@@ -299,7 +336,7 @@ Cloud-init 现已成为在云中设置服务器的标准。在过去一年半的
 
 ---
 
-    以下为**已完成**部分
+    以下为 **已完成** 部分
 
 ---
 
