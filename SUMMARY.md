@@ -5,7 +5,6 @@
 
 ## 2025 年
 
-* [BSD 许可证一览](2025-01/xukez.md)
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
 * [为 FreeBSD 发声：FOSDEM 2025 参会报告](2025-01/fosd.md)
 * [zfs 速查手册](2025-01/zfs.md)
