@@ -1,16 +1,15 @@
 # Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
+* [FreeBSD 特色开发项目（滚动更新）](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
 
 ## 2025 年
 
-* [BSD 许可证一览](2025-01/xukez.md)
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
 * [为 FreeBSD 发声：FOSDEM 2025 参会报告](2025-01/fosd.md)
 * [zfs 速查手册](2025-01/zfs.md)
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
-* [FreeBSD 特色开发项目](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
 * [如何将基于 Electron 的应用程序移植到 FreeBSD](2025-01/ele.md)
 * [FreeBSD：原始操作系统发行版的火炬传承者](2025-01/bsd.md)
 * [浏览 FreeBSD 新的季度和两年一次发布计划](2025-01/time.md)
