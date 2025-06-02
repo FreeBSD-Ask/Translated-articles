@@ -33,7 +33,7 @@ FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，
 实现更常用的 MIT Kerberos，以提升与其他操作系统的互操作性。
 
 
-## 改进 bhyve 虚拟机监视器对 libvirt 的支持。
+## 改进 bhyve 虚拟机监视器对 libvirt 的支持
 
 **正在进行**
 
