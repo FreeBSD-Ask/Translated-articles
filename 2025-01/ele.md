@@ -14,7 +14,7 @@
 
 如果你查看这些 ports，会发现它们包含冗长的 Makefile 和大量的补丁文件。因此，你可能会认为移植基于 Electron 的应用程序是件繁琐的工作。然而，事实并非如此。这两个编辑器属于特例，移植基于 Electron 的应用程序通常比你想象的要简单。  
 
-借助一些[辅助 Makefile](https://github.com/tagattie/FreeBSD-Electron/tree/master/Mk/Uses)（仍在开发中），你可以通过编写不到 100 行的 Makefile 和一些配套文件来创建一个 port。  
+借助一些 [辅助 Makefile](https://github.com/tagattie/FreeBSD-Electron/tree/master/Mk/Uses)（仍在开发中），你可以通过编写不到 100 行的 Makefile 和一些配套文件来创建一个 port。  
 
 在这篇文章中，我将介绍如何使用这些 `.mk` 文件来移植基于 Electron 的应用程序。我选择了一个简单但仍然实用的应用程序 [YouTube Music Desktop](https://github.com/ytmdesktop/ytmdesktop) 作为示例。
 
@@ -59,7 +59,7 @@ cp FreeBSD-Electron/Mk/Uses/*.mk ${PORTSDIR}/Mk/Uses
 
 >**注意**
 >
->可在[我复刻版 Ports 仓库](https://github.com/tagattie/freebsd-ports/tree/master/multimedia/ytmdesktop)中找到完整的 port。如果你想快速查看它的样子，可以前往该链接。  
+>可在 [我复刻版 Ports 仓库](https://github.com/tagattie/freebsd-ports/tree/master/multimedia/ytmdesktop) 中找到完整的 port。如果你想快速查看它的样子，可以前往该链接。  
 
 ### 初始化 port  
 
@@ -90,7 +90,7 @@ cp /path/to/archive/ytmdesktop-1.8.2/package*.json files/packagejsons
 
 ### 编写 Makefile  
 
-现在，让我们来编写 Makefile。我只会介绍与 Electron 相关的部分。完整的 Makefile 请参考[我的复刻版仓库](https://github.com/tagattie/freebsd-ports/blob/master/multimedia/ytmdesktop/Makefile)。  
+现在，让我们来编写 Makefile。我只会介绍与 Electron 相关的部分。完整的 Makefile 请参考 [我的复刻版仓库](https://github.com/tagattie/freebsd-ports/blob/master/multimedia/ytmdesktop/Makefile)。  
 
 我们需要指定三个重要的变量：`USES`、`USE_NODE` 和 `USE_ELECTRON`。首先来看 `USES` 和 `USE_NODE`。通过定义这两个变量，指定的 Electron 版本、Node 版本以及包管理器会被自动添加到必要的依赖项中。  
 

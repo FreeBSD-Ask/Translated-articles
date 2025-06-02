@@ -18,7 +18,7 @@
 
 开发者是每个开源项目的核心。主权科技基金对 FreeBSD 基础设施的投资将确保开发者的一流体验，同时维护和扩展 FreeBSD 以其闻名的安全性和数字主权。
 
-德国主权科技基金委托的工作与美国国家网络总监办公室（ONCD）于 2024 年 8 月 9 日发布的[总结报告](https://www.whitehouse.gov/oncd/briefing-room/2024/08/09/fact-sheet-biden-harris-administration-releases-end-of-year-report-on-open-source-software-security-initiative-2/)密切相关。该报告整合了 2023 年有关加强开源软件生态系统安全的关键优先事项的反馈意见。通过增强安全控制和 SBOM 工具，FreeBSD 基金会帮助确保 FreeBSD 在改进漏洞披露机制和软件安全基础方面处于前沿。
+德国主权科技基金委托的工作与美国国家网络总监办公室（ONCD）于 2024 年 8 月 9 日发布的 [总结报告](https://www.whitehouse.gov/oncd/briefing-room/2024/08/09/fact-sheet-biden-harris-administration-releases-end-of-year-report-on-open-source-software-security-initiative-2/) 密切相关。该报告整合了 2023 年有关加强开源软件生态系统安全的关键优先事项的反馈意见。通过增强安全控制和 SBOM 工具，FreeBSD 基金会帮助确保 FreeBSD 在改进漏洞披露机制和软件安全基础方面处于前沿。
 
 “主权科技基金很高兴赞助 FreeBSD 项目，”德国主权科技基金联合创始人 Fiona Krakenbürger 表示。“这一针对关键数字基础设施的投资将加速 FreeBSD 的现代化，提升安全性并改善开发者体验。FreeBSD 的广泛应用意味着这些改进将在全球公共部门、研究领域以及商业用户中产生深远影响。我们很高兴为其持续现代化做出贡献，以更好地服务于公共利益和 FreeBSD 社区。”
 

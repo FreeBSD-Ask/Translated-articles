@@ -1,18 +1,18 @@
 # 通过将 ZFS 池构建为镜像结构，消除异常数据的影响
 
-- 原文：[ZFS プールをミラーで構成することで、不正データの影響を無くす](https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc)
+- 原文：[ZFS プールをミラーで 構成 することで、不正 データの 影響 を 無 くす](https://qiita.com/belgianbeer/items/0e69cf3c3f0fc3c89adc)
 - 作者：みんみん
 - 上次更新于 2022-12-26
 
 ## 开始之前
 
-在上一篇文章 [试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)中，我们确认了 ZFS 能够正确地检测出磁盘上的非法数据。
+在上一篇文章 [试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b) 中，我们确认了 ZFS 能够正确地检测出磁盘上的非法数据。
 
 能够检测出非法数据这一点，比起那些无法检测到非法数据而可能在读取时引发错误行为的文件系统，要好得多。但既然能检测到非法数据，自然而然就会想到：那是否可以将其恢复呢？
 
 在 ZFS 中，如果构建了具备冗余性的池，即使存在非法数据，也可以获取到正确的数据。具体来说，可以使用镜像（mirror）、RAID-Z 或 RAID-Z2 等池结构。
 
-本文将基于与[试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)相同的实验，在镜像结构的 ZFS 池上进行测试。
+本文将基于与 [试着破坏了 ZFS 池](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b) 相同的实验，在镜像结构的 ZFS 池上进行测试。
 
 **2022 年 12 月 26 日补充了执行 scrub 后的磁盘状态**
 
@@ -59,7 +59,7 @@ $
 
 至此，镜像所需的两个 HDD 各自的分区已创建完成。
 
-接下来，将这两个分区组合成一个 ZFS 镜像池。当然和[上次的实验](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b)一样，不启用 ZFS 压缩。
+接下来，将这两个分区组合成一个 ZFS 镜像池。当然和 [上次的实验](https://qiita.com/belgianbeer/items/477de8ddc64787442c0b) 一样，不启用 ZFS 压缩。
 
 ```sh
 $ zpool create -O atime=off ztest mirror gpt/tt1 gpt/tt2

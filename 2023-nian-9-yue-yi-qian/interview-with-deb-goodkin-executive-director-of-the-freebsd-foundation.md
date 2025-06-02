@@ -41,7 +41,7 @@ FreeBSD 通过奉行“少惊奇原则”而独具特色。遵循“不破坏正
 倍福使用成熟的基于 PC 的控制技术来实施开放的自动化系统。他们的产品 TwinCat/BSD 被应用在驱动技术、自动化软件、无控制柜自动化和机器视觉硬件等领域。TwinCat/BSD 将倍福的专有 TwinCat 运行时与 FreeBSD 结合使用。由于 Windows CE 即将停止支持，倍福需要一个非 GPL、稳定且安全的操作系统，能够支持全系列硬件，FreeBSD 正好满足这些要求。
 
 - CHERI/Morello
-CHERI 是“Clean Slate Trustworthy Secure Research and Development”（CTSRD - 发音为“custard”）项目的一部分。这是[国际斯坦福研究所计算机科学实验室](https://www.csl.sri.com/)和[剑桥大学计算机实验室](https://www.cst.cam.ac.uk/)联合研究项目，得到了 DARPA（DARPA CRASH、MRC 和 SSITH 计划的一部分）、Google 和 Arm 的支持。CHERI 旨在保护系统编程语言（如 C 和 C++）中的内存安全漏洞。通过改变架构接口，CHERI 在硬件层面强制执行内存保护。FreeBSD 是他们原型完整软件栈的一部分。如今，CHERI 通过 Arm 的 Morello 处理器设计有限供应。CHERI 和 Morello 共同构建了一个不断增长的硬件内存安全生态系统，由英国政府的 Digital Security by Design 计划协调。应用包括 CHERI WASM、Cloud Native CHERI 和 AutoCHERI。
+CHERI 是“Clean Slate Trustworthy Secure Research and Development”（CTSRD - 发音为“custard”）项目的一部分。这是 [国际斯坦福研究所计算机科学实验室](https://www.csl.sri.com/) 和 [剑桥大学计算机实验室](https://www.cst.cam.ac.uk/) 联合研究项目，得到了 DARPA（DARPA CRASH、MRC 和 SSITH 计划的一部分）、Google 和 Arm 的支持。CHERI 旨在保护系统编程语言（如 C 和 C++）中的内存安全漏洞。通过改变架构接口，CHERI 在硬件层面强制执行内存保护。FreeBSD 是他们原型完整软件栈的一部分。如今，CHERI 通过 Arm 的 Morello 处理器设计有限供应。CHERI 和 Morello 共同构建了一个不断增长的硬件内存安全生态系统，由英国政府的 Digital Security by Design 计划协调。应用包括 CHERI WASM、Cloud Native CHERI 和 AutoCHERI。
 
 - Netflix
 FreeBSD 驱动着 Netflix 全球内容交付网络 Open Connect 的构建模块，向全球会员提供 Netflix 电视节目和电影。通过 FreeBSD 提供动力的 Open Connect 设备，使得 Netflix 能够在单核 x86 服务器上使用内核 TLS 加密实现令人难以置信的性能（单个 OCA 的 400 Gb/s）。
@@ -58,7 +58,7 @@ FreeBSD 驱动着 Netflix 全球内容交付网络 Open Connect 的构建模块�
 
 **devmio:** 对于想要开始使用 FreeBSD 或参与其发展的开发者，你有什么建议？
 
-**Deb Goodkin:** 对于想要开始使用 FreeBSD 的人，[FreeBSD 基金会网站上有许多资源](https://freebsdfoundation.org/freebsd-project/resources/)，包括安装指南、操作指南、一小时的 FreeBSD Fridays 系列介绍性演讲，以及链接到社区创建的内容，比如 [RoboNuggie 的 YouTube 频道](https://www.youtube.com/c/robonuggie)。如果你希望更深入地参与开发工作，我们最常推荐的方式是从提交一项对文档的更改开始，浏 览[PR（问题报告）](https://www.freebsd.org/support/bugreports/)列表并修复一些 bug，或者帮助维护或添加一个 Port。我们还建议查看项目的新手页面。最后，在 FreeBSD 的[邮件列表](https://www.freebsd.org/community/mailinglists/)、IRC 和 [Discord](https://wiki.freebsd.org/Discord) 频道中可以找到许多社区互动的机会。
+**Deb Goodkin:** 对于想要开始使用 FreeBSD 的人，[FreeBSD 基金会网站上有许多资源](https://freebsdfoundation.org/freebsd-project/resources/)，包括安装指南、操作指南、一小时的 FreeBSD Fridays 系列介绍性演讲，以及链接到社区创建的内容，比如 [RoboNuggie 的 YouTube 频道](https://www.youtube.com/c/robonuggie)。如果你希望更深入地参与开发工作，我们最常推荐的方式是从提交一项对文档的更改开始，浏 览 [PR（问题报告）](https://www.freebsd.org/support/bugreports/) 列表并修复一些 bug，或者帮助维护或添加一个 Port。我们还建议查看项目的新手页面。最后，在 FreeBSD 的 [邮件列表](https://www.freebsd.org/community/mailinglists/)、IRC 和 [Discord](https://wiki.freebsd.org/Discord) 频道中可以找到许多社区互动的机会。
 
 >**由于其高性能、安全性和先进的网络功能，FreeBSD 无处不在。它被广泛应用于互联网服务器、嵌入式设备和防火墙等众多领域。**
 

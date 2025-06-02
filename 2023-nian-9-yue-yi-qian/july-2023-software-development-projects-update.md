@@ -68,7 +68,7 @@ FreeBSD 基于 Jenkins 的持续集成基础设施当前在开发人员将提交
 
 DTrace 是一个框架，使管理员和内核开发人员能够实时观察内核行为。DTrace 具有称为“provider”的内核模块，它使用“探针”在内核中执行特定的仪器操作。kinst 是由 Christos Margiolis 和 Mark Johnston 于 GSOC 2022 的一部分创建的新 DTrace 提供程序，它允许进行指令级跟踪，即对于给定的内核函数，用户可以跟踪其中的每个指令。该提供程序在 FreeBSD 14.0 中可用。
 
-kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 是要跟踪的内核函数，`<offset>` 是特定的指令。可以使用 kgdb(1) 从函数的反汇编中获取这些偏移量。例如，以下命令将在每次执行 vm_fault() 时跟踪其第一条指令：［注：原文如此］
+kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 是要跟踪的内核函数，`<offset>` 是特定的指令。可以使用 kgdb(1) 从函数的反汇编中获取这些偏移量。例如，以下命令将在每次执行 vm_fault() 时跟踪其第一条指令：［ 注：原文如此 ］
 
 这个项目于 7 月下旬完成，实现了内联函数跟踪。为了实现这个功能，使用了 DWARF 调试标准，以便能够检测内联调用并相应地处理它们。利用了 DWARF 和 kinst 的功能，解决了 FBT 的一些缺点，例如尾部调用优化问题（DTrace 手册的第 20.4 章）和内联跟踪能力的缺失。
 
@@ -76,7 +76,7 @@ kinst 探针采用 `kinst::<function>:<offset>` 的形式，其中 `<function>` 
 
 - 添加 kinst 的入口和返回探针，类似于内联跟踪所需的 FBT
 - 扩展 kinst，通过使用 FreeBSD 的 dwarf(3)，能够跟踪内联调用
-- 添加一个“locals”结构，用于存储跟踪函数的局部变量。例如，对于 kinst::foo:<x>，我们可以在 D 脚本中使用 print(locals->bar) 来打印局部变量 bar
+- 添加一个“locals”结构，用于存储跟踪函数的局部变量。例如，对于 kinst:: foo: <x>，我们可以在 D 脚本中使用 print(locals-> bar) 来打印局部变量 bar
 - 添加一个新的 dtrace(1) 参数，在 dt_sugar 应用转换后转储 D 程序。这对于调试 dt_sugar 本身非常有用。
 - 将 kinst 移植到 riscv / arm64。
 
@@ -140,8 +140,8 @@ FreeBSD WiFi 栈需要持续维护和开发，以跟上新标准和设备的发�
 
 正如我们在 2023 年第二季度状态报告中所报道的，339 个 src，155 个 ports 和 20 个 doc tree 的提交将 FreeBSD 基金会标识为赞助商。其中一部分工作包括：
 
-- 修复 man:fsck_ffs[8] 的错误
-- 修复 man:killpg[2] 的错误
+- 修复 man: fsck_ffs [8] 的错误
+- 修复 man: killpg [2] 的错误
 - 改进 hwpmc
 - 改进 vmm
 - 更新 libfido2 至 1.9.0 版本
@@ -149,7 +149,7 @@ FreeBSD WiFi 栈需要持续维护和开发，以跟上新标准和设备的发�
 - 各种 riscv 的改进
 - 从版本 4.9.3 到版本 4.99.4 的 tcpdump 供应商导入和更新
 
-基金会技术团队的成员在 5 月 17 日至 18 日在加拿大渥太华举行的开发者峰会上发表了演讲。这包括主持谷歌代码之夏、[FreeBSD 基金会](https://wiki.freebsd.org/DevSummit/202305?action=AttachFile&do=view&target=FreeBSD_Foundation_Devsummit_Spring_2023_Day_2.pdf)[技术审查](https://wiki.freebsd.org/DevSummit/202305?action=AttachFile&do=view&target=FreeBSD_Foundation_Devsummit_Spring_2023_Day_2_part1.pdf)和[工作流](https://docs.google.com/presentation/d/e/2PACX-1vSnEW5Z0ttQOAeqEEY8KHkfiRGeFUm4i8XrYsfY8TNYD--yx1P6MUu2_u-mCcpe6PMMITjeDIgT31CC/pub)工作组会议。基金会团队成员 Pierre Pronchery 讨论了 [BSD 之间的驱动器协调性](https://www.bsdcan.org/events/bsdcan_2023/schedule/speaker/89-pierre-pronchery/)，而 En-Wei Wu 则讨论了在基金会合同下完成的 [wtap 工作](https://www.bsdcan.org/events/bsdcan_2023/schedule/session/139-add-operating-modes-to-wtap4/)。
+基金会技术团队的成员在 5 月 17 日至 18 日在加拿大渥太华举行的开发者峰会上发表了演讲。这包括主持谷歌代码之夏、[FreeBSD 基金会](https://wiki.freebsd.org/DevSummit/202305?action=AttachFile&do=view&target=FreeBSD_Foundation_Devsummit_Spring_2023_Day_2.pdf) [技术审查](https://wiki.freebsd.org/DevSummit/202305?action=AttachFile&do=view&target=FreeBSD_Foundation_Devsummit_Spring_2023_Day_2_part1.pdf) 和 [工作流](https://docs.google.com/presentation/d/e/2PACX-1vSnEW5Z0ttQOAeqEEY8KHkfiRGeFUm4i8XrYsfY8TNYD--yx1P6MUu2_u-mCcpe6PMMITjeDIgT31CC/pub) 工作组会议。基金会团队成员 Pierre Pronchery 讨论了 [BSD 之间的驱动器协调性](https://www.bsdcan.org/events/bsdcan_2023/schedule/speaker/89-pierre-pronchery/)，而 En-Wei Wu 则讨论了在基金会合同下完成的 [wtap 工作](https://www.bsdcan.org/events/bsdcan_2023/schedule/session/139-add-operating-modes-to-wtap4/)。
 
 ## 基本系统中的 OpenSSL 3 更新
 
@@ -191,7 +191,7 @@ Differential [D40575](https://reviews.freebsd.org/D40575) 实现了用于量化�
 
 ## 将 mfsBSD 集成到发布构建工具中
 
-mfsBSD 是由 Martin Matuška 创建的工具集，用于创建基于 mfsroot 的 FreeBSD 分发的小型但功能齐全的发行版。也就是说，它通过内存文件系统（MFS）从存储设备加载文件并将它们存储在内存中。作为这个项目的一部分，Soobin Rho <soobinrho@FreeBSD.org>将在 src/release makefile 中为 -current 和 -stable 版本的 mfsBSD 镜像创建为每周快照的附加目标。目前，只能生成 RELEASE 版本的 mfsBSD 镜像，这意味着它们往往会与基础工具不同步。该项目旨在解决这个问题。
+mfsBSD 是由 Martin Matuška 创建的工具集，用于创建基于 mfsroot 的 FreeBSD 分发的小型但功能齐全的发行版。也就是说，它通过内存文件系统（MFS）从存储设备加载文件并将它们存储在内存中。作为这个项目的一部分，Soobin Rho <soobinrho@FreeBSD.org> 将在 src/release makefile 中为 -current 和 -stable 版本的 mfsBSD 镜像创建为每周快照的附加目标。目前，只能生成 RELEASE 版本的 mfsBSD 镜像，这意味着它们往往会与基础工具不同步。该项目旨在解决这个问题。
 
 ## FreeBSD 在 Microsoft HyperV 和 Azure 上的支持
 

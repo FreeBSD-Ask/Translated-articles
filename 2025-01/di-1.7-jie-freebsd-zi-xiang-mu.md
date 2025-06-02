@@ -21,9 +21,9 @@ FreeBSD 基金会以资金和资源赞助 FreeBSD 操作系统的开发活动，
 
 **正在进行**
 
-作为更大规模的[笔记本改进项目](https://github.com/FreeBSDFoundation/proj-laptop)的一部分，我们正在开发对更新的 S0ix 睡眠/休眠状态的支持。许多现代笔记本采用的是 S0ix 状态，而非较早的 S3 标准。在 S0ix 状态下，操作系统需要确定哪些设备需要进入睡眠状态，才能关闭 CPU；只有当所有条件满足后，固件才会自动关闭 CPU。
+作为更大规模的 [笔记本改进项目](https://github.com/FreeBSDFoundation/proj-laptop) 的一部分，我们正在开发对更新的 S0ix 睡眠/休眠状态的支持。许多现代笔记本采用的是 S0ix 状态，而非较早的 S3 标准。在 S0ix 状态下，操作系统需要确定哪些设备需要进入睡眠状态，才能关闭 CPU；只有当所有条件满足后，固件才会自动关闭 CPU。
 
-你可以在[此处关注项目进展](https://reviews.freebsd.org/D49595)。
+你可以在 [此处关注项目进展](https://reviews.freebsd.org/D49595)。
 
 
 ## 将 MIT Kerberos 引入 FreeBSD
@@ -88,7 +88,7 @@ FreeBSD 项目成员 Doug Rabson 开发了 **ocijail**，这是一种兼容 OCI 
 
 Doug Rabson 的 [GitHub 仓库](https://github.com/dfr/ocijail) 有与 Podman 和 Buildah 集成的初始代码。你还可以观看 Doug Rabson 在 Open Source Summit Seattle 前的 Container Plumbing Day 活动上关于实现 **ocijail** 的演讲 [这里](https://www.youtube.com/watch?v=pggcc6fi-ow)。
 
-Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-images/)，讨论了预构建的 FreeBSD OCI 容器镜像的实现功能。FreeBSD 项目设想将使用现有的容器镜像基础设施（例如 Docker Hub 和 [GitHub 容器注册表](https://github.blog/2020-09-01-introducing-github-container-registry/)）进行管理，或者通过 FreeBSD 自有基础设施托管镜像注册表。
+Doug 还撰写了一篇 [文章](https://freebsdfoundation.org/freebsd-container-images/)，讨论了预构建的 FreeBSD OCI 容器镜像的实现功能。FreeBSD 项目设想将使用现有的容器镜像基础设施（例如 Docker Hub 和 [GitHub 容器注册表](https://github.blog/2020-09-01-introducing-github-container-registry/)）进行管理，或者通过 FreeBSD 自有基础设施托管镜像注册表。
 
 更多信息请访问：**[ocijail (GitHub)](https://github.com/dfr/ocijail)**
 
@@ -121,7 +121,7 @@ Doug 还撰写了一篇[文章](https://freebsdfoundation.org/freebsd-container-
     * **[D44288](https://reviews.freebsd.org/D44288)：** 实现了 VOP\_UNP\_\*，并移除了对 VSOCK vnode 的特殊处理。
     * **[D44601](https://reviews.freebsd.org/D44601)：** 解决了对 vnode 私有数据的非法访问问题，并提出了强制卸载的测试方案。
     * **[D44788](https://reviews.freebsd.org/D44788)：** 修复了 unionfs\_rename 中的多个锁定问题，确保变更最小化以保证稳定性。
-    * **[D45398](https://reviews.freebsd.org/D45398)：** 重新设计了锁方案，使其仅锁定一个 vnode，经过多轮审查后，最终提交于 7 月 13 日。
+    * * *[D45398](https://reviews.freebsd.org/D45398)：** 重新设计了锁方案，使其仅锁定一个 vnode，经过多轮审查后，最终提交于 7 月 13 日。
 
 4. **咨询：**
 
@@ -184,7 +184,7 @@ OpenZFS 尤为适合大规模和高要求的应用程序，如虚拟化和容器
 
 有多个项目已将 FreeBSD 转化为面向桌面的系统，其中 GhostBSD 就是个重要的例子，它提供了图形化安装程序。然而，GhostBSD 的安装程序依赖于由 Python 编写的 Gtk+ 界面，如果将其整合到 FreeBSD 常规的镜像生成过程中，可能会大幅增加安装介质的体积。此外，这一方法还需要在 Ports 中引入、维护新的项目。
 
-为了解决这个问题，提出了一个 BSD 许可证下 man:Xdialog[1] 的替代方案，并借鉴了现有的 man:bsdinstall[8] 和 man:bsdconfig[8] 工具的知识。这个新工具名为 man:gbsddialog[1]，将提供图形化安装功能，同时与当前的安装程序基础设施共享资源。与 2006 年发布的，过时的 Xdialog 不同，gbsddialog 提供了一个现代化、高效的替代方案，确保占用最小的空间并保持 FreeBSD 的精简镜像生成流程。
+为了解决这个问题，提出了一个 BSD 许可证下 man: Xdialog [1] 的替代方案，并借鉴了现有的 man: bsdinstall [8] 和 man: bsdconfig [8] 工具的知识。这个新工具名为 man: gbsddialog [1]，将提供图形化安装功能，同时与当前的安装程序基础设施共享资源。与 2006 年发布的，过时的 Xdialog 不同，gbsddialog 提供了一个现代化、高效的替代方案，确保占用最小的空间并保持 FreeBSD 的精简镜像生成流程。
 
 在 FreeBSD 14.0 版本发布后，完成了概念验证原型。FreeBSD 基金会随后用两个月的时间完成了一个可用的实现。该项目最终在 2024 年 AsiaBSDCon 大会的 WIP（半成品）环节中展示了功能齐全的图形化安装程序，标志着 FreeBSD 安装过程在用户友好性和视觉吸引力方面的重大进展。
 
@@ -228,7 +228,7 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 ## 改进音频
 
-**正在进行**中
+**正在进行** 中
 
 ### 加强 FreeBSD 的音频堆栈，以改善对现代音频硬件和软件应用程序的支持
 
@@ -238,11 +238,11 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 近期开发中已经取得了几项重大改进。FreeBSD 14.1-RELEASE 和 14-STABLE 现已支持异步音频设备分离，提供了更灵活的音频设备管理。过时的“snd_clone”框架已被 DEVFS_CDEVPRIV(9) 取代，该框架也随 FreeBSD 14.1-RELEASE 和 14-STABLE 一同发布，使设备管理框架现代化。
 
-音频系统进行了多次崩溃和 bug 修复，并且在笔记本电脑上，对 man:snd_hda[4] 的支持得到了改善，确保了更稳定可靠的音频性能。OSS API 的增强改善了 SNDCTL_AUDIOINFO 和 SNDCTL_ENGINEINFO IOCTL 的实现，从而提高了兼容性和功能。
+音频系统进行了多次崩溃和 bug 修复，并且在笔记本电脑上，对 man: snd_hda [4] 的支持得到了改善，确保了更稳定可靠的音频性能。OSS API 的增强改善了 SNDCTL_AUDIOINFO 和 SNDCTL_ENGINEINFO IOCTL 的实现，从而提高了兼容性和功能。
 
-新实现包括启动 man:audio[3]，一个 OSS 音频和 MIDI 库，以及接管 man:virtual_oss[8] 的维护：这两者都为扩展 FreeBSD 音频堆栈的功能作出了贡献。
+新实现包括启动 man: audio [3]，一个 OSS 音频和 MIDI 库，以及接管 man: virtual_oss [8] 的维护：这两者都为扩展 FreeBSD 音频堆栈的功能作出了贡献。
 
-展望未来，该项目计划开发新的 man:audio[8] 工具和蓝牙管理工具，进一步改善用户体验。还计划对 man:mixer[3] 和 man:mixer[8] 进行增强。此外，项目将改进文档和测试套件，以确保全面的测试和用户指导。还在进行一项实验尝试，以自动化 man:snd_hda[4] 引脚补丁，如果成功，将显著简化音频配置。
+展望未来，该项目计划开发新的 man: audio [8] 工具和蓝牙管理工具，进一步改善用户体验。还计划对 man: mixer [3] 和 man: mixer [8] 进行增强。此外，项目将改进文档和测试套件，以确保全面的测试和用户指导。还在进行一项实验尝试，以自动化 man: snd_hda [4] 引脚补丁，如果成功，将显著简化音频配置。
 
 这些努力旨在全面提升 FreeBSD 的音频能力，确保更好的用户支持和功能，并巩固 FreeBSD 在高质量音频性能方面的声誉。
 
@@ -262,7 +262,7 @@ FreeBSD/RISC-V 项目旨在为 [RISC-V 指令集架构](https://riscv.org/) 提�
 
 关键成就包括使用来自退役机器的零件升级测试虚拟机的磁盘和内存，将 stable/13 任务的构建环境更新为 13.3-RELEASE，并将主分支上的 i386 构建过渡为使用 amd64 的交叉构建。
 
-**正在进行**的努力包括合并关键审查，向 CI 集群添加新硬件，以及设计预提交 CI 系统和拉取/合并请求系统。团队还在致力于利用 CI 集群构建发布工件，简化 CI/测试环境设置，以及重新设计硬件测试实验室。
+**正在进行** 的努力包括合并关键审查，向 CI 集群添加新硬件，以及设计预提交 CI 系统和拉取/合并请求系统。团队还在致力于利用 CI 集群构建发布工件，简化 CI/测试环境设置，以及重新设计硬件测试实验室。
 
 未来计划包括收集 CI 任务和想法，为虚拟机客机测试设置公共网络访问，实现裸金属硬件测试套件，添加针对 -CURRENT 的 DRM Port 构建测试，以及运行 ztest 测试。团队的目标是改善 FreeBSD 在 CI 流水线中的支持，并与托管的 CI 提供商合作。
 
@@ -382,18 +382,18 @@ Mark Johnston 和 Andrew Turner 合作创建了构建 arm64 bhyve 客户的扁�
 
 团队目前专注于几个关键任务：
 
-* **自动化镜像构建和发布过程：**  **正在进行**的努力旨在自动化镜像构建和发布过程，以将这些改进合并到 FreeBSD 的 src/release/ 仓库中。
+* **自动化镜像构建和发布过程：**  **正在进行** 的努力旨在自动化镜像构建和发布过程，以将这些改进合并到 FreeBSD 的 src/release/ 仓库中。
 * **构建和发布快照构建：**  快照构建正在开发和发布到 Azure 社区画廊，为用户提供最新的开发和更新。
 
 ## 移植 .NET (dotnet)
 
-### 将“dotnet”原生移植到 FreeBSD，初始版本为 8，后续版本的移植**正在进行**
+### 将“dotnet”原生移植到 FreeBSD，初始版本为 8，后续版本的移植 **正在进行**
 
 **联系人：** Gleb Popov [arrowd@freebsd.org](mailto:arrowd@freebsd.org)
 
 在 FreeBSD 上对 .NET 的支持（**dotnet**）使开发者能够选择自己喜欢的平台而不受限制。这种兼容性使他们能够利用 FreeBSD 独特的优势，同时保持与 .NET 一致的开发环境。
 
-新的 .NET 原生移植目前可用于 **amd64** 架构（对 **aarch64** 的支持**正在进行**中），将 .NET 运行时版本 8 带入 FreeBSD。这确保了完全兼容，同时利用了 FreeBSD 的性能和安全特性，使开发者能够充分利用 FreeBSD 的功能。
+新的 .NET 原生移植目前可用于 **amd64** 架构（对 **aarch64** 的支持 **正在进行** 中），将 .NET 运行时版本 8 带入 FreeBSD。这确保了完全兼容，同时利用了 FreeBSD 的性能和安全特性，使开发者能够充分利用 FreeBSD 的功能。
 
 将 .NET 移植到 FreeBSD 是一个协作努力，涉及主要社区贡献者。Gleb Popov（**arrowd@FreeBSD.org**）维护 .NET 移植，**[thefrank](https://github.com/Thefrank)**、Naram Qashat（**cyberbotx@cyberbotx.com**）和 Szczepan Ćwikliński（**[sec](https://github.com/sec)**）也做出了重要贡献。团队与 dotnet 上游项目积极合作，包括在 GitHub 上提交 PR。他们的共同努力对实现 .NET 在 FreeBSD 上的运行至关重要。
 
@@ -439,7 +439,7 @@ FreeBSD clusteradm 团队在新集群的集成阶段发挥了关键作用。
 * [rtprio(2)](https://man.freebsd.org/cgi/man.cgi?query=rtprio&sektion=2&format=html)：将每个运行队列的队列数量从 64 升级到 256。
 * **Vnode 回收/ZFS ARC 回收：** 审查了 [bug #275594](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=275594) 的修复，与上游沟通以获取和测试回移，并发出了一份 EN 并作为 13.3-RELEASE-p2 应用，同时开始了长期工作以改进 vnode 回收机制，并确保 ZFS 传递正确的信息。
 * **ULE 调度器：** 更新为在单个运行队列上工作，而不是为满足 POSIX 合规性而使用 3 个运行队列，以处理 SCHED\_FIFO/SCHED\_RR 优先级级别的数量。
-* **杂项：** 进行了多达 26 项评审、软件包更新，并调查了 DRM 问题。
+* * *杂项：** 进行了多达 26 项评审、软件包更新，并调查了 DRM 问题。
 * 在 FreeBSD Journal 发布了 [EuroBSDCon 2023 大会报告](https://freebsdfoundation.org/eurobsdcon-2023/)。
 
 ## FreeBSD 14 CIS 基准（互联网安全中心）
@@ -476,7 +476,7 @@ FreeBSD 上的矢量数据包处理（VPP）项目旨在将 VPP 这一开源的�
 
 文档工作专注于 FreeBSD 特定的 API 和用法，为开发者和用户提供清晰的指导。创建 VPP 的 FreeBSD 移植成功简化了安装和部署，使用户更易于使用。
 
-VPP 的 FreeBSD 移植取得了成功，**正在进行**的工作旨在进一步增强其能力。不断进行改进和优化，以确保 FreeBSD 的网络性能保持强大和高效，巩固其在高速网络应用中的适用性。
+VPP 的 FreeBSD 移植取得了成功，**正在进行** 的工作旨在进一步增强其能力。不断进行改进和优化，以确保 FreeBSD 的网络性能保持强大和高效，巩固其在高速网络应用中的适用性。
 
 **更多信息：** **[Vector Packet Processor (GitHub)](https://github.com/adventureloop/vpp)**
 
@@ -545,7 +545,7 @@ syslogd 守护进程负责读取并记录消息到系统控制台、日志文件
 
 **3. Capsicum 化 NFS 守护进程**
 
-NFS 套件由许多守护进程组成，包括 nfsd(8)、mountd(8)、rpcbind(8)、rpc.statd(8)、rpc.lockd(8) 和 rpc.tlsservd(8)。该项目的重点将放在 Capsicum 化 rpcbind 上。rpcbind 守护进程负责将 RPC 程序号转换为标准通用 DARPA 地址。这个程序非常适合 Capsicum 化，因为它通常由 root 运行，因此是一个有价值的攻击目标。快速浏览 usr.sbin/rpcbind/rpcbind.c:152 显示 rpcbind 限制自身至少使用 128 个资源，这表明它可能会按需请求打开任意文件。这是 Capsicum 化的一个明显障碍，因为我们无法在能力模式下打开任意文件。我们可能需要使用类似 libcasper(3) 的机制（或其他类似机制），在需要时将能力传递给 rpcbind。记录下这些命名资产的请求：rpc 锁文件、日志文件、网络配置文件、用于线程唤醒的管道、rpcbind 套接字。毫无疑问，还有更多。可能还会完成对其他 NFS 守护进程的 Capsicum 化。
+NFS 套件由许多守护进程组成，包括 nfsd(8)、mountd(8)、rpcbind(8)、rpc.statd(8)、rpc.lockd(8) 和 rpc.tlsservd(8)。该项目的重点将放在 Capsicum 化 rpcbind 上。rpcbind 守护进程负责将 RPC 程序号转换为标准通用 DARPA 地址。这个程序非常适合 Capsicum 化，因为它通常由 root 运行，因此是一个有价值的攻击目标。快速浏览 usr.sbin/rpcbind/rpcbind.c: 152 显示 rpcbind 限制自身至少使用 128 个资源，这表明它可能会按需请求打开任意文件。这是 Capsicum 化的一个明显障碍，因为我们无法在能力模式下打开任意文件。我们可能需要使用类似 libcasper(3) 的机制（或其他类似机制），在需要时将能力传递给 rpcbind。记录下这些命名资产的请求：rpc 锁文件、日志文件、网络配置文件、用于线程唤醒的管道、rpcbind 套接字。毫无疑问，还有更多。可能还会完成对其他 NFS 守护进程的 Capsicum 化。
 
 **4. Capsicum 化 ggatec(8) 和 ggated(8)**
 
@@ -565,7 +565,7 @@ libarchive 库专注于压缩和解压缩多种流行的归档格式。已注意
 
 **8. 完成 SIGCAP 违规信号实现**
 
-David Chisnall 提出的差异修订 <https://reviews.freebsd.org/D33248> 提议在 Capsicum 违规时可选地发送 SIGCAP 信号。不幸的是，该审查尚未完成，几个月来没有更新。完成此审查并添加 SIGCAP 信号可以使使用违规信号来触发 Capsicum 违规的程序的调试变得更加容易。我们可以使用 SIGCAP 告诉代码退回到替代路径，而不是等待可能被调试器拦截的 SIGTRAP。此外，拥有一个明确的 Capsicum 违规信号将允许 Capsicum 违规跟踪工具记录 Capsicum 特定的失败。例如，当 kern.trap enotcap=1 被设置时，任何 Capsicum 违规将提示 SIGTRAP 及程序终止。并不透明的是，这个程序是否因为违规而终止，还是因为不相关的 SIGTRAP 信号而终止。将 kern.trap enotcap 更改为发送 SIGCAP 将消除这种混淆。这个 SIGCAP 信号还可以为前述的 ktrace(1) 引入一种跟踪 Capsicum 违规的替代方法。ktrace(1) 程序可以拦截并记录 SIGCAP 调用，并使用适当的信号处理程序将原始程序送回执行。
+David Chisnall 提出的差异修订 <https://reviews.freebsd.org/D33248> 提议在 Capsicum 违规时可选地发送 SIGCAP 信号。不幸的是，该审查尚未完成，几个月来没有更新。完成此审查并添加 SIGCAP 信号可以使使用违规信号来触发 Capsicum 违规的程序的调试变得更加容易。我们可以使用 SIGCAP 告诉代码退回到替代路径，而不是等待可能被调试器拦截的 SIGTRAP。此外，拥有一个明确的 Capsicum 违规信号将允许 Capsicum 违规跟踪工具记录 Capsicum 特定的失败。例如，当 kern.trap enotcap = 1 被设置时，任何 Capsicum 违规将提示 SIGTRAP 及程序终止。并不透明的是，这个程序是否因为违规而终止，还是因为不相关的 SIGTRAP 信号而终止。将 kern.trap enotcap 更改为发送 SIGCAP 将消除这种混淆。这个 SIGCAP 信号还可以为前述的 ktrace(1) 引入一种跟踪 Capsicum 违规的替代方法。ktrace(1) 程序可以拦截并记录 SIGCAP 调用，并使用适当的信号处理程序将原始程序送回执行。
 
 ## 无线实习
 
@@ -628,7 +628,7 @@ WireGuard 是一种安全的隧道协议，具有用户空间和内核实现。�
 
 FreeBSD 的基础系统有 LLDB，它是 LLVM 家族的调试器。与 GNU GDB 调试器相比，FreeBSD 的 LLDB 目前存在一些限制，尚未完全取代 GDB。这个多阶段项目旨在为 FreeBSD 提供现代化的调试器，使 LLDB 更接近于一款功能齐全的 GDB 替代品。
 
-[第一部分](https://freebsdfoundation.org/project/lldb-debugger-improvements/)和 [第二部分](https://freebsdfoundation.org/project/lldb-improvements-part-ii-additional-cpu-support-follow-fork-operations-and-savecore-functionality/) 的 LLDB 改进项目描述了 FreeBSD 上 LLDB 的用户空间改进。第三部分专注于内核调试的改进。
+[第一部分](https://freebsdfoundation.org/project/lldb-debugger-improvements/) 和 [第二部分](https://freebsdfoundation.org/project/lldb-improvements-part-ii-additional-cpu-support-follow-fork-operations-and-savecore-functionality/) 的 LLDB 改进项目描述了 FreeBSD 上 LLDB 的用户空间改进。第三部分专注于内核调试的改进。
 
 FreeBSD 上的 LLDB 调试器仍然缺乏能替代的 [kgdb(1)](https://www.freebsd.org/cgi/man.cgi?query=kgdb&sektion=1)，kgdb 是一个包装了修改版 GDB 的调试器，依赖 libkvm 接口来调试死后和实时的 BSD 内核内存。LLDB 在 FreeBSD 内核调试中的一个主要限制是缺乏与 GDB 的远程协议兼容性。这种不兼容意味着 LLDB 前端与现有的 gdb-server 实现不兼容，尤其是与 qemu 使用的实现不兼容。第三部分的一个主要目标是解决这些不兼容，使得在内核调试中不再需要安装 GDB，并让 FreeBSD 开发人员使用 LLDB 满足他们所有的调试需求。
 
@@ -642,7 +642,7 @@ libkvm 是 FreeBSD 基础系统的一部分，提供了一种统一的接口，�
 
 FreeBSD 的基础系统有 LLDB，它是 LLVM 家族的调试器。与 GNU GDB 调试器相比，FreeBSD 的 LLDB 目前存在一些限制，尚未完全取代 GDB。这个多阶段项目旨在为 FreeBSD 提供现代化的调试器，使 LLDB 更接近于一款功能齐全的 GDB 替代品。
 
-[LLDB 改进项目的第一部分](https://freebsdfoundation.org/project/lldb-debugger-improvements/)描述了用现代方法替换 FreeBSD x86_64 上过时的 LLDB 插件模型，该方法在单独的 lldb-server 进程下执行目标进程。传统的单体目标支持仍然在非 x86 目标上使用。该项目的第二部分涉及将一些非 x86 CPU 架构切换到新的远程进程插件框架，并完全移除旧的本地调试进程插件。待移植完成，将重点重新执行所有 ARM64 上的 LLDB 测试，并在时间允许的情况下解决任何错误，将非平凡的问题标记为已知故障。
+[LLDB 改进项目的第一部分](https://freebsdfoundation.org/project/lldb-debugger-improvements/) 描述了用现代方法替换 FreeBSD x86_64 上过时的 LLDB 插件模型，该方法在单独的 lldb-server 进程下执行目标进程。传统的单体目标支持仍然在非 x86 目标上使用。该项目的第二部分涉及将一些非 x86 CPU 架构切换到新的远程进程插件框架，并完全移除旧的本地调试进程插件。待移植完成，将重点重新执行所有 ARM64 上的 LLDB 测试，并在时间允许的情况下解决任何错误，将非平凡的问题标记为已知故障。
 
 第二部分的其他里程碑包括：
 
@@ -701,7 +701,7 @@ OpenZFS 提供了两种主要的压缩参数，分别是 LZ4（高速，低节�
 
 总体思路是用两个读多写锁替换单个互斥锁，一个保护整体桥接，另一个保护转发表。绝大多数数据包只需要读取锁，从而允许多个核心同时通过桥接传输数据包。
 
-该项目**正在进行**中，目标完成日期为 2020 年春初。
+该项目 **正在进行** 中，目标完成日期为 2020 年春初。
 
 ## 可扩展性和性能提升
 
@@ -786,7 +786,7 @@ Zettabyte 文件系统（ZFS）是一种组合文件系统和逻辑卷管理器�
 
 这将通过“重新排列”所有现有数据来实现，将数据重新写入新的磁盘排列中，在逻辑 RAID-Z 组的末尾（因此在每个物理磁盘的末尾）留出一个新的连续空闲空间。重新排列的数据仍将保持原有的逻辑条带宽度，即数据与校验的比例将保持不变，而新写入的数据将使用新的逻辑条带宽度，具有改进的数据与校验比。重新排列的过程将在在线进行的同时，其他 zfs 和 zpool 操作也可以进行。
 
-该项目**已完成**。
+该项目 **已完成**。
 
 ## 将 'blacklistd' 守护进程移植到 FreeBSD
 
@@ -824,9 +824,9 @@ FreeBSD 开发者：Bjoern Zeeb
 
 该项目的目标是设计和实现一个 FreeBSD MPTCP 栈，以促进进一步的 MPTCP 研究活动。关键在于实现一个可扩展的设计，以简化拥塞控制、调度和路径管理方案的实验。
 
-之前已经发布了一个[实验内核补丁](http://caia.swin.edu.au/urp/newtcp/mptcp/tools.html)。正在对 HEAD 分支进行持续开发。
+之前已经发布了一个 [实验内核补丁](http://caia.swin.edu.au/urp/newtcp/mptcp/tools.html)。正在对 HEAD 分支进行持续开发。
 
-目前**正在进行**的功能包括扩展单路径模块 CC 代码以与 MPTCP 连接一起使用，以及添加一个模块化的数据包调度框架。此过程的一部分涉及重构现有 MPTCP 会话管理代码的大部分，以及创建新的多路径特定协议挂钩，这些步骤减少了 MPTCP 代码与现有 TCP 代码之间的耦合。
+目前 **正在进行** 的功能包括扩展单路径模块 CC 代码以与 MPTCP 连接一起使用，以及添加一个模块化的数据包调度框架。此过程的一部分涉及重构现有 MPTCP 会话管理代码的大部分，以及创建新的多路径特定协议挂钩，这些步骤减少了 MPTCP 代码与现有 TCP 代码之间的耦合。
 
 基金会很高兴能够支持使用 FreeBSD 的大学研究，并通过这样的赞助为项目的增强作出贡献。
 
@@ -840,7 +840,7 @@ FreeBSD 开发者：Bjoern Zeeb
 
 FreeBSD 基金会与 ARM、Cavium、Semihalf sp.j. 和 Andrew Turner 合作，将 FreeBSD 移植到 arm64。Cavium 直接向基金会提供支持，为开发社区提供工程专业知识和硬件。Cavium 的 ThunderX 平台与 FreeBSD 作为服务器操作系统的优势非常契合，支持在单个封装中最多 48 个核心。ThunderX 将是该项目的初始参考目标，但后续还会移植到其他 arm64 平台。
 
-该项目的总体目标是使 FreeBSD/arm64 达到一级地位，包括发布媒体和预构建的软件包集。有关 arm64 移植的更多信息，请访问 [FreeBSD wiki](https://wiki.freebsd.org/arm64)，**正在进行**中的源代码树可通过 FreeBSD 基金会的 [GitHub 账号](https://github.com/FreeBSDFoundation/freebsd/tree/arm64-dev) 获得。
+该项目的总体目标是使 FreeBSD/arm64 达到一级地位，包括发布媒体和预构建的软件包集。有关 arm64 移植的更多信息，请访问 [FreeBSD wiki](https://wiki.freebsd.org/arm64)，**正在进行** 中的源代码树可通过 FreeBSD 基金会的 [GitHub 账号](https://github.com/FreeBSDFoundation/freebsd/tree/arm64-dev) 获得。
 
 ## 集成 Newcons 控制台驱动
 
@@ -983,7 +983,7 @@ DAHDI（Digium/Asterisk 硬件设备接口）是一个开源设备驱动程序�
 
 该项目包括将 DAHDI 框架和 E1/T1、FXO/FXS 模拟卡以及 ISDN 数字卡的硬件驱动程序移植到 FreeBSD。这还包括 TDMoE 支持、软件和硬件回声消除（Octasic, VPMADT032）以及硬件转码支持（TC400B）。该工作在官方的 DAHDI SVN 仓库中进行，并与 Digium 的 DAHDI 团队密切合作。
 
-目前，大部分 DAHDI 组件已被移植，包括 DAHDI 框架本身、硬件驱动程序、TDMoE 驱动程序、软件和硬件回声消除（Octasic, VPMADT032）以及硬件转码（TC400B）。该项目托管在[官方 DAHDI SVN 仓库](http://svn.digium.com/svn/dahdi/freebsd/)中。
+目前，大部分 DAHDI 组件已被移植，包括 DAHDI 框架本身、硬件驱动程序、TDMoE 驱动程序、软件和硬件回声消除（Octasic, VPMADT032）以及硬件转码（TC400B）。该项目托管在 [官方 DAHDI SVN 仓库](http://svn.digium.com/svn/dahdi/freebsd/) 中。
 
 FreeBSD ports 中的 [misc/dahdi](http://www.freshports.org/misc/dahdi/) 现在包含 DAHDI/FreeBSD 的最新组件以及由于许可和版权限制而不在 DAHDI/FreeBSD SVN 中提供的一些内容。这些内容包括 OSLEC 回声消除器和实验性的 zaphfc 驱动程序。
 

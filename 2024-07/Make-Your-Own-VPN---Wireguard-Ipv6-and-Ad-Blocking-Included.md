@@ -20,7 +20,7 @@ VPN 是连接到自己的服务器和设备的基本工具。许多人出于各�
 
 在 OpenBSD 上，Wireguard 完全集成到了基本系统中，无需安装外部软件包。这是一个重大优势，因为随着时间的推移，所有与 Wireguard 相关的支持将由主要的 OpenBSD 开发团队直接管理。
 
-第一步是在 VPS 上配置 IPv6。在 Hetzner 下，不幸的是，他们只提供 /64 的地址，因此需要对分配的网络进行分段。在这个例子中，它将被划分为 /72 子网络 - 可以使用[计算器](https://subnettingpractice.com/ipv6-subnet-calculator.html)来查找有效的子类。
+第一步是在 VPS 上配置 IPv6。在 Hetzner 下，不幸的是，他们只提供 /64 的地址，因此需要对分配的网络进行分段。在这个例子中，它将被划分为 /72 子网络 - 可以使用 [计算器](https://subnettingpractice.com/ipv6-subnet-calculator.html) 来查找有效的子类。
 
 文件 `/etc/hostname.vio0` 应该看起来如下：
 
@@ -112,8 +112,10 @@ wg0: flags=80c3<UP,BROADCAST,RUNNING,NOARP,MULTICAST> mtu 1420
 ```sh
 #!/bin/sh
 #
+
 # this is normally run once per day via /etc/daily.local.
 #
+
 echo updating Spamhaus DROP lists:
 (
   { ftp -o - https://www.spamhaus.org/drop/drop.txt && \
@@ -168,7 +170,7 @@ rcctl enable unbound
 rcctl start unbound
 ```
 
-如果一切都正确，unbound 将能够响应来自各自 LAN 的请求，位于 `172.14.0.1` 和`2a01:4f8:cafe:cafe:100::1` 上。
+如果一切都正确，unbound 将能够响应来自各自 LAN 的请求，位于 `172.14.0.1` 和 `2a01:4f8:cafe:cafe:100::1` 上。
 
 现在可以配置 Wireguard 客户端了。每种实现都有其自己的过程（Android、iOS、MikroTik、Linux 等），但基本上只需在服务器和客户端上创建正确的配置即可。例如，在 OpenBSD 服务器上输入“ifconfig wg0”命令可查看服务器的公钥，应将其插入到客户端上将创建的“peer”配置中；而客户端的公钥则将在服务器上这样使用：
 
@@ -186,9 +188,9 @@ wgpeer *client's public key* wgaip 172.14.0.2/32 wgaip 2a01:4f8:cafe:cafe:100::2
 sh /etc/netstart wg0
 ```
 
-在客户端上，通过在本地 IP 地址中插入“172.14.0.2/32, 2a01:4f8:cafe:cafe:100::2/128”（在主机名为 wg0 的对等配置中输入的）创建一个新配置。将 DNS 服务器地址设置为“172.14.0.1”及/或其对应的 IPv6 地址（在本例中为 2a01:4f8:cafe:cafe:100::1 - 你的将会不同）。在对等端，插入服务器的数据，包括其公钥、IP 地址:port（在示例中，port 是 51820），以及允许的地址（设置“0.0.0.0/0, ::0/0”意味着“所有连接将通过 Wireguard 发送” - 所有流量将通过 VPN 传输，无论是 IPv4 还是 IPv6）。
+在客户端上，通过在本地 IP 地址中插入“172.14.0.2/32, 2a01:4f8: cafe: cafe: 100:: 2/128”（在主机名为 wg0 的对等配置中输入的）创建一个新配置。将 DNS 服务器地址设置为“172.14.0.1”及/或其对应的 IPv6 地址（在本例中为 2a01:4f8: cafe: cafe: 100:: 1 - 你的将会不同）。在对等端，插入服务器的数据，包括其公钥、IP 地址: port（在示例中，port 是 51820），以及允许的地址（设置“0.0.0.0/0, :: 0/0”意味着“所有连接将通过 Wireguard 发送” - 所有流量将通过 VPN 传输，无论是 IPv4 还是 IPv6）。
 
-也可以将 VPN 仅用作广告拦截器，只通过其路由 DNS 流量。要实现此结果，只需配置客户端，使得唯一允许的地址是刚配置的 unbound 的地址（在本示例中，172.14.0.1 或 2a01:4f8:cafe:cafe:100::1） - DNS 解析将通过 VPN 进行，但浏览将继续通过主提供商运行。
+也可以将 VPN 仅用作广告拦截器，只通过其路由 DNS 流量。要实现此结果，只需配置客户端，使得唯一允许的地址是刚配置的 unbound 的地址（在本示例中，172.14.0.1 或 2a01:4f8: cafe: cafe: 100:: 1） - DNS 解析将通过 VPN 进行，但浏览将继续通过主提供商运行。
 
 如果你希望垃圾邮件和广告屏蔽列表能够自动更新，创建/etc/daily.local 文件并添加以下行：
 

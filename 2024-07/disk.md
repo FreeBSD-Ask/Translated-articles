@@ -1,6 +1,6 @@
 # 通过替换 ZFS 镜像池中的磁盘来扩容
 
-- 原文链接：[ZFS ミラープールのディスク交換による容量増設](https://qiita.com/belgianbeer/items/8df197588462cd7f6b45)
+- 原文链接：[ZFS ミラープールのディスク 交換 による 容量増設](https://qiita.com/belgianbeer/items/8df197588462cd7f6b45)
 - 作者：みんみん
 - 上次更新于 2023 年 07 月 16 日
 
@@ -94,7 +94,7 @@ $
 
 ### ZFS 镜像中硬盘更换时的注意事项
 
-在更换 ZFS 镜像中的硬盘时，有一点非常重要：**切勿在更换前执行 ZFS 池的操作，如 `zpool detach zvol0 gpt/ndisk2` 等**。因为如果使用 `zpool detach` 将 ndisk2 从池中分离，ndisk2 上的数据会被视为已删除。若在数据同步过程中，ndisk1 读取出现错误，就无法使用新硬盘来重新同步数据了[2]。如果只是切断电源并拆下 ndisk2，ndisk2 上的数据仍然会与 ndisk1 相同，因此万一出现问题时，可以使用 ndisk2 来进行恢复。
+在更换 ZFS 镜像中的硬盘时，有一点非常重要：**切勿在更换前执行 ZFS 池的操作，如 `zpool detach zvol0 gpt/ndisk2` 等**。因为如果使用 `zpool detach` 将 ndisk2 从池中分离，ndisk2 上的数据会被视为已删除。若在数据同步过程中，ndisk1 读取出现错误，就无法使用新硬盘来重新同步数据了 [2]。如果只是切断电源并拆下 ndisk2，ndisk2 上的数据仍然会与 ndisk1 相同，因此万一出现问题时，可以使用 ndisk2 来进行恢复。
 
 ### 更换第一块硬盘
 
@@ -206,7 +206,7 @@ errors: No known data errors
 $
 ```
 
-在 `zpool status` 中，你会看到 `One or more devices is currently being resilvered`[3]，这表明正在进行 resilver 操作（即同步）。在 `action` 部分，系统会指示你等待 resilver 操作完成。同时，`scan` 部分显示了处理的进度和预计完成时间，但在同步开始时，通常会看到 `no estimated completion time`，这意味着系统无法立即估算预计时间。
+在 `zpool status` 中，你会看到 `One or more devices is currently being resilvered` [3]，这表明正在进行 resilver 操作（即同步）。在 `action` 部分，系统会指示你等待 resilver 操作完成。同时，`scan` 部分显示了处理的进度和预计完成时间，但在同步开始时，通常会看到 `no estimated completion time`，这意味着系统无法立即估算预计时间。
 
 稍等片刻，预计时间会逐渐显示，但根据经验，这个估算并不总是准确的。
 
@@ -314,6 +314,7 @@ ada2p1 added
            40  11721045088     1  sdisk2  (5.5T)
 
 #
+
 ```
 
 第二台同步开始
@@ -414,7 +415,7 @@ $
 
 忘记指定设备名导致了错误 😅，但实际上，使用 `zpool online` 时必须指定设备名，而当使用 `-e` 选项时，应该指定池内某个设备名才可以执行。
 
-重新指定设备名并执行后，容量成功扩展到 5.45TB[4]。
+重新指定设备名并执行后，容量成功扩展到 5.45TB [4]。
 
 ```sh
 $ zpool online -e zvol0 gpt/sdisk1

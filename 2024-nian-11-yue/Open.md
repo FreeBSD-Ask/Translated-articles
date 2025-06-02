@@ -27,13 +27,13 @@ FreeBSD 是一款开创性的开源操作系统，继承了由加州大学伯克
 
 FreeBSD 项目的组织稳定性是其关键区别之一，自 1993 年以来持续开发着。FreeBSD 是许多企业设备（如 Juniper 的交换机和 NetApp 的 NAS 单元）、消费电子、网络与安全解决方案以及像 [Netflix 的 OpenConnect CDN](https://en.wikipedia.org/wiki/Open_Connect) 这样的高流量内容分发系统的基石。这一长期稳定的组织和社区为 FreeBSD 的开发工作提供了可靠性和持续的创新。
 
-受到原始[伯克利软件分发](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)启发，FreeBSD 的开发方法采用了集中式模型，这与 Linux 的高度分布式开发生态系统有着很大的不同。与第三方 Linux 发行版将内核与许多外部项目的软件结合不同，FreeBSD 所有系统组件和文档均由单一项目框架内的团队进行开发。这一方法确保了系统的一致性和安全性，突显了 FreeBSD 对统一操作系统的坚持。
+受到原始 [伯克利软件分发](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) 启发，FreeBSD 的开发方法采用了集中式模型，这与 Linux 的高度分布式开发生态系统有着很大的不同。与第三方 Linux 发行版将内核与许多外部项目的软件结合不同，FreeBSD 所有系统组件和文档均由单一项目框架内的团队进行开发。这一方法确保了系统的一致性和安全性，突显了 FreeBSD 对统一操作系统的坚持。
 
 ## 对 BSD 许可证的深厚承诺
 
 FreeBSD 的核心理念是坚守 BSD 许可证，这反映了项目在自由与开放创新方面的基本原则。这一宽松的许可证几乎不限制软件的使用、修改和分发。FreeBSD 力求减少 GPL 许可证组件的使用，展示了其致力于保持尽可能开放和自由的基础系统，促进创新和协作的环境。
 
-[BSD 2-Clause 许可证](https://opensource.org/license/bsd-2-clause)推动着 FreeBSD 的开发和采用。尽管它对使用 BSD 许可证代码的开发者要求较少（并且较为简洁，仅 200 余字，而 [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) 长达近 3000 字），FreeBSD 项目由于其领导和结构方式，仍显得更加利他。与像红帽这样的公司不同，红帽虽有贡献于开源项目，但它是以商业利益为驱动，FreeBSD 则来自于其自身的源头，作为一款统一体开发内核和操作系统。这一集中式开发方法确保了所有组件的紧密集成，带来更大的一致性和可靠性。
+[BSD 2-Clause 许可证](https://opensource.org/license/bsd-2-clause) 推动着 FreeBSD 的开发和采用。尽管它对使用 BSD 许可证代码的开发者要求较少（并且较为简洁，仅 200 余字，而 [GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) 长达近 3000 字），FreeBSD 项目由于其领导和结构方式，仍显得更加利他。与像红帽这样的公司不同，红帽虽有贡献于开源项目，但它是以商业利益为驱动，FreeBSD 则来自于其自身的源头，作为一款统一体开发内核和操作系统。这一集中式开发方法确保了所有组件的紧密集成，带来更大的一致性和可靠性。
 
 ## FreeBSD 基金会与 FreeBSD 项目的角色
 
@@ -41,21 +41,21 @@ FreeBSD 的核心理念是坚守 BSD 许可证，这反映了项目在自由与�
 
 ## 安全的构建环境
 
-FreeBSD 的[持续集成构建环境](https://ci.freebsd.org/)以安全为基础原则进行设计。通过隔离构建环境、最小化外部依赖、严格验证源代码并确保一致的构建过程，FreeBSD 有效地减少了与更复杂和控制较少的构建环境相关的风险。这些设计原则共同提升了系统的完整性和安全性，确保了安全和受控的构建过程，减少了漏洞。
+FreeBSD 的 [持续集成构建环境](https://ci.freebsd.org/) 以安全为基础原则进行设计。通过隔离构建环境、最小化外部依赖、严格验证源代码并确保一致的构建过程，FreeBSD 有效地减少了与更复杂和控制较少的构建环境相关的风险。这些设计原则共同提升了系统的完整性和安全性，确保了安全和受控的构建过程，减少了漏洞。
 
 ## FreeBSD 的新季度和双年度发布计划
 
-为了提升用户体验、改善系统安全性并简化维护，FreeBSD 更新了其[发布计划](https://freebsdfoundation.org/blog/navigating-freebsds-new-quarterly-and-biennial-release-schedule/)。用户现在可以期望每个季度发布一个新的次要版本，每两年发布一次主要的 `.0` 版本。从 FreeBSD 15.x 开始，稳定分支将支持四年，较之前的五年有所缩短。这一新计划确保了持续的更新流动，实现在维持稳定性的同时应对新出现的安全威胁的实际平衡。
+为了提升用户体验、改善系统安全性并简化维护，FreeBSD 更新了其 [发布计划](https://freebsdfoundation.org/blog/navigating-freebsds-new-quarterly-and-biennial-release-schedule/)。用户现在可以期望每个季度发布一个新的次要版本，每两年发布一次主要的 `.0` 版本。从 FreeBSD 15.x 开始，稳定分支将支持四年，较之前的五年有所缩短。这一新计划确保了持续的更新流动，实现在维持稳定性的同时应对新出现的安全威胁的实际平衡。
 
 ## 上游贡献的广泛影响
 
-FreeBSD 的开发模型秉承了伯克利 BSD 的协作精神。社区的[上游贡献](https://docs.freebsd.org/en/articles/contributing/)对整个系统产生了重要影响，从内核到实用程序和文档。这种集中式的开发意味着单一贡献就能改善整个系统的性能、安全性和可用性，产生连锁反应，每一次提升都对项目的整体健康和发展做出贡献。
+FreeBSD 的开发模型秉承了伯克利 BSD 的协作精神。社区的 [上游贡献](https://docs.freebsd.org/en/articles/contributing/) 对整个系统产生了重要影响，从内核到实用程序和文档。这种集中式的开发意味着单一贡献就能改善整个系统的性能、安全性和可用性，产生连锁反应，每一次提升都对项目的整体健康和发展做出贡献。
 
 ## 未来方向与如何参与
 
 展望未来，FreeBSD 将继续适应和发展。转向双年度发布周期以及引入四年支持期限是确保项目继续与时俱进、响应用户需求的重要步骤。这些变化，加上 FreeBSD 已经建立的稳定性，使其在开源生态系统中继续成功发展的前景广阔。
 
-对于有兴趣参与 FreeBSD 的新成员，有很多方式可以参与。无论是担任导师、推广 FreeBSD，还是参与论坛和邮件列表，你的努力都会推动项目的创新和发展。今天就支持 FreeBSD 项目，加入其充满活力的社区，帮助构建这个长期发展的开源生态系统。你可以通过[改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理[错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter)和[参与讨论](https://www.freebsd.org/community/mailinglists/)来帮助提升 FreeBSD。每份贡献，无论大小，都会帮助 FreeBSD 成为一款更稳定、安全和高效的开源操作系统。
+对于有兴趣参与 FreeBSD 的新成员，有很多方式可以参与。无论是担任导师、推广 FreeBSD，还是参与论坛和邮件列表，你的努力都会推动项目的创新和发展。今天就支持 FreeBSD 项目，加入其充满活力的社区，帮助构建这个长期发展的开源生态系统。你可以通过 [改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理 [错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter) 和 [参与讨论](https://www.freebsd.org/community/mailinglists/) 来帮助提升 FreeBSD。每份贡献，无论大小，都会帮助 FreeBSD 成为一款更稳定、安全和高效的开源操作系统。
 
 ## 结论
 

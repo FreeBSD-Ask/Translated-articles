@@ -51,7 +51,7 @@ ZFS 是一款大容量、容错的文件系统，为 FreeBSD 带来了多个性�
 
 通过 Port 软件包，FreeBSD 为用户提供了海量的软件应用。Ports 由 FreeBSD 项目自己维护着，有 30,000 款余应用，涉及包括 Web 服务器、数据库、桌面环境和开发工具等多个类别。
 
-**pkg** 包管理器[简化了从 Ports 安装软件](https://freebsdfoundation.org/blog/freebsd-ports-and-packages-what-you-need-to-know/)的流程。与其他系统中可能出现的复杂且易错的依赖管理不同，pkg 会自动处理所有依赖关系，确保用户能够快速高效地安装所需软件，无需担心依赖冲突和错误。
+**pkg** 包管理器 [简化了从 Ports 安装软件](https://freebsdfoundation.org/blog/freebsd-ports-and-packages-what-you-need-to-know/) 的流程。与其他系统中可能出现的复杂且易错的依赖管理不同，pkg 会自动处理所有依赖关系，确保用户能够快速高效地安装所需软件，无需担心依赖冲突和错误。
 
 
 ## 安全性与稳定性
@@ -103,7 +103,7 @@ FreeBSD 提供了性能、安全性、稳定性、灵活性和支持性社区的
 
 ## 为 FreeBSD 项目做贡献
 
-无论是通过指导、推广 FreeBSD，还是参与论坛和邮件列表，你的努力都推动着 FreeBSD 项目的创新与发展。今天就加入我们的充满活力的社区，通过帮助建设这个长期发展且不断壮大的开源生态系统来支持 FreeBSD 项目！通过[改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理[错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter)和[参与讨论](https://www.freebsd.org/community/mailinglists/)，来提升 FreeBSD。每份贡献，不论大小，都有助于使 FreeBSD 变得更加稳定、安全和高效。
+无论是通过指导、推广 FreeBSD，还是参与论坛和邮件列表，你的努力都推动着 FreeBSD 项目的创新与发展。今天就加入我们的充满活力的社区，通过帮助建设这个长期发展且不断壮大的开源生态系统来支持 FreeBSD 项目！通过 [改进文档](https://docs.freebsd.org/en/books/fdp-primer/)、处理 [错误报告](https://www.freebsd.org/support/bugreports/)、[提交代码](https://wiki.freebsd.org/BecomingACommitter) 和 [参与讨论](https://www.freebsd.org/community/mailinglists/)，来提升 FreeBSD。每份贡献，不论大小，都有助于使 FreeBSD 变得更加稳定、安全和高效。
 
 ## 关于 FreeBSD 基金会
 

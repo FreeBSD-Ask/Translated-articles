@@ -31,7 +31,7 @@ Linux 是一个围绕其内核构建的操作系统，具有不同实现的用�
 
 如果你对操作系统的期望就是这样的话，可以说 FreeBSD 并不适合你，因为它的方法是为你提供一个空白的画布，你可以在上面绘就自己的故事。你会得到 FreeBSD，即一个命令提示符，你可以以 root 身份登录，仅此而已。
 
-你的第一个任务是使用 `adduser` 添加一个日常用户，然后在为自己授予 sudo 特权之前，你必须安装 `sudo`。这将是你第一次使用 `pkg` 软件包管理器，作为长期使用类似 Linux 发行版软件包管理器的用户，我发现（FreeBSD）使用起来相当容易。我想要一个桌面环境，所以我再次使用了 pkg 安装 X，然后是[桌面环境](https://docs.freebsd.org/en/books/handbook/desktop/)（我选择了 [Lumina](https://lumina-desktop.org/)，但有很多其他选择），以及诸如 Firefox、GIMP、OpenSCAD 和 KiCAD 等有用的软件。所有这些都不是很困难的，尽管我确实不得不搜索一些在线指南来配置桌面环境。
+你的第一个任务是使用 `adduser` 添加一个日常用户，然后在为自己授予 sudo 特权之前，你必须安装 `sudo`。这将是你第一次使用 `pkg` 软件包管理器，作为长期使用类似 Linux 发行版软件包管理器的用户，我发现（FreeBSD）使用起来相当容易。我想要一个桌面环境，所以我再次使用了 pkg 安装 X，然后是 [桌面环境](https://docs.freebsd.org/en/books/handbook/desktop/)（我选择了 [Lumina](https://lumina-desktop.org/)，但有很多其他选择），以及诸如 Firefox、GIMP、OpenSCAD 和 KiCAD 等有用的软件。所有这些都不是很困难的，尽管我确实不得不搜索一些在线指南来配置桌面环境。
 
 确保你的硬件足够新（但不要太新）一张 Nvidia GeForce GT520 显卡，它是不再受支持的古老显卡。
 

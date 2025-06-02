@@ -9,7 +9,7 @@
 
 我想在 Bhyve 的 Windows 虚拟机中使用主机设备，所以尝试进行了 PCI 直通的设置。作为管理软件，我使用了 vm-bhyve，因此在这个前提下我会提供以下说明。关于 vm-bhyve 的内容在搜索时可以找到相当多的解释，请参考那些资料。
 
-硬件是我去年购买的，与这篇文章中所写的内容相同。[https://qiita.com/yshdsnd/items/e8ba8d417851ae56f2fc](https://qiita.com/yshdsnd/items/e8ba8d417851ae56f2fc)不过值得注意的是，内存已经增加到了 128GB。我正在的是使用 FreeBSD 13.1-STABLE。
+硬件是我去年购买的，与这篇文章中所写的内容相同。[https://qiita.com/yshdsnd/items/e8ba8d417851ae56f2fc](https://qiita.com/yshdsnd/items/e8ba8d417851ae56f2fc) 不过值得注意的是，内存已经增加到了 128GB。我正在的是使用 FreeBSD 13.1-STABLE。
 
 ## 2. 物理机（硬件）设置
 
@@ -99,7 +99,7 @@ ppt1       4/0/0        Yes          -
 ## 4. 虚拟机启动设置
 
 将直通设备注册到 vm-bhyve 的配置文件中。
-由于已经创建了名为"windows"的虚拟机，因此可以通过执行`vm config windows`来编辑配置文件。
+由于已经创建了名为 "windows" 的虚拟机，因此可以通过执行 `vm config windows` 来编辑配置文件。
 
 ```
 loader="uefi"
@@ -133,7 +133,7 @@ passthru0="3/0/0"
 passthru1="4/0/0"
 ```
 
-使用`passthruX="BUS/SLOT/FUNC"`的格式进行记录。只需将 vm passthru 显示的内容直接复制到这里即可。虽然与 passthru 无关，但是在最近的-STABLE 版本中，添加了通过 VNC 连接时指定键盘映射的选项（-K），这样即使通过日语键盘使用，也不再出现无法正确输入符号的情况。这个选项已经被添加到了`bhyve_options`中。
+使用 `passthruX="BUS/SLOT/FUNC"` 的格式进行记录。只需将 vm passthru 显示的内容直接复制到这里即可。虽然与 passthru 无关，但是在最近的-STABLE 版本中，添加了通过 VNC 连接时指定键盘映射的选项（-K），这样即使通过日语键盘使用，也不再出现无法正确输入符号的情况。这个选项已经被添加到了 `bhyve_options` 中。
 
 ## 5. 尝试启动虚拟机
 

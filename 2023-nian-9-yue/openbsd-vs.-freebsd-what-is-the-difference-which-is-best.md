@@ -25,7 +25,7 @@ OpenBSD 和 FreeBSD 都有安装程序，可让你在计算机上分区并安装
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/4f8917f3-6b27-4030-ab98-7416822c8dd2)
 
-OpenBSD 假定用户具备丰富的计算机经验，其（安装）界面相对简约。你需要从其网站下载安装镜像，就像在下载 Linux 时一样，然后将其[提取到存储设备](https://www.makeuseof.com/tag/extract-iso-files-linux/)中，并启动计算机。
+OpenBSD 假定用户具备丰富的计算机经验，其（安装）界面相对简约。你需要从其网站下载安装镜像，就像在下载 Linux 时一样，然后将其 [提取到存储设备](https://www.makeuseof.com/tag/extract-iso-files-linux/) 中，并启动计算机。
 
 当你的计算机启动时，你会看到一个控制台界面。与主要的 Linux 发行版不同，OpenBSD 没有图形化的安装程序和 live CD。你需要从终端运行安装程序，并回答有关键盘类型和区域的问题。
 
@@ -67,7 +67,7 @@ OpenBSD 和 FreeBSD 都维护有关其系统的文档。
 
 OpenBSD 的文档与其余系统一样，简洁而面向专家。从视觉上看，该项目的网站根植于上世纪 90 年代，尽管 OpenBSD 通常会有富有幽默感的发布主题。
 
-除了 man 页之外，OpenBSD 还维护着["FAQ"部分](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555659403722&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fwww.openbsd.org%2Ffaq%2Findex.html&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=%22FAQ%22%20sections)，实际上也可以作为手册使用。这些内容涵盖了一些细节，如安装和系统安全性。
+除了 man 页之外，OpenBSD 还维护着 ["FAQ" 部分](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555659403722&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fwww.openbsd.org%2Ffaq%2Findex.html&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=%22FAQ%22%20sections)，实际上也可以作为手册使用。这些内容涵盖了一些细节，如安装和系统安全性。
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/7dcb3392-c258-46d9-8985-c714f1c94860)
 
@@ -101,7 +101,7 @@ FreeBSD 提供了许多与 Linux 发行版相同的窗口管理器和桌面环�
 
 ## 硬件支持：OpenBSD 与 FreeBSD
 
-如果你觉得在 Linux 上[开源和专有硬件驱动程序的支持](https://www.makeuseof.com/closed-source-vs-open-source-hardware-drivers/)令人沮丧，那么在[基于 BSD 的操作系统上](https://www.makeuseof.com/best-bsd-based-operating-systems/)，你的选择会更有限，因为至少在桌面领域，它们比 Linux 更为小众。
+如果你觉得在 Linux 上 [开源和专有硬件驱动程序的支持](https://www.makeuseof.com/closed-source-vs-open-source-hardware-drivers/) 令人沮丧，那么在 [基于 BSD 的操作系统上](https://www.makeuseof.com/best-bsd-based-operating-systems/)，你的选择会更有限，因为至少在桌面领域，它们比 Linux 更为小众。
 
 与 Linux 一样，最大的挑战在于显卡和 Wi-Fi。
 
@@ -113,7 +113,7 @@ FreeBSD 支持主要的显卡芯片制造商以及 Wi-Fi。
 
 ## FreeBSD 和 OpenBSD 中的包管理器
 
-OpenBSD 和 FreeBSD 都提供了软件包管理，以简化软件安装，类似于现代的 Linux 发行版。在这两个系统中，你可以从源代码编译"ports"，但也可以选择快速安装二进制软件包。后一种方法在这两个系统中越来越常见。
+OpenBSD 和 FreeBSD 都提供了软件包管理，以简化软件安装，类似于现代的 Linux 发行版。在这两个系统中，你可以从源代码编译 "ports"，但也可以选择快速安装二进制软件包。后一种方法在这两个系统中越来越常见。
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/2cda586a-8b75-40b1-bbbc-4c6c5e9222f0)
 
@@ -121,7 +121,7 @@ OpenBSD 使用 `pkg_add` 和 `pkg_info` 程序来安装和搜索软件包。
 
 ![image](https://github.com/FreeBSD-Ask/Translated-articles/assets/10327999/7af6923b-163f-4d98-b9a9-3dd5a829a6f4)
 
-FreeBSD 的软件包命令称为"pkg"，并且所有操作都在一个程序中执行。后一种方法似乎更加简单。
+FreeBSD 的软件包命令称为 "pkg"，并且所有操作都在一个程序中执行。后一种方法似乎更加简单。
 
 ## 哪个更安全？OpenBSD 还是 FreeBSD
 
@@ -131,7 +131,7 @@ OpenBSD 和 FreeBSD 都强调它们对安全性的承诺。FreeBSD 是一个更�
 
 尽管仅仅因为流行度而选择操作系统不应该是唯一的考虑因素，但它将影响到寻找软件和支持的能力。虽然 OpenBSD 在开源社区中以其对安全性的忠诚以及在发布主题方面的俏皮一面而声名远扬，但 FreeBSD 似乎得到了更广泛的支持。
 
-很难准确衡量这两个系统在实际中有多广泛的使用，但截至 2023 年 9 月，根据对其网页的点击量，FreeBSD 在 [distrowatch.com](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555670553524&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fdistrowatch.com%2F&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=distrowatch.com)上的排名高于 OpenBSD。
+很难准确衡量这两个系统在实际中有多广泛的使用，但截至 2023 年 9 月，根据对其网页的点击量，FreeBSD 在 [distrowatch.com](https://redirect.viglink.com/?format=go&jsonp=vglnk_169555670553524&key=eac202ea7a96cf485281d6c4ffa2069e&libId=lmxdwmxz0103es17000ULaqhkd35z&loc=https%3A%2F%2Fwww.makeuseof.com%2Fopenbsd-vs-freebsd-what-is-the-difference%2F&ccpaConsent=1YNY&v=1&opt=true&optExText=false&out=https%3A%2F%2Fdistrowatch.com%2F&ref=https%3A%2F%2Fwww.google.com%2F&title=OpenBSD%20vs.%20FreeBSD%3A%20What%20Is%20the%20Difference%2C%20Which%20Is%20Best%3F&txt=distrowatch.com) 上的排名高于 OpenBSD。
 
 ## 现在，你可以根据工作的性质选择适合的 BSD
 

@@ -1,15 +1,15 @@
 # portsnap 被淘汰了，本应由 git 代替，但结果我发现自己用的是 got
 
-- 原文：[追放された portsnap、変わりに git が入ってくはずだったのに、気がつけば got がいる](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2)
+- 原文：[追放 された portsnap、変 わりに git が 入 ってくはずだったのに、気 がつけば got がいる](https://qiita.com/nanorkyo/items/f7d2d796b8303eb656f2)
 - 作者：重村法克
 - 2023-12-02
 
 ## 前言
 
 本文介绍了 [Got](https://gameoftrees.org/)，这是源自 OpenBSD 项目的 [Git](https://git-scm.com/) 替代工具。
-这是一种所谓的 `git` 命令的替代品，但如果你对 `git` 命令的使用以及其许可证完全没有疑问的话，那就[完全没有必要](https://gameoftrees.org/faq.html#pointless)使用这个工具。由于开发者的立场，这个工具的使用场景也具有独特性。
+这是一种所谓的 `git` 命令的替代品，但如果你对 `git` 命令的使用以及其许可证完全没有疑问的话，那就 [完全没有必要](https://gameoftrees.org/faq.html#pointless) 使用这个工具。由于开发者的立场，这个工具的使用场景也具有独特性。
 
-据称 Got 旨在实现对 Git 的裸数据仓库的兼容[1]。它在针对裸数据仓库的操作方面具有兼容性。相对地，在所谓的工作区（包括索引）层面上则不兼容。在工作流程中需要根据命令加以区分使用。
+据称 Got 旨在实现对 Git 的裸数据仓库的兼容 [1]。它在针对裸数据仓库的操作方面具有兼容性。相对地，在所谓的工作区（包括索引）层面上则不兼容。在工作流程中需要根据命令加以区分使用。
 
 虽然开篇是以通用视角进行介绍的，但说实话，是因为最近 FreeBSD 中移除了 `portsnap` 命令，所以大家看到了一些提示说“请改用 Git”[2]。本文正是面向那些觉得“为了替代 portsnap 而引入 Git 实在有点……”的人所写的内容。
 
@@ -133,7 +133,7 @@ $ cd /usr/ports && git pull
 $ cd /usr/ports && got fetch && got update
 ```
 
-这个是典型的使用方式。关于开发流程中需要的使用方法，请参考[命令对照表](https://gameoftrees.org/comparison.html)等参考资料。
+这个是典型的使用方式。关于开发流程中需要的使用方法，请参考 [命令对照表](https://gameoftrees.org/comparison.html) 等参考资料。
 
 ## 附加的 `tog` 命令
 
@@ -208,7 +208,7 @@ got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 
 ### 问：运行 `git status` 后看到惊人的结果
 
-答：关于 `.gitignore` 文件的处理，~~有一个 bug~~ 这是设计上的特性。本来 `.gitignore` 文件中指定的目录和文件是不应显示的。根据略微的研究，它并不是完全没有处理 `.gitignore` 文件。所以这是~~一个 bug~~ 设计上的特性。
+答：关于 `.gitignore` 文件的处理，~~有一个 bug~~ 这是设计上的特性。本来 `.gitignore` 文件中指定的目录和文件是不应显示的。根据略微的研究，它并不是完全没有处理 `.gitignore` 文件。所以这是 ~~一个 bug~~ 设计上的特性。
 
 ### 问：有没有别名功能？
 
@@ -222,13 +222,13 @@ got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 
 - [git](https://git-scm.com/)
 - [got](https://gameoftrees.org/)
-- [got、cvs、svn、git との比較](https://gameoftrees.org/comparison.html)
-- [よくある質問とその答え](https://gameoftrees.org/faq.html)
-- [FOSDEM 2023 での発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
-- [EuroBSDcon 2019 での発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
-- [FreeBSDの入手方法（Gitの利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
+- [got、cvs、svn、git との 比較](https://gameoftrees.org/comparison.html)
+- [よくある 質問 とその 答 え](https://gameoftrees.org/faq.html)
+- [FOSDEM 2023 での 発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
+- [EuroBSDcon 2019 での 発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
+- [FreeBSDの 入手方法（Gitの 利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
 
 ---
 
-1. [Game of Trees Goals](https://gameoftrees.org/goals.html)より
+1. [Game of Trees Goals](https://gameoftrees.org/goals.html) より
 2. [Ports Collection のインストール](https://docs.freebsd.org/ja/books/handbook/ports/#ports-using-installation-methods)

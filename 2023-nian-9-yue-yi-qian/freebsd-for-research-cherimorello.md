@@ -11,7 +11,7 @@
 
 以 Docker 为例。这个微服务和敏捷方法学的基石是建立在 FreeBSD 中的虚拟化和系统分区创新——[Jail](https://freebsdfoundation.org/freebsd-project/resources/introduction-to-freebsd-Jail/) 之上。而你可能已经猜到，Jail 正是从 Robert Watson 和 Poul-Henning Kamp 的研究衍生出来的。
 
-在对 Jail 的研究之后，[Watson 教授](https://www.cl.cam.ac.uk/~rnw24/)加入了[英国剑桥大学](https://www.cam.ac.uk/)[计算机科学系](https://www.cst.cam.ac.uk/about)，继续研究和开发改进计算机系统安全的突破性方法。他的工作使他获得了 [EuroSys Jochen Liedtke 青年研究员奖](https://www.cst.cam.ac.uk/news/robert-watson-wins-eurosys-jochen-liedtke-young-researcher-award-2021)，该奖每年授予展示在系统研究中表现出色的欧洲青年研究者（即获得博士学位后不超过 10 年）。
+在对 Jail 的研究之后，[Watson 教授](https://www.cl.cam.ac.uk/~rnw24/) 加入了 [英国剑桥大学](https://www.cam.ac.uk/) [计算机科学系](https://www.cst.cam.ac.uk/about)，继续研究和开发改进计算机系统安全的突破性方法。他的工作使他获得了 [EuroSys Jochen Liedtke 青年研究员奖](https://www.cst.cam.ac.uk/news/robert-watson-wins-eurosys-jochen-liedtke-young-researcher-award-2021)，该奖每年授予展示在系统研究中表现出色的欧洲青年研究者（即获得博士学位后不超过 10 年）。
 
 在选择 Watson 教授时，EuroSys 指出了他在系统研究中的悠久贡献历史，包括共同开发 Jail 安全模型，该模型是当代操作系统容器化的知识基础；他领导了开发内核访问控制框架，该框架用于从 macOS 和 Junos 到 FreeBSD 的应用程序沙箱；他开发了 Capsicum 操作系统安全模型，以及最近领导开发 CHERI 计算机架构。CHERI 现在是英国工业战略挑战基金（ISCF）1.87 亿英镑（约 2250 万美元）数字安全设计（DSbD）计划中探索的关键技术。
 
@@ -53,7 +53,7 @@ CHERI 团队在此过程中广泛地为 FreeBSD 做了贡献，改进了 FreeBSD
 
 ## 获取 CHERI
 
-感兴趣的用户可以下载一个叫做 [CheriBSD](https://www.cheribsd.org/) 的完整 FreeBSD 衍生操作系统。CheriBSD 是一个研究性操作系统，[广泛使用 CHERI 来提高](https://www.morello-project.org/cheri-feature-matrix/)软件安全性，并展示了对 CHERI 的逐步软件采用路径。它的特点包括内核和用户空间的内存安全性、支持两种软件隔离模型，以及大约一万个内存安全的第三方软件包，包括服务器应用程序，如 nginx、KDE Plasma 桌面环境。今年晚些时候，将会向 CheriBSD 软件包集合中添加一个内存安全的 Chromium 网络浏览器，由 Google 和 InnovateUK 赞助。可以使用可下载的 USB 驱动器映像在 Arm Morello 系统上进行安装。CheriBSD 拥有一个活跃的用户社区，有 70 多家公司和大学参与基于 Morello 的研究项目，几乎所有项目都在运行 CheriBSD，其中最活跃的贡献者是 SRI、剑桥和微软。
+感兴趣的用户可以下载一个叫做 [CheriBSD](https://www.cheribsd.org/) 的完整 FreeBSD 衍生操作系统。CheriBSD 是一个研究性操作系统，[广泛使用 CHERI 来提高](https://www.morello-project.org/cheri-feature-matrix/) 软件安全性，并展示了对 CHERI 的逐步软件采用路径。它的特点包括内核和用户空间的内存安全性、支持两种软件隔离模型，以及大约一万个内存安全的第三方软件包，包括服务器应用程序，如 nginx、KDE Plasma 桌面环境。今年晚些时候，将会向 CheriBSD 软件包集合中添加一个内存安全的 Chromium 网络浏览器，由 Google 和 InnovateUK 赞助。可以使用可下载的 USB 驱动器映像在 Arm Morello 系统上进行安装。CheriBSD 拥有一个活跃的用户社区，有 70 多家公司和大学参与基于 Morello 的研究项目，几乎所有项目都在运行 CheriBSD，其中最活跃的贡献者是 SRI、剑桥和微软。
 
 >“通过 CHERI，我们改变了硬件和软件。而我们选择改变的软件，以展示这些想法和理解它们，就是 FreeBSD。除了允许私营部门合作的宽松许可证外，FreeBSD 全面的内核和用户空间 LLVM 使用、紧密集成的操作系统设计和构建、对多种 ABI 的清洁内核支持、Capsicum 的集成，以及对 RISC-V 架构的早期支持，使 FreeBSD 非常适合我们的需求。”
 

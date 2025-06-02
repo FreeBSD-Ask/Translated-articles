@@ -11,16 +11,16 @@ FreeBSD 项目始终对新用户和贡献者充满期待！参与其中的最简
 
 想要回馈社区吗？新的贡献者可以帮助校对现有文档、提供全新的详细文档、推荐错误修复，并将新软件移植到 FreeBSD。无论你的专业知识如何，都有一个适合每个人的地方！
 
-通过 [FreeBSD 邮件列表](https://www.freebsd.org/community/mailinglists/)建立联系！
+通过 [FreeBSD 邮件列表](https://www.freebsd.org/community/mailinglists/) 建立联系！
 
-- [FreeBSD-Questions 邮件列表](https://lists.freebsd.org/subscription/freebsd-questions)是与更广泛的 FreeBSD 社区建立联系的绝佳起点，同时可能找到在使用 FreeBSD 时遇到的任何问题的答案。
-- [FreeBSD-Current 邮件列表](https://lists.freebsd.org/subscription/freebsd-current)包含大量关于使用 FreeBSD Current 的讨论。
+- [FreeBSD-Questions 邮件列表](https://lists.freebsd.org/subscription/freebsd-questions) 是与更广泛的 FreeBSD 社区建立联系的绝佳起点，同时可能找到在使用 FreeBSD 时遇到的任何问题的答案。
+- [FreeBSD-Current 邮件列表](https://lists.freebsd.org/subscription/freebsd-current) 包含大量关于使用 FreeBSD Current 的讨论。
 
 在社交媒体上找到 FreeBSD 社区！
 
 - 加入 [FreeBSD Discord](https://discord.com/invite/n2wshsy)。
-- 在 [IRC 频道](https://wiki.freebsd.org/IRC/)上参与讨论。
-- 在[官方 FreeBSD 论坛](https://forums.freebsd.org/)上提问并讨论。
+- 在 [IRC 频道](https://wiki.freebsd.org/IRC/) 上参与讨论。
+- 在 [官方 FreeBSD 论坛](https://forums.freebsd.org/) 上提问并讨论。
 - 加入 [FreeBSD subreddit](https://www.reddit.com/r/freebsd/)。
 
 找到本地用户组和活动！

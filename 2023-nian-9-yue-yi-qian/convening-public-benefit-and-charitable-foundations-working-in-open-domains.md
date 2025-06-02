@@ -43,7 +43,7 @@ OPA 将专注于向公共政策制定者进行开源教育，以便在制定和�
 - Open Source Hong Kong
 - OpenStreetMap Foundation
 
-OSI 执行主任 Stefano Maffulli 将于 7 月 15 日在俄勒冈州波特兰举办的 [FOSSY 2023 会议](https://2023.fossy.us/schedule/presentation/63/)上讨论全球政策环境以及 OPA 在其中的作用。有关 OPA 的更多信息，请访问[其网页](https://opensource.org/programs/open-policy-alliance/)。
+OSI 执行主任 Stefano Maffulli 将于 7 月 15 日在俄勒冈州波特兰举办的 [FOSSY 2023 会议](https://2023.fossy.us/schedule/presentation/63/) 上讨论全球政策环境以及 OPA 在其中的作用。有关 OPA 的更多信息，请访问 [其网页](https://opensource.org/programs/open-policy-alliance/)。
 
 原文地址：
 

@@ -8,7 +8,7 @@
 
 **更新于 2020 年 1 月 21 日：** 自从我写了这篇文章后，它在 [Hacker News](https://news.ycombinator.com/item?id=22102372)、[Reddit](https://old.reddit.com/r/freebsd/comments/er5wu0/freebsd_is_an_amazing_operating_system/) 和 [Lobster](https://lobste.rs/s/jedqwr/freebsd_is_amazing_operating_system) 上发布过，也有几个人通过电子邮件给我发来了评论。我已根据评论更新了文章。顺便提一下，我不是 FreeBSD 的开发者，FreeBSD 世界中可能有我完全不了解的事情。我也没有关注过 FreeBSD 的开发者邮件列表。我不是 FreeBSD 的“粉丝”。在过去的二十年里，我在使用 GNU/Linux 方面比 FreeBSD 多得多，主要是由于硬件不兼容（缺乏或有问题的驱动程序）。我同样喜欢 Debian GNU/Linux 和 Arch Linux。然而，我对 GNU/Linux 近来的发展感到担忧。此外，这篇文章并不是让任何人从其他系统转换到 FreeBSD，它只是说明我为什么喜欢 FreeBSD，并推荐对操作系统进行调试的人尝试一下。
 
-我想，那应该是 1999 年末或 2000 年中，有一天我在我最喜欢的书店浏览计算机书籍，发现了 Greg Lehey 于 1999 年写的[《The Complete FreeBSD 第三版》](https://openlibrary.org/books/OL8732144M/The_Complete_FreeBSD)。随书附带了 4 张带有 FreeBSD 3.3 的 CD 光盘。
+我想，那应该是 1999 年末或 2000 年中，有一天我在我最喜欢的书店浏览计算机书籍，发现了 Greg Lehey 于 1999 年写的 [《The Complete FreeBSD 第三版》](https://openlibrary.org/books/OL8732144M/The_Complete_FreeBSD)。随书附带了 4 张带有 FreeBSD 3.3 的 CD 光盘。
 
 在 1998 年，我已经熟悉了 GNU/Linux，并且正在逐步将家里和公司的所有服务器和桌面操作系统从 Microsoft Windows 迁移到 GNU/Linux，起初是 Red Hat Linux，后来是 Debian GNU/Linux，后者最终成为我多年来最喜欢的 GNU/Linux 发行版。
 
@@ -36,7 +36,7 @@
 
 **更新于 2020 年 1 月 21 日：** Hacker News 上的某个评论说：*“在我看来，如果需要手动调整，那就是一个错误，而不是一个特性。（我是作为一个 FreeBSD 开发者而这么说的。）”* 对于这一点，我完全反对。有许多选项是你无法简单地自动调整的，因为用例是如此不同，你需要能够手动设置你需要的特定选项。在运行一个类似 NGINX 的繁忙静态文件服务器上，与在 FreeBSD 上运行一个繁忙的数据库服务器相比，每个设置可能需要根据你的用例进行特定的调整，无论是在文件系统还是内核或其他方面。
 
-在接下来的几年里，GNU/Linux 的硬件支持也变得越来越好，我经常遇到一些愚蠢的硬件在 FreeBSD 上无法工作。当时硬件非常昂贵，而且我没有购买能够在 FreeBSD 上正常工作的硬件的选择。所有这些问题最终使我比以前更多地使用 GNU/Linux。如今，这不再是一个大问题，因为 FreeBSD 对大多数现代硬件都有很好的支持，但与 Linux 相比，GPU 的支持还不够好。FreeBSD 的[维基](https://wiki.freebsd.org/Graphics)提供了一些相关信息。
+在接下来的几年里，GNU/Linux 的硬件支持也变得越来越好，我经常遇到一些愚蠢的硬件在 FreeBSD 上无法工作。当时硬件非常昂贵，而且我没有购买能够在 FreeBSD 上正常工作的硬件的选择。所有这些问题最终使我比以前更多地使用 GNU/Linux。如今，这不再是一个大问题，因为 FreeBSD 对大多数现代硬件都有很好的支持，但与 Linux 相比，GPU 的支持还不够好。FreeBSD 的 [维基](https://wiki.freebsd.org/Graphics) 提供了一些相关信息。
 
 我依然非常喜欢 FreeBSD，并且最终把它作为我主要的桌面计算机使用了很长一段时间（同时在其他计算机上仍运行着几个 GNU/Linux 发行版）。
 
@@ -51,8 +51,8 @@
 - FreeBSD 的基本安装中同时包含 [UFS](https://en.wikipedia.org/wiki/Unix_File_System) 和 [ZFS](https://en.wikipedia.org/wiki/ZFS) 文件系统。
 - FreeBSD 提供丰富的存储系统 GEOM，允许你使用两台网络机器实现高可用性存储，使用你选择的 RAID 级别，或添加诸如压缩或加密等功能。
 - FreeBSD 还有 [geli](https://en.wikipedia.org/wiki/Geli_(software))，它是一个基于块设备的磁盘加密系统，使用 [GEOM](https://en.wikipedia.org/wiki/GEOM) 磁盘框架。
-- FreeBSD 的服务处理非常简单。每个服务，无论是基本系统的一部分还是从 Ports 安装的，都带有一个脚本，负责启动和停止它（通常还包括一些其他选项）。默认脚本位于默认目录中，具有默认设置，比如 `/etc/default/rc.conf`，但所有设置都可以通过使用 `/etc/rc.conf` 进行覆盖。如果你想启用 SSHd，只需将 `sshd_enable="YES"` 添加到 `/etc/rc.conf`，SSHd 将在启动时启用，或者你可以使用命令 `service sshd enable` ，这更加简单，效果相同。读取配置文件的 FreeBSD rc 系统理解服务之间的依赖关系，并且可以自动并行启动它们，或者在一个完成后等待启动它所需要的其他事物。你将获得现代配置系统的所有优势，没有复杂的界面。**更新于 2020 年 1 月 21 日：** 有人说“并行性部分是错误的”。我从未使用过这个选项，但在 [FreeBSD 宣传项目](https://www.freebsd.org/advocacy/whyusefreebsd.html)中是这样描述的，文字上说：*“读取此文件的 rc 系统理解服务之间的依赖关系，因此可以自动并行启动它们……”* 如果这是错误的，该网站需要一份错误报告。
-- FreeBSD 同时具有 [ports 系统](https://en.wikipedia.org/wiki/FreeBSD_Ports)和 [pkg。](https://en.wikipedia.org/wiki/FreeBSD_Ports#Packages)
+- FreeBSD 的服务处理非常简单。每个服务，无论是基本系统的一部分还是从 Ports 安装的，都带有一个脚本，负责启动和停止它（通常还包括一些其他选项）。默认脚本位于默认目录中，具有默认设置，比如 `/etc/default/rc.conf`，但所有设置都可以通过使用 `/etc/rc.conf` 进行覆盖。如果你想启用 SSHd，只需将 `sshd_enable="YES"` 添加到 `/etc/rc.conf`，SSHd 将在启动时启用，或者你可以使用命令 `service sshd enable` ，这更加简单，效果相同。读取配置文件的 FreeBSD rc 系统理解服务之间的依赖关系，并且可以自动并行启动它们，或者在一个完成后等待启动它所需要的其他事物。你将获得现代配置系统的所有优势，没有复杂的界面。**更新于 2020 年 1 月 21 日：** 有人说“并行性部分是错误的”。我从未使用过这个选项，但在 [FreeBSD 宣传项目](https://www.freebsd.org/advocacy/whyusefreebsd.html) 中是这样描述的，文字上说：*“读取此文件的 rc 系统理解服务之间的依赖关系，因此可以自动并行启动它们……”* 如果这是错误的，该网站需要一份错误报告。
+- FreeBSD 同时具有 [ports 系统](https://en.wikipedia.org/wiki/FreeBSD_Ports) 和 [pkg。](https://en.wikipedia.org/wiki/FreeBSD_Ports#Packages)
 - FreeBSD 拥有了令人惊叹的 Jail 系统，使你在一个无法访问系统其余部分的沙盒中运行应用程序或整个系统。在 Docker 甚至还没有被想到的时候，FreeBSD 就已经有了 Jail。**更新于 2020 年 1 月 21 日：** FreeBSD 还有 Bastille 容器管理框架，可以从 ports 和 packages 系统安装。
 - FreeBSD 有 Mandatory Access Control（强制访问控制），来自 TrustedBSD 项目，它允许你为所有操作系统资源配置访问控制策略。
 - FreeBSD 有 Capsicum，允许开发者实现特权分离，减少受损代码的影响。
@@ -71,12 +71,12 @@ Linux 发行版需要 Linux 内核、GNU 工具和库，可能还需要额外的
 
 **更新日期：2020-01-21：** 如果将 FreeBSD 用作桌面操作系统，它也需要第三方软件、X 窗口系统、窗口管理器和桌面环境。我的观点是 FreeBSD 不是一组由不同人组织编写的工具，其利益和优先级常常存在冲突，就像 Linux 内核、GNU C 库等。
 
-**更新日期：2020-01-21：** 有人指出 FreeBSD 项目中也存在利益冲突，我脑海中浮现的一个例子是 Matthew Dillon 因与其他 FreeBSD 开发人员在性能问题上意见不合，最终将 FreeBSD 复刻为 DragonflyBSD。但我的原始表述可能被误解了。我认为类似 BSD 中的问题与 Linux 内核和 GNU C 库等完全不同的项目之间的冲突不同。在 Linux 领域，严重的冲突可能导致操作系统无法正常工作，而在 BSD 项目中，由核心团队和[投票](https://www.freebsd.org/internal/core-vote.html)来解决争议，OpenBSD 的项目领导者 Theo de Raadt 有最后决定权。如果有人持不同意见，他可以最终接受最终决定，或者他有自由将项目复刻，就像 Matthew 最终做的那样，Theo de Raadt 在 NetBSD 上也是如此。这与 GNU/Linux 的情况非常不同，这就是我的意思。
+**更新日期：2020-01-21：** 有人指出 FreeBSD 项目中也存在利益冲突，我脑海中浮现的一个例子是 Matthew Dillon 因与其他 FreeBSD 开发人员在性能问题上意见不合，最终将 FreeBSD 复刻为 DragonflyBSD。但我的原始表述可能被误解了。我认为类似 BSD 中的问题与 Linux 内核和 GNU C 库等完全不同的项目之间的冲突不同。在 Linux 领域，严重的冲突可能导致操作系统无法正常工作，而在 BSD 项目中，由核心团队和 [投票](https://www.freebsd.org/internal/core-vote.html) 来解决争议，OpenBSD 的项目领导者 Theo de Raadt 有最后决定权。如果有人持不同意见，他可以最终接受最终决定，或者他有自由将项目复刻，就像 Matthew 最终做的那样，Theo de Raadt 在 NetBSD 上也是如此。这与 GNU/Linux 的情况非常不同，这就是我的意思。
 
-无论你是 GNU/Linux 用户，已经在不同的发行版之间反复横跳，还是已经找到了自己喜爱的 GNU/Linux 发行版，又或者你是 Microsoft Windows 用户或 MacOS 用户，我都强烈建议你尝试一下 FreeBSD。但在这之前，请花些真正的时间学习 FreeBSD 文档，如果你了解它的工作原理，你将能最大限度地发挥其功能。你可以在 [IRC 频道](https://wiki.freebsd.org/IRC/Channels)、[FreeBSD 邮件列表](https://www.freebsd.org/community/mailinglists.html)或 [FreeBSD 论坛](https://forums.freebsd.org/)上与人交流，那里有很多乐于助人的人。
+无论你是 GNU/Linux 用户，已经在不同的发行版之间反复横跳，还是已经找到了自己喜爱的 GNU/Linux 发行版，又或者你是 Microsoft Windows 用户或 MacOS 用户，我都强烈建议你尝试一下 FreeBSD。但在这之前，请花些真正的时间学习 FreeBSD 文档，如果你了解它的工作原理，你将能最大限度地发挥其功能。你可以在 [IRC 频道](https://wiki.freebsd.org/IRC/Channels)、[FreeBSD 邮件列表](https://www.freebsd.org/community/mailinglists.html) 或 [FreeBSD 论坛](https://forums.freebsd.org/) 上与人交流，那里有很多乐于助人的人。
 
-我还强烈推荐 Michael W. Lucas 的书[《Absolute FreeBSD》](https://nostarch.com/absfreebsd3)，他是一位在 FreeBSD 上工作多年的网络/安全工程师，拥有丰富的高可用系统经验。这本书详细介绍了 FreeBSD 操作系统的许多细节，写得很好，包含许多相关内容。
+我还强烈推荐 Michael W. Lucas 的书 [《Absolute FreeBSD》](https://nostarch.com/absfreebsd3)，他是一位在 FreeBSD 上工作多年的网络/安全工程师，拥有丰富的高可用系统经验。这本书详细介绍了 FreeBSD 操作系统的许多细节，写得很好，包含许多相关内容。
 
-Michael W. Lucas 与[Allan Jude](http://www.allanjude.com/resume/) 还合著了[《FreeBSD Mastery: ZFS》](https://www.goodreads.com/book/show/25595471-freebsd-mastery)和[《FreeBSD Mastery: Advanced ZFS》](https://www.goodreads.com/book/show/29894975-freebsd-mastery)这两本关于在 FreeBSD 上运行 ZFS 文件系统的书籍。第二本是第一本的续集，介绍了更高级的用例。这两本书都非常宝贵。
+Michael W. Lucas 与 [Allan Jude](http://www.allanjude.com/resume/) 还合著了 [《FreeBSD Mastery: ZFS》](https://www.goodreads.com/book/show/25595471-freebsd-mastery) 和 [《FreeBSD Mastery: Advanced ZFS》](https://www.goodreads.com/book/show/29894975-freebsd-mastery) 这两本关于在 FreeBSD 上运行 ZFS 文件系统的书籍。第二本是第一本的续集，介绍了更高级的用例。这两本书都非常宝贵。
 
 FreeBSD 是一个令人惊叹的操作系统！

@@ -4,11 +4,11 @@
 - 译者：ykla & ChatGPT
 - 最后发布日期：2022-07-20
 
-> 在我之前的文章《为什么你应该将所有东西从 Linux 迁移到 BSD》中，我在[“许可证问题”](https://www.unixsheikh.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html#license)部分简要提及了 GPL 许可证的一个问题。之后我收到了一些电子邮件，要求我对这个问题进行更详细的阐述，所以我将在这篇文章中试着解释一下这个问题。
+> 在我之前的文章《为什么你应该将所有东西从 Linux 迁移到 BSD》中，我在 [“许可证问题”](https://www.unixsheikh.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html#license) 部分简要提及了 GPL 许可证的一个问题。之后我收到了一些电子邮件，要求我对这个问题进行更详细的阐述，所以我将在这篇文章中试着解释一下这个问题。
 
 ## 什么是 GPL？
 
-[GNU 通用公共许可证（GPL）](https://en.wikipedia.org/wiki/GNU_General_Public_License)的创建目的是成为标准专有许可协议的“对立面”。任何对 GPL 许可的软件所做的修改都要被回馈给 GPL 社区，并且任何使用或链接到 GPL 源代码的应用程序都必须在 GPL 下发布。
+[GNU 通用公共许可证（GPL）](https://en.wikipedia.org/wiki/GNU_General_Public_License) 的创建目的是成为标准专有许可协议的“对立面”。任何对 GPL 许可的软件所做的修改都要被回馈给 GPL 社区，并且任何使用或链接到 GPL 源代码的应用程序都必须在 GPL 下发布。
 
 GPL 的主要目的是禁止将 GPL 许可的软件纳入专有软件中。
 
@@ -40,7 +40,7 @@ Red Hat 之所以希望进行这种更改，是因为在他们专门为嵌入式
 
 Red Hat 需要这些重大改变成为主要 Linux 发行版的一部分，以便所有第三方软件都能在这个设置上运行，而不是在当前的设置上，Red Hat 必须解决许多问题，这既耗时又困难。
 
-正如我在我的文章[《systemd 背后真正的动机》](https://unixsheikh.com/articles/the-real-motivation-behind-systemd.html)中已经解释过的那样，Red Hat 联系了几个第三方项目，试图说服它们依赖 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)上所做的尝试，以及 Red Hat 开发者“keszybz”在 [tmux 项目](https://github.com/tmux/tmux/issues/428)上所做的尝试。尽管这些尝试往往伪装成技术问题，但当你阅读 Gnome 邮件列表和其他地方的长篇电子邮件通信时，真正的意图变得非常明确。
+正如我在我的文章 [《systemd 背后真正的动机》](https://unixsheikh.com/articles/the-real-motivation-behind-systemd.html) 中已经解释过的那样，Red Hat 联系了几个第三方项目，试图说服它们依赖 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html) 上所做的尝试，以及 Red Hat 开发者“keszybz”在 [tmux 项目](https://github.com/tmux/tmux/issues/428) 上所做的尝试。尽管这些尝试往往伪装成技术问题，但当你阅读 Gnome 邮件列表和其他地方的长篇电子邮件通信时，真正的意图变得非常明确。
 
 另一个例子是 Red Hat 购买了 Cygnus，这是一家接管了 FSF 编译器工具开发的工程公司。Cygnus 采用了一种销售 GNU 软件支持的商业模式。这使得他们能够雇佣约 50 名工程师，并通过提供大量修改来推动程序的发展方向。
 
@@ -96,7 +96,7 @@ Red Hat 需要这些重大改变成为主要 Linux 发行版的一部分，以�
 
 ## GPL 是虚伪的
 
-众所周知，[GNU 项目](https://www.gnu.org/)和自由软件基金会正在大力推广自由软件。在 FSF 的网站上，我们找到了关于“自由软件”的以下定义：
+众所周知，[GNU 项目](https://www.gnu.org/) 和自由软件基金会正在大力推广自由软件。在 FSF 的网站上，我们找到了关于“自由软件”的以下定义：
 
 >“自由软件”意味着尊重用户的自由和社区。粗略地说，这意味着用户有权运行、复制、分发、研究、改变和改进软件。因此，“自由软件”是关于自由而不是价格的问题。要理解这个概念，你应该将“自由”理解为“言论自由”，而不是“免费的啤酒”。我们有时将其称为“libre 软件”——借用法语或西班牙语中表示“自由”的单词，以表明我们的意思并非软件是免费的。
 >
@@ -106,13 +106,13 @@ Red Hat 需要这些重大改变成为主要 Linux 发行版的一部分，以�
 
 GPL 所设立的限制本质上是非自由的，并且这不是从哲学的角度而是从真正的实施角度来看的。GPL 是导致许多采用宽松许可证发布的开源项目无法集成到 Linux 的根本原因。
 
-这与[宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license)相悖，在[OpenBSD 的目标网站](https://www.openbsd.org/goals.html)上，它声明：
+这与 [宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license) 相悖，在 [OpenBSD 的目标网站](https://www.openbsd.org/goals.html) 上，它声明：
 
 >我们希望提供源代码，任何人都可以出于任何目的使用，没有限制。我们努力使我们的软件强大和安全，并鼓励公司使用他们想要的任何部分。
 
 ## 关于“Linux 窃取我们的代码”事件
 
-以下是 [OpenBSD](https://www.openbsd.org/) 项目创始人 [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt) 在 2007 年 8 月[撰写的](https://marc.info/?l=openbsd-misc&m=118861134304239&w=2)电子邮件，当时一群 Linux 开发人员试图修改双许可的 ath5k 驱动程序的许可证。
+以下是 [OpenBSD](https://www.openbsd.org/) 项目创始人 [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt) 在 2007 年 8 月 [撰写的](https://marc.info/?l=openbsd-misc&m=118861134304239&w=2) 电子邮件，当时一群 Linux 开发人员试图修改双许可的 ath5k 驱动程序的许可证。
 
 ```
 我在最近的争议中停止了公开发表声明，因为 Eben Moglen 开始在幕后努力“改进”Linux 人在许可证方面的错误，并要求我给他调停，以便他的团队可以工作。老实说，我对这种情况感到非常困扰，因为即使像 Alan Cox 这样的人也在给其他 Linux 开发人员提出违法建议。而且，不同社区之间的互动可能存在更大的潜在风险。
