@@ -5,6 +5,7 @@
 
 ## 2025 年
 
+* [FreeBSD 并没有死，别听信那些夸张的说法](2025-01/report.md)
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
 * [为 FreeBSD 发声：FOSDEM 2025 参会报告](2025-01/fosd.md)
 * [zfs 速查手册](2025-01/zfs.md)
