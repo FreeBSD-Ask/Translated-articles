@@ -5,7 +5,7 @@
 
 ## 2025 年
 
-* [FreeBSD 爱好者团结起来支持新兴项目 zVault](2025-01/nas.md)
+* [FreeBSD 爱好者团结起来支持新兴项目 zVault——社区分支继 TrueNAS CORE 之后继续发展](2025-01/nas.md)
 * [从 PlayStation 到路由器，你很可能一直在使用 FreeBSD 而不自知](2025-01/PlayStation.md)
 * [FreeBSD 并没有死，别听信那些夸张的说法](2025-01/report.md)
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
