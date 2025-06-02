@@ -1,6 +1,6 @@
 # FreeBSD ports 开发技术研究
 
-- 原文：[FreeBSD ports を作る際の調査ノウハウ](https://qiita.com/nanorkyo/items/bc1860f624823501e197)
+- 原文：[FreeBSD ports を 作 る 際 の 調査 ノウハウ](https://qiita.com/nanorkyo/items/bc1860f624823501e197)
 - 作者：重村法克
 - 2024-01-07
 

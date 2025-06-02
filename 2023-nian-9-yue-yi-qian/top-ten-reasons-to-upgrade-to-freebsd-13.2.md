@@ -16,4 +16,4 @@
 9. FreeBSD 虚拟化管理程序 bhyve 支持更多虚拟 CPU。
 10. 为具有大型路由表的系统添加了 DPDK 路由模块。
 
-当然，这只是一个有关十大升级理由的列表。FreeBSD 的美妙之处在于你可以根据自己的需求进行自定义。确保查看完整的[发行说明](https://www.freebsd.org/releases/13.2R/relnotes/)，了解还有哪些更新可以让你的生活更加便利。请记住，拖延症“专家”从未让任何人取得进步。立刻[升级](https://www.freebsd.org/where/)到 13.2 版本吧！
+当然，这只是一个有关十大升级理由的列表。FreeBSD 的美妙之处在于你可以根据自己的需求进行自定义。确保查看完整的 [发行说明](https://www.freebsd.org/releases/13.2R/relnotes/)，了解还有哪些更新可以让你的生活更加便利。请记住，拖延症“专家”从未让任何人取得进步。立刻 [升级](https://www.freebsd.org/where/) 到 13.2 版本吧！

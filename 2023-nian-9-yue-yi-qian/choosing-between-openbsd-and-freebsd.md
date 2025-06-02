@@ -11,11 +11,11 @@
 
 与任何工具一样，你需要先回答的第一个问题是你要解决的问题类型。这比个人偏好更重要，因为 OpenBSD 和 FreeBSD 并不完全适用于解决每个问题。
 
-例如，如果你正在构建一个存储服务器，并且需要一个非常强大的文件系统，侧重于[数据完整性](https://en.wikipedia.org/wiki/ZFS#Features)，那么 FreeBSD 是唯一的选择，因为 ZFS 尚未移植到 OpenBSD，而且很可能永远不会被移植，而 FFS 不像 ZFS 那样提供完整性功能。
+例如，如果你正在构建一个存储服务器，并且需要一个非常强大的文件系统，侧重于 [数据完整性](https://en.wikipedia.org/wiki/ZFS#Features)，那么 FreeBSD 是唯一的选择，因为 ZFS 尚未移植到 OpenBSD，而且很可能永远不会被移植，而 FFS 不像 ZFS 那样提供完整性功能。
 
 如果你需要一个非常高性能的文件系统，那么无论你选择使用 UFS 还是 ZFS，FreeBSD 也是正确的选择，因为 OpenBSD 的 FFS 不像 FreeBSD 提供的文件系统那样快。
 
-如果你正在构建一个安全性非常重要的机器，那么 OpenBSD 是更好的选择，因为它在操作系统中内置了大量的[安全保护措施](https://www.openbsd.org/innovations.html)。不仅如此，代码始终经过非常严格的安全审计，基本系统包括大量经过相同审计的应用程序。同样，在第三方软件组件（从 X.Org 服务器往下）中，一些软件带有 OpenBSD 特定的补丁，以增加安全性。
+如果你正在构建一个安全性非常重要的机器，那么 OpenBSD 是更好的选择，因为它在操作系统中内置了大量的 [安全保护措施](https://www.openbsd.org/innovations.html)。不仅如此，代码始终经过非常严格的安全审计，基本系统包括大量经过相同审计的应用程序。同样，在第三方软件组件（从 X.Org 服务器往下）中，一些软件带有 OpenBSD 特定的补丁，以增加安全性。
 
 这并不意味着 FreeBSD 不能用作防火墙或安全服务器，但 FreeBSD 没有像 OpenBSD 那样多的保护措施。然而，这也意味着 OpenBSD 在受到这些保护技术影响的问题上通常比 FreeBSD 少。
 

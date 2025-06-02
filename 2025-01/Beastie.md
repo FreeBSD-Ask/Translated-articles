@@ -61,7 +61,7 @@
 
 **Kim McMahon:** 说到竞争。能分享一些关于与其他吉祥物的友好竞争或有趣轶事吗？比如 Linux 的 Tux（**译者注：Linux 那只企鹅**）、微软 Windows 的 Clippy（**译者注：Office 那只回形针：大眼夹**），甚至……苹果的？
 
-**Beastie:** Tux 和我就像失散多年的兄弟！我们经常一起虚拟地喝杯提神饮品，开玩笑说用户的怪癖。Tux 爱吹嘘 Linux 无处不在，从手机到太空飞船。我点点头提醒他，FreeBSD 也在一些酷炫的地方运行，比如[奈飞服务器在播放他最喜欢的节目](https://freebsdfoundation.org/netflix-case-study/)。这一切都是开玩笑的。
+**Beastie:** Tux 和我就像失散多年的兄弟！我们经常一起虚拟地喝杯提神饮品，开玩笑说用户的怪癖。Tux 爱吹嘘 Linux 无处不在，从手机到太空飞船。我点点头提醒他，FreeBSD 也在一些酷炫的地方运行，比如 [奈飞服务器在播放他最喜欢的节目](https://freebsdfoundation.org/netflix-case-study/)。这一切都是开玩笑的。
 
 **Kim McMahon**（笑）：听起来很友好。
 

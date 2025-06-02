@@ -68,6 +68,6 @@
 - Puppet
   - <https://wiki.freebsd.org/Puppet/GettingStarted/>
 
-你可以在此处查看会议的录像：[FreeBSD 基金会企业工作组会议＃1](https://youtu.be/0TQUlipFvXM)
+你可以在此处查看会议的录像：[FreeBSD 基金会企业工作组会议 ＃1](https://youtu.be/0TQUlipFvXM)
 
 如果你对此感兴趣，并且希望提供帮助，[请填写此 Google 表单](https://forms.gle/beKQFL9nBpG11CFB7)，帮助使 FreeBSD 成为一个更好的通用企业操作系统。

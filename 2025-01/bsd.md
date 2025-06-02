@@ -25,7 +25,7 @@ FreeBSD 哲学的核心是坚定不移地高扬 [BSD 许可证](https://opensour
 >FreeBSD 的方法根植于原始伯克利软件发行版的原则，强调一个全面且统一的操作系统。与此相反，Linux 是一个通用内核基石，众多独立实体在其上构建了不同的发行版。因此，Linux 发行版在行为、功能和用户体验上有显著差异。
 
 
-FreeBSD 的方法在所有系统组件之间创建了一个集成关系，允许轻松顺利的更新和改进、向后兼容性，以及对生产环境的保证，等等。与 Linux 的模块化方法不同，FreeBSD 的方法简化了安全审计并提高了性能。开发者可以全面了解整个系统的架构，而不是孤立的部分。所有系统组件都一起开发，然后由其发布工程团队[打包](https://freebsdfoundation.org/blog/guiding-the-future-of-freebsd-releases-colin-percival-the-new-release-engineering-team-lead/)进行每个版本的发布。这种方法确保了更新的系统性一致性，缓解了 Linux 环境中常见的依赖冲突问题。
+FreeBSD 的方法在所有系统组件之间创建了一个集成关系，允许轻松顺利的更新和改进、向后兼容性，以及对生产环境的保证，等等。与 Linux 的模块化方法不同，FreeBSD 的方法简化了安全审计并提高了性能。开发者可以全面了解整个系统的架构，而不是孤立的部分。所有系统组件都一起开发，然后由其发布工程团队 [打包](https://freebsdfoundation.org/blog/guiding-the-future-of-freebsd-releases-colin-percival-the-new-release-engineering-team-lead/) 进行每个版本的发布。这种方法确保了更新的系统性一致性，缓解了 Linux 环境中常见的依赖冲突问题。
 
 ## 安全的构建环境
 

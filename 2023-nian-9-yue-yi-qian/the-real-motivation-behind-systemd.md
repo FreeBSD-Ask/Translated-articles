@@ -10,13 +10,13 @@ Update 2022-10-31：毫不奇怪，情况并没有变得更好。随着微软现
 
 ## 引言
 
-就个人而言，在 systemd 刚开始时，我对它并没有什么看法，当时它只是一个新的 init 系统。然而，我对今天的 systemd 的看法是，它已经变成了一种[特洛伊木马](https://en.wikipedia.org/wiki/Trojan_horse_%28computing%29)。这是 Red Hat 试图改变 Linux 世界以更好地为他们的公司利益服务的一种尝试。
+就个人而言，在 systemd 刚开始时，我对它并没有什么看法，当时它只是一个新的 init 系统。然而，我对今天的 systemd 的看法是，它已经变成了一种 [特洛伊木马](https://en.wikipedia.org/wiki/Trojan_horse_%28computing%29)。这是 Red Hat 试图改变 Linux 世界以更好地为他们的公司利益服务的一种尝试。
 
 尽管 Linux 内核、GNU 工具和各种主要独立的 Linux 发行版最初都是由社区驱动的项目，但目前 Linux 世界的大部分发展都是由企业利益驱动的，由处于不同公司的不同关键职位的开发人员推动，例如 Red Hat、Google、Facebook 和其他几家公司。
 
 Red Hat 最初通过将 systemd 称为替代性的 init 系统来伪装他们的计划。然后真相被揭露：systemd 变成了“为 Linux 操作系统提供基本构建模块的软件套件。”然后，Red Hat 发起了一场大规模的运动，试图影响所有其他主要的 Linux 发行版，并迫使它们采用 systemd。他们所做的努力和工作似乎让人感觉到相当地绝望。
 
-systemd 开发者联系了几个第三方项目，并试图说服它们依赖 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)上的尝试，以及 Red Hat 开发者“keszybz”对 [tmux](https://github.com/tmux/tmux/issues/428) 项目的尝试。这些尝试大多数都伪装成技术问题，然而当人们阅读了 Gnome 邮件列表和其他地方的长篇邮件往来时，真实的意图就变得十分清晰。
+systemd 开发者联系了几个第三方项目，并试图说服它们依赖 systemd，例如 Lennart Poettering 在 [Gnome 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html) 上的尝试，以及 Red Hat 开发者“keszybz”对 [tmux](https://github.com/tmux/tmux/issues/428) 项目的尝试。这些尝试大多数都伪装成技术问题，然而当人们阅读了 Gnome 邮件列表和其他地方的长篇邮件往来时，真实的意图就变得十分清晰。
 
 Red Hat 采取的其他战术包括雇佣来自 GNOME 和其他 Linux 发行版（如 Debian）的开发者，然后让这些人推广 systemd。
 
@@ -54,7 +54,7 @@ Mentor Automotive 在 [2015 年的一个活动上发布了他们的幻灯片](ht
 
 [自 2002 年以来，美国军方一直是 Red Hat 的最大客户](https://unixsheikh.com/includes/files/Army-RedHat-Whitepaper-February-2014.pdf)，他们一直是 Red Hat 许多决策背后的主要动力。
 
-2012 年，Lennart Poettering [将 systemd 的许可证从 GPL 更改为 LGP](https://github.com/systemd/systemd/commit/5430f7f2bc7330f3088b894166bf3524a067e3d8)L，以更好地适应嵌入式市场。
+2012 年，Lennart Poettering [将 systemd 的许可证从 GPL 更改为 LGP](https://github.com/systemd/systemd/commit/5430f7f2bc7330f3088b894166bf3524a067e3d8) L，以更好地适应嵌入式市场。
 
 ## 事实 3：不，这不是谣言，systemd 确实是一个巨大的单体
 
@@ -111,7 +111,7 @@ systemd 的主要问题在于其持续的发展是出于一家公司的经济利
 
 另一个主要问题是前面提到的 systemd-resolved 中的硬编码 DNS 服务器。
 
-Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494)说，硬编码的值应该在配置文件发生灾难性故障且网络上没有 DHCP 时存在（DNS 回退是可以更改的，但需要重新编译）。然而，这是“嵌入式开发人员”在说话。如果在应用程序中发现了使这些 DNS 服务器运行的 Bug，尽管你已经将它们禁用，或者发现了[竞争问题的 Bug](https://github.com/systemd/systemd/issues/4175)，你可能面临着严重的隐私问题。此外，将 Cloudflare、Quad9 和 Google DNS 服务器硬编码到 systemd 代码中的问题是非常严重的，因为这些公司不仅因侵犯人们的隐私而闻名，而且 NSA（美国国家安全局）以前曾渗透过 Google 的数据中心，这是 [Snowden 文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html)披露的内容。这样的设置不应该是默认选择，而应该是选择加入，并且绝对不应该是默认配置。
+Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494) 说，硬编码的值应该在配置文件发生灾难性故障且网络上没有 DHCP 时存在（DNS 回退是可以更改的，但需要重新编译）。然而，这是“嵌入式开发人员”在说话。如果在应用程序中发现了使这些 DNS 服务器运行的 Bug，尽管你已经将它们禁用，或者发现了 [竞争问题的 Bug](https://github.com/systemd/systemd/issues/4175)，你可能面临着严重的隐私问题。此外，将 Cloudflare、Quad9 和 Google DNS 服务器硬编码到 systemd 代码中的问题是非常严重的，因为这些公司不仅因侵犯人们的隐私而闻名，而且 NSA（美国国家安全局）以前曾渗透过 Google 的数据中心，这是 [Snowden 文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html) 披露的内容。这样的设置不应该是默认选择，而应该是选择加入，并且绝对不应该是默认配置。
 
 通常处理这些问题的方式，以及 Lennart Poettering 的极度傲慢态度，显示出对用户隐私和开源 Linux 社区利益的完全漠视。
 
@@ -121,7 +121,7 @@ Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494)说，
 
 Casper Ti. Vectors 在 Gentoo 论坛上的帖子“s6/s6-rc vs systemd, or why you probably do not need systemd”也显示出 [s6 比 systemd 更好](https://forums.gentoo.org/viewtopic-t-1105854.html)，而且在许多方面是更优越的解决方案。
 
-许多人错误地认为每个 systemd 组件都是独立的，但事实并非如此。查看代码和文档，看看这些所谓模块之间的[紧密集成](https://www.freedesktop.org/wiki/Software/systemd/InterfacePortabilityAndStabilityChart/)。
+许多人错误地认为每个 systemd 组件都是独立的，但事实并非如此。查看代码和文档，看看这些所谓模块之间的 [紧密集成](https://www.freedesktop.org/wiki/Software/systemd/InterfacePortabilityAndStabilityChart/)。
 
 公司的政治、策略和操纵在社区驱动的开源项目中没有立足之地。虽然公司可以允许使用开源代码、贡献代码，并从这些项目的收入中提供财务支持，但他们绝不能拥有 Red Hat 和其他公司现在拥有的如此大的控制权。
 

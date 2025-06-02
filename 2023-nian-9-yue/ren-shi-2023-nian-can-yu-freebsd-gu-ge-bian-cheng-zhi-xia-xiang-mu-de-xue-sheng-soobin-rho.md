@@ -30,7 +30,7 @@
 
 **问：到目前为止，你从这个经验中学到了什么？**
 
-在接手这个项目之前，我对 MAKE(1) 一无所知。阅读`/usr/src/Makefile`和`/usr/src/release/Makefile`对我帮助很大。此外，阅读`/usr/src/release/Makefile.vm`非常有价值，事实上，我很多的代码都是基于这些 make 文件的。
+在接手这个项目之前，我对 MAKE(1) 一无所知。阅读 `/usr/src/Makefile` 和 `/usr/src/release/Makefile` 对我帮助很大。此外，阅读 `/usr/src/release/Makefile.vm` 非常有价值，事实上，我很多的代码都是基于这些 make 文件的。
 
 **问：与 FreeBSD 项目合作的经历如何？**
 

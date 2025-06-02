@@ -10,7 +10,7 @@
 
 在我自 1998 年以来使用的大多数 GNU/Linux 发行版中，一直到今天，都会有一种“不匹配”的感觉。
 
-举个例子，Debian GNU/Linux 有自己的做事方式，它是特定于该发行版的。[Debian 的方式](https://wiki.debian.org/DontBreakDebian)通过使用一套特定的配置管理工具和补丁来使第三方软件符合“Debian 方式”的设置。虽然从某种意义上说，这可以统一 Debian 发行版的做事方式，但这却与上游配置不一致，这使得处理起来非常烦人。特别是当某些事情运行不正常时，或者上游文档中诉说的方式与 Debian 上的设置不符时，这就成了一个问题。这种方法的另一个问题是，一些第三方软件，甚至是发行版的核心元素（比如 systemd），无法被强制塑造成“Debian 方式”。结果就是系统中的一些部分按照“Debian 方式”运行，而其他部分则不是。Debian GNU/Linux 已经采用了 systemd，但与此同时，默认的网络部分是 Debian 特有的。有时，你必须禁用和删除 Debian 特定的东西才能让 systemd 特定的东西工作。所有这些都是由于该系统是由许多不匹配的组件组合而成造成的。
+举个例子，Debian GNU/Linux 有自己的做事方式，它是特定于该发行版的。[Debian 的方式](https://wiki.debian.org/DontBreakDebian) 通过使用一套特定的配置管理工具和补丁来使第三方软件符合“Debian 方式”的设置。虽然从某种意义上说，这可以统一 Debian 发行版的做事方式，但这却与上游配置不一致，这使得处理起来非常烦人。特别是当某些事情运行不正常时，或者上游文档中诉说的方式与 Debian 上的设置不符时，这就成了一个问题。这种方法的另一个问题是，一些第三方软件，甚至是发行版的核心元素（比如 systemd），无法被强制塑造成“Debian 方式”。结果就是系统中的一些部分按照“Debian 方式”运行，而其他部分则不是。Debian GNU/Linux 已经采用了 systemd，但与此同时，默认的网络部分是 Debian 特有的。有时，你必须禁用和删除 Debian 特定的东西才能让 systemd 特定的东西工作。所有这些都是由于该系统是由许多不匹配的组件组合而成造成的。
 
 在这方面，Arch Linux 与 Debian 相反，因为 Arch Linux 发行版希望第三方软件保持与上游一致，因此除非绝对必要，否则不会做任何更改。这很棒，因为这意味着上游文档与软件是匹配的。然而，虽然这有助于改善系统的整体管理，但事实仍然是，Linux 内核、用户空间工具以及其他所有内容都是由不同的实体开发的。在 FreeBSD 上，许多用户空间工具具有与内核和系统的其他部分紧密集成的运行时选项。例如，top 命令可以显示与管理 ZFS 文件系统相关的信息。在 GNU/Linux 上没有类似的功能。
 
@@ -18,11 +18,11 @@ Ubuntu 则更糟糕。因为它是基于 Debian 的，它在很多方面都使�
 
 在 FreeBSD 上，你会立即注意到你正在处理一个“完整的操作系统”，一个非常完美地组合在一起的系统。内核和基本系统完全与第三方应用程序分开。基本系统配置存放在 `/etc` 目录下，而所有第三方配置都存放在 `/usr/local/etc` 目录下。你可以在 man 页中找到关于配置、调优或设置的所有信息。
 
-你有 rc 实用程序，这是在 [init](https://www.freebsd.org/cgi/man.cgi?query=init) 调用它后控制自动引导过程的命令脚本，还有[命令脚本](https://www.freebsd.org/cgi/man.cgi?query=rc)、[sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl)内核管理工具以及所有其他不同的[系统配置](https://www.freebsd.org/cgi/man.cgi?query=rc.conf)，所有这些都非常完美地组合在一起并有很好的文档支持。
+你有 rc 实用程序，这是在 [init](https://www.freebsd.org/cgi/man.cgi?query=init) 调用它后控制自动引导过程的命令脚本，还有 [命令脚本](https://www.freebsd.org/cgi/man.cgi?query=rc)、[sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl) 内核管理工具以及所有其他不同的 [系统配置](https://www.freebsd.org/cgi/man.cgi?query=rc.conf)，所有这些都非常完美地组合在一起并有很好的文档支持。
 
 由于 FreeBSD 是按照一种完整的操作系统和项目的方式进行管理的，而不是像一堆不同的项目被粘在一起形成的一个发行版，所以这一切都经过深思熟虑，基于多年的经验，并且当事情发生改变时，改变是为了整个社区的利益，而且是根据真实使用案例和行业中出现的问题得到反馈的。
 
-真正理解 FreeBSD 的最好方法之一就是阅读 Michael W. Lucas 的书[《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)。他在书中不仅很好地解释和描述了所有的技术问题，还涵盖了重要的历史背景，解释了为什么事物会是现在这个样子。即使你只是对 FreeBSD 感兴趣，我也强烈推荐这本书。
+真正理解 FreeBSD 的最好方法之一就是阅读 Michael W. Lucas 的书 [《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)。他在书中不仅很好地解释和描述了所有的技术问题，还涵盖了重要的历史背景，解释了为什么事物会是现在这个样子。即使你只是对 FreeBSD 感兴趣，我也强烈推荐这本书。
 
 ## 文档
 
@@ -38,7 +38,7 @@ FreeBSD 还有 [FreeBSD 手册](https://docs.freebsd.org/en/books/handbook/)，�
 
 FreeBSD 默认配置为性能优越，不像 OpenBSD 那样默认设置为安全（优先）。然而，FreeBSD 提供了许多工具和选项，帮助你保护系统免受攻击。
 
-在这篇文章中，我无法提供一个详尽的选项和功能列表，因为关于 FreeBSD 的安全性，可以轻松填满一本书。所以，我强烈推荐阅读 Michael W. Lucas 的书[《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)，如果你想更深入地研究 FreeBSD 的一些安全功能。
+在这篇文章中，我无法提供一个详尽的选项和功能列表，因为关于 FreeBSD 的安全性，可以轻松填满一本书。所以，我强烈推荐阅读 Michael W. Lucas 的书 [《Absolute FreeBSD》](https://mwl.io/nonfiction/os#af3e)，如果你想更深入地研究 FreeBSD 的一些安全功能。
 
 ## 安装时的安全性选项
 
@@ -123,7 +123,7 @@ FreeBSD 拥有出色的工程和发布管理实践。FreeBSD 从想法的构思�
 
 ## Ports
 
-FreeBSD 的 [Ports](https://www.freebsd.org/cgi/man.cgi?query=ports) 是一项令人惊叹的工程壮举。NetBSD 的 [pkgsrc（软件包、源代码）](https://en.wikipedia.org/wiki/Pkgsrc)和 OpenBSD 的 [ports](https://en.wikipedia.org/wiki/Ports_collection#OpenBSD_ports) 都起源于 FreeBSD 的 ports 系统。
+FreeBSD 的 [Ports](https://www.freebsd.org/cgi/man.cgi?query=ports) 是一项令人惊叹的工程壮举。NetBSD 的 [pkgsrc（软件包、源代码）](https://en.wikipedia.org/wiki/Pkgsrc) 和 OpenBSD 的 [ports](https://en.wikipedia.org/wiki/Ports_collection#OpenBSD_ports) 都起源于 FreeBSD 的 ports 系统。
 
 虽然 FreeBSD 也有像 Debian Linux 或 Arch Linux 一样的二进制包，由 [pkg](https://www.freebsd.org/cgi/man.cgi?query=pkg) 包管理器处理，但 FreeBSD 还可以从源代码编译软件，使用用户特定的编译时间配置。Arch Linux [Build System](https://wiki.archlinux.org/title/Arch_Build_System) 实际上受到 FreeBSD ports 系统的很大启发。但是，使用 FreeBSD ports 系统，你可以在 `make` 期间选择最相关的编译时间选项，而在 Arch Linux 上必须手动编辑和更改包维护者的 [PKGBUILD](https://wiki.archlinux.org/title/PKGBUILD) 脚本（基本上，你应该接受默认设置）。
 
@@ -227,15 +227,15 @@ sshd_enable="YES"
 # service sshd onestart
 ```
 
-你可以在[维基百科](https://en.wikipedia.org/wiki/Init)上阅读更多关于初始化系统的内容。
+你可以在 [维基百科](https://en.wikipedia.org/wiki/Init) 上阅读更多关于初始化系统的内容。
 
 ## Jail
 
-FreeBSD [jail](https://docs.freebsd.org/en/books/handbook/jails/)系统是另一个令人惊叹的工程成果。
+FreeBSD [jail](https://docs.freebsd.org/en/books/handbook/jails/) 系统是另一个令人惊叹的工程成果。
 
 FreeBSD jail 在 2000 年 3 月 14 日的 FreeBSD 4.0 版本中首次引入。
 
-FreeBSD jail 是一种[操作系统级别的虚拟化](https://en.wikipedia.org/wiki/OS-level_virtualization)技术，可使你将基于 FreeBSD 的系统安装到几个独立的小型系统中，称为 jail。在 jail 中运行的系统共享相同的内核和系统资源，因此开销非常小。
+FreeBSD jail 是一种 [操作系统级别的虚拟化](https://en.wikipedia.org/wiki/OS-level_virtualization) 技术，可使你将基于 FreeBSD 的系统安装到几个独立的小型系统中，称为 jail。在 jail 中运行的系统共享相同的内核和系统资源，因此开销非常小。
 
 对 FreeBSD jail 的需求源自一家小型共享环境托管提供商（R＆D Associates, Inc.公司的所有者 Derrick T. Woolworth）希望在他们自己的服务和客户的服务之间建立清晰明确的分隔，主要是出于安全和易于管理的考虑。解决方案（由 [Poul-Henning Kamp](https://en.wikipedia.org/wiki/Poul-Henning_Kamp) 开发）不是添加新的细粒度配置选项层，而是将系统分区，包括其文件和资源，以使只有合适的人可以访问正确的区域。
 
@@ -255,7 +255,7 @@ Bastille 使用 FreeBSD jail 作为容器平台，并添加了模板自动化，
 
 ## Capsicum
 
-Capsicum 是在[剑桥大学计算机实验室](https://www.cl.cam.ac.uk/)开发的一个沙箱框架，得到了 Google、FreeBSD 基金会和 DARPA 的资助。Capsicum 扩展了 POSIX API，提供了几个新的操作系统原语，以支持 UNIX 类操作系统上的对象功能安全性：
+Capsicum 是在 [剑桥大学计算机实验室](https://www.cl.cam.ac.uk/) 开发的一个沙箱框架，得到了 Google、FreeBSD 基金会和 DARPA 的资助。Capsicum 扩展了 POSIX API，提供了几个新的操作系统原语，以支持 UNIX 类操作系统上的对象功能安全性：
 
 - Capability 权限 - 具有细粒度权限的精炼文件描述符
 - Capability 模式 - 拒绝访问全局命名空间的进程沙箱
@@ -281,7 +281,7 @@ FreeBSD 对 Capsicum 的实现由 Robert Watson 和 Jonathan Anderson 开发，�
 
 DTrace 可以提供运行系统的全局概览，例如活动进程使用的内存、CPU 时间、文件系统和网络资源量。DTrace 还可以提供细粒度的信息，例如正在调用特定函数的参数日志，或者访问特定文件的进程列表。
 
-有关 DTrace 用法的更多信息，请参见 [DTrace 单行教程](https://wiki.freebsd.org/DTrace/Tutorial)和 [DTrace 示例](https://wiki.freebsd.org/DTrace/Examples)。
+有关 DTrace 用法的更多信息，请参见 [DTrace 单行教程](https://wiki.freebsd.org/DTrace/Tutorial) 和 [DTrace 示例](https://wiki.freebsd.org/DTrace/Examples)。
 
 Hacker News 上也有关于 [Linux 上的 DTrace](https://news.ycombinator.com/item?id=16375938) 的讨论，包含许多相关评论。
 
@@ -311,7 +311,7 @@ IPF 最初使用“最后匹配规则获胜”的规则处理逻辑，并且只�
 
 ## 调优
 
-FreeBSD 具有 500 多个可以使用 [sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl)工具读取和设置的系统变量。这些系统变量可用于对运行中的 FreeBSD 系统进行更改。这包括许多 TCP/IP 堆栈和虚拟内存系统的高级选项，可显著提高有经验的系统管理员的性能。
+FreeBSD 具有 500 多个可以使用 [sysctl](https://www.freebsd.org/cgi/man.cgi?query=sysctl) 工具读取和设置的系统变量。这些系统变量可用于对运行中的 FreeBSD 系统进行更改。这包括许多 TCP/IP 堆栈和虚拟内存系统的高级选项，可显著提高有经验的系统管理员的性能。
 
 ## GEOM
 

@@ -8,13 +8,13 @@
 
 即使像 OpenBSD 开发者这样细致且注重安全的编码者，代码审查非常严格，[错误和安全问题仍然时有发生](https://www.openbsd.org/errata.html)。
 
-考虑到 systemd 的开发方式，代码甚至没有经过（据我所知）单一的代码审查，而且开发者不断增加新功能而不是专注于解决[漏洞](https://github.com/systemd/systemd/issues?q=is%3Aissue+is%3Aopen+sort%3Acreated-asc+label%3A%22bug+%F0%9F%90%9B%22)、安全和稳定性，这个项目不适合出现在任何 GNU/Linux 发行版中，除非是“测试阶段”。
+考虑到 systemd 的开发方式，代码甚至没有经过（据我所知）单一的代码审查，而且开发者不断增加新功能而不是专注于解决 [漏洞](https://github.com/systemd/systemd/issues?q=is%3Aissue+is%3Aopen+sort%3Acreated-asc+label%3A%22bug+%F0%9F%90%9B%22)、安全和稳定性，这个项目不适合出现在任何 GNU/Linux 发行版中，除非是“测试阶段”。
 
 即使是 Debian GNU/Linux，在其“testing”和“unstable”版本分支中进行了大量的测试，也不适用于生产系统，因为 systemd 仍然有许多可追溯至 2015 年的漏洞。
 
 添加一个与现有代码库非常匹配的简单功能是一回事，但合并具有成千上万行代码的项目则完全不同。这等同于添加了一个全新的应用程序。
 
-在 Lennart Poettering 于 2013 年 1 月的博客文章[《The Biggest Myths》](http://0pointer.de/blog/projects/the-biggest-myths.html)（最大的误会）中，他试图反驳将 systemd 称为“单体化”（monolith）的说法，而许多人都认为它就是。Lennart 表示：
+在 Lennart Poettering 于 2013 年 1 月的博客文章 [《The Biggest Myths》](http://0pointer.de/blog/projects/the-biggest-myths.html)（最大的误会）中，他试图反驳将 systemd 称为“单体化”（monolith）的说法，而许多人都认为它就是。Lennart 表示：
 
 >一个包含 69 个单独二进制文件的软件包很难称为单体化。然而，与以前的解决方案不同的是，我们将更多组件捆绑在一个单一的压缩包中，并在单个存储库中维护它们，具有统一的发布周期。
 

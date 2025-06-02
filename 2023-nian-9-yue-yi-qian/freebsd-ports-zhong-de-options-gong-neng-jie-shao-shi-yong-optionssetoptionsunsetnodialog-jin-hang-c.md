@@ -1,6 +1,6 @@
 # FreeBSD Ports 中的 OPTIONS 功能介绍——使用 OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG 进行操作和实践
 
-- 原文：[FreeBSD Ports Collection における OPTIONS 機能の紹介 - OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG の活用と実践 -](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b)
+- 原文：[FreeBSD Ports Collection における OPTIONS 機能 の 紹介 - OPTIONS_SET/OPTIONS_UNSET/NO_DIALOG の 活用 と 実践 -](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b)
 - 作者：重村法克
 - 2021-04-04
 
@@ -16,9 +16,9 @@
 
 ## OPTIONS 机制
 
-通过引入 OPTIONS（`/usr/ports/Mk/bsd.options.mk`）机制[1]，统一了使用 Ports 编译第三方应用时的自定义方法。
+通过引入 OPTIONS（`/usr/ports/Mk/bsd.options.mk`）机制 [1]，统一了使用 Ports 编译第三方应用时的自定义方法。
 
-引入 OPTIONS 前后的 Makefile 编写方式发生了变化，OPTIONS 引入之前的机制（几乎）已经不再使用[2]。
+引入 OPTIONS 前后的 Makefile 编写方式发生了变化，OPTIONS 引入之前的机制（几乎）已经不再使用 [2]。
 
 严格来说，它仍然存在并且在一些情况下被使用，但多用于极其特殊的、黑客式的自定义用途，因此本次讨论将跳过这部分内容。
 
@@ -35,7 +35,7 @@ Port 维护者通过将这些内容记录在 Makefile 中，允许用户仅通�
 
 ### 通过对话框进行选择
 
-在编译时会显示一个对话框，允许用户交互式地选择这些自定义项。可以通过以下命令来配置这些选项[3][4]：
+在编译时会显示一个对话框，允许用户交互式地选择这些自定义项。可以通过以下命令来配置这些选项 [3][4]：
 
 **命令执行示例**
 
@@ -88,14 +88,14 @@ emulators_open-vm-tools_UNSET= DOCS FUSE LIBNOTIFY
 
 ## OPTIONS 的优先级
 
-1. `/etc/make.conf` （`${OPTIONS_NAME}_SET_FORCE`／`${OPTIONS_NAME}_UNSET_FORCE`）
-2. `/etc/make.conf` （`OPTIONS_SET_FORCE`／`OPTIONS_UNSET_FORCE`）
+1. `/etc/make.conf` （`${OPTIONS_NAME}_SET_FORCE` ／ `${OPTIONS_NAME}_UNSET_FORCE`）
+2. `/etc/make.conf` （`OPTIONS_SET_FORCE` ／ `OPTIONS_UNSET_FORCE`）
 3. `make config`
-4. `/etc/make.conf` （`${OPTIONS_NAME}_SET`／`${OPTIONS_NAME}_UNSET`）
-5. `/etc/make.conf` （`OPTIONS_SET`／`OPTIONS_UNSET`）
+4. `/etc/make.conf` （`${OPTIONS_NAME}_SET` ／ `${OPTIONS_NAME}_UNSET`）
+5. `/etc/make.conf` （`OPTIONS_SET` ／ `OPTIONS_UNSET`）
 6. `make WITH="选项1 选项2..." WITHOUT="选项1 选项2..."` 指定的情况^[5](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%95)^
 7. `bsd.options.mk`
-8. `Makefile`／`Makefile.local`
+8. `Makefile` ／ `Makefile.local`
 
 需要注意的是，`_SET` 在处理后，才会处理 `_UNSET`，因此优先级是 `_UNSET` > `_SET`，即 `_UNSET` 的效果更强。
 
@@ -160,7 +160,7 @@ A. 没问题的。你的理解是正确的。虽然这应该解释清楚，但�
 
 - [[FreeBSD-Ports-Announce] Configuring options in make.conf](https://lists.freebsd.org/pipermail/freebsd-ports-announce/2013-June/000062.html)
 - アプリケーションのインストール - packages と ports [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
-- Ports Collection の利用 [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports-using.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports-using.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
+- Ports Collection の 利用 [【日本語版】](https://www.freebsd.org/doc/ja_JP.eucJP/books/handbook/ports-using.html) [【英語版】](https://www.freebsd.org/doc/handbook/ports-using.html)^[7](https://qiita.com/nanorkyo/items/a0068cafcf9112ebbb7b#fn-%E5%82%99%E8%80%83%EF%BC%97)^
 - [bsd.port.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.mk)
 - [bsd.port.options.mk](https://github.com/freebsd/freebsd-ports/blob/master/Mk/bsd.port.options.mk)
 - [portconf](https://www.freshports.org/ports-mgmt/portconf/)

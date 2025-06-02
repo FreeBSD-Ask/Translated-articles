@@ -75,7 +75,7 @@ pipenv shell
 python
 ```
 
-你将看到你的 >>Python，尽情享受吧！
+你将看到你的 >> Python，尽情享受吧！
 
 ### 这对一些有 setup.py 的项目也有效
 

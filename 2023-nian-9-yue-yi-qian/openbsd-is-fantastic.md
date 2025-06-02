@@ -38,7 +38,7 @@ OpenBSD 在内核和基本系统中内置了许多保护技术，使得攻击者
 - 系统范围内的沙盒（pledge(2)）适用于大部分用户空间，包括 X 服务器的特权部分和大多数面向网络的守护程序。
 - arc4random(3) 支持 rand(3)、random(3) 和 drand48(3)，并且有经过审核的基本/Ports。软件必须选择确定性破碎的 POSIX 行为。
 
-这只是 OpenBSD 的一部分创新，更多的创新可以在 OpenBSD 的[创新页面](https://www.openbsd.org/innovations.html)中找到。其中一些创新得益于 OpenBSD 开发者的工作，已被其他操作系统采用和实现。
+这只是 OpenBSD 的一部分创新，更多的创新可以在 OpenBSD 的 [创新页面](https://www.openbsd.org/innovations.html) 中找到。其中一些创新得益于 OpenBSD 开发者的工作，已被其他操作系统采用和实现。
 
 OpenBSD 是一个强大可靠的操作系统，在设置完成后你可以最小干预地运行它。实际上，它是唯一真正让你可以安心睡眠的操作系统，特别是在运行任何系统关键软件时。
 
@@ -74,7 +74,7 @@ OpenBSD 维护了许多基本系统的便携版本，包括：
 
 所有这些都包含在操作系统的基本系统中，并且是 OpenBSD 标准安装的一部分。所有基本系统的部分都包含了 OpenBSD 特定的补丁、改进和增强措施，以提高安全性。
 
-除了上述功能之外，截至撰写本文时，OpenBSD 还通过 OpenBSD [软件包管理器](https://www.openbsd.org/faq/faq15.html)提供了超过 9700 个可安装的应用程序。然而，需要注意的是，尽管建议使用预编译的软件包而不是手动从 Ports 构建软件，但 OpenBSD 的“release”和“stable”分支的软件包不会得到更新。这意味着软件包的安全更新只能通过 Port 在“stable”分支运行时获得。
+除了上述功能之外，截至撰写本文时，OpenBSD 还通过 OpenBSD [软件包管理器](https://www.openbsd.org/faq/faq15.html) 提供了超过 9700 个可安装的应用程序。然而，需要注意的是，尽管建议使用预编译的软件包而不是手动从 Ports 构建软件，但 OpenBSD 的“release”和“stable”分支的软件包不会得到更新。这意味着软件包的安全更新只能通过 Port 在“stable”分支运行时获得。
 
 当在 Ports 中的应用程序中发现严重的错误或安全漏洞时，它们将在 Port 的“stable”分支中修复。与基本系统相反，“stable”Port 只会为最新发布提供安全后移。这意味着，如果你使用第三方应用程序，你需要检查正确的 Port 分支，并手动构建软件。可以使用 CVS 来保持 Port 的最新状态，并可以订阅 ports-changes 邮件列表以接收与 Port 中应用程序相关的安全公告。
 

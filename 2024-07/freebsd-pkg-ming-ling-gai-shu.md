@@ -1,6 +1,6 @@
 # FreeBSD pkg 命令概述
 
-- 原文：[FreeBSD pkg コマンド概要](https://qiita.com/nanorkyo/items/2ff7cccfe3bc544f6f5e)
+- 原文：[FreeBSD pkg コマンド 概要](https://qiita.com/nanorkyo/items/2ff7cccfe3bc544f6f5e)
 - 作者：重村法克
 - 2025-02-09
 
@@ -183,7 +183,7 @@
 - `%c`：包的注释
 - `%e`：包的描述
 - `%w`：包的网址
-- `%l`：包的许可证逻辑（无／单一／and／or）
+- `%l`：包的许可证逻辑（无 ／ 单一 ／and／or）
 - `%sb` 或 `%sh`：包的大小（字节单位或更适合人类阅读的单位）
 - `%a`：包的自动安装标志
 - `%Q`：包支持的架构候选项
@@ -337,41 +337,41 @@ pkg shell -cmd "SELECT p.name FROM deps AS d INNER JOIN packages AS p ON package
 
 ## 常见问题及解答
 
-### Q．什么是 origin？
+### Q． 什么是 origin？
 
 A．Origin 是什么以后再说吧。有空我再写。
 
 ### Q．pkg 命令本身是一个软件包吗？
 
-A．是的，`pkg` 命令本身就是一个包。
+A． 是的，`pkg` 命令本身就是一个包。
 
-### Q．那 `/usr/sbin/pkg` 是什么？
+### Q． 那 `/usr/sbin/pkg` 是什么？
 
-A．那是一个“引导器”，只负责安装真正的 pkg 包。
+A． 那是一个“引导器”，只负责安装真正的 pkg 包。
 实际会执行的是 pkg 包里的 `/usr/local/bin/pkg-static`。
 
-### Q．那它不属于基本系统吗？
+### Q． 那它不属于基本系统吗？
 
 A．FreeBSD 曾经因为旧的软件包系统吃了太多苦，所以才采用了现在这种结构。
 以前 pkg 命令不升级，整个系统就什么都干不了（即使新版本系统已经发布了，还会强制用老功能）。
 
 ### Q．pkg 命令和 pkg-static 命令有什么区别？
 
-A．功能完全一样。`pkg-static` 主要在某些“极端情况”（如你要删掉 pkg 本身）时才需要。
+A． 功能完全一样。`pkg-static` 主要在某些“极端情况”（如你要删掉 pkg 本身）时才需要。
 一般正常使用用 `pkg` 就够了；`pkg-static` 只是为了某些内部处理时更安全。
 
-### Q．如何删除通过 `pkg update` 获取的仓库信息？
+### Q． 如何删除通过 `pkg update` 获取的仓库信息？
 
-A．我也很感兴趣，目前还在调查中。
+A． 我也很感兴趣，目前还在调查中。
 
-### Q．用 `pkg query` 过滤总是不太顺利啊。比如说，想列出“最后安装的包”怎么办？
+### Q． 用 `pkg query` 过滤总是不太顺利啊。比如说，想列出“最后安装的包”怎么办？
 
-A．这种时候可以用 `pkg shell` 来努力一下。虽说“让我们来写 SQL 吧！”这听起来有点夸张，但你说得没错，`pkg query` 并不支持排序或聚合。
+A． 这种时候可以用 `pkg shell` 来努力一下。虽说“让我们来写 SQL 吧！”这听起来有点夸张，但你说得没错，`pkg query` 并不支持排序或聚合。
 另一种思路是，把 `pkg query` 的输出通过管道传给其它工具，比如 `sort`、`awk`、`head`、`tail` 等组合使用。
 
-### Q．你真的全都记得住？
+### Q． 你真的全都记得住？
 
-A．常用的当然记得住。原以为我也就记了三五个而已，没想到写着写着就十几个浮现脑海。说明这些的确值得记。
+A． 常用的当然记得住。原以为我也就记了三五个而已，没想到写着写着就十几个浮现脑海。说明这些的确值得记。
 虽然有些细节的语义可能模糊了，但那种情况就查下手册吧。
 总之，平时不常用的，忘了也无妨。
 
@@ -379,12 +379,12 @@ A．常用的当然记得住。原以为我也就记了三五个而已，没想�
 
 ### Q．pkg update / upgrade / updating 总是傻傻分不清楚
 
-A．很遗憾，这是必须记下来的。
+A． 很遗憾，这是必须记下来的。
 其他包管理器有时 `update` 和 `upgrade` 是同一个东西，但在 FreeBSD 上……很遗憾（信息在此中断了）。
 
 ### Q．WITH\_PKGNG 和 pkg2ng 是什么？
 
-A．这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无视。
+A． 这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无视。
 它们只具备历史意义，现在的设置和运维里已经毫无价值。
 
 ---
@@ -436,10 +436,10 @@ A．这是非常古早（比 10.0-RELEASE 还早）的事情，完全可以无�
 - [FreeBSD Porter's Handbook - 5.2.2. Versions, DISTVERSION or PORTVERSION](https://docs.freebsd.org/en/books/porters-handbook/makefiles/#makefile-versions)
 - [FreeBSD Porter's Handbook - 13. pkg-\* files](https://docs.freebsd.org/ja/books/porters-handbook/pkg-files/)
 - [FreeBSD pkg コマンドチート](https://qiita.com/taku39@github/items/c29a47d5ac07492d4857)
-- [【FreeBSD】pkg で普段使うサブコマンド達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
+- [【FreeBSD】pkg で 普段使 うサブコマンド 達](https://hacolab.hatenablog.com/entry/2020/02/16/170000)
 - [pkg](https://kaworu.jpn.org/freebsd/pkg)
-- [FreeBSD – パッケージソフトのインストールと削除、アップデートのやり方](https://blog.it-see.net/it-dokata/freebsd/pkg/)
-- [パッケージコマンド早見表](https://freebsd.seirios.org/doku.php?id=ports:pkg_yum_apt)
+- [FreeBSD – パッケージソフトのインストールと 削除、アップデートのやり 方](https://blog.it-see.net/it-dokata/freebsd/pkg/)
+- [パッケージコマンド 早見表](https://freebsd.seirios.org/doku.php?id=ports:pkg_yum_apt)
 - [アプリケーションをインストールする (前編): packages](https://retrotecture.jp/freebsd/app1_packages.html)
 - [FreeBSD 13.0 RELEASE - ports・pkg - pkg](https://freebsd.sing.ne.jp/fbsd/1300/03/03.html)
   

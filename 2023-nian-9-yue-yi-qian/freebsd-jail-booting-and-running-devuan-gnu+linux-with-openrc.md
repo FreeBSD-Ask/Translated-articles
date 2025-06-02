@@ -100,7 +100,7 @@ cp passwd- passwd
 cp -a /rescue /usr/local/jails/devuan0/native
 ```
 
-现在我们还需要一个 Jail 配置文件，我们可以将其放在 `/etc/jail.conf.d/devuan0.conf` 中。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
+现在我们还需要一个 Jail 配置文件，我们可以将其放在 `/etc/jail.conf.d/devuan0.conf` 中。（假设你的网络配置类似于 [“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
 
 ```
 # vim：设置 syntax=sh:
@@ -202,7 +202,7 @@ root@devuan0:~# ps f
 41190 ?        Ss     0:00 /usr/sbin/rsyslogd
 ```
 
-让我们进行一些网络设置吧！设置网络并安装 OpenSSH。（假设你的网络配置类似于[“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
+让我们进行一些网络设置吧！设置网络并安装 OpenSSH。（假设你的网络配置类似于 [“VNET Jail HowTo Part 2: Networking”](https://weblog.antranigv.am/posts/2021/04/2021-04-20-07-02/)）
 
 ```
 # 设置网卡

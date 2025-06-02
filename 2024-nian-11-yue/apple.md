@@ -44,7 +44,7 @@ macOS 的核心是 XNU 内核，这是一款混合内核，结合了 Mach 微内
 
 Darwin 是苹果操作系统（macOS、iOS、watchOS、tvOS 和 iPadOS）的开源基石，它包括了 XNU 内核、各种 BSD 组件和其他开源项目。Darwin 的起源可以追溯到 NeXT，这是一家由史蒂夫·乔布斯在 1985 年创办的公司，他离开苹果后创办了这家公司。NeXT 开发了 NeXTSTEP，这是一种基于 Mach 微内核和 BSD 的操作系统。它发展成为 OpenStep，并最终在史蒂夫·乔布斯回归苹果时演变成 Darwin，带回了 NeXT 的技术。
 
-2000 年，苹果发布了 Mac OS X 的一些核心组件（现在的 macOS）作为开源项目，采用 Apple 公共源代码许可证（APSL），允许更广泛的社区受益并为其开发做出贡献。这些组件包括 launchd、Grand Central Dispatch 和 Core Foundation，其中一些后来在更宽松的 Apache 许可证下重新授权，以促进更广泛的应用。然而，高级组件如 Cocoa 和 Carbon 框架仍然是专有的，以保持苹果的竞争优势。GPL 和 BSD 许可的组件未重新授权，保持了其原有的[开源许可证](https://thenewstack.io/how-do-open-source-licenses-work-the-ultimate-guide/ "open source licenses")。
+2000 年，苹果发布了 Mac OS X 的一些核心组件（现在的 macOS）作为开源项目，采用 Apple 公共源代码许可证（APSL），允许更广泛的社区受益并为其开发做出贡献。这些组件包括 launchd、Grand Central Dispatch 和 Core Foundation，其中一些后来在更宽松的 Apache 许可证下重新授权，以促进更广泛的应用。然而，高级组件如 Cocoa 和 Carbon 框架仍然是专有的，以保持苹果的竞争优势。GPL 和 BSD 许可的组件未重新授权，保持了其原有的 [开源许可证](https://thenewstack.io/how-do-open-source-licenses-work-the-ultimate-guide/ "open source licenses")。
 
 ### 详细时间线
 
@@ -98,9 +98,9 @@ BSD 的稳健性、安全性和性能特点在塑造苹果操作系统的稳定�
 
 ## 苹果对开源的贡献与利用
 
-苹果公司在高度依赖 BSD 的同时，也积极参与着开源社区。公司通过其[开源网站](https://opensource.apple.com/)和 [GitHub](https://github.com/apple-oss-distributions) 发布了多项 Darwin OS 组件，包括 XNU 内核、各种用户空间工具和库。这些贡献确保了开源社区能够从苹果的创新和改进中受益。
+苹果公司在高度依赖 BSD 的同时，也积极参与着开源社区。公司通过其 [开源网站](https://opensource.apple.com/) 和 [GitHub](https://github.com/apple-oss-distributions) 发布了多项 Darwin OS 组件，包括 XNU 内核、各种用户空间工具和库。这些贡献确保了开源社区能够从苹果的创新和改进中受益。
 
-苹果会定期更新其开源项目，发布 Darwin OS 组件的新版本。这些更新通常与新的 macOS 和 iOS 版本发布同步，体现了苹果对开源社区的持续承诺。通过共享其改进和增强功能，苹果推动了[开源软件开发](https://thenewstack.io/open-source/ "open source software development")，为开发者和用户带来益处。
+苹果会定期更新其开源项目，发布 Darwin OS 组件的新版本。这些更新通常与新的 macOS 和 iOS 版本发布同步，体现了苹果对开源社区的持续承诺。通过共享其改进和增强功能，苹果推动了 [开源软件开发](https://thenewstack.io/open-source/ "open source software development")，为开发者和用户带来益处。
 
 ## Darwin OS 的现状
 
@@ -112,13 +112,13 @@ Darwin OS 是苹果操作系统的开源核心，目前已不再作为完整的�
 
 ## 苹果与 BSD 的现有关系
 
-苹果与 BSD 代码的关系仍然相当神秘。尽管苹果在开源方面作出了重大贡献，但该公司在操作系统中 BSD 代码的具体使用程度仍然较为模糊。这种封闭的开发过程使得很难准确指出 macOS、iOS 及其他苹果系统中有多少部分仍依赖于 BSD 基石。[BSD 许可证](https://opensource.org/license/bsd-3-clause)的宽松性允许苹果使用并修改代码，而无需公开其使用方式和位置，这与 [GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) 的“传染性”要求有所不同，后者要求修改后的代码必须共享。
+苹果与 BSD 代码的关系仍然相当神秘。尽管苹果在开源方面作出了重大贡献，但该公司在操作系统中 BSD 代码的具体使用程度仍然较为模糊。这种封闭的开发过程使得很难准确指出 macOS、iOS 及其他苹果系统中有多少部分仍依赖于 BSD 基石。[BSD 许可证](https://opensource.org/license/bsd-3-clause) 的宽松性允许苹果使用并修改代码，而无需公开其使用方式和位置，这与 [GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) 的“传染性”要求有所不同，后者要求修改后的代码必须共享。
 
 苹果的开源软件策略随着时间的推移发生了变化。公司将焦点从 CoreOS 的开源组件转向了其他领域，如编程语言和编译器技术。苹果投入大量时间和精力开发项目如 [Swift](https://swift.org/)、[clang](https://clang.llvm.org/) 编译器和 [LLVM](https://llvm.org/) 运行时。这些项目代表了苹果对开源社区的主要贡献，并展示了苹果与 BSD 之间的技术转移，尤其是在编译工具链方面。
 
 此外，随着苹果对原始 BSD 组件的大量修改，传统 BSD 代码与现代改编之间的界限变得模糊。苹果在不断修改和扩展这些组件后，已经很难区分哪些部分是直接继承自 BSD 的，哪些是苹果的创新。这种不透明性限制了我们对 BSD 在苹果产品中全貌的理解，也突出了 BSD 的宽松许可证与 GPL 的传染性要求之间的差异。
 
-有证据表明，苹果仍在其操作系统中使用着当前的 BSD 组件。最近，[2024 年 6 月的提交](https://cgit.freebsd.org/src/commit/?id=7dd39ef4e0d56b213445754a189d204b70a77a00)由 Klara 公司提交，该公司代表多个客户（如 NetApp）向 FreeBSD 项目提交代码，这表明 FreeBSD 代码的持续集成和使用，证明了尽管苹果的开发过程封闭，BSD 代码（尤其是 FreeBSD）仍然是其操作系统的重要组成部分。
+有证据表明，苹果仍在其操作系统中使用着当前的 BSD 组件。最近，[2024 年 6 月的提交](https://cgit.freebsd.org/src/commit/?id=7dd39ef4e0d56b213445754a189d204b70a77a00) 由 Klara 公司提交，该公司代表多个客户（如 NetApp）向 FreeBSD 项目提交代码，这表明 FreeBSD 代码的持续集成和使用，证明了尽管苹果的开发过程封闭，BSD 代码（尤其是 FreeBSD）仍然是其操作系统的重要组成部分。
 
 ## 市场影响与采用
 

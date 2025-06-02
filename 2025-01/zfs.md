@@ -423,7 +423,7 @@ ZFS 在数据存储时会计算并存储校验和，覆盖整个数据集层次�
 
 如果存储池具有足够的冗余（如镜像或 RAID-Z），ZFS 可以检测到这些错误并自动修复（**自我修复**）。  
 
-建议**每月运行一次 Scrub**，重新计算校验和。如果发现数据损坏，ZFS 会从冗余 VDEV 获取正确的数据并修正错误。  
+建议 **每月运行一次 Scrub**，重新计算校验和。如果发现数据损坏，ZFS 会从冗余 VDEV 获取正确的数据并修正错误。  
 
 **启动 Scrub**：  
 
@@ -457,7 +457,7 @@ zfs create -V 10G mypool/vol1
 
 ### **创建稀疏卷（Sparse Volume）**  
 
-稀疏卷是**超分配**的卷，不会立即占用预留空间，而是随着数据的增长逐步填充。  
+稀疏卷是 **超分配** 的卷，不会立即占用预留空间，而是随着数据的增长逐步填充。  
 
 **创建一个 1PB（1 PB）稀疏卷**：  
 
@@ -479,9 +479,9 @@ ZFS **默认无配额**。可使用 `zfs set` 命令为特定数据集设置配�
 zfs set quota=10G mypool/dataset
 ```
 
-该配额适用于该数据集及其子数据集（包括未来创建的子数据集）。这些数据集**共享** 配额总量。  
+该配额适用于该数据集及其子数据集（包括未来创建的子数据集）。这些数据集 **共享** 配额总量。  
 
-如果仅想限制**父数据集本身**，不影响子数据集，则使用 `refquota`：  
+如果仅想限制 **父数据集本身**，不影响子数据集，则使用 `refquota`：  
 
 ```sh
 zfs set refquota=10G mypool/dataset
@@ -553,7 +553,7 @@ zfs set quota=none mypool/home/fred
 zfs set reservation=100G mypool/home
 ```
 
-预留空间**会被子数据集继承**。如果只想对该数据集本身生效，而不影响子数据集，则使用 `refreservation`：  
+预留空间 **会被子数据集继承**。如果只想对该数据集本身生效，而不影响子数据集，则使用 `refreservation`：  
 
 ```sh
 zfs set refreservation=10G mypool/home/eve
@@ -585,7 +585,7 @@ zfs set reservation=none mypool/home/eve
 
 ### **快照（Snapshots）**  
 
-快照提供了一种**快速保存数据集只读状态**的方法，可用于恢复数据集到特定时间点的状态。无需回滚整个快照，也可以单独恢复其中的文件。  
+快照提供了一种 **快速保存数据集只读状态** 的方法，可用于恢复数据集到特定时间点的状态。无需回滚整个快照，也可以单独恢复其中的文件。  
 
 **ZFS 通过 `.zfs` 目录提供只读访问**，可从快照中读取文件。  
 
@@ -665,7 +665,7 @@ zfs diff mypool/ds@backup1 mypool/ds@backup2
 
 ### **快照回滚（Snapshot Rollback）**  
 
-回滚操作会**丢弃当前数据集的状态**，恢复到指定快照的状态。所有在该快照之后创建的数据**都会被删除**。  
+回滚操作会 **丢弃当前数据集的状态**，恢复到指定快照的状态。所有在该快照之后创建的数据 **都会被删除**。  
 
 ```sh
 zfs rollback mypool/ds@backup2
@@ -681,7 +681,7 @@ zfs rollback -r mypool/ds@backup1
 
 ### **挂载快照（Snapshot Mounting）**  
 
-可将快照**以只读方式**挂载到文件系统：  
+可将快照 **以只读方式** 挂载到文件系统：  
 
 ```sh
 mount -t zfs mypool/ds@backup /mnt/backup
@@ -693,7 +693,7 @@ mount -t zfs mypool/ds@backup /mnt/backup
 
 #### **模拟删除（Dry Run）**  
 
-建议先执行**模拟删除**（选项 `-n`）查看即将删除的内容，配合 `-v` 显示详细信息：  
+建议先执行 **模拟删除**（选项 `-n`）查看即将删除的内容，配合 `-v` 显示详细信息：  
 
 ```sh
 zfs destroy -vn mypool/ds@backup
@@ -747,7 +747,7 @@ mypool@e
 
 ### **快照保护（ZFS Holds）**  
 
-ZFS 能为快照创建**保护标记**（tag），被标记的快照不能删除。可以对一个快照添加**多个**保护标记，只有 **所有标记都被移除** 后，快照才可以删除。  
+ZFS 能为快照创建 **保护标记**（tag），被标记的快照不能删除。可以对一个快照添加 **多个** 保护标记，只有 **所有标记都被移除** 后，快照才可以删除。  
 
 #### **创建快照保护（Hold）**  
 
@@ -771,7 +771,7 @@ zfs release keepme mypool/home@important
 
 ### **克隆（Clones）**  
 
-克隆是**可写的快照副本**，创建的克隆数据集**包含原快照的所有数据**。  
+克隆是 **可写的快照副本**，创建的克隆数据集 **包含原快照的所有数据**。  
 
 #### **创建克隆**  
 
@@ -779,7 +779,7 @@ zfs release keepme mypool/home@important
 zfs clone mypool/ds@backup mypool/myclone
 ```
 
-克隆数据集的 `origin` 属性指向其**来源快照**：  
+克隆数据集的 `origin` 属性指向其 **来源快照**：  
 
 ```sh
 zfs get origin mypool/myclone
@@ -787,7 +787,7 @@ zfs get origin mypool/myclone
 
 #### **解除克隆对原快照的依赖（Promote Clone）**  
 
-ZFS **不允许删除** 有依赖克隆的快照。要删除原快照，必须**先提升克隆为独立数据集**（`promote`）：  
+ZFS **不允许删除** 有依赖克隆的快照。要删除原快照，必须 **先提升克隆为独立数据集**（`promote`）：  
 
 ```sh
 zfs promote mypool/myclone
@@ -899,7 +899,7 @@ zfs allow -u jill @myset mypool/dataset
 
 ### **快照发送与接收（Sending and Receiving Snapshots）**  
 
-ZFS 能以字节流的方式**本地和通过网络传输快照**，可用于备份。  
+ZFS 能以字节流的方式 **本地和通过网络传输快照**，可用于备份。  
 
 #### **将快照写入文件（Write Snapshot to a File）**  
 
