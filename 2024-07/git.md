@@ -226,7 +226,7 @@ got: work tree and repository paths may not overlap: /usr/ports/.git: bad path
 - [よくある 質問 とその 答 え](https://gameoftrees.org/faq.html)
 - [FOSDEM 2023 での 発表資料](https://www.openbsd.org/papers/fosdem2023-gotd.pdf)
 - [EuroBSDcon 2019 での 発表資料](https://www.openbsd.org/papers/eurobsdcon2019-gameoftrees.pdf)
-- [FreeBSDの 入手方法（Gitの 利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
+- [FreeBSD の 入手方法（Git の 利用）](https://docs.freebsd.org/ja/books/handbook/mirrors/#git)
 
 ---
 

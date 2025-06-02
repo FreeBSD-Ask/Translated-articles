@@ -1,6 +1,6 @@
 # ccache 在构建 FreeBSD 的 buildworld 时的效率
 
-- 原文：[ccacheでFreeBSDをbuildworldした 場合 の 効率 について](https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c)
+- 原文：[ccache で FreeBSD を buildworld した 場合 の 効率 について](https://qiita.com/nanorkyo/items/db1374b5c821dfe5113c)
 - 作者：重村法克
 - 2022-11-16
 
