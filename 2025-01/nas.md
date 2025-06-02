@@ -1,8 +1,8 @@
 # FreeBSD 爱好者团结起来支持新兴项目 zVault——社区分支继 TrueNAS CORE 之后继续发展
 
- - 原文：[FreeBSD fans rally round zVault upstart](https://www.theregister.com/2025/05/12/second_preview_zvault/)
- - 作者：iconLiam Proven
- - 2025 年 5 月 12 日
+- 原文：[FreeBSD fans rally round zVault upstart](https://www.theregister.com/2025/05/12/second_preview_zvault/)
+- 作者：iconLiam Proven
+- 2025 年 5 月 12 日
 
 TrueNAS 依然活跃健康，但 iXsystems 已将重点转向基于 Linux 的 SCALE 版本。对于仍然坚持使用 CORE 的 FreeBSD 忠实用户来说，新的竞争者正在崛起：zVault。
 
@@ -18,5 +18,5 @@ FreeBSD 博主 Vermaden 发布了更新，表达了一些 FreeBSD 社区成员�
 
 zVault 项目主页上的[路线图](https://zvault.io/#roadmap)相对简单。第一步：发布一个可用版本；第二步：发布稳定版本；第三步是更新到 13.5 版本；第四步则是在此基础上切换到当前的 FreeBSD 14。
 
-与此同时，还有[ XigmaNAS](https://xigmanas.com/xnaswp/)，它基于早期的 FreeNAS 版本继续开发，早于 iXsystems 的介入，没有后者投入的现代化改进。它的部署比 TrueNAS CORE 要复杂些，网页界面也明显不如 TrueNAS CORE 精致，但它依然存在，能用，并且持续获得更新。 ®
+与此同时，还有[XigmaNAS](https://xigmanas.com/xnaswp/)，它基于早期的 FreeNAS 版本继续开发，早于 iXsystems 的介入，没有后者投入的现代化改进。它的部署比 TrueNAS CORE 要复杂些，网页界面也明显不如 TrueNAS CORE 精致，但它依然存在，能用，并且持续获得更新。 ®
 
