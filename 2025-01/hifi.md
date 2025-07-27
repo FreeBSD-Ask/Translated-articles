@@ -399,7 +399,7 @@ Jan 21 21:53:47 freebsd kernel: uaudio_chan_play_sync_callback: Comparing 44099 
 Jan 21 21:53:48 freebsd kernel: uaudio_chan_play_sync_callback: Value = 0x00058330
 Jan 21 21:53:48 freebsd kernel: uaudio_chan_play_sync_callback: Comparing 44099 Hz :: 44100 Hz
 ...
-
+```
 
 
 ## FreeBSD 中的图形均衡器
