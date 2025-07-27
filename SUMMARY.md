@@ -5,7 +5,7 @@
 
 ## 2025 年
 
-* [FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理]((2025-01/hifi.md)
+* [FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理](2025-01/hifi.md)
 * [FreeBSD 开发者正在决定是否为 FreeBSD 15 的 WiFi 采取稳定版策略](2025-01/15.md)
 * [伯克利 Unix 二十年——从 AT&T 掌控到自由分发](2025-01/His2.md)
 * [BSD 在 Unix 发展中的角色](2025-01/his.md)
