@@ -16,11 +16,11 @@
 
 <img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/b2043bf8-da18-4d0e-9390-1b6164ef6eb0" />
 
-## 作为 HiFi 发烧友音频系统的一部分的 FreeBSD
+## 作为 HiFi 发烧友音频系统一部分的 FreeBSD
 
 在我看来，使 FreeBSD 优于 Linux 的，正是它那精确追踪音频设备参数、系统内核参数以及对其进行修改的能力。当然，我们这里讨论的仅限于操作系统层面对音频的处理（即在 FreeBSD 中由 OSS/[`sound(4)`](https://man.freebsd.org/cgi/man.cgi?sound%284%29) 驱动完成，Linux 中由 ALSA 完成），并以一种方式配置系统，使得音频数据只在听音设备的硬件层面以 **比特完美** 模式处理，也就是说：在传输到外部 DAC 设备或声卡的过程中，不进行重采样、路由或声道混合。因此，我自然省略了诸如 Jack 服务器、PulseAudio 或 RedHat 旗下令人头疼的 PipeWire 这类额外音频层的使用和配置。当然，软件信号解码器的问题仍存在，后文会详细论述。
 
-使用 FreeBSD 的另一个优势是，它对[实时操作系统](https://en.wikipedia.org/wiki/Real-time_operating_system)（RTOS）和实时程序的支持更好。虽然“更好”并不意味着完美，但在这方面 Linux 远远落后。直到 2024 年，实时 Linux（PREEMPT\_RT）才成为内核及其主线软件的正式一部分。
+使用 FreeBSD 的另一个优势是，它对[实时操作系统](https://en.wikipedia.org/wiki/Real-time_operating_system)（RTOS）和实时程序的支持更好。虽然“更好”并不意味着完美，但在这方面 Linux 远远落后。直到 2024 年，实时 Linux（PREEMPT\_RT）才正式成为内核及其主线软件的一部分。
 
 ## 什么是实时系统以及它在音频处理中的重要性
 
