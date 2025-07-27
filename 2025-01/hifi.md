@@ -490,7 +490,7 @@ FFmpeg 项目中的 [libavfilter](https://ffmpeg.org/ffmpeg-filters.html) 库提
 
 启用滤镜时，需要在 MPD 配置文件 `musicpd.conf` 中添加一个新的 `filter {}` 区块，用于定义滤镜（或多个滤镜），并在 `audio_output {}` 区块中添加滤镜。同时确保 `mixer_type` 和 `replay_gain_handler` 参数设置正确，适合比特完美模式。系统配置方面保持之前 **配置 FreeBSD 与音频子系统** 中描述的方案。
 
-#### FFmpeg —— bass 与 treble 滤镜示例
+### FFmpeg —— bass 与 treble 滤镜示例
 
 示例组合了 `bass` 和 `treble` 滤镜：
 
@@ -522,7 +522,7 @@ audio_output {
 <img width="768" height="222" alt="image" src="https://github.com/user-attachments/assets/b900cbcc-342b-48dd-a894-94477074c4fc" />
 
 
-#### FFmpeg – 滤镜 anequalizer
+### FFmpeg – 滤镜 anequalizer
 
 FFmpeg 库中还有一个值得注意的滤镜，即 `anequalizer`。它是一个多通道参数均衡器，基于模拟的切比雪夫（Chebyshev）和巴特沃斯（Butterworth）滤波器（由于通带信号失真较小，建议用于音频应用）。`anequalizer` 滤镜的系数可以根据中心频率、峰值增益、带宽和带宽增益来计算。
 
@@ -544,7 +544,7 @@ filter {
 mixer_type "software"
 ```
 
-#### 设计 anequalizer 滤镜的特性
+### 设计 anequalizer 滤镜的特性
 
 可以通过 [Intona fima 的 DSP 编辑器](https://intona.eu/lpi/index.html) 设计和可视化 `anequalizer` 滤镜特性波形及其参数。
 
