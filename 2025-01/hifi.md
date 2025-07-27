@@ -18,13 +18,13 @@
 
 ## 作为 HiFi 发烧友音频系统的一部分的 FreeBSD
 
-在我看来，使 FreeBSD 优于 Linux 的，是它能够精确追踪音频设备参数以及系统内核参数并进行修改的能力。当然，我们这里讨论的仅限于操作系统层面对音频的处理（即在 FreeBSD 中由 OSS/[`sound(4)`](https://man.freebsd.org/cgi/man.cgi?sound%284%29) 驱动完成，Linux 中由 ALSA 完成），并以一种方式配置系统，使得音频数据只在听音设备的硬件层面以 **比特完美** 模式处理，也就是说：在传输到外部 DAC 设备或声卡的过程中，不进行重采样、路由或声道混合。因此，我自然省略了诸如 Jack 服务器、PulseAudio 或 RedHat 旗下令人头疼的 PipeWire 这类额外音频层的使用和配置。当然，软件信号解码器的问题仍存在，后文会详细论述。
+在我看来，使 FreeBSD 优于 Linux 的，正是它那精确追踪音频设备参数、系统内核参数以及对其进行修改的能力。当然，我们这里讨论的仅限于操作系统层面对音频的处理（即在 FreeBSD 中由 OSS/[`sound(4)`](https://man.freebsd.org/cgi/man.cgi?sound%284%29) 驱动完成，Linux 中由 ALSA 完成），并以一种方式配置系统，使得音频数据只在听音设备的硬件层面以 **比特完美** 模式处理，也就是说：在传输到外部 DAC 设备或声卡的过程中，不进行重采样、路由或声道混合。因此，我自然省略了诸如 Jack 服务器、PulseAudio 或 RedHat 旗下令人头疼的 PipeWire 这类额外音频层的使用和配置。当然，软件信号解码器的问题仍存在，后文会详细论述。
 
 使用 FreeBSD 的另一个优势是，它对[实时操作系统](https://en.wikipedia.org/wiki/Real-time_operating_system)（RTOS）和实时程序的支持更好。虽然“更好”并不意味着完美，但在这方面 Linux 远远落后。直到 2024 年，实时 Linux（PREEMPT\_RT）才成为内核及其主线软件的正式一部分。
 
 ## 什么是实时系统以及它在音频处理中的重要性
 
-实时操作系统（RTOS）是一种专门设计用来以高精度和高可靠性处理时间敏感任务的操作系统。与通用操作系统不同，实时系统旨在在最严格、最短的时间内响应事件并处理数据。
+实时操作系统（RTOS）是一类专门设计用来以高精度和高可靠性处理时间敏感任务的操作系统。与通用操作系统不同，实时系统旨在在最严格、最短的时间内响应事件并处理数据。
 
 >RTOS 的关键特征是其可预测的运行，这意味着关键任务能够保证在规定的时间内完成。**人们常误以为实时系统运行更快，实际上并非如此，实时系统关注的是可靠性和可预测性。** 正是这些特性使得 RTOS 广泛应用于时间至关重要的领域，比如工业自动化系统、航天设备、医疗器械，当然也包括音频处理领域。
 
@@ -41,9 +41,9 @@ Linux 的音频处理系统 ALSA 大多自动调整所有参数，因此启用�
 
 ## FreeBSD 与 Linux 的音频硬件支持
 
-不过必须指出，FreeBSD 和 Linux 之间有一个非常重要的区别。在 Linux 中，哪怕是在比特完美模式（`hw:0,0`）下，几乎所有内置声卡或 USB DAC 也都能正常工作，但 FreeBSD 并非如此。启用参数 `dev.pcm.%d.bitperfect=1` 有时会引发问题。例如，设备支持的 PCM 格式描述符无法被正确识别（尤其是针对 XMOS 通信芯片），强制设置该参数，包括使用 `dev.pcm.%d.play.vchanformat=s16le:2.0`，都无法达到预期效果。我测试过的 [Presonus Audiobox iOne](https://m4c.pl/blog/presonus-ione-linux/) 系列设备就是如此。此时需要关闭比特完美模式，系统会自动启用对所有数据源以 48 kHz 的固定重采样。但在 Linux 下，这些设备运行正常。
+不过必须指出，FreeBSD 和 Linux 之间有一个非常重要的区别。在 Linux 中，哪怕是在比特完美模式（`hw:0,0`）下，几乎所有内置声卡或 USB DAC 也都能正常工作；但 FreeBSD 并非如此。启用参数 `dev.pcm.%d.bitperfect=1` 有时会引发问题。例如，设备支持的 PCM 格式描述符无法被正确识别（尤其是针对 XMOS 通信芯片），强制设置该参数，包括使用 `dev.pcm.%d.play.vchanformat=s16le:2.0`，都无法达到预期效果。我测试过的 [Presonus Audiobox iOne](https://m4c.pl/blog/presonus-ione-linux/) 系列设备就是如此。此时需要关闭比特完美模式，系统会自动启用对所有数据源以 48 kHz 的固定重采样。但在 Linux 下，这些设备运行正常。
 
-此外，还应提及一个长期存在的问题，特别是针对使用 USB DAC 的硬件配置——播放过程中偶尔出现的干扰声和点击声，大约每十几分钟出现一次。虽然这没有固定规律——某些硬件规格完全正常，而另一些则问题频出。此问题值得另写文章详细探讨，尽管尝试了不同的延迟参数、缓冲区调整、PCM 设备调试和各个组件间的干扰分析，至今仍未找到解决方案。
+此外，还应提及一个长期存在的问题，特别是针对使用 USB DAC 的硬件配置——播放过程中偶尔出现的干扰声和点击声，大约每十几分钟出现一次。虽然这没有固定规律——某些硬件规格完全正常，而某些则问题频出。此问题值得另写文章详细探讨，尽管尝试了不同的延迟参数、缓冲区调整、PCM 设备调试和各个组件间的干扰分析，至今仍未找到解决方案。
 
 **幸运的是，在大多数情况下，FreeBSD 中仍能按预期配置音频设备。简单来说，大部分参数系统默认已作出合理选择。**
 
@@ -85,9 +85,9 @@ mac_priority_load="YES" ②
 #hint.pcm.5.eq=1 ③
 ```
 
-① 添加 `sysctlinfo(4)` 模块，该模块负责与各个内核 sysctl 状态和 MIB 树组件进行扩展的进程通信。此模块非必需，但部分应用程序（例如 `mixertui(8)`）会使用该接口。
+① 添加模块 `sysctlinfo(4)`，该模块负责与各个内核 sysctl 状态和 MIB 树组件进行扩展的进程通信。此模块非必需，但部分应用程序（例如 `mixertui(8)`）会使用该接口。
 
-② `mac_priority(4)` 模块用于建立权限调度规则，使得特权用户可以使用工具 [`rtprio(1)`](https://man.freebsd.org/cgi/man.cgi?query=rtprio) 以实时优先级运行进程。
+② 模块 `mac_priority(4)` 用于建立权限调度规则，使得特权用户可以让工具 [`rtprio(1)`](https://man.freebsd.org/cgi/man.cgi?query=rtprio) 以实时优先级运行进程。
 
 ③该参数负责启用 `dev.pcm.5` 设备的图形均衡器（equalizer）（上述规格中指的是 USB DAC 设备）。在比特完美配置中我们省略此项，具体内容详见后文 **FreeBSD 中的图形均衡器** 一节。
 
@@ -109,7 +109,7 @@ hw.snd.default_unit=5 ⑥
 
 如果想更深入了解进程唤醒延迟及系统时钟频率对该延迟的影响，推荐阅读 [Paul Herman 的文章](https://www.dragonflybsd.org/presentations/nanosleep/)，文中除了测试结果，还提供了[基准测试源码](https://www.dragonflybsd.org/presentations/nanosleep/wakeup_latency.c)。
 
-为了直观展示 `kern.timecounter.alloweddeviation` 参数对延迟的影响，以下是我系统上测试的结果：
+为了直观展示参数 `kern.timecounter.alloweddeviation` 对延迟的影响，下面是我在系统上的测试结果：
 
 ```sh
 # ./wakeup_latency
@@ -143,13 +143,11 @@ kern.timecounter.alloweddeviation: 5 -> 0
 
 ⑤ 启用比特完美模式并禁用虚拟通道后，系统会绕过数字信号处理（DSP）、频率变换/重采样、均衡器等处理。纯净的 PCM 数据流将直接传输到音频终端设备。
 
-⑥ 在上述硬件规格中，音频设备为 USB DAC，系统中显示为 dev.pcm.5 —— 我们将其设置为默认设备。
+⑥ 在上述硬件规格中，音频设备为 USB DAC，系统中显示为 `dev.pcm.5` —— 我们将其设置为默认设备。
 
 ⑦ 音频驱动的相对音量级别参数，默认值为 45。这在比特完美模式下影响微乎其微，但在系统图形均衡器（equalizer）配置中则较为重要；在配置和比特完美模式下影响可忽略不计。
 
 ⑧与上述参数类似，此为相对音量级别参数，但针对系统图形均衡器的操作（默认 +0.0dB），在比特完美模式下影响可忽略不计。关于参数 `dev.pcm.%d.eq_preamp` 和 `hw.snd.vpc_0db` 的详细含义，请参见 **FreeBSD 中的图形均衡器** 一节。
-
-
 
 #### /etc/rc.conf
 
@@ -315,7 +313,7 @@ dev.pcm.5.%desc: Cambridge Audio Cambridge Audio USB Audio 2.0
 
 ## 在 FreeBSD 中以实时模式运行 MPD 音乐播放器
 
-在 **FreeBSD 与音频子系统配置** 一节中，我们已准备好系统以实时系统模式运行，即加载了模块 `mac_priority(4)`，并通过调整参数 `kern.timecounter.alloweddeviation` 将进程延迟降至最低。通过命令 `rtprio(1)`，可在系统实时调度器中启动服务器和 MPD（Music Player Daemon）。但在此之前，需先关闭系统启动时自动启动的服务 `musicpd(1)`：
+在 **FreeBSD 与音频子系统配置** 一节中，我们已准备好系统以实时系统模式运行，即加载了模块 `mac_priority(4)`，并通过调整参数 `kern.timecounter.alloweddeviation` 将进程延迟降至最低。通过命令 `rtprio(1)`，可在系统实时调度器中启动服务器和 MPD。但在此之前，需先关闭系统启动时自动启动的服务 `musicpd(1)`：
 
 ```sh
 # service musicpd stop
@@ -324,7 +322,7 @@ dev.pcm.5.%desc: Cambridge Audio Cambridge Audio USB Audio 2.0
 
 在 FreeBSD 中，最高实时优先级为 0。优先级编号从 0 到 RTP\_PRIO\_MAX（通常为 31），数值越低优先级越高。
 
-要验证 MPD 服务器是否以实时且正确的优先级运行，可使用 `ps` 命令查看进程列表，并筛选出 `musicpd(1)` 进程：
+要验证 MPD 服务器是否以实时且正确的优先级运行，可使用命令 `ps` 查看进程列表，并筛选出 `musicpd(1)` 进程：
 
 ```sh
 # ps -o rtprio -axl | grep [m]usicpd
@@ -336,7 +334,7 @@ dev.pcm.5.%desc: Cambridge Audio Cambridge Audio USB Audio 2.0
 real:0 137 1146 1 0 -52 0 415080 214420 select I<s - 0:06.55 musicpd /usr/local/etc/musicpd.conf
 ```
 
-另一种通过 `top(1)` 命令检查 `musicpd(1)` 是否正确以实时模式启动的方法：
+另一种通过命令 `top(1)` 检查 `musicpd(1)` 是否正确以实时模式启动的方法：
 
 ```sh
 # top -p `pgrep -d "," musicpd`
@@ -355,7 +353,7 @@ Swap: 2048M Total, 2048M Free
  1146 mpd           8 -52   r0   605M   227M select   0   0:12   0.00% musicpd
 ```
 
-## FreeBSD 中用于调试和排查 USB 音频设备的附加命令
+## FreeBSD 中用于调试和排查 USB 音频设备的其他命令
 
 ```sh
 # sysctl hw.usb.debug=1
@@ -408,7 +406,7 @@ Jan 21 21:53:48 freebsd kernel: uaudio_chan_play_sync_callback: Comparing 44099 
 
 FreeBSD 系统的声音驱动（`sound(4)`）中实现了一款简单的软件图形均衡器（equalizer），支持实时调节低音和高音。内核默认编译时，均衡器调节频率为 62 Hz 和 16 kHz，也可以通过编译内核时指定其他参数进行更改。要启用均衡器，需要在文件 `/boot/loader.conf` 中设置参数 `hint.pcm.%d.eq`（启用后需重启系统）：
 
-```
+```sh
 #/boot/loader.conf
 ...
 hint.pcm.5.eq=1
@@ -451,8 +449,8 @@ dev.pcm.5.bitperfect: 0
 
 >音频均衡有可能引入一定的失真或音质劣化风险，尤其是在过度使用时。为防止这种情况，FreeBSD 声音驱动提供了两个参数：`hw.snd.vpc_0db` 和 `dev.pcm.%d.eq_preamp`（官方文档尚未详细描述）。这两个参数分别设置声卡驱动和均衡器的相对“零”音量级别，通常能为均衡计算留出更大的余量以避免失真：
 >
->* `hw.snd.vpc_0db` —— 默认启用，值为 45。增大该参数（即降低音量级别）会为经过均衡校正后的频率处理提供更大的动态范围。
->* `dev.pcm.%d.eq_preamp` —— 默认值为 0，范围为 -9 dB 至 +9 dB。例如，设置为 -5 表示先将整个音频流整体衰减 5 dB（相对于最大增益），后续的放大均基于该点（0 dB）进行。这样听感音量会降低，但如上所述，可以更好地补偿因均衡放大某些频率产生的失真。
+>* `hw.snd.vpc_0db` —— 默认启用，值为 `45`。增大该参数（即降低音量级别）会为经过均衡校正后的频率处理提供更大的动态范围。
+>* `dev.pcm.%d.eq_preamp` —— 默认值为 `0`，范围为 -9 dB 至 +9 dB。例如，设置为 `-5` 表示先将整个音频流整体衰减 5 dB（相对于最大增益），后续的放大均基于该点（0 dB）进行。这样听感音量会降低，但如上所述，可以更好地补偿因均衡放大某些频率产生的失真。
 >
 >这两个参数建议交替使用，通常配置到文件 `/etc/sysctl.conf`，也可以在运行时直接设置。
 
@@ -476,7 +474,7 @@ dev.pcm.5.eq_preamp: +0.0dB -> -5.0dB
 
 ## 高品质均衡器——FFmpeg 滤镜
 
-在发烧友圈里，是否使用音频均衡器一直存在不同看法。一方面，纯粹主义者主张尽可能自然、不做任何修改地还原声音；另一方面，实用主义者建议使用图形均衡器，根据个人喜好、房间声学条件或音响设备的缺陷进行调节。
+在发烧友圈里，是否使用音频均衡器一直存在着不同的看法。一方面，纯粹主义者主张尽可能自然、不做任何修改地还原声音；另一方面，实用主义者建议使用图形均衡器，根据个人喜好、房间声学条件或音响设备的缺陷进行调节。
 
 也可以折中，即适度使用均衡器，寻找自然音质与个性化调音之间的平衡点。合适的图形均衡器能在不引入明显失真的情况下提升听感质量。
 
@@ -552,13 +550,13 @@ mixer_type "software"
 
 下面这个滤镜定义的等效表达：
 
-```dh
+```sh
 graph "anequalizer=c0 f=62 w=120 g=10 t=0|c1 f=62 w=120 g=10 t=0|c0 f=16000 w=8000 g=2 t=0|c1 f=16000 w=8000 g=2 t=0"
 ```
 
 在 DSP 应用中对应为：
 
-```
+```sh
 peq 62Hz q0.51 10dB
 peq 16kHz q2 3dB
 ```
