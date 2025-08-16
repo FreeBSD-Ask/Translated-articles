@@ -5,6 +5,7 @@
 
 ## 2025 年
 
+* [Mark Johnston 的 BSDCan 2025 旅行报告](2025-01/Mark.md)
 * [FreeBSD Periodic 系统简介](2025-01/Periodic.md)
 * [如何安装和配置 Galene 视频会议服务器](2025-01/Video-Meeting.md)
 * [FreeBSD 基金会欢迎董事会新成员：John Baldwin](2025-01/John.md)
