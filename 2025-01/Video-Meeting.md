@@ -19,13 +19,13 @@
 
 首先，确保你已经安装了最新的 FreeBSD 系统更新。以 root 身份运行以下命令（由 `#` 表示）：
 
-```
+```sh
 # freebsd-update fetch install
 ```
 
 接着，将 pkg 仓库更新为 `latest` 分支。编辑 `/etc/pkg/Freebsd.conf`，把字符串 `quarterly` 改成 `latest`。然后运行以下命令更新 pkg 数据库：
 
-```
+```sh
 # pkg update
 ```
 
@@ -37,19 +37,19 @@
 
 ### 为 Galene 创建 ZFS 数据集
 
-```
+```sh
 # zfs create -p videostar/var/db/galene/data
 # zfs create videostar/var/db/galene/groups
 # zfs create videostar/var/db/galene/recordings
 ```
 
-通过这些命令，我们在 `galene` 子目录下创建了一个独立数据集，并在其下创建了三个数据集：recordings、data 和 groups。我们稍后将填充这些内容。
+通过这些命令，我们在 `galene` 子目录下创建了一个独立数据集，并在其下创建了三个数据集：`recordings`、`data` 和 `groups`。我们稍后将填充这些内容。
 
 ### 包安装
 
-FreeBSD 的包集合非常易用，并包含了预构建好的 Galene 包。我们接下来安装它：
+FreeBSD 的软件包非常易用，并包含了预构建好的 Galene 包。我们接下来安装它：
 
-```
+```sh
 # pkg install galene
 ```
 
@@ -57,11 +57,11 @@ FreeBSD 的包集合非常易用，并包含了预构建好的 Galene 包。我�
 
 ### Galene 配置文件
 
-在第一次启动 Galene 之前，我们需要定义有哪些 group（群组）。这些群组就是视频会议房间，允许多个用户加入同一个房间，或在不同房间举行会议而互不干扰。同时，也需要定义用户的权限和密码。
+在首次启动 Galene 前，我们需要定义有哪些 group（群组）。这些群组就是视频会议房间，允许多个用户加入同一个房间，或在不同房间举行会议而互不干扰。同时，也需要定义用户的权限和密码。
 
 一个在 `/var/db/galene/groups` 下的基础示例文件如下：
 
-```
+```ini
 {
     "users":
     {
@@ -78,9 +78,9 @@ FreeBSD 的包集合非常易用，并包含了预构建好的 Galene 包。我�
 
 ## 添加有效的 SSL 证书
 
-虽然我们没有将其加入 [Ansible 剧本](https://github.com/FreeBSDFoundation/blog/tree/main/how-to-install-and-configure-the-galene-video-meeting-server-on-freebsd)，但添加一个来自 letsencrypt.org 的有效 SSL 证书相对简单。简要步骤如下：
+虽然我们没有将其加入 [Ansible playbook](https://github.com/FreeBSDFoundation/blog/tree/main/how-to-install-and-configure-the-galene-video-meeting-server-on-freebsd)，但添加一份来自 `letsencrypt.org` 的有效 SSL 证书相对简单。简要步骤如下：
 
-```
+```sh
 pkg install py311-certbot
 certbot certonly -d YOURHOSTSFQDN --standalone
 cp /usr/local/etc/letsencrypt/live/meet.fortasse.cloud/fullchain.pem /var/db/galene/data/cert.pem
@@ -93,19 +93,19 @@ service galene restart
 
 Galene 包在安装二进制文件的同时也安装了启动脚本，位于 `/usr/local/etc/rc.d`。要让 Galene 随系统启动，在 `/etc/rc.conf` 中加入以下内容：
 
-```
+```sh
 # service galene enable
 ```
 
 之后启动服务：
 
-```
+```sh
 # service galene start
 ```
 
 检查服务是否在运行：
 
-```
+```sh
 # service galene status
 ```
 
@@ -115,20 +115,16 @@ Galene 包在安装二进制文件的同时也安装了启动脚本，位于 `/u
 
 我们可以在 `sockstat -l`（监听套接字列表）的输出中找到正在运行的 Galene 进程 PID：
 
-```
+```sh
 # sockstat -l|grep galene
 ```
 
 在同一行里，可以看到 Galene 默认监听的端口 8443。假设我们的主机名是 `videostar.example`，在浏览器地址栏中输入：
 
-```
+```sh
 https://videostar.example:8443
 ```
 
 此时会打开一个网页，询问你要加入哪个 group。输入 `videostar`（我们在配置文件中定义的那个），点击 `Join` 按钮。在下一页输入用户名和密码，选择允许使用的设备（摄像头、麦克风），然后点击 `Connect` 按钮。如果一切顺利，你就进入了拥有完整权限的视频会议房间。之后只需在 `videostar.json` 文件中添加更多用户并重启 galene 进程，就能把这个网址分享给他人。祝贺你，视频会议愉快！
 
 ![](https://freebsdfoundation.org/wp-content/uploads/2025/07/Galene-1024x790.webp "Galene")
-
-我们会定期发布新的技术主题文章和视频。请确保你已订阅 [YouTube 频道](https://youtube.com/@freebsdproject)，并在你喜欢的 RSS 阅读器中关注 [这个更新源](https://freebsdfoundation.org/our-work/latest-updates/)。如果你希望通过邮件收到更新，也可以订阅 [新闻简报](https://mailchi.mp/freebsdfoundation.org/newsletter-sign-up)。
-
-我们希望这个内容系列也是互动的 —— 你希望我们接下来涵盖哪些主题？我们能帮你解决哪些 FreeBSD 问题？欢迎 [联系我们](https://freebsdfoundation.org/about-us/contact-us/) 提出你的想法。
