@@ -5,6 +5,11 @@
 
 ## 2025 年
 
+* [Chuck Tuffli 的 BSDCan 2025 旅行报告](2025-01/Chuck-Tuffli.md)
+* [Mark Johnston 的 BSDCan 2025 旅行报告](2025-01/Mark.md)
+* [FreeBSD Periodic 系统简介](2025-01/Periodic.md)
+* [如何安装和配置 Galene 视频会议服务器](2025-01/Video-Meeting.md)
+* [FreeBSD 基金会欢迎董事会新成员：John Baldwin](2025-01/John.md)
 * [FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理](2025-01/hifi.md)
 * [FreeBSD 开发者正在决定是否为 FreeBSD 15 的 WiFi 采取稳定版策略](2025-01/15.md)
 * [伯克利 Unix 二十年——从 AT&T 掌控到自由分发](2025-01/His2.md)

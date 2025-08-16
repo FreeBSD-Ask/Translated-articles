@@ -1,4 +1,4 @@
-# FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理 
+# FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理
 
 - 原文：[FreeBSD and hi-fi audio setup: bit-perfect, equalizer, real-time](https://m4c.pl/blog/freebsd-audio-setup-bitperfect-equalizer-realtime/)
 - 作者：Marcin Szewczyk-Wilgan
@@ -55,23 +55,23 @@ Linux 的音频处理系统 ALSA 大多自动调整所有参数，因此启用�
 
 **听音系统规格：**
 
-* **电脑**：HP t540 瘦客户机，AMD Ryzen，4GB DDR4 内存，16GB SSD
-* **存储**：Seagate Expansion 2TB USB SSD
-* **DAC**：Cambridge Audio DacMagic Plus（新电容线路：松下 FM，ELNA 音频专用；Tomanek 电源），Presonus AudioBox iOne
-* **USB 线缆**：WireWorld ULTRAVIOLET 8
-* **耳机放大器**：Forum608 IV 双单声道（A 类）
-* **RCA 连接线**：Audioquest Goldengate 0.6 米
-* **耳机**：Beyerdynamic 990 Pro 250 欧姆，990 Edition 600 欧姆
+- **电脑**：HP t540 瘦客户机，AMD Ryzen，4GB DDR4 内存，16GB SSD
+- **存储**：Seagate Expansion 2TB USB SSD
+- **DAC**：Cambridge Audio DacMagic Plus（新电容线路：松下 FM，ELNA 音频专用；Tomanek 电源），Presonus AudioBox iOne
+- **USB 线缆**：WireWorld ULTRAVIOLET 8
+- **耳机放大器**：Forum608 IV 双单声道（A 类）
+- **RCA 连接线**：Audioquest Goldengate 0.6 米
+- **耳机**：Beyerdynamic 990 Pro 250 欧姆，990 Edition 600 欧姆
 
 **最常听的专辑：**
 
-* Iron Maiden – Fear Of The Dark（铁娘子乐队-恐惧黑暗）
-* McIntosh Audiophile Test Reference 发烧友测试参考
-* Alan Parsons Project – Stereotomy（亚伦派森实验乐团-Stereotomy）
-* The WHO – Quadrophenia（谁人乐队-四重人格）
-* Depeche Mode – Violator（赶时髦乐队-Violator）
-* HD Audiophile Speaker Set-Up 高清发烧音箱设置（192-24）
-* TOOL – Lateralus（工具乐队-Lateralus）
+- Iron Maiden – Fear Of The Dark（铁娘子乐队 - 恐惧黑暗）
+- McIntosh Audiophile Test Reference 发烧友测试参考
+- Alan Parsons Project – Stereotomy（亚伦派森实验乐团-Stereotomy）
+- The WHO – Quadrophenia（谁人乐队 - 四重人格）
+- Depeche Mode – Violator（赶时髦乐队-Violator）
+- HD Audiophile Speaker Set-Up 高清发烧音箱设置（192-24）
+- TOOL – Lateralus（工具乐队-Lateralus）
 
 ### FreeBSD 配置文件
 
@@ -449,8 +449,8 @@ dev.pcm.5.bitperfect: 0
 
 >音频均衡有可能引入一定的失真或音质劣化风险，尤其是在过度使用时。为防止这种情况，FreeBSD 声音驱动提供了两个参数：`hw.snd.vpc_0db` 和 `dev.pcm.%d.eq_preamp`（官方文档尚未详细描述）。这两个参数分别设置声卡驱动和均衡器的相对“零”音量级别，通常能为均衡计算留出更大的余量以避免失真：
 >
->* `hw.snd.vpc_0db` —— 默认启用，值为 `45`。增大该参数（即降低音量级别）会为经过均衡校正后的频率处理提供更大的动态范围。
->* `dev.pcm.%d.eq_preamp` —— 默认值为 `0`，范围为 -9 dB 至 +9 dB。例如，设置为 `-5` 表示先将整个音频流整体衰减 5 dB（相对于最大增益），后续的放大均基于该点（0 dB）进行。这样听感音量会降低，但如上所述，可以更好地补偿因均衡放大某些频率产生的失真。
+>- `hw.snd.vpc_0db` —— 默认启用，值为 `45`。增大该参数（即降低音量级别）会为经过均衡校正后的频率处理提供更大的动态范围。
+>- `dev.pcm.%d.eq_preamp` —— 默认值为 `0`，范围为 -9 dB 至 +9 dB。例如，设置为 `-5` 表示先将整个音频流整体衰减 5 dB（相对于最大增益），后续的放大均基于该点（0 dB）进行。这样听感音量会降低，但如上所述，可以更好地补偿因均衡放大某些频率产生的失真。
 >
 >这两个参数建议交替使用，通常配置到文件 `/etc/sysctl.conf`，也可以在运行时直接设置。
 
@@ -512,8 +512,8 @@ audio_output {
 
 滤镜说明：
 
-* `bass` —— 在 62 Hz 频率处以 120 Hz 带宽提升 10 个点，使用 64 位数据的浮点精度运算；
-* `treble` —— 在 16 kHz 频率处以 8 kHz 带宽提升 3 个点，使用 64 位数据的浮点精度运算。
+- `bass` —— 在 62 Hz 频率处以 120 Hz 带宽提升 10 个点，使用 64 位数据的浮点精度运算；
+- `treble` —— 在 16 kHz 频率处以 8 kHz 带宽提升 3 个点，使用 64 位数据的浮点精度运算。
 
 >这两个滤镜中非常重要的参数是 `n`，它负责对信号进行归一化。简单来说，`n` 会实时自动降低信号振幅（音量），从而扩展计算范围，避免失真和杂音的产生。
 
