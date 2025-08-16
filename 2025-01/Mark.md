@@ -20,9 +20,9 @@ FreeBSD 基金会赞助我前往渥太华参加 BSDCan 2025 会议及 FreeBSD �
 
 在主会议期间，我参加了不少精彩演讲，个人亮点包括：
 
-* **ELF Nightmares, GOTs, PLTs and Relocations Oh My** – John Baldwin 展示了 ELF 二进制执行过程中静态和运行时链接器使用的数据结构，涉及 PLT 函数调用间接跳转等复杂概念，并提供了出色的可视化演示，有助于理解。
-* **ABI Stability in FreeBSD** – ShengYi Hung 介绍了新工具 ctfdiff，可比较两个文件的 CTF（Compact C Type Format）数据，检测类型定义和函数签名差异，辅助判断内核变更是否影响出树内核模块的二进制接口。演讲后，围绕如何使用该工具展开了热烈讨论，我提出了比较内核模块与目标内核 CTF 类型图的方法，以减少误报。
-* **Improvements to FreeBSD KASAN** – Zhuo Ying Jiang Li 分析了 FreeBSD KASAN 实现的若干不足，并提出解决方案。KASAN 利用编译器插装和小型运行时组件检测内核内存安全漏洞。她指出两个主要问题：一是 UMA slab 中对象间未插入填充，二是已释放对象未隔离，这会降低 KASAN 检测 use-after-free（UAF，释放后重用漏洞）的能力。她提出通过修改 UMA 解决这些问题，并讨论了利用现有 UMA 特性进行优化的策略。我期待这些补丁尽快被上游采纳。
+- **ELF Nightmares, GOTs, PLTs and Relocations Oh My** – John Baldwin 展示了 ELF 二进制执行过程中静态和运行时链接器使用的数据结构，涉及 PLT 函数调用间接跳转等复杂概念，并提供了出色的可视化演示，有助于理解。
+- **ABI Stability in FreeBSD** – ShengYi Hung 介绍了新工具 ctfdiff，可比较两个文件的 CTF（Compact C Type Format）数据，检测类型定义和函数签名差异，辅助判断内核变更是否影响出树内核模块的二进制接口。演讲后，围绕如何使用该工具展开了热烈讨论，我提出了比较内核模块与目标内核 CTF 类型图的方法，以减少误报。
+- **Improvements to FreeBSD KASAN** – Zhuo Ying Jiang Li 分析了 FreeBSD KASAN 实现的若干不足，并提出解决方案。KASAN 利用编译器插装和小型运行时组件检测内核内存安全漏洞。她指出两个主要问题：一是 UMA slab 中对象间未插入填充，二是已释放对象未隔离，这会降低 KASAN 检测 use-after-free（UAF，释放后重用漏洞）的能力。她提出通过修改 UMA 解决这些问题，并讨论了利用现有 UMA 特性进行优化的策略。我期待这些补丁尽快被上游采纳。
 
 非常感谢 FreeBSD 基金会赞助我的此次行程。
 

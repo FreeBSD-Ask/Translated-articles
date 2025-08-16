@@ -28,15 +28,15 @@ FreeBSD 基金会善意地赞助了我前往渥太华参加 BSDCan 2025 大会�
 
 本届 BSDCan 大会的讲座丰富多样，日程安排多次迫使我在同一时段的两个讲座中做选择。其中几场给我留下深刻印象的包括：
 
-* Stefano Marinelli 的“Why (and how) we’re migrating Linux servers to the BSDs”（我们为何，以及如何将 Linux 服务器迁移到 BSD），讲述了他为客户使用开源软件解决问题的经历。BSD 的稳定性和可靠性，加上务实的“解决问题”思路，使客户的疑问从“还有 Linux 以外的选择？”转变为“更多 jail，请”。演讲充满热情与感染力，让我重燃了 FreeBSD 的动力。
-* Hans-Jörg Höxer 讨论了 OpenBSD 对 AMD 硬件支持的“Confidential Computing”（机密计算），目标是在不受信任环境下保护虚拟机中的敏感数据。演讲回顾了 AMD Secure Encrypted Virtualization（SEV，AMD 安全加密虚拟化）的先前工作，并介绍了 SEV-ES 的新进展。我对将这些工作移植到 FreeBSD 的 vmm 和 bhyve 感到兴奋。
-* Xe Iaso 的 lightning talk“I fight bots in my free time”（我在闲时对抗机器人），介绍了他们开发的 Anubis 软件——一款网页 AI 防火墙工具。聆听开发者为解决自身问题而快速发现他人也面临同样困扰的故事，令人着迷。
+- Stefano Marinelli 的“Why (and how) we’re migrating Linux servers to the BSDs”（我们为何，以及如何将 Linux 服务器迁移到 BSD），讲述了他为客户使用开源软件解决问题的经历。BSD 的稳定性和可靠性，加上务实的“解决问题”思路，使客户的疑问从“还有 Linux 以外的选择？”转变为“更多 jail，请”。演讲充满热情与感染力，让我重燃了 FreeBSD 的动力。
+- Hans-Jörg Höxer 讨论了 OpenBSD 对 AMD 硬件支持的“Confidential Computing”（机密计算），目标是在不受信任环境下保护虚拟机中的敏感数据。演讲回顾了 AMD Secure Encrypted Virtualization（SEV，AMD 安全加密虚拟化）的先前工作，并介绍了 SEV-ES 的新进展。我对将这些工作移植到 FreeBSD 的 vmm 和 bhyve 感到兴奋。
+- Xe Iaso 的 lightning talk“I fight bots in my free time”（我在闲时对抗机器人），介绍了他们开发的 Anubis 软件——一款网页 AI 防火墙工具。聆听开发者为解决自身问题而快速发现他人也面临同样困扰的故事，令人着迷。
 
 在大会的“走廊交流”中，我与另一位 FreeBSD 开发者 Allan Jude 交流了将 bhyve 与 NVMe-oF 存储阵列连接的想法。正是这种偶遇交流理念并可能孕育新项目，使得参加会议非常有价值。
 
 大会闭幕环节包括由 Dan Langille 主持的慈善拍卖，为 Ottawa Mission（**译者注：一家加拿大渥太华的社会服务组织**）筹款。亮点包括：
 
-* 一名与会者以 110 美元竞拍回自己的外套
-* Dan 拍卖一个 Trader Joe’s 的纸袋（**译者注：即精美的购物袋**），但需划掉附带收据上的信用卡信息
+- 一名与会者以 110 美元竞拍回自己的外套
+- Dan 拍卖一个 Trader Joe’s 的纸袋（**译者注：即精美的购物袋**），但需划掉附带收据上的信用卡信息
 
 感谢 FreeBSD 基金会赞助我参加本次大会。

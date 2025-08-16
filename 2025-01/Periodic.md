@@ -12,10 +12,10 @@ FreeBSD 的 periodic 实用程序是一款内置系统，用于以 shell 脚本�
 
 以下目录包含计划通过 periodic 系统运行的脚本：
 
-* `/etc/periodic/daily`、`/etc/periodic/weekly`、`/etc/periodic/monthly`：应在特定周期运行的脚本（例如每周一次）。
-* `/etc/periodic/security`：与安全相关的检查，例如已启用的防火墙或登录失败情况。
-* `/usr/local/etc/periodic/daily`、`/usr/local/etc/periodic/weekly`：第三方脚本，通常来自 Ports 或包，也按时间运行。例如，轮转 nginx 日志文件或备份 pkg 文件。
-* `/usr/local/etc/periodic/security`：来自第三方的安全检查脚本，例如运行 `pkg audit` 的脚本。
+- `/etc/periodic/daily`、`/etc/periodic/weekly`、`/etc/periodic/monthly`：应在特定周期运行的脚本（例如每周一次）。
+- `/etc/periodic/security`：与安全相关的检查，例如已启用的防火墙或登录失败情况。
+- `/usr/local/etc/periodic/daily`、`/usr/local/etc/periodic/weekly`：第三方脚本，通常来自 Ports 或包，也按时间运行。例如，轮转 nginx 日志文件或备份 pkg 文件。
+- `/usr/local/etc/periodic/security`：来自第三方的安全检查脚本，例如运行 `pkg audit` 的脚本。
 
 调度本身通过 `/etc/crontab` 中的以下三行实现：
 
@@ -112,12 +112,12 @@ OK: ZFS pool 'zroot' is below capacity threshold (27%).
 
 编写自定义脚本的建议：
 
-* 确保脚本运行时间不过长
-* 使用正确的退出码（成功为 0，失败为非零）
-* 减少输出内容，仅保留必要信息，避免日志过快增长
-* 脚本以非交互方式运行，不要等待用户输入或执行需要交互的命令
-* 添加错误处理以捕获异常情况并提示，不要让脚本静默失败
-* 通过手动调用和 periodic 调用分别测试脚本
+- 确保脚本运行时间不过长
+- 使用正确的退出码（成功为 0，失败为非零）
+- 减少输出内容，仅保留必要信息，避免日志过快增长
+- 脚本以非交互方式运行，不要等待用户输入或执行需要交互的命令
+- 添加错误处理以捕获异常情况并提示，不要让脚本静默失败
+- 通过手动调用和 periodic 调用分别测试脚本
 
 ## 总结
 
