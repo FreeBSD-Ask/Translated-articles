@@ -5,6 +5,7 @@
 
 ## 2025 年
 
+* [如何安装和配置 Galene 视频会议服务器](2025-01/Video-Meeting.md)
 * [FreeBSD 基金会欢迎董事会新成员：John Baldwin](2025-01/John.md)
 * [FreeBSD 与 HiFi 音频设置：比特完美、均衡器、实时处理](2025-01/hifi.md)
 * [FreeBSD 开发者正在决定是否为 FreeBSD 15 的 WiFi 采取稳定版策略](2025-01/15.md)
