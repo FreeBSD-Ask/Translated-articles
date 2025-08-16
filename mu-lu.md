@@ -1,4 +1,4 @@
-# Table of contents
+# 目录
 
 * [FreeBSD 网络文章集锦](README.md)
 * [FreeBSD 特色开发项目（滚动更新）](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
