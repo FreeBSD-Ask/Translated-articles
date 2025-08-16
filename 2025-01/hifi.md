@@ -65,10 +65,10 @@ Linux 的音频处理系统 ALSA 大多自动调整所有参数，因此启用�
 
 **最常听的专辑：**
 
-* Iron Maiden – Fear Of The Dark（铁娘子乐队-恐惧黑暗）
+* Iron Maiden – Fear Of The Dark（铁娘子乐队 - 恐惧黑暗）
 * McIntosh Audiophile Test Reference 发烧友测试参考
 * Alan Parsons Project – Stereotomy（亚伦派森实验乐团-Stereotomy）
-* The WHO – Quadrophenia（谁人乐队-四重人格）
+* The WHO – Quadrophenia（谁人乐队 - 四重人格）
 * Depeche Mode – Violator（赶时髦乐队-Violator）
 * HD Audiophile Speaker Set-Up 高清发烧音箱设置（192-24）
 * TOOL – Lateralus（工具乐队-Lateralus）
