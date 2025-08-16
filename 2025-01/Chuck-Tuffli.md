@@ -20,7 +20,7 @@ FreeBSD 基金会善意地赞助了我前往渥太华参加 BSDCan 2025 大会�
 
 开发者峰会第二天，由 Alpha-Omega Project 做了关于软件供应链安全的演讲。该项目自 2021 年起由 Microsoft、Google 和 Amazon 资助，旨在改善开源软件安全性。演讲提供了许多关于改善安全工作中有效与无效做法的深刻见解。
 
-不同于典型的“have, need, want”环节以生成下一版 FreeBSD 所需功能，这次会议集中讨论了 15.0 版本的收尾事项。15.0 的主要变化是将操作系统分发为一套庞大的软件包（即 “pkg-base”），而非传统的几个大型分发文件。这一变更备受期待，但讨论显示仍有不少细节需要落实。其他议题包括升级基本系统中的 OpenSSL 版本至新的 LTS 版本，以及部分 32 位架构的弃用。
+不同于典型的“have, need, want”环节以生成下一版 FreeBSD 所需功能，这次会议集中讨论了 15.0 版本的收尾事项。15.0 的主要变化是将操作系统分发为一套庞大的软件包（即“pkg-base”），而非传统的几个大型分发文件。这一变更备受期待，但讨论显示仍有不少细节需要落实。其他议题包括升级基本系统中的 OpenSSL 版本至新的 LTS 版本，以及部分 32 位架构的弃用。
 
 本届开发者峰会新增了交替对话环节，形式为两名开发者互相对话讨论任意主题，每五分钟由另一名开发者替换其中一人。此环节趣味十足，希望明年还能举办。
 
@@ -28,11 +28,11 @@ FreeBSD 基金会善意地赞助了我前往渥太华参加 BSDCan 2025 大会�
 
 本届 BSDCan 大会的讲座丰富多样，日程安排多次迫使我在同一时段的两个讲座中做选择。其中几场给我留下深刻印象的包括：
 
-* Stefano Marinelli 的 “Why (and how) we’re migrating Linux servers to the BSDs”（我们为何，以及如何将 Linux 服务器迁移到 BSD），讲述了他为客户使用开源软件解决问题的经历。BSD 的稳定性和可靠性，加上务实的“解决问题”思路，使客户的疑问从“还有 Linux 以外的选择？”转变为“更多 jail，请”。演讲充满热情与感染力，让我重燃了 FreeBSD 的动力。
-* Hans-Jörg Höxer 讨论了 OpenBSD 对 AMD 硬件支持的 “Confidential Computing”（机密计算），目标是在不受信任环境下保护虚拟机中的敏感数据。演讲回顾了 AMD Secure Encrypted Virtualization（SEV，AMD 安全加密虚拟化）的先前工作，并介绍了 SEV-ES 的新进展。我对将这些工作移植到 FreeBSD 的 vmm 和 bhyve 感到兴奋。
-* Xe Iaso 的 lightning talk “I fight bots in my free time”（我在闲时对抗机器人），介绍了他们开发的 Anubis 软件——一款网页 AI 防火墙工具。聆听开发者为解决自身问题而快速发现他人也面临同样困扰的故事，令人着迷。
+* Stefano Marinelli 的“Why (and how) we’re migrating Linux servers to the BSDs”（我们为何，以及如何将 Linux 服务器迁移到 BSD），讲述了他为客户使用开源软件解决问题的经历。BSD 的稳定性和可靠性，加上务实的“解决问题”思路，使客户的疑问从“还有 Linux 以外的选择？”转变为“更多 jail，请”。演讲充满热情与感染力，让我重燃了 FreeBSD 的动力。
+* Hans-Jörg Höxer 讨论了 OpenBSD 对 AMD 硬件支持的“Confidential Computing”（机密计算），目标是在不受信任环境下保护虚拟机中的敏感数据。演讲回顾了 AMD Secure Encrypted Virtualization（SEV，AMD 安全加密虚拟化）的先前工作，并介绍了 SEV-ES 的新进展。我对将这些工作移植到 FreeBSD 的 vmm 和 bhyve 感到兴奋。
+* Xe Iaso 的 lightning talk“I fight bots in my free time”（我在闲时对抗机器人），介绍了他们开发的 Anubis 软件——一款网页 AI 防火墙工具。聆听开发者为解决自身问题而快速发现他人也面临同样困扰的故事，令人着迷。
 
-在大会的 “走廊交流” 中，我与另一位 FreeBSD 开发者 Allan Jude 交流了将 bhyve 与 NVMe-oF 存储阵列连接的想法。正是这种偶遇交流理念并可能孕育新项目，使得参加会议非常有价值。
+在大会的“走廊交流”中，我与另一位 FreeBSD 开发者 Allan Jude 交流了将 bhyve 与 NVMe-oF 存储阵列连接的想法。正是这种偶遇交流理念并可能孕育新项目，使得参加会议非常有价值。
 
 大会闭幕环节包括由 Dan Langille 主持的慈善拍卖，为 Ottawa Mission（**译者注：一家加拿大渥太华的社会服务组织**）筹款。亮点包括：
 
