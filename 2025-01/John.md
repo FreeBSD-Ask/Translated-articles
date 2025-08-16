@@ -1,4 +1,4 @@
-# FreeBSD 基金会欢迎新董事会成员：John Baldwin
+# FreeBSD 基金会欢迎董事会新成员：John Baldwin
 
 - 原文：[FreeBSD Foundation Welcomes New Board Member: John Baldwin](https://freebsdfoundation.org/blog/freebsd-foundation-welcomes-new-board-member-john-baldwin/)
 - 2025 年 6 月 27 日
