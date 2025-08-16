@@ -5,6 +5,7 @@
 
 ## 2025 年
 
+* [Chuck Tuffli 的 BSDCan 2025 旅行报告](2025-01/Chuck-Tuffli.md)
 * [Mark Johnston 的 BSDCan 2025 旅行报告](2025-01/Mark.md)
 * [FreeBSD Periodic 系统简介](2025-01/Periodic.md)
 * [如何安装和配置 Galene 视频会议服务器](2025-01/Video-Meeting.md)
