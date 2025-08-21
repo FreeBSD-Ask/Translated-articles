@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -115,3 +115,4 @@
 ## 2000-2023
 
 * [BSDCan 2023 旅行报告：Andrew Fengler](2000-2023/Andrew.md)
+* [BSDCan 2023 旅行报告：Jake Freeland](2000-2023/Jake.md)
