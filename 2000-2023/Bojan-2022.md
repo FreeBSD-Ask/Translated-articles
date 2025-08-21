@@ -3,9 +3,9 @@
 - [Meet the 2022 FreeBSD Google Summer of Code Students: Bojan Novković](https://freebsdfoundation.org/blog/meet-the-2022-freebsd-google-summer-of-code-students-bojan-novkovic/)
 - 2022 年 10 月 14 日
 
-FreeBSD 项目自 2005 年创立以来就一直参与谷歌编程之夏。2022 年赛季结束时，基金会邀请了几位谷歌编程之夏的学生分享他们的个人情况以及参与项目的经验。
+**译者注：Bojan Novković 已于 2024 年获得 src 提交者权限。**
 
-![](https://freebsdfoundation.org/wp-content/uploads/2022/05/gsoc-2022-badge.svg)
+FreeBSD 项目自 2005 年创立以来就一直参与谷歌编程之夏。2022 年赛季结束时，基金会邀请了几位谷歌编程之夏的学生分享他们的个人情况以及参与项目的经验。
 
 **问：请简单介绍一下你自己以及你的教育经历。**
 
