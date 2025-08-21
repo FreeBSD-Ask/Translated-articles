@@ -120,3 +120,4 @@
 * [FreeBSD 基金会欢迎新成员加入](2000-2023/ff-Members.md)
 * [第 20 届南加州 Linux 博览会（SCaLE）会议报告](2000-2023/SCaLE20X-Report.md)
 * [FOSDEM 2023 会议报告](2000-2023/FOSDEM-2023.md)
+* [EuroBSDCon 2022 旅行报告：Patrick McEvoy](2000-2023/Patrick.md)
