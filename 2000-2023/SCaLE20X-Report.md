@@ -3,6 +3,9 @@
 - [SCaLE20X Conference Report](https://freebsdfoundation.org/blog/scale20x-conference-report/)
 - 2023 年 4 月 25 日
 
+<img width="1024" height="821" alt="image" src="https://github.com/user-attachments/assets/dd672bc0-a968-4cc0-b385-c45d59aebb77" />
+
+
 在一个月前，我获得了前往加利福尼亚州帕萨迪纳，参加第 20 届南加州 Linux 博览会，与开源社区的成员们交流的机会。这是我第二次参加南加州 Linux 博览会，也是第一次参加在原帕萨迪纳会址举办的会议。
 
 在会议的第一天，我协助 Roller Angel 举办了一整天的 FreeBSD 工作坊。当天的目标是帮助参与者在虚拟机或云设备上安装 FreeBSD，安装并运行桌面环境，设置基本 jail，创建本地 Ports 仓库等。虽然大部分过程顺利，但我们遇到一个小问题：使用的云服务提供商 Vultr 无法处理信用卡支付，这使我们不得不紧急为部分参与者寻找其他提供商。工作坊的参与情况非常好，参与者涵盖了从 FreeBSD 新手到希望在新机器上安装 FreeBSD 的有经验用户。如果你希望自行体验该工作坊，Roller Angel 已将其在线以文本文件形式发布，[可在此处查看](https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Intro_to_FreeBSD_Workshop.md)。
