@@ -2,7 +2,7 @@
 
 - [FOSDEM 2023 Conference Report](https://freebsdfoundation.org/blog/fosdem-2023-conference-report/)
 - 2023 年 3 月 2 日
-- Drew Gurkowski 
+- Drew Gurkowski
 
 几周前，我获得了前往布鲁塞尔，参加 FOSDEM 的回归活动，与开源社区的成员们见面的机会。这是我第一次来布鲁塞尔，我很高兴能够与比利时庞大的开源社区交流。对于 FreeBSD 基金会来说，这是持续推广 FreeBSD 的绝佳机会，同时也能与 FreeBSD 用户和开发者面对面交流。
 
