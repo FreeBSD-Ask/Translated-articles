@@ -1,6 +1,8 @@
 # 目录
 
 * [FreeBSD 网络文章集锦](README.md)
+* [目录](mu-lu.md)
+* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [FreeBSD 特色开发项目（滚动更新）](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
 
 ## 2025 年
@@ -20,7 +22,6 @@
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
 * [为 FreeBSD 发声：FOSDEM 2025 参会报告](2025-01/fosd.md)
 * [zfs 速查手册](2025-01/zfs.md)
-* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
 * [如何将基于 Electron 的应用程序移植到 FreeBSD](2025-01/ele.md)
 * [FreeBSD：原始操作系统发行版的火炬传承者](2025-01/bsd.md)
@@ -110,3 +111,16 @@
 * [2023 年 7 月软件开发项目进展报道](2023-nian-9-yue-yi-qian/july-2023-software-development-projects-update.md)
 * [用于研究的 FreeBSD：CHERI/Morello](2023-nian-9-yue-yi-qian/freebsd-for-research-cherimorello.md)
 * [在 FreeBSD Jail 中使用 OpenRC 启动并运行 Devuan GNU+Linux 系统](2023-nian-9-yue-yi-qian/freebsd-jail-booting-and-running-devuan-gnu+linux-with-openrc.md)
+
+## 2000-2023
+
+* [BSDCan 2023 旅行报告：Andrew Fengler](2000-2023/Andrew.md)
+* [BSDCan 2023 旅行报告：Jake Freeland](2000-2023/Jake.md)
+* [AsiaBSDCon 2023 旅行报告：Chih-Hsin Chang](2000-2023/Chih-Hsin.md)
+* [FreeBSD 基金会欢迎新成员加入](2000-2023/ff-Members.md)
+* [第 20 届南加州 Linux 博览会（SCaLE）会议报告](2000-2023/SCaLE20X-Report.md)
+* [FOSDEM 2023 会议报告](2000-2023/FOSDEM-2023.md)
+* [EuroBSDCon 2022 旅行报告：Patrick McEvoy](2000-2023/Patrick.md)
+* [EuroBSDCon 2022 旅行报告：Muhammad Moinur Rahman](2000-2023/Muhammad-2022.md)
+* [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Bojan Novković](2000-2023/Bojan-2022.md)
+* [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Koichi Imai](2000-2023/Imai-2022.md)
