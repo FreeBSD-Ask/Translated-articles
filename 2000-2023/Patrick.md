@@ -28,7 +28,7 @@ FreeBSD 开发峰会和 NetBSD 峰会使用我带来的设备进行直播。我�
 
 我迅速返回酒店，预约了早上 7 点叫醒服务，向 board@ 发了更新邮件，然后休息。简单而清爽的休息与酒店早餐后，我继续工作。
 
-## 主会场直播：
+## 主会场直播
 
 在与大学的设施人员沟通时，他们表示会议期间会有 AV 工程师（**译者注：音视频工程师**）提供 XLR 音频信号给第一会场的直播系统，但实际未安排，因此我们需要临时寻找备份音频。最终，John Baldwin 和 Manuel Wiesinger 提供了一条 RCA 音频线（**译者注：莲花头**），非常感谢。Michael Dexter 在准备精彩演讲的同时，组织志愿者协助操作直播站，我也想借此感谢他和志愿者：Roller Angel、Michael David Ketchen，以及来自 OpenBSD.Amsterdam 的 Micha Peters。大家应该明白 Micha 为什么选择协助 OpenBSD 讲座了吧！
 
@@ -38,9 +38,9 @@ FreeBSD 开发峰会和 NetBSD 峰会使用我带来的设备进行直播。我�
 
 ## 致谢
 
-* 自愿配送披萨：Paul de Weerd
-* 深夜送达胶带：Yan Ka Chiu
-* 借出更好摄像头用于直播，志愿者协调：Michael Dexter
-* 在赶火车前的最后一小时将设备装入箱：@FiLis 及朋友们
-* 维也纳当地知识与深夜紧急胶带跑腿：Albert Dengg
-* ScaleEngine 设置与直播建议及 IRC 支持：Andrew Fengler
+- 自愿配送披萨：Paul de Weerd
+- 深夜送达胶带：Yan Ka Chiu
+- 借出更好摄像头用于直播，志愿者协调：Michael Dexter
+- 在赶火车前的最后一小时将设备装入箱：@FiLis 及朋友们
+- 维也纳当地知识与深夜紧急胶带跑腿：Albert Dengg
+- ScaleEngine 设置与直播建议及 IRC 支持：Andrew Fengler
