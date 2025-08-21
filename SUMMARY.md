@@ -116,3 +116,4 @@
 
 * [BSDCan 2023 旅行报告：Andrew Fengler](2000-2023/Andrew.md)
 * [BSDCan 2023 旅行报告：Jake Freeland](2000-2023/Jake.md)
+* [AsiaBSDCon 2023 旅行报告：Chih-Hsin Chang](2000-2023/Chih-Hsin.md)
