@@ -506,7 +506,7 @@ if (read(fd, buf, sizeof(buf)) < 0)
     printf("这不会发生，因为我们有 CAP_READ\n");
 
 if (write(fd, buf, sizeof(buf)) < 0)
-    printf("这会发生，因为我们缺少 CAP_WRITE\n");
+    printf("这将会发生，因为我们缺少 CAP_WRITE\n");
 ```
 
 能力的设计原则是最小化权限。只要描述符的权限被限制，它就不应执行超出权限的操作。描述符的权限始终可以被限制，但不能被提升。
@@ -525,7 +525,7 @@ cap_rights_limit(fd, &rights);
 
 cap_rights_set(&rights, CAP_WRITE);
 if (cap_rights_limit(fd, &rights) < 0)
-    printf("应用权限失败；权限永远不能被扩展\n");
+    printf("应用权限失败；权限永远不能被提升\n");
 ```
 
 在对程序进行沙箱化过于严格的情况下，开发者可以选择限制能力描述符。能力提供了对允许操作的精细控制，但使用这种保护的程序易受到人为疏忽的影响。如果开发者忘记限制某项能力，就可能引入恶意代码滥用的风险。
