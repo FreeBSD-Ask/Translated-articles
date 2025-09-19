@@ -386,7 +386,9 @@ ktrace("ktrace.out", KTROP_SET, KTRFAC_CAPFAIL, getpid());
 
 这段代码创建了 `ktrace(2)` 的输出文件，并指定 `KTRFAC_CAPFAIL` 跟踪点以记录能力失败。
 
-> 注意：`ktrace(2)` 手册页对系统调用的使用有详细说明。启用其他跟踪点（如 `KTRFAC_NAMEI` 记录文件名查找）有助于定位文件系统违规的来源。
+> **注意**
+>
+> `ktrace(2)` 手册页对系统调用的使用有详细说明。启用其他跟踪点（如 `KTRFAC_NAMEI` 记录文件名查找）有助于定位文件系统违规的来源。
 
 下面的 `cap_violate` 例程试图触发 `ktrace(2)` 可捕获的所有违规。无需理解具体做什么，只需知道它能触发违规即可。
 
