@@ -149,7 +149,7 @@ FreeBSD 还借助 Linux 流行热潮，添加了 Linux 模拟模式，使 Linux 
 
 ## 诉讼案
 
-除了那些围绕 Networking Release 2 发行版组建的自由再分发组织外，还有一家公司，Berkeley Software Design, Incorporated（BSDI），成立以开发和发行商业支持版本的代码。（更多关于 BSDI 的信息可见 [http://www.bsdi.com](http://www.bsdi.com）和其他组织一样，他们从 Bill Jolitz 为其 386/BSD 发行版编写的六个缺失文件开始。BSDI 于 1992 年 1 月开始出售包含源码和二进制文件的系统，售价为 995 美元。他们开始投放广告，宣传其价格比 System V 源码加二进制系统低 99%。有兴趣的人被告知拨打电话 1-800-ITS-Unix。
+除了那些围绕 Networking Release 2 发行版组建的自由再分发组织外，还有一家公司，Berkeley Software Design, Incorporated（BSDI），成立以开发和发行商业支持版本的代码。（更多关于 BSDI 的信息可见 <http://www.bsdi.com> 和其他组织一样，他们从 Bill Jolitz 为其 386/BSD 发行版编写的六个缺失文件开始。BSDI 于 1992 年 1 月开始出售包含源码和二进制文件的系统，售价为 995 美元。他们开始投放广告，宣传其价格比 System V 源码加二进制系统低 99%。有兴趣的人被告知拨打电话 1-800-ITS-Unix。
 
 BSDI 开展销售活动不久后，Unix System Laboratories（USL，Unix 系统实验室；AT\&T 的主要子公司，负责开发和销售 Unix）寄来一封信，要求他们停止将产品宣传为 Unix，尤其是停止使用误导性的电话号码。尽管 BSDI 立即取消了该电话号并修改广告声明该产品非 Unix，但 USL 仍不满意，并提起诉讼，要求禁止 BSDI 销售其产品。诉讼称 BSDI 产品含有 USL 的专有代码和商业机密。USL 寻求禁令，阻止 BSDI 销售，声称如果发行继续，将导致其商业机密不可弥补的损失。
 
