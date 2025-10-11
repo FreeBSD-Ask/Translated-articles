@@ -145,7 +145,7 @@ FreeBSD 团队在 NetBSD 组建数月后成立，专注于 PC 架构，目标用
 
 FreeBSD 还借助 Linux 流行热潮，添加了 Linux 模拟模式，使 Linux 二进制文件能在 FreeBSD 上运行。此功能让用户既能使用日益丰富的 Linux 应用，又能享受 FreeBSD 系统的稳定、可靠和高性能。FreeBSD 团队最近建立了 FreeBSD Mall（\*[http://www.freebsdmall.com\*），汇聚社区的咨询服务、衍生产品、书籍和新闻通讯。](http://www.freebsdmall.com*），汇聚社区的咨询服务、衍生产品、书籍和新闻通讯。)
 
-1990 年代中期，OpenBSD 从 NetBSD 分离出来，专注提升系统安全性，市场策略则是提高易用性和广泛普及。他们开始销售 CD-ROM，借鉴了 FreeBSD 的简易安装理念。更多信息可见 [http://www.openbsd.org\](http://www.openbsd.org)
+1990 年代中期，OpenBSD 从 NetBSD 分离出来，专注提升系统安全性，市场策略则是提高易用性和广泛普及。他们开始销售 CD-ROM，借鉴了 FreeBSD 的简易安装理念。更多信息可见 <http://www.openbsd.org>
 
 ## 诉讼案
 
