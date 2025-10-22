@@ -1,7 +1,7 @@
 ## 恭喜 FreeBSD 迎来 30 周年！为什么开源项目 FreeBSD 能够持续存在
 
 
-- 原文链接：https://www.infoworld.com/article/3699263/happy-30th-freebsd-why-the-freebsd-open-source-project-has-endured.html
+- 原文链接：[Happy 30th, FreeBSD! Why the FreeBSD open source project has endured](https://www.infoworld.com/article/2338618/happy-30th-freebsd-why-the-freebsd-open-source-project-has-endured.html)
 - 作者：Deb Goodkin
 - 译者：ykla 使用 deepl【】部分为 ykla 注释
 
