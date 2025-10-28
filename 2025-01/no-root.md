@@ -1,4 +1,4 @@
-# FreeBSD 已实现可重现构建并且无需 root 权限
+# FreeBSD 已实现可重现构建且无需 root 权限
 
 - [FreeBSD now builds reproducibly and without root privilege](https://freebsdfoundation.org/blog/freebsd-now-builds-reproducibly-and-without-root-privilege/)
 - 2025 年 10 月 27 日
