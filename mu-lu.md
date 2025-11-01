@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,6 +7,9 @@
 
 ## 2025 年
 
+* [为什么你应该将所有东西从 Linux 迁移到 BSD](2023-nian-9-yue-yi-qian/why-you-should-migrate-everything-from-linux-to-bsd.md)
+* [选择 FreeBSD 而非 GNU/Linux 的技术性原因](2023-nian-9-yue-yi-qian/technical-reasons-to-choose-freebsd-over-gnu.md)
+* [GPL 之殇](2023-nian-9-yue-yi-qian/the-problems-with-the-gpl.md)
 * [FreeBSD 已实现可重复构建及无 root 权限构建](2025-01/no-root.md)
 * [利用 FreeBSD Capsicum 框架实现程序沙箱化](2025-01/Capsicum.md)
 * [简单而轻松的 FreeBSD Jail](2025-01/jails.md)
@@ -99,10 +102,7 @@
 * [OpenBSD 太棒了](2023-nian-9-yue-yi-qian/openbsd-is-fantastic.md)
 * [systemd 背后的真正动机](2023-nian-9-yue-yi-qian/the-real-motivation-behind-systemd.md)
 * [systemd 在任何地方都不安全](2023-nian-9-yue-yi-qian/systemd-isnt-safe-to-run-anywhere.md)
-* [为什么你应该将所有东西从 Linux 迁移到 BSD](2023-nian-9-yue-yi-qian/why-you-should-migrate-everything-from-linux-to-bsd.md)
 * [如何在 FreeBSD 上设置一个简单且实际工作的 WireGuard 服务器](2023-nian-9-yue-yi-qian/freebsd-how-to-set-up-a-simple-and-actually-working-wireguard-server.md)
-* [选择 FreeBSD 而非 GNU/Linux 的技术性原因](2023-nian-9-yue-yi-qian/technical-reasons-to-choose-freebsd-over-gnu.md)
-* [GPL 之殇](2023-nian-9-yue-yi-qian/the-problems-with-the-gpl.md)
 * [FreeBSD 与研究社区](2023-nian-9-yue-yi-qian/freebsd-and-the-research-community.md)
 * [在 OpenBSD 和 FreeBSD 之间选择的区别](2023-nian-9-yue-yi-qian/choosing-between-openbsd-and-freebsd.md)
 * [FreeBSD 是一个令人惊叹的操作系统](2023-nian-9-yue-yi-qian/freebsd-is-an-amazing-operating-system.md)
