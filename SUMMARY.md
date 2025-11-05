@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [FreeBSD 在 OCI 运行时规范 v1.3 中获得正式支持](2025-01/freebsd-officially-supported-in-oci-runtime-specification-v1-3.md)
 * [FreeBSD OCI 容器简介](2025-01/oci-containers-on-freebsd.md)
 * [为什么你应该将所有东西从 Linux 迁移到 BSD](2023-nian-9-yue-yi-qian/why-you-should-migrate-everything-from-linux-to-bsd.md)
 * [选择 FreeBSD 而非 GNU/Linux 的技术性原因](2023-nian-9-yue-yi-qian/technical-reasons-to-choose-freebsd-over-gnu.md)
