@@ -92,7 +92,7 @@ doas podman run -it --os=linux docker.io/phips/pandas:v3 /bin/bash
 
 ![](https://freebsdfoundation.org/wp-content/uploads/2025/10/running-old-pandas-1024x721.png "运行旧版 Pandas")
 
-可以！太棒了！这意味着旧的工作负载可以迁移到新平台上。
+可以！太棒了！这意味着可以将旧的工作负载迁移到新平台上。
 
 ### 快速又简单
 
