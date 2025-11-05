@@ -19,7 +19,7 @@ FreeBSD 纳入了 OCI 运行时规范，是个分水岭式的时刻，使 FreeBS
 
 * 2021 年：Samuel Karp 发布了 *runj*，这是 FreeBSD 的首个 OCI 运行时，并支持 *containerd*，证明了在该平台上运行 OCI 容器的可行性。
 * 2022 年：Doug Rabson 为 Buildah 和 Podman 添加了 FreeBSD 支持，这两个关键的容器管理工具的改进要求对 FreeBSD 内核进行重要修改，以满足 OCI 运行时规范的要求，为今天的正式认可奠定了基础。
-* 2024 年：Dave Cottlehuber 领导将 FreeBSD 官方 OCI 镜像纳入的工作，首次出现在 FreeBSD 14.2 中，这些镜像可在 Docker Hub 和 GitHub Container Registry 上获取。
+* 2024 年：Dave Cottlehuber 领导将 FreeBSD 官方 OCI 镜像纳入的工作，首次出现在 FreeBSD 14.2 中，可在 Docker Hub 和 GitHub Container Registry 上获取这些镜像。
 * 2025 年：Doug Rabson 领导将 FreeBSD 作为平台添加到 OCI 运行时规范中的工作，该支持在 v1.3 版本中正式提供。
 
 FreeBSD 基金会借此机会感谢 Samuel Karp 与 Doug Rabson 在推动此项计划中所付出的不懈努力，同时向所有为使 FreeBSD 成为完全受支持的 OCI 平台而作出贡献的人员致以诚挚谢意。
