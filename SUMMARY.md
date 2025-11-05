@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [FreeBSD OCI 容器简介](2025-01/oci-containers-on-freebsd.md)
 * [为什么你应该将所有东西从 Linux 迁移到 BSD](2023-nian-9-yue-yi-qian/why-you-should-migrate-everything-from-linux-to-bsd.md)
 * [选择 FreeBSD 而非 GNU/Linux 的技术性原因](2023-nian-9-yue-yi-qian/technical-reasons-to-choose-freebsd-over-gnu.md)
 * [GPL 之殇](2023-nian-9-yue-yi-qian/the-problems-with-the-gpl.md)
