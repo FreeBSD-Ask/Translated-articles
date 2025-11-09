@@ -108,7 +108,7 @@
 |使用 GitHub runner 拉取请求                             | 	imp                         | 针对 cirrus-ci 漏洞中的解决方案之一                                                           |
 | 使用 GitHub Action 改善外部贡献者的体验                 | imp                           | 这里需要帮助                                                                       |
 | 15.0 应该使用哪个版本的 OpenSSL                         | gtetlow                       | 通过在现行环境中运行更新的版本以获取调试时间。                                                 |
-| PCIe 激活状态电源管理 (ASPM) | jhb | 某些系统上正确实现 PCIe 原生热插拔所必需 |
+| PCIe 活动状态电源管理 (ASPM) | jhb | 某些系统上正确实现 PCIe 原生热插拔所必需 |
 | PCIe 下行端口控制 (DPC) | jhb | 雷电（Thunderbolt）所需，取代 PCIe 原生热插拔 |
 
 ### 🥺 想要 🙏
