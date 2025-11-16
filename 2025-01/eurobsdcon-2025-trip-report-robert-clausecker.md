@@ -14,7 +14,7 @@
 
 第二天让我对核心团队的运作以及成员们面临的各种问题有了一些有趣的了解，同时也对 libzfs 有一些认识。第三天比较轻松；我没有参加 Eurobhyvecon，后来加入了其他开发者前往距离不远的 Nikola Tesla 技术博物馆的小旅行。
 
-第四天和第五天的演讲都非常密集，有时很难选择参加哪一条轨道。在同事 Jan Bramkamp 关于基于 ZFS 的 FreeBSD jail 配置的演讲之后，我在 Harald Eilertsen 关于将 OpenJDK 移植到 FreeBSD 的演讲中学到了许多困难；作为 ports 的常规贡献者，处理此类问题对我尤为重要。接下来的演讲介绍了用于并行构建工具（如 make(1)）的轻量级作业服务器协议，为以工具无关的方式解决此类问题提供了新思路。在 pkgbase 的演讲之后，Björn Zeeb 详细讲解了在 FreeBSD 上使 WLAN 驱动正常工作的进展——这是提升笔记本支持的重要问题。虽然我的笔记本 Qualcomm QCNFA765 网卡目前仍不受支持，但显然已经取得了重要进展，完全支持只是个时间问题。当天的演讲以 Moin Rahman 关于 FreeBSD ports tree 的讲解结束，我们在社交活动中继续了讨论。
+第四天和第五天的演讲都非常密集，有时很难选择参加哪一条轨道。在同事 Jan Bramkamp 关于基于 ZFS 的 FreeBSD jail 配置的演讲之后，我在 Harald Eilertsen 关于将 OpenJDK 移植到 FreeBSD 的演讲中学到了许多困难；作为 ports 的常规贡献者，处理此类问题对我尤为重要。接下来的演讲介绍了用于并行构建工具（如 make(1)）的轻量级作业服务器协议，为以工具无关的方式解决此类问题提供了新思路。在 pkgbase 的演讲之后，Björn Zeeb 详细讲解了在 FreeBSD 上使 WLAN 驱动正常工作的进展——这是提升笔记本支持的重要问题。虽然我的笔记本 Qualcomm QCNFA765 网卡目前仍不受支持，但显然已经取得了重要进展，完全支持只是个时间问题。当天的演讲以 Moin Rahman 关于 FreeBSD ports 的讲解结束，我们在社交活动中继续了讨论。
 
 在最后一天，我遗憾地错过了主题演讲，但参加了 Kirk McKusick 关于 UNIX 守护进程历史的报告（去年我错过了第一版）。午餐后，我在 Charlie Li 的 MIDI 演讲和 John Baldwin 的链接器演讲之间艰难选择，最终参加了后者。随后还有关于去中心化互联网服务的演讲，以及一场关于 Type-C 内部工作机制的非常有启发性的讲解。在闭幕前，我还参加了关于如何使用 FreeBSD 改善 UNIX 教学的讲座。这对我尤其有意义，因为我们在柏林自由大学每年都会开设关于 UNIX 系统管理的课程，涵盖 FreeBSD、AIX 和 Solaris，并一直在寻找改进教材的方法。
 
