@@ -1,4 +1,34 @@
 # BSDTW 2017 旅行报告：杨光远
 
 - 原文：[BSDTW ’17 Trip Report: Guangyuan Yang](https://freebsdfoundation.org/blog/bsdtw-17-trip-report-guangyuan-yang/)
-- 
+- 作者：杨光远
+- 发布时间：2017 年 12 月 14 日
+
+[BSDTW ’17](https://bsdtw.org/) 是我自 BSDCan ’17 之后参加的首场国际 BSD 会议，当时我还是 FreeBSD 基金会的实习生。作为一名大二学生，同时也是项目的新贡献者，这个社区的友好与包容，以及我为一些小贡献获得的认可，让我非常享受留在 FreeBSD 社区并继续贡献的过程。实习结束后，我成为了 FreeBSD committer，并继续参与 FreeBSD 的相关工作。我很感激 FreeBSD 基金会提供了宝贵的机会，让我得以参加今年在台湾台北举办的 BSDTW。
+
+在今年的 BSDTW ’17 之前，BSD 会议已经有十多年未在台湾举办。会议开幕时，活动组织者 Hsu Li-Wen 报告说，出席人数超出预期，这是一则好消息。随后，我观看了 Arun Thomas 关于 RISC-V、George Neville-Neil 关于 FreeBSD 上的 DTrace，以及 Allan Jude 关于 ZFS 高级集成的演讲。我在日常生活中一直在使用或希望使用这些技术。从基础入手并深入技术细节，这些演讲都给了我很大的启发。
+
+下午，我在 基金会展台与 George Neville-Neil 一起值班，愉快地交流了近况。我还有机会见到并结识了来自台湾的开发者 Kevin Lo 和 Ruey Cherng-Yu，我们在网上有过很多合作。我们讨论了文档本地化的方法论和工具链。我还花时间与朋友和熟人见面、叙旧。
+
+在充实的第一天结束后，我们在 La Villa Danshui 餐厅聚餐，这家餐厅紧邻美丽的淡水河。开发者、贡献者、用户和爱好者们汇聚一堂，回顾当天的收获并分享各自的故事。我遇到了来自澳大利亚的 ports committer Ben Woods，他向我分享了 FreeBSD Python ports 的陷阱和注意事项、如何制作更好的 port，以及如何成为 ports committer。
+
+![](https://freebsdfoundation.org/wp-content/uploads/2017/12/Charlie_HirokiBSDTW-300x200.jpg)
+
+第二天，我参加了几场演讲，也继续在展台值班、参观其他展台，并花了大量时间与不同的人交流。我与 Mariusz Zaborski 讨论了学生参与 FreeBSD 项目的相关工作，分享了他作为学生和导师参与 Google Summer of Code 的经历，以及我在 FreeBSD 基金会的实习经历，探讨如何让学生更好地参与和投入项目，这对我也很有启发。他还分享了自己在 Capsicum 上的工作，随后进行了关于使用 Capsicum 对 Base System 进行沙箱化的精彩演讲。
+
+应市场团队的要求，我在活动期间拍了许多照片，并在官方 基金会社交媒体和个人账号上分享。这些照片帮助吸引了对会议和 FreeBSD 项目的关注。同时，我也非常激动能与许多我在提交记录或 IRC 频道中熟悉的著名开发者合影。与他们面对面交流既令人振奋又有趣。
+
+![](https://freebsdfoundation.org/wp-content/uploads/2017/12/BSDTWsignage-225x300.jpg)
+
+
+在 FreeBSD 基金会展台值班成了会议中最愉快的部分之一。一些开发者通过之前的 基金会博客文章或 BSDNow 采访认出了我，前来分享他们的兴趣和正在进行的工作，我也很享受分享自己的经验并向他们学习。此外，由于会议在台湾，吸引了许多当地学生和爱好者，他们可能无法参加其他 BSD 会议。我分享了自己的参与经验，并将继续与他们一同贡献。
+
+我带来了运行 FreeBSD 12-CURRENT 的 Raspberry Pi 和一个 LED 屏进行演示。遗憾的是，由于 -CURRENT 分支的不稳定性（FreeBSD 在 arm64 上的开发活跃进行），系统在最近一次更新中出现故障。虽然重新配置花费了一些时间，但仍吸引了大量关注。人们兴奋地与我讨论他们在 FreeBSD 和物联网方面的经验，询问 FreeBSD 在 arm64 上的状态，或者对 FreeBSD 能运行在物联网设备上感到惊讶。大多数人表示希望拥有自己的运行 FreeBSD 的物联网设备。
+
+总体而言，BSDTW 的旅程非常棒。我收获了新的知识与灵感、新的友谊，以及一长串待办事项。我感谢 FreeBSD 基金会的旅行资助，让我能够参加此次行程。
+
+我想特别感谢 Hsu Li-Wen 及所有会议工作人员，不仅感谢他们举办了如此精彩的会议，也感谢他们协助我（来自中国大陆的旅行者）办理旅行证件和审批，让我得以亲身参与会议。
+
+我也非常感激前导师 Ed Maste 及其他 基金会成员的鼓励与指导，以及整个社区的帮助与支持。没有你们的持续关心和帮助，我可能无法坚持参与像这样的精彩活动，否则我一定会后悔。
+
+我期待未来能再次参加这样的活动，见到和交流朋友与熟人，传播我对 FreeBSD 的知识与热情，并学习更多。明年见！
