@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [Leah Budzicka EuroBSDcon 2025 旅行报告](2025-01/2025-eurobsdcon-trip-report-leah-budzicka.md)
 * [Robert Clausecker EuroBSDcon 2025 旅行报告](2025-01/eurobsdcon-2025-trip-report-robert-clausecker.md)
 * [FreeBSD 在 OCI 运行时规范 v1.3 中获得正式支持](2025-01/freebsd-officially-supported-in-oci-runtime-specification-v1-3.md)
 * [FreeBSD OCI 容器简介](2025-01/oci-containers-on-freebsd.md)
