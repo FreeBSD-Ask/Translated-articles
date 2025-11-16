@@ -7,6 +7,8 @@
 
 ## 2025 年
 
+* [Leah Budzicka EuroBSDcon 2025 旅行报告](2025-01/2025-eurobsdcon-trip-report-leah-budzicka.md)
+* [Robert Clausecker EuroBSDcon 2025 旅行报告](2025-01/eurobsdcon-2025-trip-report-robert-clausecker.md)
 * [FreeBSD 在 OCI 运行时规范 v1.3 中获得正式支持](2025-01/freebsd-officially-supported-in-oci-runtime-specification-v1-3.md)
 * [FreeBSD OCI 容器简介](2025-01/oci-containers-on-freebsd.md)
 * [为什么你应该将所有东西从 Linux 迁移到 BSD](2023-nian-9-yue-yi-qian/why-you-should-migrate-everything-from-linux-to-bsd.md)
@@ -129,3 +131,4 @@
 * [EuroBSDCon 2022 旅行报告：Muhammad Moinur Rahman](2000-2023/Muhammad-2022.md)
 * [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Bojan Novković](2000-2023/Bojan-2022.md)
 * [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Koichi Imai](2000-2023/Imai-2022.md)
+* [BSDTW 2017 旅行报告：杨光远](2000-2023/bsdtw-17-trip-report-guangyuan-yang.md)
