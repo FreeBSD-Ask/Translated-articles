@@ -131,3 +131,4 @@
 * [EuroBSDCon 2022 旅行报告：Muhammad Moinur Rahman](2000-2023/Muhammad-2022.md)
 * [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Bojan Novković](2000-2023/Bojan-2022.md)
 * [遇见 2022 年 FreeBSD 谷歌编程之夏学生：Koichi Imai](2000-2023/Imai-2022.md)
+* [BSDTW 2017 旅行报告：杨光远](2000-2023/bsdtw-17-trip-report-guangyuan-yang.md)
