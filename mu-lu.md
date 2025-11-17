@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,14 +7,6 @@
 
 ## 2025 年
 
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
-* []((2025-01/)
 * [服务之力：FreeBSD 电源管理]((2025-01/the-power-to-serve-freebsd-power-management)
 * [我的 FreeBSD 故事]((2025-01/my-freebsd-story.md)
 * [在 FreeBSD 上部署 Syncthing]((2025-01/syncthing-on-freebsd.md)
