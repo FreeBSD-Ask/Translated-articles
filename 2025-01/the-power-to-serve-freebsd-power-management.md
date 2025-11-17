@@ -43,7 +43,7 @@ FreeBSD 在电源管理领域有许多机制：
 
 让我们先从如何获取所需信息开始，例如当前 CPU 速度、已使用的 C 状态、USB 设备当前的电源管理模式、电池容量和剩余时间等。
 
-## 电池
+### 电池
 
 要获取电池信息，你可以使用工具 **acpiconf(8)**。以下是 **acpiconf(8)** 在我的主电池（ThinkPad T420s 笔记本）接通电源源时的输出。
 
@@ -171,7 +171,7 @@ hw.acpi.battery.time: -1
 hw.acpi.battery.life: 100
 ```
 
-## 电池损耗
+### 电池损耗
 
 随着时间的推移，电池会失去其“设计”容量。经过一到两年，这类电池的实际效率可能只剩下原来的 70% 或更低。
 
@@ -212,7 +212,7 @@ else
 fi
 ```
 
-## CPU
+### CPU
 
 要获取当前 CPU 的信息，你需要使用 **dev.cpu**，或者使用 **dev.cpu.0** 来获取第一个物理 CPU 核心的信息。
 
@@ -310,7 +310,7 @@ kern.smp.cpus: 2
 dev.cpu.0.freq: Current CPU frequency
 ```
 
-## lscpu(1)
+### lscpu(1)
 
 还有个第三方工具 **lscpu(8)**，可以显示你的 CPU 特性和型号。你需要从软件包中安装它。
 
@@ -344,7 +344,7 @@ L3 cache:                3M
 Flags:                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 cflsh ds acpi mmx fxsr sse sse2 ss htt tm pbe sse3 pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline aes xsave osxsave avx syscall nx rdtscp lm lahf_lm
 ```
 
-## dmesg(8)
+### dmesg(8)
 
 此外，**dmesg(8)** 命令（或长时间运行后查看 **/var/run/dmesg.boot** 文件）也可以显示你的 CPU 型号和特性信息。
 
@@ -360,9 +360,9 @@ coretemp0:  on cpu0
 
 对于 CPU 调频功能，你可以使用 FreeBSD 基本系统提供的守护进程 **powerd(8)** ，或者使用来自 FreeBSD Ports 或软件包的 **powerdxx(8)**。守护进程 **powerdxx(8)** 旨在更好地调频多核系统，在系统负载适中时不会将所有核心都调到高状态，但有些人可能更喜欢那种方法，以便在执行所有操作时都拥有全部性能，而在闲置时节省功耗。因此，**powerd(8)** 并不比 **powerdxx(8)** 更好，反之亦然。它们只是不同的实现，为你的需求提供了更多选择。
 
-无论选择哪一个，都必须在 **/etc/rc.conf** 文件中进行配置。
+无论选择何者，都必须在文件 **/etc/rc.conf** 中进行配置。
 
-## powerd(8)
+### powerd(8)
 
 以下是守护进程 **powerd(8)** 的选项。
 
@@ -373,7 +373,7 @@ powerd_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 
 **-n** 选项用于未知状态——当 **powerd(8)** 无法确定当前是使用电源还是电池供电时使用。**-a** 用于电源，**-b** 用于电池供电。**adaptive** 设置较“温和”，更有利于延长电池续航时间。**hiadaptive** 设置更激进，适合在电源供电时使用。**-m** 选项设置最低 CPU 频率，**-M** 设置最大 CPU 频率，单位均为 MHz。更多细节请参见 **powerd(8)** 手册页。
 
-## powerdxx(8)
+### powerdxx(8)
 
 首先，你需要安装它。
 
@@ -392,7 +392,7 @@ powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 
 十年前，FreeBSD 上的 CPU 调频不像现在这么“简单”，你可以看看我 2008 年的老文章 [HOWTO: FreeBSD CPU Scaling and Power Saving](https://forums.freebsd.org/threads/howto-freebsd-cpu-scaling-and-power-saving.172/)。
 
-## C 状态
+### C 状态
 
 可以在 **/etc/rc.conf** 文件中用以下选项配置 C 状态。
 
@@ -433,7 +433,7 @@ dev.cpu.2.cx_lowest=C3
 dev.cpu.3.cx_lowest=C3
 ```
 
-## CPU 睿频
+### CPU 睿频
 
 启用睿频模式有两种方式。一种是通过设置守护进程 **powerd(8)** 或 **powerdxx(8)**，将最大频率设置高于 CPU 标称速度。例如，如果你的 CPU 描述为双核 2.3 GHz，则可以使用参数 **-M** 将最大速度设置为 **4000**（即 4 GHz）。如果你不使用 CPU 调频守护进程，则可以使用参数 **dev.cpu.0.freq**，将其设置为 **dev.cpu.0.freq_levels** 中的最高（第一个）值。
 
@@ -611,7 +611,7 @@ sdhci_pci0@pci0:5:0:0:  class=0x088000 card=0x21d217aa chip=0xe8221180 rev=0x07 
 xhci0@pci0:13:0:0:      class=0x0c0330 card=0x01941033 chip=0x01941033 rev=0x04 hdr=0x00
 ```
 
-你也可以使用 **-v** 参数以获取更详细的信息。
+你也可以使用参数 **-v** 获取更详细的信息。
 
 ```sh
 % pciconf -l -v
@@ -623,9 +623,9 @@ xhci0@pci0:13:0:0:      class=0x0c0330 card=0x01941033 chip=0x01941033 rev=0x04 
     subclass   = USB
 ```
 
-## Nvidia Optimus
+### Nvidia Optimus
 
-如果由于某种原因你的 BIOS/UEFI 固件无法禁用 Nvidia 独立显卡，你可以使用此脚本将其禁用，从而避免消耗系统电源。该操作需要内核模块 **acpi_call(4)**，该模块由软件包 **acpi_call** 提供。
+如果由于某种原因你的 BIOS/UEFI 固件无法禁用 Nvidia 独显，你可以使用此脚本将其禁用，从而避免消耗系统电源。该操作需要内核模块 **acpi_call(4)**，该模块由软件包 **acpi_call** 提供。
 
 ```sh
 # mkdir /root/bin
@@ -646,9 +646,9 @@ xhci0@pci0:13:0:0:      class=0x0c0330 card=0x01941033 chip=0x01941033 rev=0x04 
 
 它会将有效的 ACPI 调用存储在 **/root/.gpu_method** 文件中，并在每次启动时执行。
 
-# 挂起与恢复
+## 挂起与恢复
 
-挂起/恢复机制的最大敌人是硬件 BIOS/UEFI 固件中的错误。例如，有时禁用蓝牙会有所帮助——这是 ThinkPad T420s 的一个选项。要检查系统支持哪些挂起模式，请查看 **sysctl(8)** 子系统中的 **hw.acpi.supported_sleep_state**。
+挂起/恢复机制的最大敌人是硬件 BIOS/UEFI 固件中的错误。例如，有时禁用蓝牙会有所帮助——这是 ThinkPad T420s 中的一个方案。要检查系统支持哪些挂起模式，请查看 **sysctl(8)** 中的 **hw.acpi.supported_sleep_state**。
 
 ```sh
 % sysctl hw.acpi.supported_sleep_state
@@ -667,7 +667,7 @@ hw.acpi.supported_sleep_state: S3 S4 S5
 # acpiconf -s 3
 ```
 
-这与 **zzz(8)** 手册页中的说明完全相同。
+这与手册页 **zzz(8)** 中的说明完全相同。
 
 你还可以设置 **sysctl(8)** 值，使每次关闭笔记本盖时系统进入睡眠状态。为此，将 **hw.acpi.lid_switch_state=S3** 添加到 **/etc/sysctl.conf** 文件中。无论是通过命令还是关闭盖子让硬件进入睡眠状态，打开盖子后笔记本都会恢复。当然，如果在执行 **zzz(8)** 命令后没有关闭盖子，你需要关闭并重新打开盖子，或按下电源按钮以恢复。当然，你也可以对桌面或甚至备份服务器执行挂起/恢复操作，这并不仅限于笔记本。
 
@@ -691,7 +691,7 @@ hw.acpi.supported_sleep_state: S3 S4 S5
 # kldload acpi_ibm
 ```
 
-加载每个模块后，你会得到新的 **sysctl(8)** 值供使用，例如与风扇速度、键盘背光或屏幕亮度相关的值。下面是在加载 **acpi_ibm(4)** 内核模块后，**sysctl(8)** 中新增的 **dev.acpi_ibm** 部分。
+加载所需模块后，你会得到新的 **sysctl(8)** 值供使用，例如与风扇速度、键盘背光或屏幕亮度相关的值。下面是在加载 **acpi_ibm(4)** 内核模块后，**sysctl(8)** 中新增的 **dev.acpi_ibm** 部分。
 
 ```sh
 % sysctl dev.acpi_ibm
@@ -807,7 +807,7 @@ fi
 
 ## 网卡
 
-如果驱动支持节能功能，**ifconfig(8)** 也提供相应选项，称为 **powersave**，用法如下：
+如果驱动支持节能功能，**ifconfig(8)** 也要相应选项，称为 **powersave**，用法如下：
 
 ```
 # ifconfig wlan0 powersave
@@ -836,11 +836,11 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
  Current: 5.11W     Current: 3.17W      Current: 1.73W      Current: 0.21W
  Total: 98.33J      Total: 60.86J       Total: 33.49J       Total: 3.98J
 ```
-# DTrace
+## DTrace
 
-动态追踪框架（像 ZFS 一样从 Solaris/Illumos 引入 FreeBSD）在延长电池使用时间方面也可能是一个有用的工具。
+动态追踪框架（像 ZFS 一样由 Solaris/Illumos 引入 FreeBSD）在延长电池使用时间方面也可能是款有用的工具。
 
-首先安装 **dtrace-toolkit** 包：
+首先安装软件包 **dtrace-toolkit**：
 
 ```
 # pkg install dtrace-toolkit
@@ -848,7 +848,7 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
 
 系统停止节能或唤醒 CPU，通常是因为有任务需要执行。你大多数情况下会使用 **ps(1)** 或 **top(1)** 来查看运行情况，但这些工具无法显示具体启动了哪些命令或命令的执行频率。这时 DTrace 就派上用场了。
 
-我们将使用 **dtrace-toolkit** 包中的 **/usr/share/dtrace/toolkit/execsnoop** 脚本。它会打印系统中执行的每一个命令及其所有参数。当没有命令执行时，它将保持静默，请注意。
+我们将使用软件包 **dtrace-toolkit** 中的 **/usr/share/dtrace/toolkit/execsnoop** 脚本。它会打印系统中执行的每一个命令及其所有参数。当没有命令执行时，它将保持静默，请注意。
 
 下面是我在更新 **dzen2** 工具栏时的示例输出。
 
@@ -914,23 +914,23 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
 
 通过这种方式使用 DTrace，你可以知道是否有不必要的进程消耗了宝贵的电池时间。你可以在我的文章 [FreeBSD Desktop – Part 13 – Configuration – Dzen2](https://vermaden.wordpress.com/2018/07/05/freebsd-desktop-part-13-configuration-dzen2/) 中找到相关 **dzen2** 配置。
 
-# 其他
+## 其他
 
-## ZFS
+### ZFS
 
 默认情况下，ZFS 每 5 秒提交一次事务组，这对于 **vfs.zfs.txg.timeout** 参数是一个良好的默认设置。如果需要，你可以稍微增加该值，例如设为 10。我之所以提到这个参数，是因为很多指南出于性能原因建议将其设置为 1，但请记住，将其设置为 1 会阻止你的磁盘（和 CPU）进入休眠，从而消耗更多电池寿命。
 
 如果你想调整 **vfs.zfs.txg.timeout** 值，可以在 **/boot/loader.conf** 文件中设置。
 
-## 应用程序
+### 应用程序
 
 延长电池使用时间时，所使用的应用程序也至关重要。例如，Thunar 比 Caja 或 Nautilus 占用更少的 CPU 时间。Geany 文本编辑器比 Scite 或 Gedit 占用更少的 CPU 资源和内存，即便是 GVim 也会占用更多资源。更不用说基于自定义 Openbox/Fluxbox/**${YOUR_FAVORITE_WM}** 的窗口管理器设置，其 CPU 占用远低于整个 Gnome 或 Mate 环境。
 
 # 硬件
 
-有时可以通过硬件本身获得更多电池时间。例如，当你为笔记本购买新的 SSD 时，可以选择速度不是最快但最节能的型号。你可能感受不到性能差异，但会明显获得更长的电池使用时间。
+有时可以通过硬件本身获得更多电池时间。例如，当你为笔记本购买新的固态硬盘时，可以选择速度不是最快但最节能的型号。你可能感受不到性能差异，但会明显获得更长的电池使用时间。
 
-大多数内存模块的电压为 1.5V，但你的笔记本可能支持低功耗 DDR 模块（1.35V），从而延长电池续航。此外，每根内存条大约消耗 0.5–1.0W 功率，因此使用单根 8 GB 内存条比使用两根 4 GB 内存条能提供更多电池时间。当然这也有性能上的缺点，因为单条内存无法使用双通道技术，会限制内存速度。一些笔记本甚至有四个内存槽（例如 ThinkPad W520），因此为了更长的电池寿命，可以选择使用两根 8 GB 内存条而不是四根 4 GB 内存条，而不会损失性能。
+大多数内存模块的电压为 1.5V，但你的笔记本可能支持 LPDDR 模块（1.35V），从而延长电池续航。此外，每根内存条大约消耗 0.5–1.0W 功率，因此使用单根 8 GB 内存条比使用两根 4 GB 内存条能拥有更多电池时间。当然这也有性能上的缺点，因为单条内存无法使用双通道技术，会限制内存速度。一些笔记本甚至有四条内存槽（例如 ThinkPad W520），因此为了更长的电池寿命，可以选择使用两根 8 GB 内存条而不是四根 4 GB 内存条，而不会损失性能。
 
 有时你可以将 DVD 光驱替换为内部辅助电池。例如 Dell Latitude D630、ThinkPad T420s 或 ThinkPad T500/W500。有些厂商提供整块贴合笔记本底部的扩展电池，例如 ThinkPad X220、T420/T520/W520 或第一代 ThinkPad X1 笔记本的扩展电池。
 
@@ -938,19 +938,19 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
 
 ## 更新 1 – 显卡节能
 
-如果你安装了 **graphics/drm-kmod** 包，你可能使用的是最新的 **i915kms.ko** 内核模块。
+如果你安装了 **graphics/drm-kmod** 包，你可能使用的是最新的内核模块 **i915kms.ko** 。
 
-要为集成 Intel 显卡设置最大电源管理，请将以下内容添加到 **/boot/loader.conf** 文件中：
+要为 Intel 核显设置最大化电源管理，请将以下内容添加到 **/boot/loader.conf** 文件中：
 
-```
+```sh
 # 使用 graphics/drm-kmod 包的 INTEL DRM（新）
 # 启动时跳过不必要的模式设置
   compat.linuxkpi.fastboot=1
 # 使用信号量进行环间同步
   compat.linuxkpi.semaphores=1
-# 启用渲染 C-STATE 6 节能
+# 启用渲染 C 状态 6 节能
   compat.linuxkpi.enable_rc6=7
-# 启用显示 C-STATE 节能
+# 启用显示 C 状态节能
   compat.linuxkpi.enable_dc=2
 # 启用帧缓冲压缩以节能
   compat.linuxkpi.enable_fbc=1
@@ -958,7 +958,7 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
 
 过去使用的旧设置如下，但现在已不再使用：
 
-```
+```sh
 # 使用 graphics/drm-kmod 包的 INTEL DRM（旧）
   drm.i915.enable_rc6=7
   drm.i915.semaphores=1
@@ -979,13 +979,13 @@ Suspend/resume 子系统最大的敌人是 BIOS/UEFI 固件中的 BUG。有时�
 
 随着 *Intel Skylake*（第六代）CPU 的引入，FreeBSD 能够利用 *Intel Speed Shift* 技术。你可以在 [**hwpstate_intel(4)**](https://man.freebsd.org/hwpstate_intel) 手册页中了解更多信息。要启用该功能，请在 **/boot/loader.conf** 文件中添加以下行：
 
-```
+```ini
 machdep.hwpstate_pkg_ctrl=0
 ```
 
-然后在 **/etc/sysctl.conf** 文件中，你需要为每个 CPU 线程（而非核心）添加一行，使用你期望的设置：
+然后在 **/etc/sysctl.conf** 文件中，你需要为每个 CPU 线程（而非核心）都添加一行，使用你期望的设置：
 
-```
+```ini
 dev.hwpstate_intel.N.epp=Y
 ```
 
@@ -997,9 +997,9 @@ dev.hwpstate_intel.N.epp=Y
 * **50** – 平衡（默认）
 * **100** – 最大节能
 
-若希望获得最大节能，可以为所有线程使用 **100**，如下所示：
+若希望获得最大化节能，可以为所有线程使用 **100**，如下所示：
 
-```
+```ini
 dev.hwpstate_intel.0.epp=100
 dev.hwpstate_intel.1.epp=100
 dev.hwpstate_intel.2.epp=100
@@ -1012,7 +1012,7 @@ dev.hwpstate_intel.7.epp=100
 
 当然，你也可以为单个线程使用全性能，将一个线程设置为平衡，其余线程节能，如下所示：
 
-```
+```ini
 dev.hwpstate_intel.0.epp=0
 dev.hwpstate_intel.1.epp=50
 dev.hwpstate_intel.2.epp=100
@@ -1023,13 +1023,13 @@ dev.hwpstate_intel.6.epp=100
 dev.hwpstate_intel.7.epp=100
 ```
 
-… 当你接入 AC 电源而非使用电池时，你可能希望全部线程都使用无限制性能，将所有值设为 **0**。
+… 当你接入电源而非使用电池时，你可能希望全部线程都使用无限制性能，将所有值设为 **0**。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2018/11/unlimited-power.gif?w=960)
 
 以下是具体设置示例。
 
-```sh
+```ini
 dev.hwpstate_intel.0.epp=0
 dev.hwpstate_intel.1.epp=0
 dev.hwpstate_intel.2.epp=0
@@ -1040,7 +1040,7 @@ dev.hwpstate_intel.6.epp=0
 dev.hwpstate_intel.7.epp=0
 ```
 
-理想情况下，当使用 AC 电源时，你会使用 *performance*（性能）设置，而在使用电池时则运行 *power save*（节能）模式。你可以通过下面这个简单脚本实现，并让它在 **cron(8)** 守护进程中运行。
+理想情况下，当使用电源时，你会使用 *performance*（性能）设置，而在使用电池时则运行 *power save*（节能）模式。你可以通过下面这个简单脚本实现，并让它在 **cron(8)** 守护进程中运行。
 
 ```sh
 #! /bin/sh
@@ -1080,6 +1080,6 @@ esac
   * * * * * ~/scripts/acpi-intel-speed-shift.sh
 ```
 
-遗憾的是，我目前没有配备 Intel Speed Shift CPU 的笔记本，所以不确定为前两个线程分别设置 **0** 和 **50** 是否最佳。也许将所有线程都设为 **100** 以节省更多电力会更好。当我将来拥有这样的笔记本时，会再做更新 🙂
+遗憾的是，我目前没有搭载 Intel Speed Shift CPU 的笔记本，所以不确定为前两个线程分别设置 **0** 和 **50** 是否最佳。也许将所有线程都设为 **100** 以节省更多电力会更好。当我将来拥有这样的笔记本时，会再做更新 🙂
 
 
