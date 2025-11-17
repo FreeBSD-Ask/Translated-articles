@@ -4,23 +4,25 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2018/08
 
-本文将向你展示如何在 FreeBSD 系统上设置 Syncthing。
+本文将向你说明怎样在 FreeBSD 系统上配置 Syncthing。
 
 ![syncthing-logo.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/syncthing-logo.png?w=960)
 
-开篇有一点警告——Syncthing 配置文件中的所有 `>` 和 `<` 字符分别被替换为 `}` 和 `{`。这是由于 *WordPress* 的限制。请记住，Syncthing 配置文件实际上是 XML 文件。
+>**警告**
+>
+>请记住，Syncthing 配置文件实际上是 XML 文件。
 
-对于我个人的大部分备份需求，我通常使用 **rsync(1)**，但在像手机或平板这样的有限设备上使用 rsync 实在很麻烦。因此，对于从这些设备自动导入照片和其他文件，我更倾向于使用 Syncthing 工具。
+就我个人的大部分备份需求，我一般使用 **rsync(1)**，但在像手机或平板这样的有限设备上 rsync 实在很麻烦。因此，对于从这些设备自动导入照片和其他文件，我更倾向于使用 Syncthing 工具。
 
-如果你还没听说过，我引用 Syncthing 官网 [https://syncthing.net/](https://syncthing.net/) 的话：*“Syncthing 替代了专有的同步和云服务，提供开源、可靠和去中心化的方案。你的数据完全属于你自己，你有权选择数据存储位置、是否与第三方共享以及在互联网上的传输方式。”* ……以及 [Wikipedia](https://en.wikipedia.org/wiki/Syncthing) 的描述：*“Syncthing 是一个免费、开源的点对点文件同步应用，适用于 Windows、Mac、Linux、Android、Solaris、Darwin 和 BSD。它可以在局域网设备间同步文件，或通过互联网在远程设备间同步。数据安全和数据保护是软件设计的一部分。”*
+如果你还没听说过，我引用 Syncthing 官网 [https://syncthing.net/](https://syncthing.net/) 的话：**“Syncthing 替代了专有的同步和云服务，提供开源、可靠和去中心化的方案。你的数据完全属于你自己，你有权选择数据存储位置、是否与第三方共享以及在互联网上的传输方式。”** ……以及 [维基百科](https://en.wikipedia.org/wiki/Syncthing) 的描述：**“Syncthing 是一款免费、开源的点对点文件同步应用，适用于 Windows、Mac、Linux、Android、Solaris、Darwin 和 BSD。它可以在局域网设备间同步文件，或通过互联网在远程设备间同步。数据安全和数据保护是软件设计的一部分。”**
 
-有人可能会问，它与 Nextcloud 有何不同。其实，Nextcloud 提供了几乎完整的云服务堆栈以及定制应用，而 Syncthing 只是设备间的同步工具，仅此而已。
+有人可能会问，它与 Nextcloud 有何不同。其实，Nextcloud 提供了几乎完整的云服务堆栈以及定制应用，而 Syncthing 仅是设备间的同步工具，仅此而已。
 
-最初，我像设置 [**FreeBSD 上的 Nextcloud**](https://vermaden.wordpress.com/2018/04/04/nextcloud-13-on-freebsd/) 一样，打算在 FreeBSD Jail 中完成全部设置。问题是，我尝试了几个小时后发现 Syncthing 无法在 FreeBSD Jail 虚拟环境中正常工作。管理界面可以访问并正常工作，但 Android 手机上的 Syncthing 无法与 FreeBSD Jail 中的 Syncthing 实例连接或同步。当然，我可以从手机连接到 Syncthing 管理界面，但仍无法使用 Syncthing 协议进行任何备份。了解了这个限制后，你有三种选择：
+最初，我像设置 [**FreeBSD 上的 Nextcloud**](https://vermaden.wordpress.com/2018/04/04/nextcloud-13-on-freebsd/) 一样，打算在 FreeBSD Jail 中完成全部设置。问题是，我尝试了几个小时后发现 Syncthing 无法在 FreeBSD Jail 虚拟环境中正常工作。管理界面可以访问并正常工作，但 Android 手机上的 Syncthing 无法与 FreeBSD Jail 中的 Syncthing 实例连接和同步。当然，我可以从手机连接到 Syncthing 管理界面，但仍无法使用 Syncthing 协议进行任何备份。了解了这个不足后，你有三种选择：
 
 * 在 FreeBSD 主机上像其他服务一样设置 Syncthing。
 * 使用 FreeBSD Bhyve 虚拟化运行 Syncthing 实例。
-* 使用 VirtualBox 包/Port 运行 Syncthing 实例。
+* 使用 VirtualBox 软件包/Port 运行 Syncthing 实例。
 
 我选择了第一种方案。Bhyve 和 VirtualBox 实际上也是类似，但需要额外处理虚拟化层。我将以基于 Android 的手机作为 Syncthing 客户端示例，但你也可以在计算机之间同步数据。
 
@@ -28,7 +30,7 @@
 
 ## 主机
 
-以下是在 FreeBSD 主机上我所做的一些基本步骤，包括别名数据库、时区、DNS 以及 FreeBSD 基本设置，这些都在其 **/etc/rc.conf** 核心文件中配置。
+以下是在 FreeBSD 主机上我所做的一些基本步骤，包括别名数据库、时区、DNS 以及 FreeBSD 基本设置，这些都在其 **/etc/rc.conf** 关键文件中配置。
 
 ```sh
 # newaliases -v
@@ -83,7 +85,7 @@ round-trip min/avg/max/stddev = 115.169/116.160/117.918/1.247 ms
 
 ## 安装
 
-首先，我们将从 *quarterly* 分支切换到 *latest* **pkg(8)** 分支，以获取最新的软件包。
+首先，为了获取最新的软件包，我们将从 **pkg(8)** 分支 *quarterly* 分支切换到 *latest*。
 
 ```sh
 # grep url: /etc/pkg/FreeBSD.conf
@@ -149,14 +151,14 @@ https://forum.syncthing.net/t/syncthing-v0-11-0-release-notes/2426
 https://forum.syncthing.net/t/syncthing-syncthing-v0-12-0-beryllium-bedbug/6026
 ```
 
-Syncthing 软件包为我们创建了 **syncthing** 用户和用户组。
+Syncthing 软件包为我们创建了用户和用户组 **syncthing**。
 
 ```sh
 # id syncthing
 uid=983(syncthing) gid=983(syncthing) groups=983(syncthing)
 ```
 
-看看 Syncthing 的体积有多小，这些都是 **net/syncthing** 软件包安装的所有文件。
+看看 Syncthing 的体积有多小，这些都是软件包 **net/syncthing** 安装的所有文件。
 
 ```sh
 # pkg info -l syncthing
@@ -225,7 +227,7 @@ syncthing_enable="NO"
 (...)
 ```
 
-Syncthing 需要 **/var/log/syncthing.log** 日志文件。现在我们创建该文件，并为其设置正确的所有者和权限。
+Syncthing 需要日志文件 **/var/log/syncthing.log**。让我们创建该文件，并为其设置正确的所有者和权限。
 
 ```sh
 # ls /var/log/syncthing.log
@@ -239,7 +241,7 @@ ls: /var/log/syncthing.log: No such file or directory
 -rwxr-xr-x  1 syncthing  syncthing  0 2018.08.19 01:06 /var/log/syncthing.log
 ```
 
-由于我们将使用该日志文件，还需要管理其轮转，我们将使用 FreeBSD 内置的 **newsyslog(8)** 守护进程来实现。
+由于我们将使用该日志文件，还需要管理日志轮转，我们将使用 FreeBSD 内置的守护进程 **newsyslog(8)** 来实现。
 
 ```sh
 # cat > /etc/newsyslog.conf.d/syncthing.conf << __EOF
@@ -338,7 +340,7 @@ Stopping syncthing.
 Waiting for PIDS: 27498.
 ```
 
-在第一次启动 Syncthing 时，**rc(8)** 启动脚本创建了 **/usr/local/etc/syncthing** 目录及其配置文件。
+在第一次启动 Syncthing 时，**rc(8)** 启动脚本创建了目录及其配置文件 **/usr/local/etc/syncthing**。
 
 ```sh
 # find /usr/local/etc/syncthing
@@ -360,7 +362,7 @@ Waiting for PIDS: 27498.
 
 ```sh
 # grep '/Sync' /usr/local/etc/syncthing/config.xml
-    {folder id="default" label="Default Folder" path="//Sync" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true"}
+    <folder id="default" label="Default Folder" path="//Sync" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
 
 # ls /Sync
 ls: /Sync: No such file or directory
@@ -378,34 +380,34 @@ ls: /Sync: No such file or directory
 # vi /usr/local/etc/syncthing/config.xml
 
 # grep '/syncthing' /usr/local/etc/syncthing/config.xml
-    {folder id="default" label="Default Folder" path="/syncthing" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true"}
+    <folder id="default" label="Default Folder" path="/syncthing" type="readwrite" rescanIntervalS="3600" fsWatcherEnabled="true" fsWatcherDelayS="10" ignorePerms="false" autoNormalize="true">
 ```
 
-我们还将禁用 *Relay* 和 *Global Announce Server*，但会保持 *Local Announce Server* 启用。
+我们还将禁用 *Relay* 和 *Global Announce Server*，但保持启用 *Local Announce Server*。
 
 ```sh
 # grep -i relay /usr/local/etc/syncthing/config.xml
-        {relaysEnabled}true{/relaysEnabled}
-        {relayReconnectIntervalM}10{/relayReconnectIntervalM}
+        <relaysEnabled>true</relaysEnabled>
+        <relayReconnectIntervalM>10</relayReconnectIntervalM>
 
 # vi /usr/local/etc/syncthing/config.xml
 
 # grep -i relay /usr/local/etc/syncthing/config.xml
-        {relaysEnabled}false{/relaysEnabled}
-        {relayReconnectIntervalM}10{/relayReconnectIntervalM}
+        <relaysEnabled>false</relaysEnabled>
+        <relayReconnectIntervalM>10</relayReconnectIntervalM>
 
 # grep globalAnnounce /usr/local/etc/syncthing/config.xml
-        {globalAnnounceServer}default{/globalAnnounceServer}
-        {globalAnnounceEnabled}true{/globalAnnounceEnabled}
+        <globalAnnounceServer>default</globalAnnounceServer>
+        <globalAnnounceEnabled>true</globalAnnounceEnabled>
 
 # vi /usr/local/etc/syncthing/config.xml
 
 # grep globalAnnounce /usr/local/etc/syncthing/config.xml
-        {globalAnnounceServer}default{/globalAnnounceServer}
-        {globalAnnounceEnabled}false{/globalAnnounceEnabled}
+        <globalAnnounceServer>default</globalAnnounceServer>
+        <globalAnnounceEnabled>false</globalAnnounceEnabled>
 ```
 
-在重启 Syncthing 之前，让我们清空 **/var/log/syncthing.log** 文件，以消除不再需要的信息。
+在重启 Syncthing 之前，让我们清空 **/var/log/syncthing.log** 文件，以清除不再需要的信息。
 
 ```sh
 # service syncthing stop
@@ -439,20 +441,20 @@ Starting syncthing.
 
 ```sh
 # grep -B 1 -A 3 127.0.0.1 /usr/local/etc/syncthing/config.xml
-    {gui enabled="true" tls="false" debugging="false"}
-        {address}127.0.0.1:8384{/address}
-        {apikey}2jU5aR4zTJLGdEuSLLmdRGgfCgJaUpUv{/apikey}
-        {theme}default{/theme}
-    {/gui}
+    <gui enabled="true" tls="false" debugging="false">
+        <address>127.0.0.1:8384</address>
+        <apikey>2jU5aR4zTJLGdEuSLLmdRGgfCgJaUpUv</apikey>
+        <theme>default</theme>
+    </gui>
 
 # vi /usr/local/etc/syncthing/config.xml
 
 # grep -B 1 -A 3 10.0.0.100 /usr/local/etc/syncthing/config.xml
-    {gui enabled="true" tls="true" debugging="false"}
-        {address}10.0.0.100:8384{/address}
-        {apikey}2jU5aR4zTJLGdEuSLLmdRGgfCgJaUpUv{/apikey}
-        {theme}default{/theme}
-    {/gui}
+    <gui enabled="true" tls="true" debugging="false">
+        <address>10.0.0.100:8384</address>
+        <apikey>2jU5aR4zTJLGdEuSLLmdRGgfCgJaUpUv</apikey>
+        <theme>default</theme>
+    </gui>
 ```
 
 现在让我们验证所做的更改。
@@ -486,7 +488,7 @@ Starting syncthing.
 
 ![syncthing-01.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/syncthing-01.png?w=960)
 
-Syncthing 会询问我们是否同意共享统计数据。我将此选择留给你。
+Syncthing 会询问我们是否同意共享统计数据。你可自行选择。
 
 ![syncthing-02.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/syncthing-02.png?w=960)
 
@@ -633,10 +635,10 @@ Android 手机 **SM-A320FL** 设备现在在 **Remote Devices** 区域可见。
 
 现在，你的 Camera 文件已经同步完成，可作为备份使用。
 
-FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key** 重命名为 ***.xml**（*WordPress* 限制所致）。
+FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key** 重命名为 ***.xml**（**WordPress** 限制所致）。
 
 ## 更新 1
 
-[FreeBSD 上的 Syncthing](https://vermaden.wordpress.com/2018/08/21/syncthing-on-freebsd/) 文章曾在 [BSD Now 262 – OpenBSD Surfacing](https://www.jupiterbroadcasting.com/127006/openbsd-surfacing-bsd-now-262/) 节目中被提及。
+[FreeBSD 上的 Syncthing](https://vermaden.wordpress.com/2018/08/21/syncthing-on-freebsd/) 文章曾在 [BSD Now 262 – OpenBSD Surfacing](https://www.jupiterbroadcasting.com/127006/openbsd-surfacing-bsd-now-262/) 节目中提及。
 
-感谢提及！
+感谢分享！
