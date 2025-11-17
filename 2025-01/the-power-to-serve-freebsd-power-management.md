@@ -4,48 +4,48 @@
 - 2018/11
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 
-这是 FreeBSD 操作系统的格言 —— “The Power to Serve” —— 也非常契合本文的主题。十年前（是的，时光飞逝）我甚至还制作了一个带有这个格言的壁纸 —— 仍可在 DeviatArt 页面上获取。
+这是 FreeBSD 操作系统的格言 —— “The Power to Serve（服务之力）” —— 也非常契合本文的主题。十年前（是的，光阴荏苒）我甚至还制作了一张带有这个格言的壁纸 —— 仍可在 DeviatArt 页面上获取。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2018/11/freebsd_the_power_to_serve_small1.jpg?w=960)
 
-是时候写一篇关于 FreeBSD 电源管理特性的文章了。它也适用于 *FreeBSD Desktop* 系列，但不限于此。一个流行的观点似乎是 FreeBSD 如此偏向服务器，以至于缺乏任何电源管理机制。事实完全不是这样。虽然在桌面上不那么重要（但仍会降低你的电费）或服务器上不那么关键，但在笔记本电脑上正确配置电源管理是非常必要的，这样它们会拥有更长的电池寿命，并运行得更安静。
+是时候写一篇关于 FreeBSD 电源管理特性的文章了。它也适用于 *FreeBSD 桌面* 系列，但不限于此。流行的观点似乎是 FreeBSD 如此偏向服务器，以至于没有任何电源管理机制。事实完全不是这样。虽然在桌面上不那么重要（但仍能减少你的电费）或服务器上不那么关键，但在笔记本电脑上正确配置电源管理是非常必要的，这样它们会拥有更长的电池寿命，并运行得更安静。
 
-我写这篇文章，是因为 *FreeBSD Handbook* 在 [11.13. Power and Resource Management](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/acpi-overview.html) 章节中并未涵盖全部这些信息。*FreeBSD on Laptops* 文章的 [4. Power Management](https://docs.freebsd.org/doc/10.1-RELEASE/usr/local/share/doc/freebsd/en_US.ISO8859-1/articles/laptop/power-management.html) 部分来自 FreeBSD 10.1-RELEASE 的远古时代。FreeBSD Wiki 页面上也有一些信息，但部分已过时。
+我写这篇文章，是因为 *FreeBSD 手册* 在 [11.13. Power and Resource Management](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/acpi-overview.html) 章节中并未涉及全部这些信息。*FreeBSD on Laptops* 文章的 [4. Power Management](https://docs.freebsd.org/doc/10.1-RELEASE/usr/local/share/doc/freebsd/en_US.ISO8859-1/articles/laptop/power-management.html) 部分来自 FreeBSD 10.1-RELEASE 的远古时代。FreeBSD Wiki 页面上也有一些信息，但部分已过时。
 
-FreeBSD 在电源管理领域提供了许多机制：
+FreeBSD 在电源管理领域有许多机制：
 
 * 关闭没有附加驱动的设备
 * 调整 CPU 频率和功耗
 * 支持 CPU 睡眠状态（C1 / C1E / C2 / C3 / …）
-* 启用/禁用大多数 CPU 可用的 Turbo Mode
-* 每个 USB 设备的电源管理选项
+* 启用/禁用大多数 CPU 可用的睿频
+* 每个 USB 设备的电源管理方案
 * SATA / AHCI 通道/控制器电源管理
-* 挂起/恢复支持（包括使用笔记本盖子执行）
+* 挂起/恢复支持（包括用笔记本盖子执行）
 * 支持厂商专有工具帮助测量电源管理
 * 工具与 ACPI 支持风扇速度控制
 * 工具与 ACPI 支持屏幕亮度设置
 * 电池容量状态与运行时间估计
-* 网络接口的节能选项
+* 网络接口的节能方案
 * 支持 AMD PowerNow!
 * 支持 Intel (Enhanced) SpeedStep
 * 支持 Intel Speed Shift
 * 支持 AMD Turbo Core
-* 支持 Intel Turbo Boost
+* 支持 Intel 睿频
 
 关于 FreeBSD 系统中不同设置文件的一句话说明：
 
-* **/etc/rc.conf** —— 不需要重启，只需重新加载守护进程
-* **/etc/sysctl.conf** —— 不需要重启 —— 可在运行时设置
+* **/etc/rc.conf** —— 无需重启，只需重新加载守护进程
+* **/etc/sysctl.conf** —— 无需重启 —— 可在运行时设置
 * **/boot/loader.conf** —— 这些设置 **需要重启**
 
 
 ## 信息
 
-让我们先从描述如何获取所需信息开始，例如当前 CPU 速度、已使用的 C-states、USB 设备当前的电源管理模式、电池容量和剩余时间等。
+让我们先从如何获取所需信息开始，例如当前 CPU 速度、已使用的 C 状态、USB 设备当前的电源管理模式、电池容量和剩余时间等。
 
 ## 电池
 
-要获取电池信息，你可以使用 **acpiconf(8)** 工具。以下是 **acpiconf(8)** 在我的主电池（ThinkPad T420s 笔记本）接通交流电源时的输出。
+要获取电池信息，你可以使用工具 **acpiconf(8)**。以下是 **acpiconf(8)** 在我的主电池（ThinkPad T420s 笔记本）接通电源源时的输出。
 
 ```sh
 % acpiconf -i 0
@@ -68,7 +68,7 @@ Present rate:           0 mW
 Present voltage:        12495 mV
 ```
 
-……接入电源适配器后：
+……在接入电源适配器后：
 
 ```sh
 % acpiconf -i 0
@@ -91,9 +91,9 @@ Present rate:           0 mW
 Present voltage:        12492 mV
 ```
 
-现在，当交流电源从笔记本电脑上拔掉时，**Remaining time:** 字段会显示该单块电池的剩余时间估计，这里显示为 **2:31**（两小时三十一分钟）。
+现在，当从笔记本电脑上拔掉电源时，**Remaining time:** 字段会显示该单块电池的剩余时间估计，这里显示为 **2:31**（两小时三十一分钟）。
 
-下面是我的第二块电池的 **acpiconf(8)** 输出（位于 ThinkPad T420s 的 ultrabay，用于替代 DVD 驱动器）。
+下面是我的第二块电池的 **acpiconf(8)** 输出（位于 ThinkPad T420s 的 ultrabay，替代了 DVD 驱动器）。
 
 ```sh
 % acpiconf -i 1
@@ -116,8 +116,7 @@ Present rate:           0 mW
 Present voltage:        12082 mV
 ```
 
-
-……接入电源适配器后：
+……在接入电源适配器后：
 
 
 ```sh
@@ -141,16 +140,16 @@ Present rate:           14986 mW
 Present voltage:        11810 mV
 ```
 
-在交流电源拔掉的情况下，它会将第二块电池的 **Remaining time:** 显示为 **1:36**。
+在拔掉电源的情况下，它会将第二块电池的 **Remaining time:** 显示为 **1:36**。
 
-因此，总的电池续航时间估计为 **4:07**。同样的时间，以分钟表示（**247**），会显示在名为 **sysctl(8)** 值 **hw.acpi.battery.time** 中，如下所示。
+因此，总电池续航时间估计为 **4:07**。同样的时间，以分钟表示（**247**），会显示在名为 **sysctl(8)** 值 **hw.acpi.battery.time** 中，如下所示。
 
 ```sh
 % sysctl hw.acpi.battery.time
 hw.acpi.battery.time: 247
 ```
 
-你还可以通过以下 **sysctl(8)** **hw.acpi.battery** 下的值，获取更“完整”的电池信息。
+你还可以通过 **sysctl(8)** **hw.acpi.battery**，获取更“完整”的电池信息。
 
 ```sh
 % sysctl hw.acpi.battery
@@ -161,7 +160,7 @@ hw.acpi.battery.time: 247
 hw.acpi.battery.life: 99
 ```
 
-如果连接了交流电源，**hw.acpi.battery.time** 将显示 **-1**。
+如果连接了电源，**hw.acpi.battery.time** 将显示为 **-1**。
 
 ```sh
 % sysctl hw.acpi.battery
@@ -176,7 +175,7 @@ hw.acpi.battery.life: 100
 
 随着时间的推移，电池会失去其“设计”容量。经过一到两年，这类电池的实际效率可能只剩下原来的 70% 或更低。
 
-检查这些信息所需的全部数据，都可以通过 **acpiconf(8)** 命令中的 **Design capacity:** 和 **Last full capacity:** 值获取。我写了一个 **battery-capacity.sh** 脚本，可以告诉你当前电池的效率。下面是该脚本运行时的效果示例。
+检查这些信息所需的全部数据，都可以通过 **acpiconf(8)** 命令中的 **Design capacity:** 和 **Last full capacity:** 获取。我写了个 **battery-capacity.sh** 脚本，可以告诉你当前电池的效率。下面是该脚本运行时的效果示例。
 
 ```sh
 % battery-capacity.sh 0
@@ -233,9 +232,9 @@ dev.cpu.0.%driver: cpu
 dev.cpu.0.%desc: ACPI CPU
 ```
 
-如果你使用 **kldload(8)** 命令加载 **coretemp(4)** 内核模块，就可以获得额外的温度信息。
+如果你使用 **kldload(8)** 命令加载内核模块 **coretemp(4)**，就能获得额外的温度信息。
 
-下面是加载 **coretemp(4)** 内核模块后，相同的 **sysctl(8) dev.cpu.0** MIB 输出。
+下面是加载内核模块 **coretemp(4)** 后，相同的 **sysctl(8) dev.cpu.0** 输出。
 
 ```sh
 % sysctl dev.cpu.0
@@ -258,22 +257,22 @@ dev.cpu.0.%driver: cpu
 dev.cpu.0.%desc: ACPI CPU
 ```
 
-让我描述一些最有用的项。
+让我说下最有用的值。
 
 CPU 核心温度。
 
 **dev.cpu.0.temperature: 49.0C**
 
-CPU 支持的 C-states（此 CPU 支持 C1 和 C2）。
+CPU 支持的 C 状态（此 CPU 支持 C1 和 C2）。
 
 **dev.cpu.0.cx_supported: C1/1/1 C2/3/104**
 
-CPU C-states 使用统计（仅使用了 C1 状态）。
+CPU C -states 使用统计（仅使用了 C1 状态）。
 
 **dev.cpu.0.cx_usage_counters: 16549 0
 dev.cpu.0.cx_usage: 100.00% 0.00% last 1489us**
 
-CPU 启用的最大（最深）C 状态。
+CPU 启用的最最深的 C 状态。
 
 **dev.cpu.0.cx_lowest: C1**
 
@@ -293,7 +292,7 @@ CPU 当前频率（使用守护进程 **powerd(8)** 或 **powerdxx(8)** 时会�
 hw.acpi.thermal.tz0.temperature: 49.1C
 ```
 
-要检查你有多少个 CPU 核心，可以使用以下命令。
+要检查你有多少颗 CPU 核心，可以使用以下命令。
 
 ```sh
 % grep FreeBSD/SMP /var/run/dmesg.boot
@@ -304,7 +303,7 @@ FreeBSD/SMP: 1 package(s) x 2 core(s)
 kern.smp.cpus: 2
 ```
 
-如果我的描述不够直观，你还可以使用 **sysctl(8)** 命令的参数 **-d**，如下所示。
+如果我的说明不够直观，你还能用 **sysctl(8)** 命令的参数 **-d**，如下所示。
 
 ```sh
 % sysctl -d dev.cpu.0.freq
@@ -320,7 +319,7 @@ dev.cpu.0.freq: Current CPU frequency
 # pkg install lscpu
 ```
 
-要使 **lscpu(8)** 正常工作，需要加载 **cpuctl(4)** 内核模块。
+要使 **lscpu(8)** 正常工作，需要加载内核模块 **cpuctl(4)**。
 
 下面是我的双核 CPU 使用 **lscpu(8)** 的显示效果。
 
@@ -357,22 +356,22 @@ cpu0:  on acpi0
 coretemp0:  on cpu0
 ```
 
-# CPU 频率缩放
+## CPU 调频
 
-对于 CPU 缩放功能，你可以使用 FreeBSD 基础系统提供的 **powerd(8)** 守护进程，或者使用来自 FreeBSD Ports 或 Packages 的 **powerdxx(8)**。**powerdxx(8)** 守护进程旨在更好地缩放多核系统，在系统负载适中时不会将所有核心都调到高状态，但有些人可能更喜欢那种方法，以便在执行任何操作时拥有全部性能，而在闲置时节省功耗。因此，**powerd(8)** 并不比 **powerdxx(8)** 更好，反之亦然。它们只是不同的实现，为你的需求提供了更多选择。
+对于 CPU 调频功能，你可以使用 FreeBSD 基本系统提供的守护进程 **powerd(8)** ，或者使用来自 FreeBSD Ports 或软件包的 **powerdxx(8)**。守护进程 **powerdxx(8)** 旨在更好地调频多核系统，在系统负载适中时不会将所有核心都调到高状态，但有些人可能更喜欢那种方法，以便在执行所有操作时都拥有全部性能，而在闲置时节省功耗。因此，**powerd(8)** 并不比 **powerdxx(8)** 更好，反之亦然。它们只是不同的实现，为你的需求提供了更多选择。
 
 无论选择哪一个，都必须在 **/etc/rc.conf** 文件中进行配置。
 
 ## powerd(8)
 
-以下是 **powerd(8)** 守护进程的选项。
+以下是守护进程 **powerd(8)** 的选项。
 
 ```sh
 powerd_enable=YES
 powerd_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 ```
 
-**-n** 选项用于未知状态——当 **powerd(8)** 无法确定当前是使用交流电还是电池供电时使用。**-a** 用于交流电，**-b** 用于电池供电。**adaptive** 设置较“温和”，更有利于延长电池续航时间。**hiadaptive** 设置更激进，适合在交流电供电时使用。**-m** 选项设置最小 CPU 频率，**-M** 设置最大 CPU 频率，单位均为 MHz。更多细节请参见 **powerd(8)** 手册页。
+**-n** 选项用于未知状态——当 **powerd(8)** 无法确定当前是使用电源还是电池供电时使用。**-a** 用于电源，**-b** 用于电池供电。**adaptive** 设置较“温和”，更有利于延长电池续航时间。**hiadaptive** 设置更激进，适合在电源供电时使用。**-m** 选项设置最低 CPU 频率，**-M** 设置最大 CPU 频率，单位均为 MHz。更多细节请参见 **powerd(8)** 手册页。
 
 ## powerdxx(8)
 
@@ -382,7 +381,7 @@ powerd_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 # pkg install powerdxx
 ```
 
-然后，它的选项与 **powerd(8)** 守护进程的选项完全相同。
+然后，它的选项与守护进程 **powerd(8)** 的选项完全相同。
 
 ```sh
 powerdxx_enable=YES
@@ -391,7 +390,7 @@ powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 
 请查看上文 **powerdxx(8)** 部分获取标志/参数说明。
 
-十年前，FreeBSD 上的 CPU 频率缩放不像现在这么“简单”，你可以查看我 2008 年的旧文章 [HOWTO: FreeBSD CPU Scaling and Power Saving](https://forums.freebsd.org/threads/howto-freebsd-cpu-scaling-and-power-saving.172/)。
+十年前，FreeBSD 上的 CPU 调频不像现在这么“简单”，你可以看看我 2008 年的老文章 [HOWTO: FreeBSD CPU Scaling and Power Saving](https://forums.freebsd.org/threads/howto-freebsd-cpu-scaling-and-power-saving.172/)。
 
 ## C 状态
 
@@ -400,7 +399,7 @@ powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 * **performance_cx_lowest**
 * **economy_cx_lowest**
 
-**economy_cx_lowest** 参数用于电池供电时，**performance_cx_lowest** 参数用于交流电供电时。两者都通过 **rc(8)** 子系统使用的 **/etc/rc.d/power_profile** 脚本进行设置。该脚本会设置 **hw.acpi.cpu.cx_lowest** 参数，从而控制所有 **dev.cpu.*.cx_lowest** 的值。当你连接或断开交流电时，也可以在 **/var/log/messages** 文件中跟踪这些变化。
+**economy_cx_lowest** 参数用于电池供电时，**performance_cx_lowest** 参数用于电源供电时。两者都通过 **rc(8)** 子系统使用的 **/etc/rc.d/power_profile** 脚本进行设置。该脚本会设置 **hw.acpi.cpu.cx_lowest** 参数，从而控制所有 **dev.cpu.*.cx_lowest** 的值。当你连接或断开电源时，也可以在 **/var/log/messages** 文件中跟踪这些变化。
 
 ```sh
 % tail -f /var/log/messages
@@ -415,16 +414,16 @@ performance_cx_lowest=C1
 economy_cx_lowest=Cmax
 ```
 
-上述设置对于大多数系统来说通常已经足够。要检查你的 CPU 支持哪些 C-states，请看看 **dev.cpu.0.cx_supported** 的值。
+上述设置对于大多数系统来说通常已经足够。要检查你的 CPU 支持哪些 C 状态，请看看 **dev.cpu.0.cx_supported** 的值。
 
 ```sh
 % sysctl dev.cpu.0.cx_supported
 dev.cpu.0.cx_supported: C1/1/1 C2/3/104
 ```
 
-我的 CPU 仅支持 C1 和 C2，但你的 CPU 可能支持更多。我记得曾经使用一台老旧的 Core 2 Duo 笔记本时，从 C1（运行）状态返回到 C2（休眠）状态会有相当“明显”的延迟，因此需要如下设置。此时不使用 **performance_cx_lowest** 和 **economy_cx_lowest** 参数。你可以将第一个核心设置为 C1，其他所有核心设置为 C2。这样即使在电池供电时，你的系统也能完全响应，而其他核心则可以休眠以节省能源。
+我的 CPU 仅支持 C1 和 C2，但你的 CPU 可能支持更多。我记得曾经使用一台老旧的 Core 2 Duo 笔记本时，从 C1（运行）状态返回到 C2（休眠）状态会有相当“明显”的延迟，因此需要如下设置。此时不使用参数 **performance_cx_lowest** 和 **economy_cx_lowest**。你可以将第一个核心设置为 C1，其他所有核心设置为 C2。这样即使在电池供电时，你的系统也能完全响应，而其他核心则可以休眠以节省能源。
 
-例如，如果你有 4 个核心，并且最大（最深）支持的 C-state 为 C3，那么你可以将如下内容添加到 **/etc/sysctl.conf** 文件中。
+例如，如果你有 4 个核心，并且最深支持的 C 状态为 C3，那么你可以将如下内容添加到 **/etc/sysctl.conf** 文件中。
 
 ```sh
 % grep cx_lowest /etc/sysctl.conf
@@ -436,7 +435,7 @@ dev.cpu.3.cx_lowest=C3
 
 ## CPU 睿频
 
-启用 Turbo 模式有两种方式。一种是通过设置 **powerd(8)** 或 **powerdxx(8)** 守护进程，将最大频率设置高于 CPU 标称速度。例如，如果你的 CPU 描述为双核 2.3 GHz，则可以使用 **-M** 参数将最大速度设置为 **4000**（即 4 GHz）。如果你不使用 CPU 频率缩放守护进程，则可以使用 **dev.cpu.0.freq** 参数，将其设置为 **dev.cpu.0.freq_levels** MIB 中的最高（第一个）值。
+启用睿频模式有两种方式。一种是通过设置守护进程 **powerd(8)** 或 **powerdxx(8)**，将最大频率设置高于 CPU 标称速度。例如，如果你的 CPU 描述为双核 2.3 GHz，则可以使用参数 **-M** 将最大速度设置为 **4000**（即 4 GHz）。如果你不使用 CPU 调频守护进程，则可以使用参数 **dev.cpu.0.freq**，将其设置为 **dev.cpu.0.freq_levels** 中的最高（第一个）值。
 
 下面是我系统上支持的 CPU 频率级别。
 
@@ -445,7 +444,7 @@ dev.cpu.3.cx_lowest=C3
 dev.cpu.0.freq_levels: 2501/35000 2500/35000 2200/29755 2000/26426 1800/23233 1600/20164 1400/17226 1200/14408 1000/11713 800/9140
 ```
 
-最高值（左侧）为 **2501/35000**，因此我需要将 **dev.cpu.0.freq** 参数设置为该值以启用 Turbo 模式。你只需要使用“频率”部分的值，因为如果连同功耗描述一起设置，会导致失败。
+最高值（左侧）为 **2501/35000**，因此我需要将 **dev.cpu.0.freq** 参数设置为该值以启用睿频模式。你只需要使用“频率”部分的值，因为如果连同功耗描述一起设置，会导致失败。
 
 ```sh
 # sysctl dev.cpu.0.freq=2501/35000
@@ -460,9 +459,9 @@ sysctl: invalid integer '2501/35000'
 dev.cpu.0.freq: 800 -> 2501
 ```
 
-# USB 设备
+## USB 设备
 
-要列出已连接的 USB 设备，请使用 **usbconfig(8)** 工具。
+要列出已连接的 USB 设备，请使用工具 **usbconfig(8)** 。
 
 
 ```sh
@@ -476,19 +475,19 @@ ugen0.3:  at usbus0, cfg=0 md=HOST spd=FULL (12Mbps) pwr=ON (100mA)
 ugen2.3:  at usbus2, cfg=0 md=HOST spd=HIGH (480Mbps) pwr=SAVE (0mA)
 ```
 
-你会看到 **pwr** 参数（即 power 的缩写）显示当前电源设置，可以为：
+你会看到 **pwr** 参数（即 `power`，电源的缩写）显示当前电源设置，可以为：
 
 * **ON**
 * **OFF**
 * **SAVE**
 
-要为 **ugen1.1** 设备设置新的 USB 电源选项，也可以使用 **usbconfig(8)** 工具，并使用 **power_save** 参数，方法如下。
+要为 **ugen1.1** 设备设置新的 USB 电源选项，也可以使用 **usbconfig(8)** 工具，并使用参数 **power_save**，方法如下。
 
 ```sh
 # usbconfig -u 1 -a 1 power_save
 ```
 
-FreeBSD 的 USB 电源管理没有专用的配置文件，因此我们将设置放入通用的 **/etc/rc.local** 文件中，该文件在 **rc(8)** 子系统管理的启动过程结束时运行。下面是添加的内容，唯一的例外是我的无线鼠标 “**Lenovo USB Receiver**”。
+FreeBSD 的 USB 电源管理没有专用的配置文件，因此我们将设置放入通用的 **/etc/rc.local** 文件中，该文件在 **rc(8)** 子系统管理的启动过程结束时运行。下面是添加的内容，唯一的例外是我的无线鼠标 “**Lenovo USB Receiver 联想 USB 接收器**”。
 
 ```sh
 % grep -A 10 POWER /etc/rc.local
@@ -506,7 +505,7 @@ usbconfig \
     done
 ```
 
-对于鼠标或触控设备，不保存电源是一种好主意，因为每次使用时都需要等待约一秒钟，这会很烦人。我使用一个 for 循环为除无线 USB 鼠标（识别为 “**Lenovo USB Receiver**” 设备）之外的所有 USB 设备设置节能模式。
+对于鼠标和触控设备，不保存电源是个好主意，因为每次使用时都需要等待约一秒钟，这会很烦人。我使用一个 for 循环为除无线 USB 鼠标（识别为 “**Lenovo USB Receiver**” 设备）之外的所有 USB 设备设置节能模式。
 
 ## SATA/AHCI 电源管理
 
@@ -562,7 +561,7 @@ ada0 at ahcich0 bus 0 scbus0 target 0 lun 0
   hint.ahcich.7.pm_level=5
 ```
 
-# 无驱动的设备
+## 无驱动的设备
 
 FreeBSD 提供了对未附加驱动的设备不供电的节能选项。该选项称为 **hw.pci.do_power_nodriver**，可以在 **/boot/loader.conf** 文件中设置。下面是 **pci(4)** 手册页中的说明。
 
