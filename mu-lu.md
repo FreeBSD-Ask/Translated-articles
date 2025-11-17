@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,6 +7,18 @@
 
 ## 2025 年
 
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* []((2025-01/)
+* [服务之力：FreeBSD 电源管理]((2025-01/the-power-to-serve-freebsd-power-management)
+* [我的 FreeBSD 故事]((2025-01/my-freebsd-story.md)
+* [在 FreeBSD 上部署 Syncthing]((2025-01/syncthing-on-freebsd.md)
+* [FreeBSD 上的高可用 DHCP 服务器](2025-01/highly-available-dhcp-server-on-freebsd.md)
 * [Leah Budzicka EuroBSDcon 2025 旅行报告](2025-01/2025-eurobsdcon-trip-report-leah-budzicka.md)
 * [Robert Clausecker EuroBSDcon 2025 旅行报告](2025-01/eurobsdcon-2025-trip-report-robert-clausecker.md)
 * [FreeBSD 在 OCI 运行时规范 v1.3 中获得正式支持](2025-01/freebsd-officially-supported-in-oci-runtime-specification-v1-3.md)
