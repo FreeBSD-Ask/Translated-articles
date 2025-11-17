@@ -5,17 +5,17 @@
 - 2018/08
 
 
-今天我想分享在 FreeBSD 系统上搭建高可用 DHCP 服务器的方法，但在其他 UNIX 和类 UNIX 系统上也应该同样简单。我将在这里使用最显而易见的选择——*Internet Systems Consortium* 的实现——ISC DHCP server——它也可以在 FreeBSD Ports 和包中获得。
+今天我想分享在 FreeBSD 系统上搭建高可用 DHCP 服务器的方法，但在其他 UNIX 和类 UNIX 系统上也应该一样简单。我将在这里使用最显而易见的选择——*Internet Systems Consortium* 的实现——ISC DHCP server——它也可以在 FreeBSD Ports 和软件包中获得。
 
 ![ISC](https://vermaden.wordpress.com/wp-content/uploads/2018/08/isc.png?w=960)
 
-因为一些时间的推进，ISC 正在开发一个新的 DHCP 服务器——Kea——他们打算最终在大多数服务器实现中用它替代 ISC DHCP。他们也建议新的实现者考虑使用 Kea 而不是 ISC DHCP，只有在 Kea 不能满足需求时才实现 ISC DHCP。例如，Kea 当前不包含客户端或中继。也许我以后会对这篇文章进行 UPDATE 或者单独写一篇文章。
+因为一些时间的推进，ISC 正在开发一款新的 DHCP 服务器——Kea——他们打算最终在大多数服务器实现中用它替代 ISC DHCP。他们也建议新的实现者考虑使用 Kea 而不是 ISC DHCP，仅在 Kea 无法满足需求时才实现 ISC DHCP。例如，Kea 当前不包含客户端和中继。也许我以后会对这篇文章进行更新或者单独再写一篇文章。
 
-同时 Kea 在一个月前刚获得了高可用模式，因此如果我更早写这篇文章，那么这样的设置在 Kea 上将不可行。这也显示了 Kea 实现是多么年轻，所以目前我会坚持使用 ISC DHCP server，并在未来“观察” Kea 的发展。
+同时 Kea 在一个月前刚拥有了高可用模式，因此如果我更早写这篇文章，那么这样的设置在 Kea 上将不可行。这也显示了 Kea 实现是多么年轻，所以目前我会坚持使用 ISC DHCP server，并在后续“观察” Kea 的发展。
 
 ## 架构
 
-下面是我们的 ISC DHCP 设置的 [POOR MAN’S ASCII ARCHITECT](https://en.wikipedia.org/wiki/Enterprise_Architect_%28software%29) 图。
+下面是我们的 ISC DHCP 设置的 [POOR MAN’S ASCII 架构图](https://en.wikipedia.org/wiki/Enterprise_Architect_%28software%29) 图。
 
 ```sh
 +-------------+              +-------------+
@@ -33,7 +33,7 @@
                +----------------+
 ```
 
-每个 DHCP 服务器节点的设置都非常简单。它的 FreeBSD 11.2-RELEASE 安装在一个 4 GB 的 GPT 分区上，/ 文件系统使用 UFS，如下所示只使用了 666 MB。
+每个 DHCP 服务器节点的设置都非常简单。它的 FreeBSD 11.2-RELEASE 安装在 4 GB 的 GPT 分区上，/ 文件系统是 UFS，如下所示只使用了 666 MB。
 
 ```sh
 root@DHCPs1:/ # uname -v
@@ -68,7 +68,7 @@ root@DHCPs1:/ # du -smc * | sort -n
 666     total
 ```
 
-128 MB 的内存对于少量客户端来说已经足够。仍然有 32 MB 的空闲内存，以及 32 MB 的 Inactive 和 Buffered 内存可以被交换出去。更不用说每个 `<strong>getty</strong>` 进程大约占用 2 MB 内存，而你只需要其中 1 个，而不是 8 个。换句话说，即使只有 64 MB 的内存，你也能够运行它。
+对于少量客户端来说 128 MB 的内存已经足够。仍然有 32 MB 的空闲内存，以及 32 MB 的 Inactive 和 Buffered 内存可以被交换出去。更不用说每个 `getty` 进程大约占用 2 MB 内存，而你只需要其中 1 个，而不是 8 个。换言之，即使只有 64 MB 的内存，你也能跑起来。
 
 ```sh
 root@DHCPs1:~ # top -b -o res
@@ -113,7 +113,7 @@ dumpdev=NO
 
 `/etc/sysctl.conf` 和 `/boot/loader.conf` 文件不需要修改。
 
-现在你需要安装 ISC DHCP 服务器，由于当前版本是 4.4.x，包名相应为 `isc-dhcp44-server`，我们使用 `pkg(8)` 命令来添加它。
+现在你需要安装 ISC DHCP 服务器，由于当前版本是 4.4.x，软件包名相应为 `isc-dhcp44-server`，我们使用命令 `pkg(8)` 来安装。
 
 ```sh
 root@DHCPs1:/ # pkg update -f -y
@@ -134,10 +134,10 @@ root@DHCPs1:/ # echo ?
 root@DHCPs1:/ #
 ```
 
-现在让我们安装包 `isc-dhcp44-server`。
+现在让我们安装软件包 `isc-dhcp44-server`。
 
 
-```
+```sh
 root@DHCPs1:/ # pkg install isc-dhcp44-server
 Updating FreeBSD repository catalogue...
 FreeBSD repository is up to date.
@@ -189,11 +189,11 @@ Message from isc-dhcp44-server-4.4.1_3:
       needed upon startup.
 ```
 
-现在更新 `pkg(8)` 仓库数据，并在 `DHCPs2` 节点上安装 `isc-dhcp44-server` 包。
+现在更新 `pkg(8)` 仓库数据，并在 `DHCPs2` 节点上安装 `isc-dhcp44-server`。
 
-配置使用单一网络段 10.0.10.0/24，为客户端分配最后一段在 10-250 的地址。参数 `split 128` 会将负载在 DHCP 服务器节点之间平均分配。由于这只是示例，我们将使用 1.1.1.1 和 9.9.9.9 作为 DNS 服务器，以及 `domain.com` 作为域名。需要说明的是，`split 128` 参数仅在 `primary` 节点（在我们的例子中为 `DHCPs1`）上设置。正如 `man dhcpd.conf` 页面所建议的，我们将 *“为两个服务器使用相同的主配置文件，并有一个单独的文件包含对等声明以及主文件。”*，这样做 *“有助于避免配置不一致。”*
+配置使用单一网络段 10.0.10.0/24，为客户端分配最后一段在 10-250 的地址。参数 `split 128` 会将负载在 DHCP 服务器节点之间平均分配。由于这只是示例，我们将使用 1.1.1.1 和 9.9.9.9 作为 DNS 服务器，以及 `domain.com` 作为域名。需要说明的是，仅在 `primary` 节点（在我们的例子中为 `DHCPs1`）上设置参数 `split 128`。正如 `man dhcpd.conf` 页面所建议的，我们将 **“为两个服务器使用相同的主配置文件，并有一个单独的文件包含对等声明以及主文件。”**，这样做 **“有助于避免配置不一致。”**
 
-```
+```sh
 root@DHCPs1:/ # cat /usr/local/etc/dhcpd.conf
 # CORE
 failover peer "ha-dhcp" {
@@ -212,7 +212,7 @@ failover peer "ha-dhcp" {
 include "/usr/local/etc/dhcpd.conf.SHARED";
 ```
 
-```
+```sh
 root@DHCPs1:/ # cat /usr/local/etc/dhcpd.conf.SHARED
 # CLIENTS
 subnet 10.0.10.0 netmask 255.255.255.0 {
@@ -231,9 +231,9 @@ subnet 10.0.10.0 netmask 255.255.255.0 {
 }
 ```
 
-… and the secondary node.
+……secondary 节点
 
-```
+```sh
 root@DHCPs2:~ # cat /usr/local/etc/dhcpd.conf
 # CORE
 failover peer "ha-dhcp" {
@@ -251,7 +251,7 @@ failover peer "ha-dhcp" {
 include "/usr/local/etc/dhcpd.conf.SHARED";
 ```
 
-```
+```sh
 root@DHCPs2:/ # cat /usr/local/etc/dhcpd.conf.SHARED
 # CLIENTS
 subnet 10.0.10.0 netmask 255.255.255.0 {
@@ -274,7 +274,7 @@ subnet 10.0.10.0 netmask 255.255.255.0 {
 
 现在让我们在两个节点上启动 DHCP 服务器。
 
-```
+```sh
 root@DHCPs1:~ # sysrc dhcpd_enable=YES
 dhcpd_enable:  -> YES
 root@DHCPs1:~ # service isc-dhcpd start
@@ -295,7 +295,7 @@ failover peer ha-dhcp: I move from normal to startup
 
 ……在 secondary 节点上也是一样。
 
-```
+```sh
 root@DHCPs2:~ # sysrc dhcpd_enable=YES
 dhcpd_enable:  -> YES
 root@DHCPs2:~ # service isc-dhcpd onestart
@@ -314,9 +314,9 @@ Sending on   Socket/fallback/fallback-net
 failover peer ha-dhcp: I move from communications-interrupted to startup
 ```
 
-现在，由于高可用 DHCP 服务器的两个节点都已启动，让我们在 DHCP 客户端——在我们的示例中为 **`DHCPc`**——上尝试获取一些 DHCP 租约。
+现在，由于高可用 DHCP 服务器的两个节点都已启动，让我们在 DHCP 客户端——在我们的示例中为 **`DHCPc`**——上尝试获取 DHCP 租约。
 
-```
+```sh
 root@DHCPc:~ # dhclient em0
 DHCPREQUEST on em0 to 255.255.255.255 port 67
 DHCPREQUEST on em0 to 255.255.255.255 port 67
@@ -324,7 +324,7 @@ DHCPACK from 10.0.10.251
 bound to 10.0.10.131 -- renewal in 302119 seconds.
 ```
 
-```
+```sh
 root@DHCPc:~ # ifconfig em0
 em0: flags=8843 metric 0 mtu 1500
         options=9b
@@ -340,9 +340,9 @@ em0: flags=8843 metric 0 mtu 1500
 
 当然，我们可以在 `/usr/local/etc/dhcpd.conf.SHARED` 配置文件中使用 host 选项为它设置固定地址，如下所示。
 
-所需的“附加配置”如下。
+所需的“额外配置”如下。
 
-```
+```ini
 group
   {
     host DHCPc {
@@ -354,7 +354,7 @@ group
 
 需要在两个节点的 `/usr/local/etc/dhcpd.conf.SHARED` 配置文件中都添加，新的共享配置文件如下所示。
 
-```
+```sh
 root@DHCPs1:~ # cat /usr/local/etc/dhcpd.conf.SHARED
 # CLIENTS
 subnet 10.0.10.0 netmask 255.255.255.0 {
@@ -385,7 +385,7 @@ subnet 10.0.10.0 netmask 255.255.255.0 {
 
 让我们再次尝试从同一 DHCP 客户端获取地址。
 
-```
+```sh
 root@DHCPs1:~ # cat /usr/local/etc/dhcpd.conf.SHARED
 # CLIENTS
 subnet 10.0.10.0 netmask 255.255.255.0 {
@@ -416,7 +416,7 @@ subnet 10.0.10.0 netmask 255.255.255.0 {
 
 让我们再次尝试从同一 DHCP 客户端获取地址。
 
-```
+```sh
 root@DHCPc:~ # pkill dhclient
 root@DHCPc:~ # service netif restart
 root@DHCPc:~ # dhclient em0
@@ -434,11 +434,9 @@ DHCPOFFER already seen.
 DHCPREQUEST on em0 to 255.255.255.255 port 67
 DHCPACK from 10.0.10.252
 bound to 10.0.10.9 -- renewal in 302400 seconds.
-
 ```
 
-```
-
+```sh
 root@DHCPc:~ # ifconfig em0
 em0: flags=8843 metric 0 mtu 1500
 options=9b
@@ -448,7 +446,6 @@ inet 10.0.10.9 netmask 0xffffff00 broadcast 10.0.10.255
 nd6 options=29
 media: Ethernet autoselect (1000baseT )
 status: active
-
 ```
 
 现在我们已经获得了固定地址 10.0.10.9。
