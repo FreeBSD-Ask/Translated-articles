@@ -7,7 +7,7 @@
 
 ## 2025 年
 
-* [服务之力：FreeBSD 电源管理](2025-01/the-power-to-serve-freebsd-power-management)
+* [服务之力：FreeBSD 电源管理](2025-01/the-power-to-serve-freebsd-power-management.md)
 * [我的 FreeBSD 故事](2025-01/my-freebsd-story.md)
 * [在 FreeBSD 上部署 Syncthing](2025-01/syncthing-on-freebsd.md)
 * [FreeBSD 上的高可用 DHCP 服务器](2025-01/highly-available-dhcp-server-on-freebsd.md)
