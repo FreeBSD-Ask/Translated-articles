@@ -1,4 +1,4 @@
-# 我的 FreeBSD 故事（𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗）
+# 我的 FreeBSD 故事
 
 - [My FreeBSD Story](https://vermaden.wordpress.com/2018/09/07/my-freebsd-story/)
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
