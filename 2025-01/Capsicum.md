@@ -1,7 +1,7 @@
 # 利用 FreeBSD Capsicum 框架实现程序沙箱化
 
 - 原文：[Sandbox Your Program Using FreeBSD's Capsicum](https://cdaemon.com/posts/capsicum)
-- 作者： Jake Freeland  
+- 作者：Jake Freeland  
 - 发布日期：2023 年 9 月 1 日
 
 当今时代，数据泄露的平均成本高达四百余万美元，令人惊讶的是，只有 51% 的公司计划增加安全投资^[1](https://cdaemon.com/posts/capsicum#cite_note-1)^。这一数字很可能归因于实施健全安全解决方案所需的高昂成本。

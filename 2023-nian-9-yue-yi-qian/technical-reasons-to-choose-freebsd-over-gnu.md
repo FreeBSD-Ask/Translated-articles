@@ -119,9 +119,9 @@ security.bsd.map_at_zero: Permit processes to map an object at virtual address 0
 FreeBSD 拥有出色的工程与版本管理实践。FreeBSD 从创意产生到公开发布经历多个步骤：
 
 1. 当有人提出新想法并进行开发时，首先会经过同行技术审查。
-2. 然后进入 “current” 分支进行集成测试，根据复杂性或潜在影响，进入 “stable” 分支的迁移窗口会做相应调整。
-3. 接着进入 “stable” 分支，供更广泛的用户群测试，这通常也是 Beta 测试阶段，并有更广泛的社区参与。
-4. 最后进入 “release candidate”（RC） 测试，通常会经历三轮测试，之后才成为正式 “release” 版本。
+2. 然后进入“current”分支进行集成测试，根据复杂性或潜在影响，进入“stable”分支的迁移窗口会做相应调整。
+3. 接着进入“stable”分支，供更广泛的用户群测试，这通常也是 Beta 测试阶段，并有更广泛的社区参与。
+4. 最后进入“release candidate”（RC）测试，通常会经历三轮测试，之后才成为正式“release”版本。
 
 会发布软件补丁以修复漏洞和缺陷。
 

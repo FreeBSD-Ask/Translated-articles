@@ -55,7 +55,7 @@ pkg -c /jails/_base install -y pkg python zsh
 zfs snapshot zroot/jails/_base@$(freebsd-version)-$(date +%d-%b-%y)
 ```
 
-现在我们有了“模板” jail，可以用来创建新的 jail。我不会运行这个 jail，而且通常会在模板里添加常用包，这样每个后续克隆都会包含它们。把你喜欢的工具都放进去 🙂 值得注意的是：如果你打算用 Ansible 来管理 jail 中的包，你也需要在里面安装 pkg。之前为了保持简单，我没有这么做，而是直接在宿主机上用命令 `pkg -j JAILNAME install BLAH` 来安装。我想这算是个哲学问题——你是把 jail 看作是扩展的 chroot，还是微型的虚拟机？
+现在我们有了“模板”jail，可以用来创建新的 jail。我不会运行这个 jail，而且通常会在模板里添加常用包，这样每个后续克隆都会包含它们。把你喜欢的工具都放进去 🙂 值得注意的是：如果你打算用 Ansible 来管理 jail 中的包，你也需要在里面安装 pkg。之前为了保持简单，我没有这么做，而是直接在宿主机上用命令 `pkg -j JAILNAME install BLAH` 来安装。我想这算是个哲学问题——你是把 jail 看作是扩展的 chroot，还是微型的虚拟机？
 
 差不多快完成了。我们需要 `/etc/jail.conf` ——我选择使用统一的“全局”文件，其中的选项适用于所有 jail，然后在 `/etc/jail.conf.d/` 中为每个 jail 单独创建配置文件：
 
