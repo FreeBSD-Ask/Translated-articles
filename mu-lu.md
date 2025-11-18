@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [在 FreeBSD 上以 lsblk(8) 风格列出块设备](2025-01/list-block-devices-on-freebsd-lsblk8-style.md)
 * [新型 ZFS 启动环境工具](2025-01/new-zfs-boot-environments-tool.md)
 * [FreeBSD 企业级 1 PB 存储](2025-01/freebsd-enterprise-1-pb-storage.md)
 * [在 FreeBSD 容器上运行 RabbitMQ 集群](2025-01/rabbitmq-cluster-on-freebsd-containers.md)
