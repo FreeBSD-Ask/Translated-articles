@@ -8,13 +8,13 @@
 
 ![zfs-boot-environments-history.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/zfs-boot-environments-history.png?w=960)
 
-Pawel Jakub Dawidek——他也参加了 PBUG #3 会议——建议我应该尝试将 **beadm** 纳入 FreeBSD 基础系统。我也从很多 **beadm** 用户那里听到过这个想法，他们反复询问为什么 **beadm** 没有包含在 FreeBSD 基础系统中。因此，在 PBUG #3 结束后，我正是做了这件事。我创建了新的 PR——[Bug 230323 – Idea/Feature Request – include beadm in the base](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230323)——令我（惊喜地）发现，他们将新的 **bectl** 工具纳入了 FreeBSD 基础系统！现在，我们的 *ZFS 启动环境* 工具家族中新增了一员——**bectl** 工具。
+Pawel Jakub Dawidek——他也参加了 PBUG #3 会议——建议我应该尝试将 **beadm** 纳入 FreeBSD 基本系统。我也从很多 **beadm** 用户那里听到过这个想法，他们反复询问为什么 **beadm** 没有包含在 FreeBSD 基本系统中。因此，在 PBUG #3 结束后，我正是做了这件事。我创建了新的 PR——[Bug 230323 – Idea/Feature Request – include beadm in the base](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230323)——令我（惊喜地）发现，他们将新的 **bectl** 工具纳入了 FreeBSD 基本系统！现在，我们的 *ZFS 启动环境* 工具家族中新增了一员——工具 **bectl**。
 
-当然，我仍会维护和更新 **beadm** 工具，它仍可通过 FreeBSD Ports 中的 [sysutils/beadm](https://freshports.org/sysutils/beadm) 获取。因为该工具是用 POSIX **/bin/sh** 编写的，所以调试快速且易于修改。简单来说（TLDR）：**bectl** 是用 C 语言实现的 **beadm**，它已被导入 FreeBSD 基础系统，这意味着它将成为 FreeBSD 12.0-RELEASE 的一部分。目前 **bectl** 已经可以在 12.0-ALPHA2 镜像中使用。
+当然，我仍会维护和更新 **beadm** 工具，它仍可通过 FreeBSD Ports 中的 [sysutils/beadm](https://freshports.org/sysutils/beadm) 获取。因为该工具是用 POSIX **/bin/sh** 编写的，所以调试快速且易于修改。简单来说（TLDR）：**bectl** 是用 C 语言实现的 **beadm**，它已被导入 FreeBSD 基本系统，这意味着它将成为 FreeBSD 12.0-RELEASE 的一部分。目前 **bectl** 已经可以在 12.0-ALPHA2 镜像中使用。
 
-# 对比
+## 对比
 
-新的 **bectl** 工具还处于非常早期阶段，目前（尚未）能完全替代 **beadm** 工具。下面是 **bectl** 和 **beadm** 工具使用信息的快速对比。
+新的 **bectl** 工具还处于非常早期的阶段，目前（尚未）能完全替代 **beadm** 工具。下面是 **bectl** 和 **beadm** 工具使用信息的简单对比。
 
 ```sh
 root@fbsd12:~ # beadm
@@ -58,7 +58,7 @@ boot environment is already mounted
 failed to rename bootenv safe to new
 ```
 
-可以通过 **zfs rename -u ...** 命令重命名挂载为 **/** 的 ZFS 数据集（这正是 **beadm** 在底层所做的操作），作为 **bectl** 工具的一个替代方案。
+可以通过命令 **zfs rename -u ...** 重命名挂载到 **/** 的 ZFS 数据集（这正是 **beadm** 在底层所做的操作），作为 **bectl** 工具的替代方案。
 
 ```sh
 root@fbsd12:~ # bectl list
@@ -112,9 +112,9 @@ root@fbsd12:~ # jls
    JID  IP Address      Hostname                      Path
 ```
 
-如果你从 **beadm** 迁移到 **bectl**，你也需要更加小心，因为 **bectl** 不会询问确认 :🙂:
+如果你从 **beadm** 迁移到 **bectl**，你也需要更加小心，因为 **bectl** 不会让你进行确认 :🙂:
 
-例如，**beadm** 工具会在销毁指定的启动环境前询问你是否确认。而 **bectl** 工具则会直接删除，不会在屏幕上显示任何提示。
+例如，**beadm** 工具会在销毁指定的启动环境前询问你是否确认。而 **bectl** 工具则会直接删除，不会在屏幕上出现任何提示。
 
 ```sh
 root@fbsd12:~ # bectl list
@@ -137,13 +137,13 @@ new     NR     /          188K  2018-08-18 02:32
 
 好消息是 **beadm** 和 **bectl** 可以在同一台主机上共存，所以你不必二选一。你仍然可以用 **beadm** 工具处理日常任务（或用于 *Ansible* 模块），而用 **bectl** 来处理 **jail**/**unjail** 等选项。
 
-我认为随着时间推移，**bectl** 会增加所需功能，而将这样一个工具纳入 FreeBSD 基础系统无疑是一个受欢迎的补充。
+我认为随着时间推移，**bectl** 会增加所需功能，而将这样的工具纳入 FreeBSD 基本系统无疑是个受欢迎的补充。
 
 ## 更新 1
 
 [New ZFS Boot Environments Tool](https://vermaden.wordpress.com/2018/08/24/new-zfs-boot-environments-tool/) 文章被收录在 [BSD Now 262 – OpenBSD Surfacing](https://www.jupiterbroadcasting.com/127006/openbsd-surfacing-bsd-now-262/) 集中。
 
-感谢提及！
+感谢分享！
 
 ## 更新 2
 
