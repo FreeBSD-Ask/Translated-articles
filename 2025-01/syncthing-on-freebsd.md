@@ -20,9 +20,9 @@
 
 最初，我像设置 [**FreeBSD 上的 Nextcloud**](https://vermaden.wordpress.com/2018/04/04/nextcloud-13-on-freebsd/) 一样，打算在 FreeBSD Jail 中完成全部设置。问题是，我尝试了几个小时后发现 Syncthing 无法在 FreeBSD Jail 虚拟环境中正常工作。管理界面可以访问并正常工作，但 Android 手机上的 Syncthing 无法与 FreeBSD Jail 中的 Syncthing 实例连接和同步。当然，我可以从手机连接到 Syncthing 管理界面，但仍无法使用 Syncthing 协议进行任何备份。了解了这个不足后，你有三种选择：
 
-* 在 FreeBSD 主机上像其他服务一样设置 Syncthing。
-* 使用 FreeBSD Bhyve 虚拟化运行 Syncthing 实例。
-* 使用 VirtualBox 软件包/Port 运行 Syncthing 实例。
+- 在 FreeBSD 主机上像其他服务一样设置 Syncthing。
+- 使用 FreeBSD Bhyve 虚拟化运行 Syncthing 实例。
+- 使用 VirtualBox 软件包/Port 运行 Syncthing 实例。
 
 我选择了第一种方案。Bhyve 和 VirtualBox 实际上也是类似，但需要额外处理虚拟化层。我将以基于 Android 的手机作为 Syncthing 客户端示例，但你也可以在计算机之间同步数据。
 
@@ -635,7 +635,7 @@ Android 手机 **SM-A320FL** 设备现在在 **Remote Devices** 区域可见。
 
 现在，你的 Camera 文件已经同步完成，可作为备份使用。
 
-FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key** 重命名为 ***.xml**（**WordPress** 限制所致）。
+FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key** 重命名为***.xml**（**WordPress** 限制所致）。
 
 ## 更新 1
 

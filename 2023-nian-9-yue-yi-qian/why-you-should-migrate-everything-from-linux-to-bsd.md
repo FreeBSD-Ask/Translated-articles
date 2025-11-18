@@ -135,7 +135,7 @@ BSD 不属于任何个人或公司。它由全球技术高超且投入的社区�
 
 企业也会使用和贡献 BSD。公司可以开发自己的 BSD 版本，例如索尼电脑娱乐公司为 PlayStation 3、PlayStation 4 和 PlayStation Vita 游戏主机所做的版本。但因为 BSD 是完整的操作系统，并且每个 BSD 项目都由开源爱好者和社区维护和开发，而非像 Red Hat 这样的公司，所以 BSD 项目是真正独立的。
 
-这种 BSD 组织方式的一个结果是，你不会在操作系统中看到疯狂的 opt-out “间谍软件”设置。
+这种 BSD 组织方式的一个结果是，你不会在操作系统中看到疯狂的 opt-out“间谍软件”设置。
 
 相反，由于 BSD 项目由关心操作系统设计、安全性和隐私的技术娴熟、充满热情的人开发和推动，你会发现即使是通过包管理器安装的第三方软件，也会被修补以移除这些问题，例如 [OpenBSD 在 Firefox 中禁用 DNS over HTTPS](https://undeadly.org/cgi?action=article;sid=20190911113856)。
 
@@ -171,31 +171,31 @@ GPL 许可听起来似乎更好，因为为什么我们要让公司简单地“�
 
 可以看看我其他一些关于 BSD 的文章和教程：
 
-* [FreeBSD 是一款了不起的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
-* [选择 FreeBSD 而非 GNU/Linux 的技术原因](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
-* [OpenBSD 很棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 1 部分 - 基础设置](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-1-basic-setup.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 2 部分 - Xfce](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-2-xfce.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 3 部分 - i3](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html)
-* [OpenBSD 路由器指南](https://openbsdrouterguide.net/)
+- [FreeBSD 是一款了不起的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
+- [选择 FreeBSD 而非 GNU/Linux 的技术原因](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
+- [OpenBSD 很棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 1 部分 - 基础设置](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-1-basic-setup.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 2 部分 - Xfce](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-2-xfce.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 3 部分 - i3](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html)
+- [OpenBSD 路由器指南](https://openbsdrouterguide.net/)
 
 ## 其他相关链接
 
-* [FreeBSD 提交者 Allan Jude 讨论 FreeBSD 的优势以及他在维护数百万服务器中所扮演的角色](https://www.hostingadvice.com/blog/freebsd-project-under-the-hood/)（自 2016 年与 Allan Jude 的访谈以来，FreeBSD 已经有了显著发展）
-* [为什么选择 FreeBSD？](https://www.freebsd.org/advocacy/whyusefreebsd.html)
-* [FreeBSD 不是 Linux 发行版](https://www.youtube.com/watch?v=ps67ECyh0sM)（YouTube）
-* [The FreeBSD Journal](https://www.freebsdfoundation.org/journal/browser-based-edition/)
-* [The OpenBSD Journal](https://undeadly.org/)
-* [BSD 家族树](https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co)
-* [EuroBSDcon YouTube 播放列表](https://www.youtube.com/user/EuroBSDcon/playlists)
+- [FreeBSD 提交者 Allan Jude 讨论 FreeBSD 的优势以及他在维护数百万服务器中所扮演的角色](https://www.hostingadvice.com/blog/freebsd-project-under-the-hood/)（自 2016 年与 Allan Jude 的访谈以来，FreeBSD 已经有了显著发展）
+- [为什么选择 FreeBSD？](https://www.freebsd.org/advocacy/whyusefreebsd.html)
+- [FreeBSD 不是 Linux 发行版](https://www.youtube.com/watch?v=ps67ECyh0sM)（YouTube）
+- [The FreeBSD Journal](https://www.freebsdfoundation.org/journal/browser-based-edition/)
+- [The OpenBSD Journal](https://undeadly.org/)
+- [BSD 家族树](https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co)
+- [EuroBSDcon YouTube 播放列表](https://www.youtube.com/user/EuroBSDcon/playlists)
 
->在我发布了这篇文章的[第一部分](https://unixdigest.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html)后，它被发布到了 Hacker News、Reddit 和 Lobsters 上，有一位叫 “harryruhr” 的人在他的博客上发表了回应，标题为 [“是否应该从 Linux 迁移到 BSD？这取决于情况。”](https://fediverse.blog/~/AllGoodThings/should-you-migrate-from-linux-to-bsd-it-depends)。在这篇回应中，harryruhr 提出了几个我认为需要澄清的错误论点。
+>在我发布了这篇文章的[第一部分](https://unixdigest.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html)后，它被发布到了 Hacker News、Reddit 和 Lobsters 上，有一位叫“harryruhr”的人在他的博客上发表了回应，标题为 [“是否应该从 Linux 迁移到 BSD？这取决于情况。”](https://fediverse.blog/~/AllGoodThings/should-you-migrate-from-linux-to-bsd-it-depends)。在这篇回应中，harryruhr 提出了几个我认为需要澄清的错误论点。
 
 ## 分裂问题
 
 针对我提出的“Linux 是分裂的”观点，harryruhr 写道：
 
-> 是的，它确实是。但如今 BSD 也同样存在分裂问题。三个“传统”BSD——FreeBSD、NetBSD 和 OpenBSD——在技术和目标上差异很大。还有一些“新”的 BSD 分支，如 Dragonfly、MidnightBSD、HardenedBSD 等。Distrowatch.com 列出了 18 款不同的 BSD “发行版”。作者高度赞扬的 ZFS 文件系统仅在 FreeBSD 及其近亲上可用，并且基于“ZFS on Linux”。它在 NetBSD 或 OpenBSD 上不可用。
+> 是的，它确实是。但如今 BSD 也同样存在分裂问题。三个“传统”BSD——FreeBSD、NetBSD 和 OpenBSD——在技术和目标上差异很大。还有一些“新”的 BSD 分支，如 Dragonfly、MidnightBSD、HardenedBSD 等。Distrowatch.com 列出了 18 款不同的 BSD“发行版”。作者高度赞扬的 ZFS 文件系统仅在 FreeBSD 及其近亲上可用，并且基于“ZFS on Linux”。它在 NetBSD 或 OpenBSD 上不可用。
 
 这完全不正确。FreeBSD 是最早将 ZFS 从 Sun Microsystems 移植过来的独立操作系统之一。ZFS on Linux 出现得更晚，然后演变为 OpenZFS，如今已经成为所有 [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) ZFS 开发者的重要协作项目。来自 Linux、FreeBSD、NetBSD、Illumos 等平台的开发者现在都在为该项目贡献代码。
 
@@ -225,7 +225,7 @@ Dragonfly BSD 也是如此。Matthew Dillon 曾是 1994 到 2003 年间的 FreeB
 
 确实，Netflix 是 FreeBSD 最大的商业贡献者之一，但这与 Linux 世界中的“劫持”没有任何关系。Netflix 所做的所有 FreeBSD 改进都会回馈给项目。他们做的所有性能增强都已贡献回 FreeBSD，这对 FreeBSD 极有益。
 
-但 Netflix 并没有试图影响 FreeBSD 项目，也没有试图“劫持” FreeBSD。他们也没有开始开发一个新的 init 系统，然后再后来声称[它实际上并不是 init 系统](https://unixdigest.com/includes/files/gnomeasia2014.pdf)，而是一个“**永远未完成、永远不完整、但用于跟踪技术进展**”的东西，不断地膨胀和扩展。
+但 Netflix 并没有试图影响 FreeBSD 项目，也没有试图“劫持”FreeBSD。他们也没有开始开发一个新的 init 系统，然后再后来声称[它实际上并不是 init 系统](https://unixdigest.com/includes/files/gnomeasia2014.pdf)，而是一个“**永远未完成、永远不完整、但用于跟踪技术进展**”的东西，不断地膨胀和扩展。
 
 Netflix 的一名员工 drewg123 在 Hacker News 上提供了如下[相关信息](https://news.ycombinator.com/item?id=22106424)：
 
@@ -255,7 +255,7 @@ harryruhr 接着写道：
 
 OpenBSD 中的 X、OpenSMTPd、httpd 以及其他应用程序，与操作系统本身没有关系。是否将这些集成到基本系统中，并不影响 OpenBSD 即使没有这些部分仍然是一个完整操作系统的事实。
 
-这些应用程序并不会使 OpenBSD 比 FreeBSD “更完整”。它们只是让 OpenBSD 的基础安装中自带更多应用程序而已。
+这些应用程序并不会使 OpenBSD 比 FreeBSD“更完整”。它们只是让 OpenBSD 的基础安装中自带更多应用程序而已。
 
 OpenBSD 项目之所以将更多应用程序集成到基础安装中，是因为 OpenBSD 非常重视安全。开发者希望将这些应用程序与基础安装集成，以控制它们的开发方式和运行方式。因此这些应用程序成为 OpenBSD 的集成部分。
 

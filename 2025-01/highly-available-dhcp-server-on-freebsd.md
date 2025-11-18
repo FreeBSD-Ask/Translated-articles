@@ -11,7 +11,7 @@
 
 因为一些时间的推进，ISC 正在开发一款新的 DHCP 服务器——Kea——他们打算最终在大多数服务器实现中用它替代 ISC DHCP。他们也建议新的实现者考虑使用 Kea 而不是 ISC DHCP，仅在 Kea 无法满足需求时才实现 ISC DHCP。例如，Kea 当前不包含客户端和中继。也许我以后会对这篇文章进行更新或者单独再写一篇文章。
 
-同时 Kea 在一个月前刚拥有了高可用模式，因此如果我更早写这篇文章，那么这样的设置在 Kea 上将不可行。这也显示了 Kea 实现是多么年轻，所以目前我会坚持使用 ISC DHCP server，并在后续“观察” Kea 的发展。
+同时 Kea 在一个月前刚拥有了高可用模式，因此如果我更早写这篇文章，那么这样的设置在 Kea 上将不可行。这也显示了 Kea 实现是多么年轻，所以目前我会坚持使用 ISC DHCP server，并在后续“观察”Kea 的发展。
 
 ## 架构
 
@@ -109,6 +109,7 @@ sendmail_enable=NONE
 clear_tmp_enable=YES
 syslogd_flags="-ss"
 dumpdev=NO
+
 ```
 
 `/etc/sysctl.conf` 和 `/boot/loader.conf` 文件不需要修改。
@@ -452,16 +453,16 @@ status: active
 
 你现在可以在 `/etc/rc.conf` 文件中尝试修改以下值：
 
-* `dhcpd_flags`
-* `dhcpd_ifaces`
-* `dhcpd_withumask`
-* `dhcpd_chuser_enable`
-* `dhcpd_withuser`
-* `dhcpd_withgroup`
-* `dhcpd_chroot_enable`
-* `dhcpd_devfs_enable`
-* `dhcpd_rootdir`
-* `dhcpd_includedirnclude`
+- `dhcpd_flags`
+- `dhcpd_ifaces`
+- `dhcpd_withumask`
+- `dhcpd_chuser_enable`
+- `dhcpd_withuser`
+- `dhcpd_withgroup`
+- `dhcpd_chroot_enable`
+- `dhcpd_devfs_enable`
+- `dhcpd_rootdir`
+- `dhcpd_includedirnclude`
 
 ……以及 `man dhcpd.conf` 页面上所有其他可能的选项 🙂
 

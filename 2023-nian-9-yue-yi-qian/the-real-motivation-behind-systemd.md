@@ -5,7 +5,7 @@
 
 >在这篇文章中，我们将深入探讨 systemd 开发背后的真实动机，并展望 GNU/Linux 作为操作系统的一些未来前景。
 
-**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管” Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
+**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
 
 ## 引言
 
@@ -17,7 +17,7 @@
 
 微软开展“we love Linux（我们爱 Linux）”运动后，其一名董事会成员进入 Linux 基金会董事会。随后变为两名，现在是三名。基金会似乎在慢慢被暗中接管，真正的社区成员几乎不复存在，主要由公司员工组成。此外，微软在“Linux 基金会技术顾问委员会”也有重大影响，其现任董事试图将 Linux 外包到微软的 GitHub。
 
-最初作为替代 init 系统，红帽发布了 systemd 。随后它突然变成“**提供 Linux 操作系统基础构建模块的软件套件**”。红帽开始推动一场运动，影响其他主要 Linux 发行版，并施压它们让其采用 systemd。
+最初作为替代 init 系统，红帽发布了 systemd。随后它突然变成“**提供 Linux 操作系统基础构建模块的软件套件**”。红帽开始推动一场运动，影响其他主要 Linux 发行版，并施压它们让其采用 systemd。
 
 采取的方法是，systemd 开发者针对多个第三方项目尝试说服其依赖 systemd，例如 Lennart Poettering 在[GNOME 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)的尝试，以及红帽开发者 "keszybz" 在[tmux 项目](https://github.com/tmux/tmux/issues/428)的尝试。大部分尝试表面上看是技术问题，但 GNOME 邮件列表及其他地方的长篇邮件往来表明，事实并非如此。
 
@@ -77,20 +77,20 @@ systemd-resolved 对 Cloudflare、Quad9 和谷歌配置了硬编码的备用 DNS
 
 这是红帽的另一个主要动机，从 Lennart Poettering 在 [FUDCON + GNOME Asia Beijing 2014](https://unixdigest.com/includes/files/gnomeasia2014.pdf) 的演示文稿中可以看出。查看第 15 页，慢慢翻到第 19 页，你会看到项目目标：
 
-* 将 Linux 从一个“碎片化系统”变为具有竞争力的通用操作系统。
-* 构建互联网的下一代操作系统。
-* 统一不同发行版之间无意义的差异。
-* 将创新带回核心操作系统。
+- 将 Linux 从一个“碎片化系统”变为具有竞争力的通用操作系统。
+- 构建互联网的下一代操作系统。
+- 统一不同发行版之间无意义的差异。
+- 将创新带回核心操作系统。
 
 结合后续幻灯片显示的红帽目标市场：
 
-* 桌面
-* 服务器
-* 容器
-* 嵌入式
-* 移动
-* 云
-* 集群
+- 桌面
+- 服务器
+- 容器
+- 嵌入式
+- 移动
+- 云
+- 集群
 
 大多数 systemd 模块所增加的功能，仅仅是为了让桌面系统（如 GNOME）像 Microsoft Windows 一样运作。
 
@@ -128,9 +128,9 @@ Casper Ti. Vectors 在 Gentoo 论坛上的帖子，[s6/s6-rc vs systemd, or why 
 
 感谢真正独立的社区驱动项目，否则我们就只能面对像 Microsoft Windows 这样的垃圾系统。在这一点上，可以看看以下内容：
 
-* [致 Linux 世界的公开信](https://lkml.org/lkml/2014/8/12/459)（Christopher Barry）。也可见 [这里](https://unixdigest.com/includes/files/open-letter-to-the-linux-world-christopher-barry.txt)（TXT）。
-* [OpenBSD 非常棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
-* [FreeBSD 是一个出色的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
-* [选择 FreeBSD 而非 GNU/Linux 的技术理由](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
-* [一些优秀的 GNU/Linux 发行版](https://unixdigest.com/articles/some-of-the-great-gnu-linux-distributions.html)
-* [Lennart Poettering：BSD 已不再重要](https://linuxfr.org/nodes/86687/comments/1249943)。也可见 [这里](https://unixdigest.com/includes/files/bsd-is-not-relevant-any-more.pdf)（PDF）。
+- [致 Linux 世界的公开信](https://lkml.org/lkml/2014/8/12/459)（Christopher Barry）。也可见 [这里](https://unixdigest.com/includes/files/open-letter-to-the-linux-world-christopher-barry.txt)（TXT）。
+- [OpenBSD 非常棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
+- [FreeBSD 是一个出色的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
+- [选择 FreeBSD 而非 GNU/Linux 的技术理由](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
+- [一些优秀的 GNU/Linux 发行版](https://unixdigest.com/articles/some-of-the-great-gnu-linux-distributions.html)
+- [Lennart Poettering：BSD 已不再重要](https://linuxfr.org/nodes/86687/comments/1249943)。也可见 [这里](https://unixdigest.com/includes/files/bsd-is-not-relevant-any-more.pdf)（PDF）。
