@@ -7,6 +7,10 @@
 
 ## 2025 年
 
+* [在 FreeBSD 上以 lsblk(8) 风格列出块设备](2025-01/list-block-devices-on-freebsd-lsblk8-style.md)
+* [新型 ZFS 启动环境工具](2025-01/new-zfs-boot-environments-tool.md)
+* [FreeBSD 企业级 1 PB 存储](2025-01/freebsd-enterprise-1-pb-storage.md)
+* [在 FreeBSD 容器上运行 RabbitMQ 集群](2025-01/rabbitmq-cluster-on-freebsd-containers.md)
 * [修复 FreeBSD 上的依赖](2025-01/fix-broken-dependency-on-freebsd.md)
 * [不为人知的 pkg(8) 功能](2025-01/less-known-pkg8-features.md)
 * [服务之力：FreeBSD 电源管理](2025-01/the-power-to-serve-freebsd-power-management.md)
