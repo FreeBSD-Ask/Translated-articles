@@ -530,6 +530,6 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
 * 为 **-d** 选项添加 **TOTAL SYSTEM STORAGE**。
 * 移除主设备检查循环中的子 shell。
 
-已提交 PR [283268](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=283268) ，因此在 Ports 树中更新前请稍作等待。
+已提交 PR [283268](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=283268) ，因此在 Ports 中更新前请稍作等待。
 
 
