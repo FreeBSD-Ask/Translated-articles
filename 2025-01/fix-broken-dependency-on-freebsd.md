@@ -376,9 +376,9 @@ cid         name        type        notnull     dflt_value  pk
 sqlite> .quit
 ```
 
-所以现在我们知道，“**deps**” 表可能就是我们要找的 ;)。
+所以现在我们知道，“**deps**”表可能就是我们要找的 ;)。
 
-由于 **pkg shell** 在 SQLite “浏览”方面相当有限，我将直接使用 **sqlite3** 命令。所谓有限，是指你不能直接输入 **pkg shell "select * from deps;"** 查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
+由于 **pkg shell** 在 SQLite“浏览”方面相当有限，我将直接使用 **sqlite3** 命令。所谓有限，是指你不能直接输入 **pkg shell "select * from deps;"** 查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
 
 ```sh
 # sqlite3 -column /var/db/pkg/local.sqlite "select * from deps;" | grep libxul

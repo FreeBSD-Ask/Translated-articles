@@ -5,7 +5,7 @@
 
 >在这篇文章中，我们将深入探讨 systemd 开发背后的真实动机，并展望 GNU/Linux 作为操作系统的一些未来前景。
 
-**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管” Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
+**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
 
 ## 引言
 
@@ -17,7 +17,7 @@
 
 微软开展“we love Linux（我们爱 Linux）”运动后，其一名董事会成员进入 Linux 基金会董事会。随后变为两名，现在是三名。基金会似乎在慢慢被暗中接管，真正的社区成员几乎不复存在，主要由公司员工组成。此外，微软在“Linux 基金会技术顾问委员会”也有重大影响，其现任董事试图将 Linux 外包到微软的 GitHub。
 
-最初作为替代 init 系统，红帽发布了 systemd 。随后它突然变成“**提供 Linux 操作系统基础构建模块的软件套件**”。红帽开始推动一场运动，影响其他主要 Linux 发行版，并施压它们让其采用 systemd。
+最初作为替代 init 系统，红帽发布了 systemd。随后它突然变成“**提供 Linux 操作系统基础构建模块的软件套件**”。红帽开始推动一场运动，影响其他主要 Linux 发行版，并施压它们让其采用 systemd。
 
 采取的方法是，systemd 开发者针对多个第三方项目尝试说服其依赖 systemd，例如 Lennart Poettering 在[GNOME 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)的尝试，以及红帽开发者 "keszybz" 在[tmux 项目](https://github.com/tmux/tmux/issues/428)的尝试。大部分尝试表面上看是技术问题，但 GNOME 邮件列表及其他地方的长篇邮件往来表明，事实并非如此。
 
