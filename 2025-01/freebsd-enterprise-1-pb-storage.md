@@ -4,9 +4,9 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2019/06
 
-今天 FreeBSD 操作系统迎来了 26 周岁生日。6 月 19 日是 *国际 FreeBSD 日*。所以今天我准备了一些特别的内容 🙂。如何在真实硬件上使用 FreeBSD 构建企业级存储解决方案？这正是 FreeBSD 发挥其所有存储特性（包括 ZFS）优势的地方。
+今天 FreeBSD 操作系统迎来了 26 周岁生日。6 月 19 日是 **国际 FreeBSD 日**。所以今天我准备了一些特别的内容 🙂。如何在真实硬件上使用 FreeBSD 构建企业级存储解决方案？这正是 FreeBSD 发挥其所有存储特性（包括 ZFS）优势的地方。
 
-今天我将展示我如何基于 FreeBSD 系统构建所谓的企业级存储，同时提供超过 1 PB（拍字节）的原始存储容量。
+今天我将展示我如何基于 FreeBSD 系统构建所谓的企业级存储，同时提供逾 1 PB（拍字节）的原始存储容量。
 
 我曾基于 FreeBSD 构建过各种存储相关系统：
 
@@ -14,20 +14,20 @@
 * [FreeBSD 上的 GlusterFS 集群，结合 Ansible 和 GNU Parallel](https://vermaden.wordpress.com/2019/01/07/glusterfs-cluster-on-freebsd-with-ansible-and-gnu-parallel/)
 * [静音无风扇 FreeBSD 服务器 —— 冗余备份](https://vermaden.wordpress.com/2019/04/03/silent-fanless-freebsd-server-redundant-backup/)
 
-这个项目有所不同。一台 4U 服务器最多能提供多少存储空间？事实证明，非常多！绝对超过 1 PB（1024 TB）的原始存储空间。
+这个项目有所不同。一台 4U 服务器最多能提供多少存储空间？事实证明，非常多！绝对大于 1 PB（1024 TB）的原始存储空间。
 
-# 硬件
+## 硬件
 
-这些是 4U 服务器，带有 90-100 个 3.5 英寸驱动槽，可以安装 1260-1400 TB 数据（使用 14 TB 硬盘）。此类系统示例包括：
+这些是 4U 服务器，带有 90-100 个 3.5 寸硬盘位，可以安装 1260-1400 TB 数据（使用 14 TB 硬盘）。此类系统示例有：
 
-* [TYAN Thunder SX FA100](https://www.tyan.com/Barebones_FA100B7118_B7118F100V100HR)（100 个槽位）
-* [Supermicro SuperStorage 6048R-E1CR90L](https://www.supermicro.com/products/system/4U/6048/SSG-6048R-E1CR90L.cfm)（90 个槽位）
+* [TYAN Thunder SX FA100](https://www.tyan.com/Barebones_FA100B7118_B7118F100V100HR)（100 个硬盘位）
+* [Supermicro SuperStorage 6048R-E1CR90L](https://www.supermicro.com/products/system/4U/6048/SSG-6048R-E1CR90L.cfm)（90 个硬盘位）
 
 我会选择第一款 —— 简称 TYAN FA100。
 
 ![logo-tyan.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/logo-tyan.png?w=960)
 
-虽然之前的 *GlusterFS* 和 *Minio* 集群是在虚拟硬件（甚至 FreeBSD Jails 容器）上搭建的，但这个项目使用了真实物理硬件。
+虽然之前的 *GlusterFS* 和 *Minio* 集群是在虚拟硬件（甚至 FreeBSD Jail 容器）上搭建的，但这个项目使用了真实物理硬件。
 
 该系统的规格如下：
 
@@ -45,19 +45,19 @@
 
 ![tyan-fa100-small.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-fa100-small.jpg?w=960)
 
-你需要一个长度为 1200 mm 的机架机柜来放置这台巨兽 :🙂:
+你需要长达 1200 mm 的机架机柜来放置这台巨兽 :🙂:
 
-# 管理界面
+## 管理界面
 
 所谓的 *Lights Out* 管理界面非常优秀。界面简洁、组织良好、响应迅速。可以创建多个独立用户账户，也可以连接外部用户服务，如 LDAP/AD/RADIUS。
 
 ![n01.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/n01.png?w=960)
 
-登录后，一个简洁的 *Dashboard* 欢迎我们。
+登录后，简洁的 *Dashboard* 在欢迎我们。
 
 ![n02.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/n02.png?w=960)
 
-可以访问各种 *传感器* 信息，包括系统组件温度。
+可以获取各种 *传感器* 信息，包括系统组件温度。
 
 ![n03](https://vermaden.wordpress.com/wp-content/uploads/2019/06/n03.png?w=960)
 
@@ -83,9 +83,9 @@
 
 ![n09.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/n09.png?w=960)
 
-# BIOS/UEFI
+## BIOS/UEFI
 
-进入 BIOS/UEFI 后，可以选择从哪些驱动器启动。截图中显示为两块 SSD 系统盘。
+进入 BIOS/UEFI 后，可以选择从哪些硬盘启动。截图中显示为两块固态系统盘。
 
 ![nas01.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/nas01.png?w=960)
 
@@ -93,9 +93,9 @@ BIOS/UEFI 界面显示两个 *Enclosures*，实际上是两块 Broadcom SAS3008 
 
 ![nas05.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/nas05.png?w=960)
 
-# FreeBSD 系统
+## FreeBSD 系统
 
-我选择了最新的 FreeBSD 12.0-RELEASE 来进行安装。安装过程非常“默认”，系统盘使用两块 SSD 做 ZFS 镜像，没有特别配置。
+我选择了最新的 FreeBSD 12.0-RELEASE 来进行安装。安装过程多“默认”，系统盘使用两块 SSD 做 ZFS 镜像，没有特别配置。
 
 ![logo-freebsd.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/logo-freebsd.jpg?w=960)
 
@@ -156,7 +156,7 @@ DISKS  CONTENT
    90  TOTAL
 ```
 
-下面是 FreeBSD 系统通过 **camcontrol(8)** 命令看到的这些硬盘情况。按连接的 SAS 控制器 —— **scbus(4)** —— 进行排序。
+下面是 FreeBSD 系统通过命令 **camcontrol(8)** 看到的这些硬盘情况。按连接的 SAS 控制器 —— **scbus(4)** 排序。
 
 
 ```sh
@@ -266,9 +266,9 @@ DISKS  CONTENT
 # sesutil locate da64 on
 ```
 
-第一个 **sesutil(8)** 命令关闭机箱中所有硬盘的位置指示灯。第二个命令则点亮 **da64** 硬盘的识别灯。
+第一条 **sesutil(8)** 命令关闭机箱中所有硬盘的位置指示灯。第二条命令则点亮了 **da64** 硬盘的识别灯。
 
-我还会确保不会使用每块硬盘的全部容量。这个想法看似无意义，但设想以下情况：五块 12 TB 硬盘在三年后同时损坏，你无法获取相同型号的硬盘，只能用其他 12 TB 硬盘替代，甚至可能来自不同厂商。
+我还会确保不会使用每块硬盘的全部容量。这个想法看似无意义，但设想以下情况：五块 12 TB 硬盘在三年后同时损坏，你无法获得相同型号的硬盘，只能用其他 12 TB 硬盘替代，甚至可能来自不同厂商。
 
 ```sh
 # grep da64 /var/run/dmesg.boot
@@ -312,11 +312,11 @@ da64: 11444224MB (23437770752 512 byte sectors)
   23435673640      2097072        - free -  (1.0G)
 ```
 
-## ZFS 池配置
+## 配置 ZFS 池
 
-接下来，我们需要创建 ZFS 池，这可能是我执行过的最长的 **<zpool>** 命令了 :🙂:
+接下来，我们需要创建 ZFS 池，这可能是我执行过的最长的 **zpool** 命令了 :🙂:
 
-由于 Toshiba 12 TB 硬盘使用 4k 扇区，我们需要将 **<vfs.zfs.min_auto_ashift>** 设置为 12 来强制使用该扇区大小。
+由于东芝 12 TB 硬盘使用 4k 扇区，我们需要将 **vfs.zfs.min_auto_ashift** 设置为 12 来强制使用该扇区大小。
 
 ```sh
 # sysctl vfs.zfs.min_auto_ashift=12
@@ -515,8 +515,9 @@ ZFS 会存储额外的元数据副本，以便当单个块损坏时，用户数�
 (...)
 ```
 
-从上面的描述可以看出，它主要在单设备池中有用，因为当我们基于 RAIDZ2（RAID6 等价）提供冗余时，就不需要保留额外的元数据副本。
-这样可以提升写入性能。
+从上面的文字可以看出，它主要在单设备池中有用，因为当我们基于 RAIDZ2（RAID6 等价）提供冗余时，就不需要保留额外的元数据副本。
+
+这样做能提升写入性能。
 
 为了记录——iSCSI 的 ZFS zvol 是通过如下命令创建的——作为稀疏文件，也称为 *薄配置（Thin Provisioning）* 模式。
 
@@ -552,9 +553,9 @@ nas02  autoreplace  on       local
   vfs.zfs.deadman_enabled=0
 ```
 
-## 网络配置
+## 配置网络
 
-这正是我非常喜欢 FreeBSD 的地方。要设置 LACP 链路聚合，你只需在 **/etc/rc.conf** 文件中写 5 行。在 Red Hat Enterprise Linux 上，你可能需要多个文件，每个文件还要写很多行。
+这正是我非常喜欢 FreeBSD 的地方。要设置 LACP 链路聚合，你只需在 **/etc/rc.conf** 文件中写 5 行。在 RHEL 上，你可能需要多个文件，每个文件还要写很多行。
 
 ```sh
 # head -5 /etc/rc.conf
@@ -578,11 +579,11 @@ lagg0: flags=8843 metric 0 mtu 1500
         nd6 options=29
 ```
 
-**Intel X710 DA-2** 10GE 网卡在 FreeBSD 下由 **ixl(4)** 驱动完全支持。
+**Intel X710 DA-2** 10GE 网卡在 FreeBSD 下由 **ixl(4)** 驱动完美支持。
 
 ![intel-x710-da-2.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/intel-x710-da-2.jpg?w=960)
 
-### Cisco Nexus 配置
+### 配置 Cisco Nexus 
 
 这是启用 LACP 聚合所需的 *Cisco Nexus* 配置。
 
@@ -616,7 +617,7 @@ interface port-channel128
 
 ## FreeBSD 配置
 
-这些是任何 FreeBSD 系统上最重要的三个配置文件。
+这些是在 FreeBSD 系统上最重要的三个配置文件。
 
 现在我将发布我在这台存储系统上使用的所有设置。
 
@@ -763,9 +764,9 @@ interface port-channel128
 ```
 
 
-# 目的
+## 目的
 
-为什么要构建这样的设备？因为它比购买“品牌”设备便宜得多。以 *Dell EMC Data Domain* 为例——而且不是“普通”的 *Data Domain*，而是几乎最高端的型号——至少是 *Data Domain DD9300*。它的价格至少要高十倍……容量更小，而且占用机架空间不是 4U，而是接近 14U，需要三个 *DS60* 扩展器。
+为什么要构建这种设备？因为它比购买“品牌”设备便宜得多。以 *Dell EMC Data Domain* 为例——而且不是“普通”的 *Data Domain*，而是几乎最高端的型号——至少是 *Data Domain DD9300*。它的价格至少要高十倍……容量更小，而且占用机架空间不是 4U，而是接近 14U，需要三个 *DS60* 扩展器。
 
 但你实际上可以让这个 *FreeBSD 企业存储* 的行为类似于 *Dell EMC Data Domain*……或者比如他们的 *Dell EMC Elastic Cloud Storage*。
 
@@ -775,7 +776,7 @@ interface port-channel128
 
 ![emc-cloudboost-swift-support.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/emc-cloudboost-swift-support.png?w=960)
 
-FreeBSD 上的 OpenStack Swift 包大约落后现实 4-5 年（版本 2.2.2），所以这里你需要使用 Bhyve。
+FreeBSD 上的 OpenStack Swift 包大约落后现实 4-5 年（版本 2.2.2）（**译注：目前版本已经更新了**），所以这里你需要使用 Bhyve。
 
 ```sh
 # pkg search swift
@@ -786,19 +787,19 @@ py27-swift-2.2.2_1             Highly available, distributed, eventually consist
 
 在这台 *FreeBSD 企业存储* 上可以创建 Bhyve 虚拟机，例如安装 CentOS 7.6 系统，然后在其中设置 *Swift*，这样完全可行。利用 20 个物理核心和 128 GB 内存，你几乎感觉不到虚拟机的存在。
 
-这样，你可以使用 *Dell EMC Networker*，而存储成本却降低了十倍以上。
+这样，你可以使用 *Dell EMC Networker*，而存储成本却降低到了原来的十分之一还多。
 
 以前我也写过关于 [IBM Spectrum Protect (TSM)](https://vermaden.wordpress.com/2018/08/23/ibm-tsm-spectrum-protect-on-veritas-cluster-server/) 的文章，这种 FreeBSD 企业存储对它也非常有利。我实际上也将这个基于 FreeBSD 的存储用作 *IBM Spectrum Protect (TSM)* 容器池目录的空间。通过 iSCSI 导出效果非常好。
 
 你还可以将这个 *FreeBSD 企业存储* 与其他存储设备进行比较，比如 *iXsystems TrueNAS* 或 *EXAGRID*。
 
-# 性能
+## 性能
 
-你肯定想知道这个 *FreeBSD 企业存储* 的性能有多高 :🙂:
+你肯定想知道这个 *FreeBSD 企业存储* 的性能水平 :🙂:
 
 我会分享我收集到的所有性能数据。
 
-## 网络性能
+### 网络性能
 
 首先是网络性能。
 
@@ -806,13 +807,13 @@ py27-swift-2.2.2_1             Highly available, distributed, eventually consist
 
 我在 FreeBSD 端启动服务器：
 
-```
+```sh
 # iperf3 -s
 ```
 
 然后在 *Windows Server 2016* 机器上启动客户端：
 
-```
+```sh
 C:\iperf-3.1.3-win64>iperf3.exe -c nas02 -P 8
 (...)
 [SUM]   0.00-10.00  sec  10.8 GBytes  9.26 Gbits/sec                  receiver
@@ -823,9 +824,9 @@ C:\iperf-3.1.3-win64>iperf3.exe -c nas02 -P 8
 
 不幸的是，这套系统只有一个物理 10GE 接口，但我也做了其他测试。使用两台单 10GE 接口的服务器，可以很好地饱和 FreeBSD 端的双 10GE LACP。
 
-我还将 NFS 和 iSCSI 导出到 *Red Hat Enterprise Linux* 系统。单个 10GE 接口下网络性能约为 500-600 MB/s。在 LACP 聚合下可以达到 1000-1200 MB/s。
+我还将 NFS 和 iSCSI 导出到 *RHEL* 系统。单个 10GE 接口下网络性能约为 500-600 MB/s。在 LACP 聚合下可以达到 1000-1200 MB/s。
 
-## 磁盘子系统性能
+### 磁盘子系统性能
 
 现在是磁盘子系统。
 
@@ -1140,7 +1141,7 @@ Run status group 0 (all jobs):
 
 不知道你怎么看，我对性能是非常满意的 :🙂:
 
-# FreeNAS
+## FreeNAS
 
 最初我确实想在这些服务器上使用 *FreeNAS*，甚至还安装了 *FreeNAS*。它运行得不错，但…… *FreeNAS* 的安全部分并不是最佳。
 
@@ -1455,7 +1456,7 @@ root     python3.6  236   22 tcp4   *:6000                *:*
 
 ![tyan-real-02.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-real-02.jpg?w=960)
 
-顶部视角带硬盘。
+带硬盘的顶部视角。
 
 ![tyan-real-03](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-real-03.jpg?w=960)
 
@@ -1463,10 +1464,10 @@ root     python3.6  236   22 tcp4   *:6000                *:*
 
 ![tyan-real-07.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-real-07.jpg?w=960)
 
-硬盘槽特写。
+硬盘位特写。
 
 ![tyan-real-08.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-real-08.jpg?w=960)
 
-SSD 与 HDD 硬盘。
+固态硬盘与机械硬盘。
 
 ![tyan-real-06.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/tyan-real-06.jpg?w=960)
