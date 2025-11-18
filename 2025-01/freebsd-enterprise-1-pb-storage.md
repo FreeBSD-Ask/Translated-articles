@@ -312,7 +312,7 @@ da64: 11444224MB (23437770752 512 byte sectors)
   23435673640      2097072        - free -  (1.0G)
 ```
 
-## 配置 ZFS 池
+### 配置 ZFS 池
 
 接下来，我们需要创建 ZFS 池，这可能是我执行过的最长的 **zpool** 命令了 :🙂:
 
@@ -450,7 +450,7 @@ NAME    USED  AVAIL  REFER  MOUNTPOINT
 nas02    88K   675T   201K  none
 ```
 
-## ZFS 设置
+### ZFS 设置
 
 由于该存储的主要用途是存放文件，我将使用 **recordsize** 的最大值之一 —— 1 MB —— 以获得更好的压缩比。
 
