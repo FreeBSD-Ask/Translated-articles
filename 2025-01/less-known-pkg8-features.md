@@ -183,7 +183,7 @@ PKG_PLUGINS_DIR = "/usr/local/lib/pkg/";
 PKG_ENABLE_PLUGINS = true;
 PLUGINS [ provides ];
 __EOF__
-``
+```
 
 现在你就有了新命令 **pkg provides**，如下所示。
 
