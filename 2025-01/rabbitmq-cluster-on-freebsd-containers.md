@@ -409,7 +409,7 @@ RABBITMQFREEBSDJAILS
 RABBITMQFREEBSDJAILS
 ```
 
-### RabbitMQ 管理用户
+## RabbitMQ 管理用户
 
 现在我们将在 RabbitMQ 实例中创建管理用户 **admin**。
 
@@ -435,7 +435,7 @@ Setting permissions for user "admin" in vhost "/" ...
 
 ![02-rabbitmq-dashboard.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/02-rabbitmq-dashboard.png?w=960)
 
-### RabbitMQ 集群设置
+## RabbitMQ 集群设置
 
 接下来我们将创建 RabbitMQ 集群。
 
@@ -510,7 +510,7 @@ Cluster status of node rabbit@rabbit1 ...
 
 ![08-rabbitmq-cluster.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/08-rabbitmq-cluster-1.png?w=960)
 
-### RabbitMQ 高可用策略
+## RabbitMQ 高可用策略
 
 要在 RabbitMQ 中实现 [高可用（镜像）队列](https://www.rabbitmq.com/ha.html)，需要创建 *Policy*（策略）。我们将声明 *Policy* **ha**，它匹配名称以 **ha-** 前缀开头的队列，从而将这些队列配置为在集群中的两个节点上镜像。
 
