@@ -9,29 +9,29 @@
 
 在本篇文章中，我将尝试介绍一些不太为人所知的 **pkg(8)** 功能。
 
-大约在 8 年前——当时 **pkg(8)** 尚未存在——我写过一篇帖子：[HOWTO: Keeping FreeBSD’s Base System and Packages Up-to-Date](https://forums.freebsd.org/threads/howto-keeping-freebsds-base-system-and-packages-up-to-date.26140/)。后来该文章甚至发表于 **BSD Magazine 2012/01** 期（*Issue 30*）。
+大约在 8 年前——当时 **pkg(8)** 还未问世——我写过一篇帖子：[HOWTO: Keeping FreeBSD’s Base System and Packages Up-to-Date](https://forums.freebsd.org/threads/howto-keeping-freebsds-base-system-and-packages-up-to-date.26140/)。后来该文章甚至刊载于 **BSD Magazine 2012/01** 期（*Issue 30*）。
 
 ![bsd-magazine-2012-01](https://vermaden.wordpress.com/wp-content/uploads/2019/01/bsd-magazine-2012-01.jpg?w=960)
 
-回到 2011 年，保持软件包更新比现在稍微复杂一些。那时，你被迫使用 FreeBSD 的 STABLE 分支，因为 RELEASE 分支的软件包几乎不更新——类似于当前 OpenBSD 的情况。FreeBSD STABLE 分支的软件包每两周构建一次，当时已经足够使用。
+回到 2011 年，软件包更新比现在稍微复杂一些。那时，你不得不使用 FreeBSD 的 STABLE 分支，因为 RELEASE 分支的软件包几乎不更新——类似于当前 OpenBSD 的情况。FreeBSD STABLE 分支上的软件包每两周构建一次，当时已经足够使用。
 
-当然，你也可以使用 **portmaster** 从 FreeBSD Ports 编译所有软件包，但这会耗费大量时间。当时 **pkg_add**/**pkg_delete**/**pkg_info** 是 FreeBSD 上的主要软件包工具，而 **bsdadminscripts** 包中的 **pkg_upgrade** 脚本在升级过程中非常有用。它会从 STABLE 分支的 FTP 服务器获取最新的软件包并更新已安装的软件包。要检查软件包的安全问题，则需要另一个外部工具 **portaudit**。
+当然，你也可以使用 **portmaster** 从 FreeBSD Ports 编译所有软件包，但这会浪费大量时间。当时 **pkg_add**/**pkg_delete**/**pkg_info** 是 FreeBSD 上的主要软件包工具，而 **bsdadminscripts** 包中的 **pkg_upgrade** 脚本在升级过程中非常有用。它会从 STABLE 分支的 FTP 服务器获取最新的软件包并更新已安装的软件包。要检查软件包的安全问题，则需要另一款第三方工具 **portaudit**。
 
-现在，我们有了功能完善的 **pkg(8)**，可以使用 **pkg upgrade** 来更新已安装的软件包。得益于 **pkg audit**，第三方工具 **portaudit** 已不再需要。我们甚至还有 **pkg autoremove** 来自动移除不再需要的依赖。
+现在，我们有了功能完善的 **pkg(8)**，能使用 **pkg upgrade** 来更新安装的软件包。得益于 **pkg audit**，已不再需要第三方工具 **portaudit** 了。我们甚至还有 **pkg autoremove** 来自动移除不再需要的依赖。
 
 我会尽量不重复已经非常优秀的 [FreeBSD Handbook](https://freebsd.org/handbook) 中 [4.4. 使用 pkg 管理二进制软件包](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/pkgng-intro.html) 章节中已有的信息。
 
 ## 较旧的 FreeBSD 版本
 
-在 FreeBSD 一零 之前，如果要使用新的 **pkg(8)** 工具，而不是旧的 **pkg_*** 工具，则需要在 **/etc/make.conf** 文件中加入 **WITH_PKGNG=yes**。
+在 FreeBSD 10 之前，如果要使用新的 **pkg(8)** 工具，非旧的 **pkg_*** 工具，则需要在 **/etc/make.conf** 文件中加入 **WITH_PKGNG=yes**。
 
-目前受支持的 FreeBSD 发布版本只有最近发布的一二零 以及更加稳定和完善的一一二，因此不再需要在 **/etc/make.conf** 文件中加入任何内容来使用 **pkg(8)** 框架。
+目前受支持的 FreeBSD RELEASE 版本只有最近发布的 12.0 以及更加稳定和完善的 11.2，因此无需在 **/etc/make.conf** 文件中加入某些内容来使用 **pkg(8)** 框架。
 
 ## 数据库
 
-**pkg(8)** 数据库（实际上是 SQLite 数据库）保存在 **/var/db/pkg** 目录中。
+**pkg(8)** 数据库（实际上是 SQLite 数据库）保存在目录 **/var/db/pkg**。
 
-下面是 **pkg(8)** 引导过程之后 **/var/db/pkg** 目录的内容。
+下面是 **pkg(8)** 引导过程之后目录 **/var/db/pkg**。
 
 ```sh
 # find /var/db/pkg
@@ -42,7 +42,7 @@
 /var/db/pkg/repo-FreeBSD.sqlite
 ```
 
-最重要的文件是 **/var/db/pkg/local.sqlite**，因为它是已安装包及其文件的数据库。输入 **pkg shell** 后，你实际上可以通过 SQLite 解释器连接到这个 SQLite 数据库。
+最重要的文件是 **/var/db/pkg/local.sqlite**，因为它是已安装包及其文件的数据库。在输入 **pkg shell** 后，你实际上可以通过 SQLite 解释器连接到这个 SQLite 数据库。
 
 ```sh
 # pkg shell
@@ -53,7 +53,7 @@ Enter ".help" for usage hints.
 #
 ```
 
-如果由于某种原因你发现 **pkg(8)** 工具无法工作或已经损坏，你可以使用 **sqlite3** 包中的 **sqlite3** 命令连接到它。不要使用 **sqlite** 包，因为它包含 SQLite 的 2.x 版本，而这与 **pkg(8)** 使用的 3.x 版本不向前兼容。
+若由于某种原因你发现 **pkg(8)** 工具无法工作或已经损坏，你可以使用 **sqlite3** 包中的 **sqlite3** 命令连接到它。不要使用软件包 **sqlite**，因为它是 SQLite 的 2.x 版本，而这与 **pkg(8)** 使用的 3.x 版本不向前兼容。
 
 ```sh
 # file /var/db/pkg/*
@@ -72,7 +72,7 @@ Enter ".help" for usage hints.
 
 ## 锁定/解锁
 
-使用 **pkg(8)**，现在可以用 **pkg lock** 命令锁定指定的包。这意味着 **pkg upgrade**、**pkg delete**（甚至 **pkg autoremove**）操作都不会影响它们。你可以使用 **-l** 选项列出已锁定的包，如下所示。
+使用 **pkg(8)**，现在可以用 **pkg lock** 命令锁定指定的包。这意味着 **pkg upgrade**、**pkg delete**（甚至 **pkg autoremove**）操作都不会影响它们。你可以使用选项 **-l** 列出已锁定的包，如下所示。
 
 ```sh
 # pkg lock -l
@@ -93,7 +93,7 @@ The following package(s) are locked and may not be removed:
 # 
 ```
 
-如你所见，无法 **pkg delete** 已锁定的 **exfat-utils** 包。你必须先用 **pkg unlock** 命令将其解锁。你可以交互式地进行，也可以使用 **-y** 选项非交互式完成，如下所示。
+如你所见，无法 **pkg delete** 已锁定的包 **exfat-utils**。你必须先用 **pkg unlock** 命令将其解锁。你可以交互式地进行，也可以使用选项 **-y** 非交互式完成，如下所示。
 
 ```sh
 # pkg unlock exfat-utils
@@ -115,11 +115,11 @@ Locking exfat-utils-1.2.8
 
 实际上，我使用 lock/unlock 机制，是因为上述所有情况对我都成立。
 
-我会同时使用 Ports 和软件包（在 FreeBSD 世界中这通常不被鼓励），因为我使用的一些软件由于授权问题无法提供为软件包。例如所有和 Microsoft exFAT 文件系统相关的东西（**exfat-utils**/**fusefs-exfat**）以及 MP3（**lame**）。更令我惊讶的是，OpenBSD 多年来一直提供 **lame** 软件包，而 FreeBSD 团队仍然害怕专利问题。
+我会同时使用 Ports 和软件包（在 FreeBSD 世界中这通常不被推荐），因为我使用的一些软件由于授权问题无法提供为软件包。例如所有和 Microsoft exFAT 文件系统相关的东西（**exfat-utils**/**fusefs-exfat**）以及 MP3（**lame**）。更令我惊讶的是，OpenBSD 多年来一直提供 **lame** 软件包，而 FreeBSD 团队仍然害怕专利问题。
 
 我还需要构建自定义版本的 **ffmpeg** 软件包——只是为了加入 **lame** 支持，但仍然是自定义的。最后一个我保持锁定的是 Conky。它在 1.9 版本时很好用，但开发者在 1.10 版本（现在甚至已有 1.11）把它彻底搞坏了。比如，你无法在桌面上右键点击得到 Openbox 菜单——换句话说，Conky 不再把鼠标事件传递给负责桌面的 Window Manager。
 
-于是我使用了 Ports 的另一个工具 **portdowngrade**，把 1.9 版本的文件取回 Ports 树，然后编译出 1.9 的 **conky** 软件包并永久锁定。
+于是我使用了 Ports 的另一个工具 **portdowngrade**，把 1.9 版本的文件提取到 Ports，然后编译出 1.9 的 **conky** 软件包并永久锁定。
 
 你可能已经知道，我更喜欢使用 **dzen2** 来显示界面信息，但我仍然会在需要时用 **conky** 做“FreeBSD Dashboard”，然后按下 [Scroll Lock] 键临时启用它。
 
@@ -129,9 +129,9 @@ Locking exfat-utils-1.2.8
 
 如果我告诉你使用 **pkg(8)** 也能实现类似的功能呢？
 
-[pkg-provides](https://github.com/rosorio/pkg-provides) 插件允许你直接使用 **pkg(8)** 查询哪个软件包提供了某个特定的文件。
+[pkg-provides](https://github.com/rosorio/pkg-provides) 插件能让你直接使用 **pkg(8)** 查询哪个软件包提供了某个特定的文件。
 
-它甚至已经作为 **pkg-provides** 软件包提供。下面我将展示如何安装并配置它。首先安装 **pkg-provides** 软件包。
+它甚至已经作为软件包 **pkg-provides** 提供。下面我将展示如何安装配置。首先安装软件包 **pkg-provides**。
 
 
 ```sh
@@ -175,7 +175,7 @@ Message from pkg-provides-0.5.0:
 ```
 
 
-然后配置 **/usr/local/etc/pkg.conf** 文件。
+然后配置文件 **/usr/local/etc/pkg.conf**。
 
 ```sh
 # cat << __EOF__ >> /usr/local/etc/pkg.conf
@@ -205,7 +205,7 @@ Fetching provides database: 100%   29 MiB 700.9kB/s    00:43
 Extracting database....success
 ```
 
-**pkg provides** 插件的示例用法
+**pkg provides** 插件示例用法
 
 ```sh
 # pkg provides bin/pldd
@@ -226,9 +226,9 @@ All repositories are up to date.
 pkg: No packages available to install matching '/compat/linux/usr/bin/pldd' have been found in the repositories
 ```
 
-虽然例如不能通过输入 **pkg install /compat/linux/usr/bin/pldd** 命令来安装 **linux_base-c7** 包，但可以检查哪个包包含该文件。
+虽然例如无法通过输入 **pkg install /compat/linux/usr/bin/pldd** 命令来安装包 **linux_base-c7**，但可以检查哪个包包含该文件。
 
-下次你执行 **pkg upgrade** 命令时，也会看到 provides 数据库的更新。
+下次你执行命令 **pkg upgrade** 时，也会看到 provides 数据库的刷新。
 
 ```sh
 # pkg upgrade
@@ -244,7 +244,7 @@ Checking integrity... done (0 conflicting)
 (...)
 ```
 
-**pkg provides** 数据库在 **/var/db/pkg** 目录中会占用相当量的空间。
+**pkg provides** 数据库在目录 **/var/db/pkg** 中会占用相当量的空间。
 
 ```sh
 # file /var/db/pkg/* /var/db/pkg/*/* | sort -n
@@ -269,7 +269,7 @@ Checking integrity... done (0 conflicting)
 ```
 
 
-…但是如果你使用 UFS，那么这个将近 600 MB 的数据库可能会让你有点吃惊 :🙂:
+……但是如果你使用 UFS，那么这个将近 600 MB 的数据库可能会让你有点吃惊 :🙂:
 
 ```sh
 # du -csmA /var/db/pkg/*
@@ -283,7 +283,7 @@ Checking integrity... done (0 conflicting)
 
 ## Which
 
-虽然 **pkg provides** 可以提供尚未安装的软件包中文件的相关信息，**pkg which** 命令则是经典 UNIX **which** 命令在 **pkg(8)** 中的对应工具。它显示某个文件属于哪个软件包（或者根本不属于任何软件包）。
+虽然 **pkg provides** 可以提供尚未安装的软件包中文件的相关信息，**pkg which** 命令则是经典 UNIX **which** 命令在 **pkg(8)** 中的对应。它显示某个文件属于哪个软件包（或者根本不属于任何软件包）。
 
 ```sh
 # pkg which /boot/modules/drm.ko
@@ -339,7 +339,7 @@ FreeBSD 的 **periodic** 脚本正在执行它们的工作。
 /usr/local/etc/periodic/weekly/400.status-pkg
 ```
 
-如果你认为这些活动中有不必要的，可以在 **/etc/periodic.conf** 文件中使用这些值将它们禁用。
+如果你认为这些活动中某些是不必要的，可以在 **/etc/periodic.conf** 文件中使用这些值将它们禁用。
 
 ```sh
 # find /etc/periodic /usr/local/etc/periodic -name \*pkg\* | xargs grep -m 1 -E -o "[a-z_]+_enable" 
@@ -398,7 +398,7 @@ Remote package database(s):
         Total size of packages: 78 GiB
 ```
 
-还有 **pkg size** 命令，它只会显示包占用的空间，但不会显示包名……并不是很实用。
+还有 **pkg size** 命令，它只会显示包占用的空间，但不会显示包名……没多大用处。
 
 ```sh
 # pkg size | head
@@ -421,9 +421,9 @@ Remote package database(s):
 No manual entry for pkg-size
 ```
 
-你可以使用 **pkg info -as** 命令，但它不仅不会对输出进行任何排序，还会以 KiB/MiB/GiB 等不同单位显示空间使用情况，这并不方便……幸运的是，**sort** 命令的 **-h** 选项可以帮上忙。
+你可以使用 **pkg info -as** 命令，但它不仅不会对输出进行任何排序，还会以 KiB/MiB/GiB 等不同单位显示空间使用情况，这并不方便……幸运的是，**sort** 命令的选项 **-h** 能帮上忙。
 
-使用以下别名可以按空间使用量对包进行排序。我将输出限制为 20 个最大包，但你可以根据需要修改。
+使用以下别名可以按空间使用量对包进行排序。我将输出限制为最大 20 个包，但你可以根据需要修改。
 
 ```sh
 # alias pkg-size='pkg info -as | sort -k 2 -h | tail -20 | column -t'
@@ -452,9 +452,9 @@ virtualbox-ose-5.2.22_2  375MiB
 llvm60-6.0.1_5           818MiB
 ```
 
-## 简短名称
+## 缩写
 
-**pkg(8)** 工具同样支持参数的简短名称。例如，你不必输入完整的 **pkg autoremove**，只需输入 **pkg autor** 即可执行该命令。
+**pkg(8)** 工具同样支持缩写参数。例如，你不必输入完整的 **pkg autoremove**，只需输入 **pkg autor** 即可执行该命令。
 
 下面是简短名称示例。
 
@@ -468,7 +468,7 @@ llvm60-6.0.1_5           818MiB
 
 ![vermaden\_2019-01-16\_21-32-07.png](https://vermaden.wordpress.com/wp-content/uploads/2019/01/vermaden_2019-01-16_21-32-07.png?w=960)
 
-许多 **pkg(8)** 的问题都是由旧的元数据数据库引起的。如果你遇到任何 **pkg(8)** 问题，首先应如下面所示强制更新其数据库。
+许多 **pkg(8)** 的问题都是由旧的元数据数据库引起的。如果你遇到任何 **pkg(8)** 问题，首先应如下面所示强制刷新其数据库。
 
 ```sh
 # pkg update -f
@@ -482,15 +482,15 @@ FreeBSD repository update completed. 31778 packages processed.
 All repositories are up to date.
 ```
 
-为了记录——在这个过程中，“provides” 数据库也会被更新。
+为了记录——在这个过程中，“provides” 数据库也会被刷新。
 
 ## 修复损坏的依赖
 
-曾经有段时间，缺失的 **www/libxul19** 软件包依赖问题折磨了我一阵子。
+曾经有段时间，缺失的软件包 **www/libxul19** 依赖问题折磨了我一阵子。
 
 我甚至绝望地准备用 **portmaster** 重新编译所有东西。
 
-我从 **portmaster --check-depends** 命令开始，但在系统询问是否修复时选择了“**n**”，因为这会不必要地降级大量软件包。
+我从命令 **portmaster --check-depends** 开始，但在系统询问是否修复时选择了“**n**”，因为这会不必要地降级大量软件包。
 
 ```sh
 # portmaster --check-depends
@@ -543,7 +543,7 @@ libxul-10.0.12                 Mozilla runtime package that can be used to boots
 www/libxul
 ```
 
-问题在于我们安装了 **www/libxul** 而不是 **www/libxul19**，这就是为什么 **portmaster**（不仅仅是它）会抱怨的原因。
+问题在于我们安装了 **www/libxul** 而不是 **www/libxul19**，这就是为什么 **portmaster**（不仅仅是它）会报错的原因。
 
 在 **pkg(8)** 被引入之前，只需使用 **grep -r** 搜索整个 **/var/db/pkg** 目录及其“文件数据库”就很容易，但现在情况复杂得多，因为软件包数据库保存在 SQLite 数据库中。使用 **pkg shell** 命令，你可以连接到该数据库。让我们看看能找到什么。
 
@@ -576,7 +576,7 @@ sqlite> .quit
 
 所以现在我们知道，“**deps**” 表可能就是我们要找的 ;)。
 
-由于 **pkg shell** 在浏览 SQLite 时功能相当有限，我将直接使用 **sqlite3** 命令。所谓有限是指，你不能直接输入 **pkg shell "select * from deps;"** 这样的查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
+由于 **pkg shell** 在浏览 SQLite 时功能相当有限，我将直接使用命令 **sqlite3**。所谓有限是指，你不能直接输入 **pkg shell "select * from deps;"** 这样的查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
 
 ```sh
 # sqlite3 -column /var/db/pkg/local.sqlite "select * from deps;" | grep libxul
@@ -617,7 +617,7 @@ www/libxul  libxul      10.0.12     104
 sqlite> .quit
 ```
 
-现在 **portmaster** 感到满意，不会再抱怨任何缺失的依赖了。
+现在 **portmaster** 感到满意，不会再命令依赖缺失了。
 
 ```sh
 # portmaster --check-depends
@@ -629,7 +629,7 @@ Checking dependencies: zsh
 ```
 太棒了！问题解决了 :😉:
 
-… 但 **pkg(8)** 已经自带一个工具可以做到这一点 :🙂:
+……但 **pkg(8)** 已经自带一个工具可以做到这一点 :🙂:
 
 它叫 **pkg set**，在 **man pkg-set** 中最有用的两个选项是。
 
@@ -660,7 +660,7 @@ Checking dependencies: zsh
 
 ## 更新（UPDATING）
 
-如果在执行 **pkg upgrade** 命令时遇到任何问题，那么你也应该查看最新版本的 **/usr/ports/UPDATING** 文件——例如可以在使用 **portsnap fetch update** 命令更新 Ports 树后获取。
+如果在执行 **pkg upgrade** 命令时遇到任何问题，那么你也应该查看最新版本的 **/usr/ports/UPDATING** 文件——例如可以在使用 **portsnap fetch update** 命令更新 Ports 后获取。
 
 该文件描述了 Ports 中的重要变更（以及由于包是由 Ports 构建而来的，因此也涵盖了包的变更）。
 
@@ -720,7 +720,7 @@ Checking dependencies: zsh
 (...)
 ```
 
-**pkg(8)** 框架也提供了相应工具，即 **pkg updating** 命令。具体细节可查看 **man pkg-updating** 页面。最常见的用法是使用 **-d** 参数并指定日期，如下所示。
+**pkg(8)** 框架也提供了相应工具，即 **pkg updating** 命令。具体细节可查看 **man pkg-updating** 页面。最常见的用法是使用参数 **-d** 并指定日期，如下所示。
 
 ```sh
 # pkg updating -d 20190101
@@ -745,7 +745,7 @@ Checking dependencies: zsh
 
 ## 使用 ZFS 启动环境进行稳健升级
 
-为了绝对确保无论 **pkg upgrade** 命令出现何种问题，你的系统都能正常工作，可以使用 *ZFS 启动环境*。我不久前曾在 [波兰 PBUG](https://vermaden.wordpress.com/2018/07/30/zfs-boot-environments-at-pbug/) 和 [荷兰 NLUUG](https://vermaden.wordpress.com/2018/11/15/zfs-boot-environments-reloaded-at-nluug-autumn-conference-2018/) 介绍过其功能。最新的 PDF 演示文稿仍可在 [https://is.gd/BECTL](https://is.gd/BECTL) 链接下载。
+为了绝对确保无论 **pkg upgrade** 命令出现何种问题，你的系统都能正常工作，可以使用 *ZFS 启动环境*。我不久前曾在 [波兰 PBUG](https://vermaden.wordpress.com/2018/07/30/zfs-boot-environments-at-pbug/) 和 [荷兰 NLUUG](https://vermaden.wordpress.com/2018/11/15/zfs-boot-environments-reloaded-at-nluug-autumn-conference-2018/) 介绍过其功能。仍可在链接 [https://is.gd/BECTL](https://is.gd/BECTL) 下载最新的 PDF 演示文稿。
 
 使用 **beadm** 命令的操作流程如下。
 
@@ -767,7 +767,7 @@ safepoint    -      -          316.0K 2019-01-16 23:03
 
 ## 查询
 
-你也可以使用 **pkg query** 命令来查找所需的信息。
+你也可以使用命令 **pkg query** 来查找所需的信息。
 
 例如，要“模拟” **pkg info -r pkg-name** 参数（显示依赖 **pkg-name** 的软件包列表），可以使用如下方式的 **pkg query** 命令。
 
@@ -820,7 +820,7 @@ www/midori
 www/firefox
 ```
 
-如果你想知道每个包首次安装的时间，可以使用下面这个方法。
+如果你想知道每个包的初次安装时间，可以使用下面这个方法。
 
 ```sh
 # pkg query "%t %n-%v" \
@@ -852,7 +852,7 @@ Wed Jan 16 23:08:26 CET 2019 moreutils-0.63
 Wed Jan 16 23:08:26 CET 2019 p5-URI-1.76
 ```
 
-你也可以显示那些不会被 **pkg autoremove** 命令移除的包，因为它们是你直接安装的。
+你也可以显示那些不会被命令 **pkg autoremove** 移除的包，因为它们是你直接安装的。
 
 ```sh
 # pkg query -e "%a != 1" "%n" | tail
