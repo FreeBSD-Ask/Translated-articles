@@ -109,6 +109,7 @@ sendmail_enable=NONE
 clear_tmp_enable=YES
 syslogd_flags="-ss"
 dumpdev=NO
+
 ```
 
 `/etc/sysctl.conf` 和 `/boot/loader.conf` 文件不需要修改。
@@ -452,16 +453,16 @@ status: active
 
 你现在可以在 `/etc/rc.conf` 文件中尝试修改以下值：
 
-* `dhcpd_flags`
-* `dhcpd_ifaces`
-* `dhcpd_withumask`
-* `dhcpd_chuser_enable`
-* `dhcpd_withuser`
-* `dhcpd_withgroup`
-* `dhcpd_chroot_enable`
-* `dhcpd_devfs_enable`
-* `dhcpd_rootdir`
-* `dhcpd_includedirnclude`
+- `dhcpd_flags`
+- `dhcpd_ifaces`
+- `dhcpd_withumask`
+- `dhcpd_chuser_enable`
+- `dhcpd_withuser`
+- `dhcpd_withgroup`
+- `dhcpd_chroot_enable`
+- `dhcpd_devfs_enable`
+- `dhcpd_rootdir`
+- `dhcpd_includedirnclude`
 
 ……以及 `man dhcpd.conf` 页面上所有其他可能的选项 🙂
 
