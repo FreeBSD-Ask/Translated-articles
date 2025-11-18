@@ -15,7 +15,7 @@
 * **beadm**/**bectl**
 * **idprio**/**rtprio**
 
-……但有时候——虽然很少——Linux 上也有一些非常有用的工具，而 FreeBSD 上没有。这样一个例子就是 **lsblk(8)**，它专注于一件事，而且做得相当好——列出块设备及其内容。它也有一些问题，比如在一个完全被 ZFS 池使用的磁盘上，它会显示两个分区，而不是直接显示 ZFS 的信息——但我们都知道，在某些圈子里，CDDL 许可的 ZFS 在那个 GPL 世界里是多么“不受待见”。
+……但有时候——虽然很少——Linux 上也有一些非常有用的工具，而 FreeBSD 上则没有。例子就是 **lsblk(8)**，它专注于一件事，而且做得相当好——列出块设备及其内容。它也有一些问题，比如在完全应用 ZFS 池使用的磁盘上，它会显示两个分区，而不是直接显示 ZFS 的信息——但我们都知道，在某些圈子里，CDDL 许可的 ZFS 在那个 GPL 世界里是多么地“不受待见”。
 
 来自 Linux 系统的 **lsblk(8)** 示例输出：
 
@@ -37,11 +37,11 @@ sdd                            8:48   0 232.9G  0 disk
   `-md1                        9:1    0 232.9G  0 raid10 /data
 ```
 
-FreeBSD 在这方面提供了什么？可以使用 **camcontrol(8)** 和 **geom(8)** 命令。你也可以使用 **gpart(8)** 命令来列出分区。下面是我在单磁盘笔记本上运行这些命令的输出。请注意，由于 *WordPress* 的限制，我需要将命令输出中的所有 **> <** 字符替换为 **] [**。
+而 FreeBSD 在这方面提供了什么？可以使用命令 **camcontrol(8)** 和 **geom(8)**。你也可以使用 **gpart(8)** 命令来列出分区。下面是我在单磁盘笔记本上运行这些命令的输出。
 
 ```sh
 # camcontrol devlist
-[Samsung SSD 860 EVO mSATA 1TB RVT41B6Q]  at scbus1 target 0 lun 0 (ada0,pass0)
+<Samsung SSD 860 EVO mSATA 1TB RVT41B6Q>  at scbus1 target 0 lun 0 (ada0,pass0)
 
 % geom disk list
 Geom name: ada0
@@ -78,42 +78,42 @@ Providers:
 % lsblk.sh
 DEVICE         MAJ:MIN  SIZE TYPE                      LABEL MOUNT
 ada0             0:5b  932G GPT                           - -
-  ada0p1         0:64  200M efi                    efiboot0 [UNMOUNTED]
+  ada0p1         0:64  200M efi                    efiboot0 <UNMOUNTED>
   ada0p2         0:65  512K freebsd-boot           gptboot0 -
-  [FREE]         -:-   492K -                             - -
-  ada0p3         0:66  931G freebsd-zfs                zfs0 [ZFS]
-  [FREE]         -:-   708K -                             - -
+  <FREE>         -:-   492K -                             - -
+  ada0p3         0:66  931G freebsd-zfs                zfs0 <ZFS>
+  <FREE>         -:-   708K -                             - -
 ```
 
 同样的输出在图形窗口中显示。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2019/09/lolcat.png?w=960)
 
-下面是来自一台拥有两块系统 SSD 驱动器（**da0**/**da1**）和两块 HDD 数据驱动器（**da2**/**da3**）的服务器的 **lsblk.sh** 输出示例。
+下面是来自一台拥有两块系统固态硬盘（**da0**/**da1**）和两块机械数据盘（**da2**/**da3**）的服务器的 **lsblk.sh** 输出示例。
 
 ```sh
 # lsblk.sh
 DEVICE         MAJ:MIN SIZE TYPE                      LABEL MOUNT
 da0              0:be  224G GPT                           - -
-  da0p1          0:15a 200M efi                    efiboot0 [UNMOUNTED]
+  da0p1          0:15a 200M efi                    efiboot0 <UNMOUNTED>
   da0p2          0:15b 512K freebsd-boot           gptboot0 -
-  [FREE]         -:-   492K -                             - -
-  da0p3          0:15c 2.0G freebsd-swap              swap0 [UNMOUNTED]
-  da0p4          0:15d 221G freebsd-zfs                zfs0 [ZFS]
-  [FREE]         -:-   580K -                             - -
+  <FREE>         -:-   492K -                             - -
+  da0p3          0:15c 2.0G freebsd-swap              swap0 <UNMOUNTED>
+  da0p4          0:15d 221G freebsd-zfs                zfs0 <ZFS>
+  <FREE>         -:-   580K -                             - -
 da1              0:bf  224G GPT                           - -
-  da1p1          0:16a 200M efi                    efiboot1 [UNMOUNTED]
+  da1p1          0:16a 200M efi                    efiboot1 <UNMOUNTED>
   da1p2          0:16b 512K freebsd-boot           gptboot1 -
-  [FREE]         -:-   492K -                             - -
-  da1p3          0:16c 2.0G freebsd-swap              swap1 [UNMOUNTED]
-  da1p4          0:16d 221G freebsd-zfs                zfs1 [ZFS]
-  [FREE]         -:-   580K -                             - -
+  <FREE>         -:-   492K -                             - -
+  da1p3          0:16c 2.0G freebsd-swap              swap1 <UNMOUNTED>
+  da1p4          0:16d 221G freebsd-zfs                zfs1 <ZFS>
+  <FREE>         -:-   580K -                             - -
 da2              0:c0   11T GPT                           - -
-  da2p1          0:16e  11T freebsd-zfs                   - [ZFS]
-  [FREE]         -:-   1.0G -                             - -
+  da2p1          0:16e  11T freebsd-zfs                   - <ZFS>
+  <FREE>         -:-   1.0G -                             - -
 da3              0:c1   11T GPT                           - -
-  da3p1          0:16f  11T freebsd-zfs                   - [ZFS]
-  [FREE]         -:-   1.0G -                             - -
+  da3p1          0:16f  11T freebsd-zfs                   - <ZFS>
+  <FREE>         -:-   1.0G -                             - -
 ```
 
 下面是我在其他系统上测试 **lsblk.sh** 时的其他示例。
@@ -161,10 +161,10 @@ example(s):
   # lsblk.sh
   DEVICE         MAJ:MIN SIZE TYPE                      LABEL MOUNT
   ada0             0:5b  932G GPT                           - -
-    ada0p1         0:64  200M efi                    efiboot0 [UNMOUNTED]
+    ada0p1         0:64  200M efi                    efiboot0 <UNMOUNTED>
     ada0p2         0:65  512K freebsd-boot           gptboot0 -
-    [FREE]         -:-   492K -                             - -
-    ada0p3         0:66  931G freebsd-zfs                zfs0 [ZFS]
+    <FREE>         -:-   492K -                             - -
+    ada0p3         0:66  931G freebsd-zfs                zfs0 <ZFS>
 
   LIST ONLY da1 BLOCK DEVICE
   --------------------------
@@ -185,11 +185,11 @@ hint(s):
 
 此致敬礼。
 
-## 更新 2 – 代码重组与 75% 重写
+## 更新 2 – 代码重组与重写 75% 
 
 ……至少这是 **git(1)** 在 **commit** 信息中告诉我的内容。
 
-```
+```sh
 % git commit (...)
 [master 12fd4aa] Rework entire flow. Split code into functions. Add many useful comments. In other words its 2.0 version.
  1 file changed, 494 insertions(+), 505 deletions(-)
@@ -198,9 +198,9 @@ hint(s):
 
 经过几个高效小时的工作，**lsblk.sh** 的新版本现已发布。
 
-它的 SLOC 类似，但现在缩小了四分之一……同时功能更多、准确性更高。这是 *“少即是多”* 的绝佳例子。
+它的源代码行数类似，但现在缩小了四分之一……同时功能更多、准确性更高。这是 *“少即是多”* 的绝佳例子。
 
-```
+```sh
 % wc scripts/lsblk.sh.OLD
      491    2201   19721 scripts/lsblk.sh.OLD
 
@@ -212,7 +212,7 @@ hint(s):
 
 其中之一是 FAT 文件系统的“双重”标签。我们既有 **/dev/gpt/efiboot0** 标签，也有 FAT 标签 **EFISYS**。必须在两者中做出选择。由于并非所有 FAT 文件系统都有标签，我选择了 GPT 标签。
 
-```
+```sh
 % glabel status | grep ada0p1
   gpt/efiboot0     N/A  ada0p1
 msdosfs/EFISYS     N/A  ada0p1
@@ -220,7 +220,7 @@ msdosfs/EFISYS     N/A  ada0p1
 
 我也无法覆盖 FUSE 挂载。当你挂载——例如——/dev/da0 设备为 NTFS（使用 **ntfs-3g**）或 exFAT（使用 **mount.exfat**）时，**mount(8)** 输出没有明显区别。
 
-```
+```sh
 % mount -t fusefs
 /dev/fuse on /mnt/ntfs (fusefs)
 /dev/fuse on /mnt/exfat (fusefs)
@@ -234,7 +234,7 @@ msdosfs/EFISYS     N/A  ada0p1
 
 这里是各种非 ZFS 文件系统的挂载情况：
 
-```
+```sh
 % mount -t nozfs
 devfs on /dev (devfs, local, multilabel)
 linprocfs on /compat/linux/proc (linprocfs, local)
@@ -254,9 +254,9 @@ DEVICE         MAJ:MIN SIZE TYPE                      LABEL MOUNT
 ada0             0:56  932G GPT                           - -
   ada0p1         0:64  200M efi                gpt/efiboot0 -
   ada0p2         0:65  512K freebsd-boot       gpt/gptboot0 -
-  [FREE]         -:-   492K -                             - -
-  ada0p3         0:66  931G freebsd-zfs                   - [ZFS]
-  [FREE]         -:-   708K -                             - -
+  <FREE>         -:-   492K -                             - -
+  ada0p3         0:66  931G freebsd-zfs                   - <ZFS>
+  <FREE>         -:-   708K -                             - -
 md0              0:28f 1.0G MBR                           - -
   md0s1          0:294 512M freebsd                       - -
     md0s1a       0:29a 100M freebsd-ufs                root /mnt/ufs
@@ -416,13 +416,13 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
 
 此致敬礼。
 
-## 更新 5 – 再次 69% 重写
+## 更新 5 – 再次重写 69% 
 
-在进一步研究 **gpart(8)** 后，我发现使用 **-p** 参数是一个重大改变。使用 **-p** 参数后，它会直接显示带有分区名的输出，不再需要自己寻找 **PREFIX** 并“创建”分区名。
+在进一步研究 **gpart(8)** 后，我发现使用参数 **-p** 是个重大改变。使用 **-p** 参数后，它会直接显示带有分区名的输出，不再需要自己寻找 **PREFIX** 并“创建”分区名。
 
 默认 **gpart(8)** 输出：
 
-```
+```sh
 # gpart show md0
 =>     63  2097089  md0  MBR  (1.0G)
        63  1048576    1  freebsd  (512M)
@@ -430,9 +430,9 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
   1572927   524225    3  fat32  (256M)
 ```
 
-使用 **-p** 参数的输出：
+使用参数 **-p** 的输出：
 
-```
+```sh
 # gpart show -p md0
 =>     63  2097089    md0  MBR  (1.0G)
        63  1048576  md0s1  freebsd  (512M)
@@ -440,9 +440,9 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
   1572927   524225  md0s3  fat32  (256M)
 ```
 
-这一发现导致 **lsblk.sh** 进行了相当大幅度的重写。**git commit** 估计此次重写为 69%：
+这一发现导致 **lsblk.sh** 进行了相当大幅重写。**git commit** 估计此次重写达 69%：
 
-```
+```sh
 # git commit (...)
 (...)
  1 file changed, 487 insertions(+), 501 deletions(-)
@@ -461,7 +461,7 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
 
 代码差异如下：
 
-```
+```sh
 # wc lsblk.sh
      487    1791   13705 lsblk.sh
 
@@ -469,8 +469,67 @@ MIN=$( stat -f "%Lr" /dev/${DEV} )
      544    1931   16170 lsblk.sh.OLD
 ```
 
-最新 **lsblk.sh** 看起来仍然如以前，但我现在用 ‘**-**’ 替代了以前的 ‘**[UNMOUNTED]**’ 标记：
+最新 **lsblk.sh** 看起来仍然如以前，但我现在用 ‘**-**’ 替代了以前的 ‘**<UNMOUNTED>**’ 标记：
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2019/09/lsblk.2.5.gpart_.exfat_.png?w=960)
+
+## 更新 6 – 新的更新与修复版本
+
+**lsblk.sh** 已更新至 3.4 版本——并已在 FreeBSD Ports 树中更新，在 **sysutils/lsblk** Port 中可用。
+
+该版本的 *变更日志* 如下：
+
+* 在磁盘列表中添加 **sysctl -n kern.disks**。
+* 在 **__gpart_present** 函数中重置 **LABEL**。
+* 修复 **gpart(8)** 的 **[bootme]** 和 **[bootonce]** 标志行为。
+* 禁用 **GPTID** 显示标签。
+* 添加 **-d|–disks** 选项，仅列出整个磁盘。
+
+请注意，**lsblk.sh** 使用 **diskinfo(8)**，为了正常工作，你需要属于 **operator** 组。你可以这样将自己添加到该组：
+
+```
+# pw groupmod operator -m yourself
+```
+
+……或者通过编辑 **/etc/group** 文件。
+
+示例输出如下：
+
+![](https://vermaden.wordpress.com/wp-content/uploads/2019/09/lsblk.update6.png?w=960)
+
+## 更新 7 – 更多修复
+
+**lsblk.sh** 已更新至 3.5 版本——并已在 FreeBSD Ports 树中更新，在 **sysutils/lsblk** Port 中可用。
+
+该版本的 *变更日志* 如下：
+
+* 列出磁盘时移除输出中的控制序列和颜色。
+* **diskinfo(8)** 仅用于 **md(4)** 磁盘，因为 **geom(4)** 不支持它们。
+* 添加新注释并重新整理部分旧注释。
+* 为 SIZE 收集和显示增加额外检查。
+* 当整个设备没有分区时，正确显示 exFAT 文件系统标签。
+* 修复 NTFS-3G 挂载点显示。
+* 检查 **automount(8)** 的 **/var/run/automount.state** 以处理 **fusefs(5)** 文件系统。
+
+仅 **md(4)** 磁盘的大小需要属于 **operator** 组。所有其他磁盘大小现在通过 **geom(8)** 命令收集。
+
+## 更新 8 – 优化标签
+
+现在 3.9 版本的 **lsblk(8)** 比以往更好。
+
+![](https://vermaden.wordpress.com/wp-content/uploads/2019/09/lsblk.update8.png)
+
+该版本的 *变更日志* 如下：
+
+* 改进 **glabel(8)** 标签搜索。
+* 改进 **gpart(8)** 输出标签处理。
+* 将冗长的 Microsoft 分区名称替换为合理名称。
+* 改进 exFAT 处理。
+* 改进 **md(4)** 磁盘大小处理。
+* 移除标签中的冗余空格。
+* 为 **-d** 选项添加 **TOTAL SYSTEM STORAGE**。
+* 移除主设备检查循环中的子 shell。
+
+已提交 PR [283268](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=283268) ，因此在 Ports 树中更新前请稍作等待。
 
 
