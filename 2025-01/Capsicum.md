@@ -361,10 +361,10 @@ while ((name = nvlist_next(newlimits, NULL, &cookie)) != NULL) {
 
 casper 服务由以下四个主要部分组成：
 
-* 以 `cap_` 为前缀的函数，通过 `cap_xfer_nvlist(3)` 向 casper 服务发送命令；
-* 在沙箱外执行命令相关代码并返回新资源的 `command_func`；
-* 限制服务用途的 `limit_func`；
-* 将服务拼接在一起的 `CREATE_SERVICE(3)` 宏。
+- 以 `cap_` 为前缀的函数，通过 `cap_xfer_nvlist(3)` 向 casper 服务发送命令；
+- 在沙箱外执行命令相关代码并返回新资源的 `command_func`；
+- 限制服务用途的 `limit_func`；
+- 将服务拼接在一起的 `CREATE_SERVICE(3)` 宏。
 
 虽然在技术上可以创建返回任意命名资源的 casper 服务，但这会破坏将程序隔离到沙箱的目的。设计良好的 casper 服务接口应当有限且受约束，避免被利用。
 
@@ -482,8 +482,8 @@ cpuset_setaffinity(CPU_LEVEL_WHICH, CPU_WHICH_PID, getppid(),
 
 尽管名称相似，能力模式 (capability mode) 和能力 (capabilities) 是不同的内核原语。
 
-* 能力模式是 Capsicum 实现的安全沙箱。
-* 能力是拥有权限的文件描述符。
+- 能力模式是 Capsicum 实现的安全沙箱。
+- 能力是拥有权限的文件描述符。
 
 如果用户想要对某项能力描述符执行 `read(2)`，则该描述符必须拥有 `CAP_READ` 权限。如果用户想要对某个套接字能力描述符执行 `bind(2)`，则该描述符必须拥有 `CAP_BIND` 权限。几乎所有描述符操作都有细粒度的权限；完整列表见手册页 `rights(4)`。
 
@@ -543,6 +543,6 @@ if (cap_rights_limit(fd, &rights) < 0)
 
 ## 相关资料
 
-* [https://www.cl.cam.ac.uk/research/security/capsicum/](https://www.cl.cam.ac.uk/research/security/capsicum/)
-* [https://www.usenix.org/legacy/events/sec10/tech/full\_papers/Watson.pdf](https://www.usenix.org/legacy/events/sec10/tech/full_papers/Watson.pdf)
-* [https://wiki.freebsd.org/Capsicum](https://wiki.freebsd.org/Capsicum)
+- [https://www.cl.cam.ac.uk/research/security/capsicum/](https://www.cl.cam.ac.uk/research/security/capsicum/)
+- [https://www.usenix.org/legacy/events/sec10/tech/full\_papers/Watson.pdf](https://www.usenix.org/legacy/events/sec10/tech/full_papers/Watson.pdf)
+- [https://wiki.freebsd.org/Capsicum](https://wiki.freebsd.org/Capsicum)

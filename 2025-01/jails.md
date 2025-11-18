@@ -1,4 +1,4 @@
-# 简单而轻松的 FreeBSD Jail 
+# 简单而轻松的 FreeBSD Jail
 
 - 原文：[FreeBSD Jails are Simple and Easy](https://freebsdfoundation.org/blog/freebsd-jails-are-simple-and-easy/)
 - 2025 年 8 月 25 日

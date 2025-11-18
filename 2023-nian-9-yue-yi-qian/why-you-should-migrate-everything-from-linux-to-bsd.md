@@ -171,23 +171,23 @@ GPL 许可听起来似乎更好，因为为什么我们要让公司简单地“�
 
 可以看看我其他一些关于 BSD 的文章和教程：
 
-* [FreeBSD 是一款了不起的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
-* [选择 FreeBSD 而非 GNU/Linux 的技术原因](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
-* [OpenBSD 很棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 1 部分 - 基础设置](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-1-basic-setup.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 2 部分 - Xfce](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-2-xfce.html)
-* [如何设置 FreeBSD 并打造美化桌面 - 第 3 部分 - i3](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html)
-* [OpenBSD 路由器指南](https://openbsdrouterguide.net/)
+- [FreeBSD 是一款了不起的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
+- [选择 FreeBSD 而非 GNU/Linux 的技术原因](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
+- [OpenBSD 很棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 1 部分 - 基础设置](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-1-basic-setup.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 2 部分 - Xfce](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-2-xfce.html)
+- [如何设置 FreeBSD 并打造美化桌面 - 第 3 部分 - i3](https://unixdigest.com/tutorials/how-to-setup-freebsd-with-a-riced-desktop-part-3-i3.html)
+- [OpenBSD 路由器指南](https://openbsdrouterguide.net/)
 
 ## 其他相关链接
 
-* [FreeBSD 提交者 Allan Jude 讨论 FreeBSD 的优势以及他在维护数百万服务器中所扮演的角色](https://www.hostingadvice.com/blog/freebsd-project-under-the-hood/)（自 2016 年与 Allan Jude 的访谈以来，FreeBSD 已经有了显著发展）
-* [为什么选择 FreeBSD？](https://www.freebsd.org/advocacy/whyusefreebsd.html)
-* [FreeBSD 不是 Linux 发行版](https://www.youtube.com/watch?v=ps67ECyh0sM)（YouTube）
-* [The FreeBSD Journal](https://www.freebsdfoundation.org/journal/browser-based-edition/)
-* [The OpenBSD Journal](https://undeadly.org/)
-* [BSD 家族树](https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co)
-* [EuroBSDcon YouTube 播放列表](https://www.youtube.com/user/EuroBSDcon/playlists)
+- [FreeBSD 提交者 Allan Jude 讨论 FreeBSD 的优势以及他在维护数百万服务器中所扮演的角色](https://www.hostingadvice.com/blog/freebsd-project-under-the-hood/)（自 2016 年与 Allan Jude 的访谈以来，FreeBSD 已经有了显著发展）
+- [为什么选择 FreeBSD？](https://www.freebsd.org/advocacy/whyusefreebsd.html)
+- [FreeBSD 不是 Linux 发行版](https://www.youtube.com/watch?v=ps67ECyh0sM)（YouTube）
+- [The FreeBSD Journal](https://www.freebsdfoundation.org/journal/browser-based-edition/)
+- [The OpenBSD Journal](https://undeadly.org/)
+- [BSD 家族树](https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co)
+- [EuroBSDcon YouTube 播放列表](https://www.youtube.com/user/EuroBSDcon/playlists)
 
 >在我发布了这篇文章的[第一部分](https://unixdigest.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html)后，它被发布到了 Hacker News、Reddit 和 Lobsters 上，有一位叫 “harryruhr” 的人在他的博客上发表了回应，标题为 [“是否应该从 Linux 迁移到 BSD？这取决于情况。”](https://fediverse.blog/~/AllGoodThings/should-you-migrate-from-linux-to-bsd-it-depends)。在这篇回应中，harryruhr 提出了几个我认为需要澄清的错误论点。
 

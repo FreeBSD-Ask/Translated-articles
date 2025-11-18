@@ -14,29 +14,29 @@
 
 FreeBSD 在电源管理领域有许多机制：
 
-* 关闭没有附加驱动的设备
-* 调整 CPU 频率和功耗
-* 支持 CPU 睡眠状态（C1 / C1E / C2 / C3 / …）
-* 启用/禁用大多数 CPU 可用的睿频
-* 每个 USB 设备的电源管理方案
-* SATA / AHCI 通道/控制器电源管理
-* 挂起/恢复支持（包括用笔记本盖子执行）
-* 支持厂商专有工具帮助测量电源管理
-* 工具与 ACPI 支持风扇速度控制
-* 工具与 ACPI 支持屏幕亮度设置
-* 电池容量状态与运行时间估计
-* 网络接口的节能方案
-* 支持 AMD PowerNow!
-* 支持 Intel (Enhanced) SpeedStep
-* 支持 Intel Speed Shift
-* 支持 AMD Turbo Core
-* 支持 Intel 睿频
+- 关闭没有附加驱动的设备
+- 调整 CPU 频率和功耗
+- 支持 CPU 睡眠状态（C1 / C1E / C2 / C3 / …）
+- 启用/禁用大多数 CPU 可用的睿频
+- 每个 USB 设备的电源管理方案
+- SATA / AHCI 通道/控制器电源管理
+- 挂起/恢复支持（包括用笔记本盖子执行）
+- 支持厂商专有工具帮助测量电源管理
+- 工具与 ACPI 支持风扇速度控制
+- 工具与 ACPI 支持屏幕亮度设置
+- 电池容量状态与运行时间估计
+- 网络接口的节能方案
+- 支持 AMD PowerNow!
+- 支持 Intel (Enhanced) SpeedStep
+- 支持 Intel Speed Shift
+- 支持 AMD Turbo Core
+- 支持 Intel 睿频
 
 关于 FreeBSD 系统中不同设置文件的一句话说明：
 
-* **/etc/rc.conf** —— 无需重启，只需重新加载守护进程
-* **/etc/sysctl.conf** —— 无需重启 —— 可在运行时设置
-* **/boot/loader.conf** —— 这些设置 **需要重启**
+- **/etc/rc.conf** —— 无需重启，只需重新加载守护进程
+- **/etc/sysctl.conf** —— 无需重启 —— 可在运行时设置
+- **/boot/loader.conf** —— 这些设置 **需要重启**
 
 
 ## 信息
@@ -396,8 +396,8 @@ powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 
 可以在 **/etc/rc.conf** 文件中用以下选项配置 C 状态。
 
-* **performance_cx_lowest**
-* **economy_cx_lowest**
+- **performance_cx_lowest**
+- **economy_cx_lowest**
 
 **economy_cx_lowest** 参数用于电池供电时，**performance_cx_lowest** 参数用于电源供电时。两者都通过 **rc(8)** 子系统使用的 **/etc/rc.d/power_profile** 脚本进行设置。该脚本会设置 **hw.acpi.cpu.cx_lowest** 参数，从而控制所有 **dev.cpu.*.cx_lowest** 的值。当你连接或断开电源时，也可以在 **/var/log/messages** 文件中跟踪这些变化。
 
@@ -477,9 +477,9 @@ ugen2.3:  at usbus2, cfg=0 md=HOST spd=HIGH (480Mbps) pwr=SAVE (0mA)
 
 你会看到 **pwr** 参数（即 `power`，电源的缩写）显示当前电源设置，可以为：
 
-* **ON**
-* **OFF**
-* **SAVE**
+- **ON**
+- **OFF**
+- **SAVE**
 
 要为 **ugen1.1** 设备设置新的 USB 电源选项，也可以使用 **usbconfig(8)** 工具，并使用参数 **power_save**，方法如下。
 
@@ -539,12 +539,12 @@ ada0 at ahcich0 bus 0 scbus0 target 0 lun 0
 
 可能的电源管理选项如下：
 
-* **0** – 禁用接口电源管理（默认）
-* **1** – 允许设备主动发起 PM 状态改变，主机被动
-* **2** – 每次端口空闲时，主机发起 PARTIAL PM 状态转换
-* **3** – 每次端口空闲时，主机发起 SLUMBER PM 状态转换
-* **4** – 端口空闲 1 毫秒后，驱动发起 PARTIAL PM 状态转换
-* **5** – 端口空闲 125 毫秒后，驱动发起 SLUMBER PM 状态转换
+- **0** – 禁用接口电源管理（默认）
+- **1** – 允许设备主动发起 PM 状态改变，主机被动
+- **2** – 每次端口空闲时，主机发起 PARTIAL PM 状态转换
+- **3** – 每次端口空闲时，主机发起 SLUMBER PM 状态转换
+- **4** – 端口空闲 1 毫秒后，驱动发起 PARTIAL PM 状态转换
+- **5** – 端口空闲 125 毫秒后，驱动发起 SLUMBER PM 状态转换
 
 下面是我在 **/boot/loader.conf** 文件中的设置。
 
@@ -576,10 +576,10 @@ FreeBSD 提供了对未附加驱动的设备不供电的节能选项。该选项
 
 它可以设置为以下值之一：
 
-* **0** – 所有设备保持完全供电（默认）。
-* **1** – 类似于 ‘2’，但存储控制器仍保持供电。
-* **2** – 关闭大多数设备电源（显示器/内存/外设不关闭）。
-* **3** – 关闭所有没有驱动程序的 PCI 设备电源。
+- **0** – 所有设备保持完全供电（默认）。
+- **1** – 类似于 ‘2’，但存储控制器仍保持供电。
+- **2** – 关闭大多数设备电源（显示器/内存/外设不关闭）。
+- **3** – 关闭所有没有驱动程序的 PCI 设备电源。
 
 下面是我在 **/boot/loader.conf** 文件中的设置。
 
@@ -673,17 +673,17 @@ hw.acpi.supported_sleep_state: S3 S4 S5
 
 此外，不同厂商的 ACPI 子系统还有专用内核模块，如下：
 
-* **/boot/kernel/acpi_asus_wmi.ko**
-* **/boot/kernel/acpi_asus.ko**
-* **/boot/kernel/acpi_dock.ko**
-* **/boot/kernel/acpi_fujitsu.ko**
-* **/boot/kernel/acpi_hp.ko**
-* **/boot/kernel/acpi_ibm.ko**
-* **/boot/kernel/acpi_panasonic.ko**
-* **/boot/kernel/acpi_sony.ko**
-* **/boot/kernel/acpi_toshiba.ko**
-* **/boot/kernel/acpi_video.ko**
-* **/boot/kernel/acpi_wmi.ko**
+- **/boot/kernel/acpi_asus_wmi.ko**
+- **/boot/kernel/acpi_asus.ko**
+- **/boot/kernel/acpi_dock.ko**
+- **/boot/kernel/acpi_fujitsu.ko**
+- **/boot/kernel/acpi_hp.ko**
+- **/boot/kernel/acpi_ibm.ko**
+- **/boot/kernel/acpi_panasonic.ko**
+- **/boot/kernel/acpi_sony.ko**
+- **/boot/kernel/acpi_toshiba.ko**
+- **/boot/kernel/acpi_video.ko**
+- **/boot/kernel/acpi_wmi.ko**
 
 例如，如果你使用的是 IBM/联想 ThinkPad，则需使用内核模块 **acpi_ibm.ko**。
 
@@ -836,6 +836,7 @@ FreeBSD 上也有一些厂商提供的工具，例如 **powermon(8)**。请注�
  Current: 5.11W     Current: 3.17W      Current: 1.73W      Current: 0.21W
  Total: 98.33J      Total: 60.86J       Total: 33.49J       Total: 3.98J
 ```
+
 ## DTrace
 
 动态追踪框架（像 ZFS 一样由 Solaris/Illumos 引入 FreeBSD）在延长电池使用时间方面也可能是款有用的工具。
@@ -993,9 +994,9 @@ dev.hwpstate_intel.N.epp=Y
 
 **Y** 的取值含义如下：
 
-* **0** – 最大性能
-* **50** – 平衡（默认）
-* **100** – 最大节能
+- **0** – 最大性能
+- **50** – 平衡（默认）
+- **100** – 最大节能
 
 若希望获得最大化节能，可以为所有线程使用 **100**，如下所示：
 

@@ -15,8 +15,8 @@ GPL 的主要目的，是禁止将基于 GPL 授权的软件纳入专有软件�
 
 GPL 相当复杂：
 
-* 你不能出售 GPL 授权的软件，但你可以对软件的分发、支持或文档收取任意费用。
-* 如果一款程序在编译时需要使用 GPL 授权的源代码，那么该程序也必须遵循 GPL。静态链接到 GPL 库的程序必须采用 GPL 授权。
+- 你不能出售 GPL 授权的软件，但你可以对软件的分发、支持或文档收取任意费用。
+- 如果一款程序在编译时需要使用 GPL 授权的源代码，那么该程序也必须遵循 GPL。静态链接到 GPL 库的程序必须采用 GPL 授权。
 
 由于 Linux 内核是基于 GPL 授权的，一切静态链接到 Linux 内核的代码也必须采用 GPL 授权。可以通过动态链接可加载内核模块来避免这一限制。这样公司就能分发二进制驱动程序，但缺点是它们仅适用于特定版本的 Linux 内核。
 
@@ -116,9 +116,9 @@ GPL 的拥护者说，我们将面临的巨大问题是公司将拿走我们的 
 
 我认为应当做到：
 
-* 不使用妨碍你将其拷贝给朋友的专有软件。
-* 不使用监视你或限制你硬件使用的专有软件。
-* 教育大众使用真正的自由软件，但不要伪善——不要一边反对限制自由的许可证，一边又限制真正的软件自由。
+- 不使用妨碍你将其拷贝给朋友的专有软件。
+- 不使用监视你或限制你硬件使用的专有软件。
+- 教育大众使用真正的自由软件，但不要伪善——不要一边反对限制自由的许可证，一边又限制真正的软件自由。
 
 ## GPL 鼓励“劫持”和政治操纵
 
@@ -172,11 +172,11 @@ GPL 的另一个问题是，当公司无法完全控制代码的共享方式时�
 
 ## 进一步阅读
 
-* [自由与开源软件的历史](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
-* [为什么你应该为开源项目使用 BSD 风格许可证](https://docs.freebsd.org/en/articles/bsdl-gpl/article.html)
-* [自由/开源软件（FLOSS）许可证幻灯片](https://dwheeler.com/essays/floss-license-slide.html)
-* [按类别分类的开源许可证](https://opensource.org/licenses/category)
-* [真正的男子不会攻击稻草人](https://marc.info/?l=openbsd-misc&m=119730630513821&w=2)（整个讨论串都很相关，尤其是 Theo de Raadt 对 Richard Stallman 的回应，例如 [这个](https://marc.info/?l=openbsd-misc&m=119750352332512&w=2)、[这个](https://marc.info/?l=openbsd-misc&m=119750526002139&w=2)、[这个](https://marc.info/?l=openbsd-misc&m=119757477532409&w=2) 和 [这个](https://marc.info/?l=openbsd-misc&m=119758183611637&w=2)）
-* [MIT 许可证的神秘历史](https://opensource.com/article/19/4/history-mit-license)
-* [GPL 违规案例](https://gpl-violations.org/)
+- [自由与开源软件的历史](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
+- [为什么你应该为开源项目使用 BSD 风格许可证](https://docs.freebsd.org/en/articles/bsdl-gpl/article.html)
+- [自由/开源软件（FLOSS）许可证幻灯片](https://dwheeler.com/essays/floss-license-slide.html)
+- [按类别分类的开源许可证](https://opensource.org/licenses/category)
+- [真正的男子不会攻击稻草人](https://marc.info/?l=openbsd-misc&m=119730630513821&w=2)（整个讨论串都很相关，尤其是 Theo de Raadt 对 Richard Stallman 的回应，例如 [这个](https://marc.info/?l=openbsd-misc&m=119750352332512&w=2)、[这个](https://marc.info/?l=openbsd-misc&m=119750526002139&w=2)、[这个](https://marc.info/?l=openbsd-misc&m=119757477532409&w=2) 和 [这个](https://marc.info/?l=openbsd-misc&m=119758183611637&w=2)）
+- [MIT 许可证的神秘历史](https://opensource.com/article/19/4/history-mit-license)
+- [GPL 违规案例](https://gpl-violations.org/)
 

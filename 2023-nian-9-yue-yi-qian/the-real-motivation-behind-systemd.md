@@ -77,20 +77,20 @@ systemd-resolved 对 Cloudflare、Quad9 和谷歌配置了硬编码的备用 DNS
 
 这是红帽的另一个主要动机，从 Lennart Poettering 在 [FUDCON + GNOME Asia Beijing 2014](https://unixdigest.com/includes/files/gnomeasia2014.pdf) 的演示文稿中可以看出。查看第 15 页，慢慢翻到第 19 页，你会看到项目目标：
 
-* 将 Linux 从一个“碎片化系统”变为具有竞争力的通用操作系统。
-* 构建互联网的下一代操作系统。
-* 统一不同发行版之间无意义的差异。
-* 将创新带回核心操作系统。
+- 将 Linux 从一个“碎片化系统”变为具有竞争力的通用操作系统。
+- 构建互联网的下一代操作系统。
+- 统一不同发行版之间无意义的差异。
+- 将创新带回核心操作系统。
 
 结合后续幻灯片显示的红帽目标市场：
 
-* 桌面
-* 服务器
-* 容器
-* 嵌入式
-* 移动
-* 云
-* 集群
+- 桌面
+- 服务器
+- 容器
+- 嵌入式
+- 移动
+- 云
+- 集群
 
 大多数 systemd 模块所增加的功能，仅仅是为了让桌面系统（如 GNOME）像 Microsoft Windows 一样运作。
 
@@ -128,9 +128,9 @@ Casper Ti. Vectors 在 Gentoo 论坛上的帖子，[s6/s6-rc vs systemd, or why 
 
 感谢真正独立的社区驱动项目，否则我们就只能面对像 Microsoft Windows 这样的垃圾系统。在这一点上，可以看看以下内容：
 
-* [致 Linux 世界的公开信](https://lkml.org/lkml/2014/8/12/459)（Christopher Barry）。也可见 [这里](https://unixdigest.com/includes/files/open-letter-to-the-linux-world-christopher-barry.txt)（TXT）。
-* [OpenBSD 非常棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
-* [FreeBSD 是一个出色的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
-* [选择 FreeBSD 而非 GNU/Linux 的技术理由](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
-* [一些优秀的 GNU/Linux 发行版](https://unixdigest.com/articles/some-of-the-great-gnu-linux-distributions.html)
-* [Lennart Poettering：BSD 已不再重要](https://linuxfr.org/nodes/86687/comments/1249943)。也可见 [这里](https://unixdigest.com/includes/files/bsd-is-not-relevant-any-more.pdf)（PDF）。
+- [致 Linux 世界的公开信](https://lkml.org/lkml/2014/8/12/459)（Christopher Barry）。也可见 [这里](https://unixdigest.com/includes/files/open-letter-to-the-linux-world-christopher-barry.txt)（TXT）。
+- [OpenBSD 非常棒](https://unixdigest.com/articles/openbsd-is-fantastic.html)
+- [FreeBSD 是一个出色的操作系统](https://unixdigest.com/articles/freebsd-is-an-amazing-operating-system.html)
+- [选择 FreeBSD 而非 GNU/Linux 的技术理由](https://unixdigest.com/articles/technical-reasons-to-choose-freebsd-over-linux.html)
+- [一些优秀的 GNU/Linux 发行版](https://unixdigest.com/articles/some-of-the-great-gnu-linux-distributions.html)
+- [Lennart Poettering：BSD 已不再重要](https://linuxfr.org/nodes/86687/comments/1249943)。也可见 [这里](https://unixdigest.com/includes/files/bsd-is-not-relevant-any-more.pdf)（PDF）。
