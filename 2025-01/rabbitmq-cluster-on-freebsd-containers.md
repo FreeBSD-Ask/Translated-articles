@@ -4,9 +4,9 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2019/06
 
-我真的很喜欢那种小而简单、专注做好一件事并且做得非常好的专用解决方案——也许是因为我太喜欢 UNIX 了。这种理念的一个好例子是 Minio 对象存储，它实现了 S3 协议，支持分布式集群、纠删码，并内置了 Web 界面，还有许多其他特性——我曾在《Distributed Object Storage with Minio on FreeBSD》一文中介绍过。
+我真的很喜欢那种小而简单、专注做好一件事并且做得非常好的专用解决方案——也许是因为我太喜欢 UNIX 了。这种理念的好例子是 Minio 对象存储，它实现了 S3 协议，支持分布式集群、纠删码，并内置了 Web 界面，还有许多其他特性——我曾在[《Distributed Object Storage with Minio on FreeBSD》](https://vermaden.wordpress.com/2018/04/16/distributed-object-storage-with-minio-on-freebsd/)一文中介绍过。
 
-RabbitMQ 是另一个这样的例子——它大概是目前最流行的 AMQP 协议实现之一——同样带有一个小巧、精致的 Web 界面。但它和 Minio 的区别在于“力量”。Minio 的 Web 界面非常基础、面向用户，大多数管理和配置任务都需要通过 CLI 完成。Minio 的 Web 界面主要提供创建/删除 buckets、上传/下载文件等功能。而 RabbitMQ 的 Web 界面则非常强大，一旦启用，你几乎不需要命令行了，所有事情都可以通过 Web 界面完成。
+RabbitMQ 是又一个这样的例子——它大概是目前最流行的 AMQP 协议实现之一——同样带有小巧、精致的 Web 界面。但它和 Minio 的区别在于“力量”。Minio 的 Web 界面非常基础、面向用户，大多数管理和配置任务都需要通过 CLI 完成。Minio 的 Web 界面主要提供创建/删除 buckets、上传/下载文件等功能。而 RabbitMQ 的 Web 界面则非常强大，一旦启用，你几乎不再需要命令行了，所有事情都可以通过 Web 界面完成。
 
 ![rabbitmq-logo.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/rabbitmq-logo-1.png?w=960)
 
@@ -16,7 +16,7 @@ RabbitMQ 是另一个这样的例子——它大概是目前最流行的 AMQP �
 
 今天我想向你展示在 FreeBSD 容器上构建一个带有镜像队列的高度冗余 RabbitMQ 集群的消息系统。
 
-在 FreeBSD 提供的所有虚拟化方式中（VirtualBox / Bhyve / QEMU / Jails / Docker），我选择了最轻量的 FreeBSD Containers —— Jails :🙂:
+在 FreeBSD 提供的所有虚拟化方式中（VirtualBox / Bhyve / QEMU / Jail / Docker），我选择了最轻量的 FreeBSD 容器 —— Jail :🙂:
 
 图例依旧保持不变。
 
@@ -38,9 +38,9 @@ host % command
 rabbitX # command
 ```
 
-# Jail 配置
+## Jail 配置
 
-首先我们将创建用于本次部署的基础 Jails。host 系统与这些 *Jails Containers* 都使用 FreeBSD 11.2-RELEASE 系统。
+首先我们将创建用于本次部署的基础 Jail。host 系统与这些 *Jail 容器* 都使用 FreeBSD 11.2-RELEASE 系统。
 
 
 ```sh
@@ -52,9 +52,9 @@ host # for I in 1 2; do echo ${I}; mkdir -p /jail/rabbit${I}; tar --unlink -xpJf
 host #
 ```
 
-我们现在已经有了 2 个空的、干净的 Jails。
+我们现在已经有了 2 个空的、干净的 Jail。
 
-接下来要把这些 Jails 的配置加入 **`/etc/jail.conf`** 文件中。
+接下来要把这些 Jail 的配置加入 **`/etc/jail.conf`** 文件中。
 
 因为我使用的是笔记本作为 Jail 的宿主机，所以 Jails 将会绑定无线网卡 **`wlan0`**，并使用 **`192.168.43.10X`** 这些地址。同时我也添加了 **`10.0.0.10X`** 这组地址，主要是为了撰写本文时操作更方便。
 
@@ -82,7 +82,7 @@ host #
 
 这就是配置完成后的 **/etc/jail.conf** 文件的样子。
 
-```sh
+```ini
 host # cat /etc/jail.conf
 rabbit1 {
   host.hostname = rabbit1.local;
@@ -148,11 +148,11 @@ host # for I in 1 2; do grep latest /jail/rabbit${I}/etc/pkg/FreeBSD.conf; done
   url: "pkg+http://pkg.FreeBSD.org/${ABI}/latest",
 ```
 
-# RabbitMQ 安装
+## 安装 RabbitMQ 安装
 
 现在我们可以安装包 RabbitMQ 了。
 
-```
+```sh
 host # for I in 1 2; do jexec rabbit${I} env ASSUME_ALWAYS_YES=yes pkg install -y rabbitmq; echo; done
 Bootstrapping pkg from pkg+http://pkg.FreeBSD.org/FreeBSD:11:amd64/latest, please wait...
 Verifying signature with trusted certificate pkg.freebsd.org.2013102301... done
@@ -209,9 +209,9 @@ host # for I in 1 2; do jexec rabbit${I} which rabbitmqctl; done
 /usr/local/sbin/rabbitmqctl
 ```
 
-# RabbitMQ 设置
+## 配置 RabbitMQ
 
-接下来我们将在 Jails 中配置 **/etc/hosts** 文件。
+接下来我们将在 Jail 中配置 **/etc/hosts** 文件。
 
 ```sh
 host # for I in 1 2; do cat >> /jail/rabbit${I}/etc/hosts << __EOF
@@ -222,7 +222,7 @@ __EOF
 done
 ```
 
-……以及快速验证。
+……再简单验证。
 
 ```sh
 host # cat /jail/rabbit?/etc/hosts | grep 192.168.43 | sort -n | uniq -c
@@ -409,9 +409,9 @@ RABBITMQFREEBSDJAILS
 RABBITMQFREEBSDJAILS
 ```
 
-## RabbitMQ 管理用户
+### RabbitMQ 管理用户
 
-现在我们将在 RabbitMQ 实例中创建一个名为 **admin** 的管理用户。
+现在我们将在 RabbitMQ 实例中创建管理用户 **admin**。
 
 ```sh
 host # for I in 1 2; do jexec rabbit${I} rabbitmqctl add_user admin ADMINPASSWORD; done
@@ -431,11 +431,11 @@ Setting permissions for user "admin" in vhost "/" ...
 
 ![01-rabbitmq-login.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/01-rabbitmq-login.png?w=960)
 
-登录后，一个实用的 RabbitMQ 仪表板将显示给你。
+登录后，将显示给你实用的 RabbitMQ 仪表板。
 
 ![02-rabbitmq-dashboard.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/02-rabbitmq-dashboard.png?w=960)
 
-## RabbitMQ 集群设置
+### RabbitMQ 集群设置
 
 接下来我们将创建 RabbitMQ 集群。
 
@@ -491,7 +491,7 @@ Cluster status of node rabbit@rabbit1 ...
  {alarms,[{rabbit@rabbit2,[]},{rabbit@rabbit1,[]}]}]
 ```
 
-现在我们已经形成了一个两节点的 RabbitMQ 集群。接下来我们将其重命名为 **cluster**。
+现在我们已经形成了两节点的 RabbitMQ 集群。接下来我们将其重命名为 **cluster**。
 
 ```sh
 rabbit1 # rabbitmqctl set_cluster_name rabbit@cluster
@@ -510,28 +510,28 @@ Cluster status of node rabbit@rabbit1 ...
 
 ![08-rabbitmq-cluster.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/08-rabbitmq-cluster-1.png?w=960)
 
-## RabbitMQ 高可用策略
+### RabbitMQ 高可用策略
 
-要在 RabbitMQ 中实现 [高可用（镜像）队列](https://www.rabbitmq.com/ha.html)，需要创建一个 *Policy*（策略）。我们将声明一个名为 **ha** 的 *Policy*，它匹配名称以 **ha-** 前缀开头的队列，从而将这些队列配置为在集群中的两个节点上镜像。
+要在 RabbitMQ 中实现 [高可用（镜像）队列](https://www.rabbitmq.com/ha.html)，需要创建 *Policy*（策略）。我们将声明 *Policy* **ha**，它匹配名称以 **ha-** 前缀开头的队列，从而将这些队列配置为在集群中的两个节点上镜像。
 
 创建该 *Policy* 的命令如下：
 
-```
+```sh
 rabbit1 # rabbitmqctl set_policy ha "^ha-\.*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
 Setting policy "ha-mirror" for pattern "^ha-\." to "{"ha-mode":"all","ha-sync-mode":"automatic"}" with priority "0" for vhost "/" ...
 ```
 
 ……或者，你也可以使用 Web 界面来创建该策略。
 
-无论使用哪种方法，最终都会得到所需的 **ha** *Policy*，如下所示。
+无论使用哪种方法，最终都会得到所需的 *Policy* **ha**，如下所示。
 
 ![03-rabbitmq-policy.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/03-rabbitmq-policy-1.png?w=960)
 
-# 发送消息到队列
+## 发送消息到队列
 
-现在我们已经有了一个两节点的 RabbitMQ 集群，并且为名称以 **ha-** 前缀开头的队列启用了高可用功能。接下来我们将测试 RabbitMQ 设置，使用 **send.go** 脚本创建并发送消息到队列——正如你可能猜到的，这个脚本是用 Go 语言编写的。我们需要在 **host** 系统上安装 Go 语言。
+现在我们已经有了两节点的 RabbitMQ 集群，并且为名称以 **ha-** 前缀开头的队列启用了高可用功能。接下来我们将测试 RabbitMQ 设置，使用 **send.go** 脚本创建并发送消息到队列——正如你可能猜到的，这个脚本是用 Go 语言编写的。我们需要在 **host** 系统上安装 Go 语言。
 
-## 安装 Go 语言
+### 安装 Go 语言
 
 ```sh
 host # pkg install go
@@ -555,7 +555,7 @@ host % go version
 go version go1.12.5 freebsd/amd64
 ```
 
-这是 **send.go** 脚本——我们将使用它向 **ha-default** 队列发送 10 条消息。它基于 [RabbitMQ Hello World](https://www.rabbitmq.com/tutorials/tutorial-one-go.html) 教程。
+这是 **send.go** 脚本——我们将使用它向 **ha-default** 队列发送 10 条消息。它基于教程 [RabbitMQ Hello World](https://www.rabbitmq.com/tutorials/tutorial-one-go.html)。
 
 ```go
 host % cat send.go
@@ -588,7 +588,6 @@ func main() {
     false,        // 是否排他
     false,        // 是否不等待
     nil,          // 参数
-```
   )
   FAIL_ON_ERROR(err, "ER: failed to declare queue")
 
@@ -620,9 +619,9 @@ send.go:5:3: cannot find package "amqp" in any of:
         /home/vermaden/.gopkg/src/amqp (from $GOPATH)
 ```
 
-我们缺少 Go 语言的 **amqp** 包。
+我们缺少 Go 语言的包 **amqp**。
 
-需要从 [https://github.com/streadway/amqp](https://github.com/streadway/amqp) 页面下载。我们将通过下载整个 ZIP 包的方式获取它。
+需要从页面 [https://github.com/streadway/amqp](https://github.com/streadway/amqp) 下载。我们将通过下载整个 ZIP 包的方式获取它。
 
 ```sh
 host % mkdir -p ~/.gopkg/src
@@ -685,7 +684,7 @@ host % go run send.go
 
 ![04-rabbitmq-queue](https://vermaden.wordpress.com/wp-content/uploads/2019/06/04-rabbitmq-queue-1.png?w=960)
 
-现在我们需要从队列中“接收”这些消息，这时 **receive.go** 脚本派上用场。它同样基于 [RabbitMQ Hello World](https://www.rabbitmq.com/tutorials/tutorial-one-go.html) 教程。
+现在我们需要从队列中“接收”这些消息，这时 **receive.go** 脚本就派上用场了。它同样基于教程 [RabbitMQ Hello World](https://www.rabbitmq.com/tutorials/tutorial-one-go.html) 。
 
 ```go
 host % cat receive.go
@@ -747,7 +746,7 @@ func main() {
 ```
 
 
-这是运行后的输出。该程序会一直运行，直到你使用 **CTRL-C** 组合键手动结束它。
+这是运行后的输出。该程序会一直运行，直到你使用 **CTRL-C** 快捷键手动结束它。
 
 ```sh
 host % go run receive.go
@@ -769,9 +768,9 @@ host % go run receive.go
 
 如果你仔细查看源码，你可能已经注意到，我是在 **rabbit1** 节点（**10.0.0.101**）“发送”消息，而在 **rabbit2** 节点（**10.0.0.102**）“接收”这些消息的。
 
-## 简单基准测试
+### 简单基准测试
 
-接下来我们将进行一个简单的基准测试：保持 **receive.go** 脚本运行，同时修改 **send.go** 脚本的 **for** 循环，发送 **100000** 条消息。
+接下来我们将进行简单的基准测试：保持 **receive.go** 脚本运行，同时修改 **send.go** 脚本的 **for** 循环，发送 **100000** 条消息。
 
 ```sh
 host % go run receive.go
@@ -800,7 +799,7 @@ host % go run send.go
 
 在两个 FreeBSD Jails 内，这个 RabbitMQ 集群实例大约可以处理每秒 4000-5000 条消息。
 
-# 高可用性测试
+## 高可用性测试
 
 现在我们将测试 RabbitMQ 集群的高可用性。
 
