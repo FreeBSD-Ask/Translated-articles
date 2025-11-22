@@ -588,7 +588,7 @@ ONBOOT=yes
 MASTER=bond0
 SLAVE=yes
 
-[root@centos7 ~]# cat/etc/sysconfig/network-scripts/ifcfg-VLAN_connection_1
+[root@centos7 ~]# cat /etc/sysconfig/network-scripts/ifcfg-VLAN_connection_1
 VLAN=yes
 TYPE=Vlan
 PHYSDEV=ca85417f-8852-43bf-96ee-5bd3f0f83648
