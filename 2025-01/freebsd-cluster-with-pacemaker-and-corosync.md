@@ -10,15 +10,15 @@
 
 ![pacemaker](https://vermaden.wordpress.com/wp-content/uploads/2020/09/pacemaker.png?w=960)
 
-关于集群，有很多定义。我最喜欢的一个定义是：集群是即使失去其中一个节点仍保持冗余的系统（仍然是集群）。这意味着根据这个定义，集群的最少节点数是 3 个。两节点集群存在较大问题，因为它们最容易出现脑裂问题。这就是为什么在两节点集群中，通常会添加额外的设备或系统，以确保脑裂不会发生。例如，可以添加第三个节点，不提供任何资源或服务，仅作为“见证者”角色。另一种方式是添加共享磁盘资源，其作用相同，通常是使用 SCSI-3 持久保留机制的原始卷。
+集群，有很多定义。我最喜欢的定义是：集群是即使失去其中一个节点仍保持冗余的系统（仍然是集群）。这意味着根据这个定义，集群的最少节点数是 3 个。两节点集群存在较大问题，因为它们最容易出现脑裂问题。这就是为什么在两节点集群中，通常会添加额外的设备或系统，以确保不会发生脑裂。例如，可以添加第三个节点，不提供任何资源或服务，仅作为“见证者”角色。另一种方式是添加共享磁盘资源，其作用相同，通常是使用 SCSI-3 持久保留机制的原始卷。
 
-# 实验室搭建
+## 搭建实验室
 
-和以往一样，整个实验将基于 VirtualBox，并由 3 台主机组成。为了不创建 3 个相同的 FreeBSD 安装，我使用了 FreeBSD 项目直接提供的 12.1-RELEASE 虚拟机镜像：
+一如既往，整个实验将基于 VirtualBox，并由 3 台主机组成。为了不创建 3 个相同的 FreeBSD 安装，我直接使用了由 FreeBSD 项目提供的 12.1-RELEASE 虚拟机镜像：
 
 * [https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/)
 
-有几种格式可选 – **qcow2**/**raw**/**vhd**/**vmdk** – 因为我将使用 VirtualBox，所以选择了 [VMDK](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/amd64/Latest/FreeBSD-12.1-RELEASE-amd64.vmdk.xz) 格式。
+有多种格式可选 – **qcow2**/**raw**/**vhd**/**vmdk** – 因为我将使用 VirtualBox，所以选择了格式 [VMDK](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/amd64/Latest/FreeBSD-12.1-RELEASE-amd64.vmdk.xz) 。
 
 下面是 GlusterFS 集群的主机列表：
 
@@ -26,19 +26,19 @@
 * 10.0.10.112 node2
 * 10.0.10.113 node3
 
-每个 VirtualBox 的 FreeBSD 虚拟机均为默认配置（如 VirtualBox 向导所建议），内存为 512 MB，网络模式为 *NAT Network*，如下图所示。
+每个 VirtualBox 的 FreeBSD 虚拟机均为默认配置（如 VirtualBox 向导所建议），内存为 512 MB，网络模式为 *NAT Network（NAT 网络）*，如下图所示。
 
 ![machine](https://vermaden.wordpress.com/wp-content/uploads/2020/09/machine-1.jpg?w=960)
 
-下面是 VirtualBox 上 *NAT Network* 的配置。
+下面是 VirtualBox 上 *NAT Network（NAT 网络）* 的配置。
 
 ![nat-network-01](https://vermaden.wordpress.com/wp-content/uploads/2020/09/nat-network-01.jpg?w=960)
 
 ![nat-network-02](https://vermaden.wordpress.com/wp-content/uploads/2020/09/nat-network-02.jpg?w=960)
 
-在尝试连接 FreeBSD 主机之前，需要在每台虚拟机内进行最小网络配置。每台 FreeBSD 主机将具有如下示例的最小 **/etc/rc.conf** 文件（以 **node1** 为例）。
+在尝试连接 FreeBSD 主机之前，需要在每台虚拟机内进行最简网络配置。每台 FreeBSD 主机将具有如下示例的最简 **/etc/rc.conf** 文件（以 **node1** 为例）。
 
-```sh
+```ini
 root@node1:~ # cat /etc/rc.conf
 hostname=node1
 ifconfig_em0="inet 10.0.10.111/24 up"
@@ -46,7 +46,7 @@ defaultrouter=10.0.10.1
 sshd_enable=YES
 ```
 
-为了搭建实验环境，我们需要允许 **root** 登录这些 FreeBSD 主机，在 **/etc/ssh/sshd_config** 文件中设置 **PermitRootLogin yes**。更改后，还需要重启 **sshd(8)** 服务。
+为了搭建实验环境，我们需要允许 **root** 登录这些 FreeBSD 主机，在 **/etc/ssh/sshd_config** 文件中设置 **PermitRootLogin yes**。更改以后，还需要重启 **sshd(8)** 服务。
 
 ```sh
 root@node1:~ # grep PermitRootLogin /etc/ssh/sshd_config
@@ -55,7 +55,7 @@ PermitRootLogin yes
 root@node1:~ # service sshd restart
 ```
 
-通过使用带有 *端口转发* 的 NAT Network，FreeBSD 主机将可以通过本地主机端口访问。例如，**node1** 可以通过端口 **2211** 访问，**node2** 可以通过端口 **2212** 访问，依此类推。如下 **sockstat** 工具输出所示。
+通过使用带有 *端口转发* 的 NAT Network（NAT 网络），FreeBSD 主机可以通过本地主机端口访问。例如，可以通过端口 **2211** 访问 **node1**，可以通过端口 **2212** 访问 **node2**，依此类推。如下 **sockstat** 工具输出所示。
 
 
 ![nat-network-03-sockstat](https://vermaden.wordpress.com/wp-content/uploads/2020/09/nat-network-03-sockstat.jpg?w=960)
@@ -64,24 +64,24 @@ root@node1:~ # service sshd restart
 
 要从 VirtualBox 主机系统连接到这样的虚拟机，需要使用如下命令：
 
-```
+```sh
 vboxhost % ssh -l root localhost -p 2211
 ```
 
-# 软件包
+## 软件包
 
-现在我们已经可以通过 **ssh(1)** 连接，需要添加所需的软件包。为了让我们的虚拟机能够解析 DNS 查询，还需要做最后一件事。同时，我们将切换 **pkg(8)** 软件包到 “quarterly” 分支。
+现在我们已经可以通过 **ssh(1)** 连接，需要安装所需的软件包。为了让我们的虚拟机能够解析 DNS 查询，还需要做最后一件事。同时，我们将切换 **pkg(8)** 软件包到 “quarterly” 分支。
 
-```
+```sh
 root@node1:~ # echo 'nameserver 1.1.1.1' > /etc/resolv.conf
 root@node1:~ # sed -i '' s/quarterly/latest/g /etc/pkg/FreeBSD.conf
 ```
 
 请记得在 **node2** 和 **node3** 系统上重复执行上述两条命令。
 
-现在我们将安装 Pacemaker 和 Corosync 软件包。
+现在我们将安装软件包 Pacemaker 和 Corosync。
 
-```
+```sh
 root@node1:~ # pkg install pacemaker2 corosync2 crmsh
 
 root@node2:~ # pkg install pacemaker2 corosync2 crmsh
@@ -177,7 +177,7 @@ root@node1:~ # pkg info -l crmsh | grep bin
         /usr/local/bin/crm
 ```
 
-# 集群初始化
+## 初始化集群
 
 现在我们将初始化 FreeBSD 集群。
 
@@ -590,7 +590,7 @@ STONITH 配置超出了本文的范围，但正确配置的 STONITH 如下所示
 
 ![stonith](https://vermaden.wordpress.com/wp-content/uploads/2020/09/stonith.jpg?w=960)
 
-# 第一个服务
+## 第一个服务
 
 现在我们将配置第一个高可用服务——经典示例——一个浮动 IP 地址 :🙂:
 
@@ -666,7 +666,7 @@ Full List of Resources:
   * No resources
 ```
 
-# 自定义资源
+## 自定义资源
 
 让我们查看默认 Pacemaker 安装提供了哪些资源。
 
@@ -753,9 +753,9 @@ Beginning tests for /usr/local/lib/ocf/resource.d/pacemaker/ifconfig...
 
 让我们尝试向 FreeBSD 集群添加新的 **IP** 资源。
 
-# 测试
+## 测试
 
-```
+```sh
 root@node1:~ # crm configure primitive IP ocf:pacemaker:ifconfig op monitor interval="30"
 ```
 
@@ -959,6 +959,6 @@ Full List of Resources:
 
 很高兴知道 Pacemaker 和 Corosync 集群在 FreeBSD 上运行良好。
 
-虽然需要一些工作来编写必要的资源文件，但只要有时间和决心，完全可以将 FreeBSD 打造成一个非常强大的高可用集群。
+虽然需要一些工作来编写必要的资源文件，但只要有时间和决心，完全可以将 FreeBSD 打造成非常强大的高可用集群。
 
 
