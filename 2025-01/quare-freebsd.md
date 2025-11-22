@@ -32,11 +32,11 @@ FreeBSD **基本系统** 的分离还有另一个好处——如果某个软件�
 
 关于 **基本系统** 主题的更多资料：
 
-* [https://www.over-yonder.net/~fullermd/rants/bsd4linux/03](https://www.over-yonder.net/~fullermd/rants/bsd4linux/03)
-* [https://freebsd.org/handbook/dirstructure.html](https://freebsd.org/handbook/dirstructure.html)
-* [https://man.freebsd.org/hier](https://man.freebsd.org/hier)
-* [https://man.freebsd.org/freebsd-version](https://man.freebsd.org/freebsd-version)
-* [https://man.freebsd.org/portmaster](https://man.freebsd.org/portmaster)
+- [https://www.over-yonder.net/~fullermd/rants/bsd4linux/03](https://www.over-yonder.net/~fullermd/rants/bsd4linux/03)
+- [https://freebsd.org/handbook/dirstructure.html](https://freebsd.org/handbook/dirstructure.html)
+- [https://man.freebsd.org/hier](https://man.freebsd.org/hier)
+- [https://man.freebsd.org/freebsd-version](https://man.freebsd.org/freebsd-version)
+- [https://man.freebsd.org/portmaster](https://man.freebsd.org/portmaster)
 
 ## ZFS 启动环境
 
@@ -48,12 +48,12 @@ FreeBSD **基本系统** 的分离还有另一个好处——如果某个软件�
 
 关于 **ZFS 启动环境** 的更多资料：
 
-* [https://is.gd/BECTL](https://is.gd/BECTL)
-* [UFS 启动环境](https://vermaden.wordpress.com/2021/04/02/ufs-boot-environments/)
-* [ARM 平台的 UFS 启动环境](https://vermaden.wordpress.com/2021/04/05/ufs-boot-environments-for-arm/)
-* [使用 ZFS 启动环境升级 FreeBSD](https://vermaden.wordpress.com/2021/02/23/upgrade-freebsd-with-zfs-boot-environments/)
-* [https://man.freebsd.org/beadm](https://man.freebsd.org/beadm)
-* [https://man.freebsd.org/bectl](https://man.freebsd.org/bectl)
+- [https://is.gd/BECTL](https://is.gd/BECTL)
+- [UFS 启动环境](https://vermaden.wordpress.com/2021/04/02/ufs-boot-environments/)
+- [ARM 平台的 UFS 启动环境](https://vermaden.wordpress.com/2021/04/05/ufs-boot-environments-for-arm/)
+- [使用 ZFS 启动环境升级 FreeBSD](https://vermaden.wordpress.com/2021/02/23/upgrade-freebsd-with-zfs-boot-environments/)
+- [https://man.freebsd.org/beadm](https://man.freebsd.org/beadm)
+- [https://man.freebsd.org/bectl](https://man.freebsd.org/bectl)
 
 ## 救援
 
@@ -99,9 +99,9 @@ date        fsck_4.2bsd      ifconfig      mdconfig   pgrep          rtquery   u
 
 关于 **rescue 救援** 主题的更多资料：
 
-* [https://man.freebsd.org/rescue](https://man.freebsd.org/rescue)
-* [https://docs.hetzner.com/robot/dedicated-server/operating-systems/freebsd-rescue-system/](https://docs.hetzner.com/robot/dedicated-server/operating-systems/freebsd-rescue-system/)
-* [http://wiki.euserv.com/index.php/Manual_FreeBSD_Rescue_System/en](http://wiki.euserv.com/index.php/Manual_FreeBSD_Rescue_System/en)
+- [https://man.freebsd.org/rescue](https://man.freebsd.org/rescue)
+- [https://docs.hetzner.com/robot/dedicated-server/operating-systems/freebsd-rescue-system/](https://docs.hetzner.com/robot/dedicated-server/operating-systems/freebsd-rescue-system/)
+- [http://wiki.euserv.com/index.php/Manual_FreeBSD_Rescue_System/en](http://wiki.euserv.com/index.php/Manual_FreeBSD_Rescue_System/en)
 
 ## 音频
 
@@ -115,11 +115,11 @@ date        fsck_4.2bsd      ifconfig      mdconfig   pgrep          rtquery   u
 
 关于 **音频** 的更多资料：
 
-* [https://freebsd.org/doc/en/books/arch-handbook/oss.html](https://freebsd.org/doc/en/books/arch-handbook/oss.html)
-* [https://freebsd.org/handbook/sound-setup.html](https://freebsd.org/handbook/sound-setup.html)
-* [https://man.freebsd.org/sound](https://man.freebsd.org/sound)
-* [https://papers.freebsd.org/2019/fosdem/mekic-audio_studio/](https://papers.freebsd.org/2019/fosdem/mekic-audio_studio/)
-* [https://wiki.freebsd.org/Sound](https://wiki.freebsd.org/Sound)
+- [https://freebsd.org/doc/en/books/arch-handbook/oss.html](https://freebsd.org/doc/en/books/arch-handbook/oss.html)
+- [https://freebsd.org/handbook/sound-setup.html](https://freebsd.org/handbook/sound-setup.html)
+- [https://man.freebsd.org/sound](https://man.freebsd.org/sound)
+- [https://papers.freebsd.org/2019/fosdem/mekic-audio_studio/](https://papers.freebsd.org/2019/fosdem/mekic-audio_studio/)
+- [https://wiki.freebsd.org/Sound](https://wiki.freebsd.org/Sound)
 
 ## Jail
 
@@ -167,15 +167,15 @@ FreeBSD # jls
 
 更多关于 **Jail** 的资料：
 
-* [https://vermaden.wordpress.com/2023/06/28/freebsd-jails-containers/](https://vermaden.wordpress.com/2023/06/28/freebsd-jails-containers/)
-* [https://freebsd.org/handbook/jails.html](https://freebsd.org/handbook/jails.html)
-* [https://man.freebsd.org/jail](https://man.freebsd.org/jail)
-* [https://man.freebsd.org/jail.conf](https://man.freebsd.org/jail.conf)
-* [https://man.freebsd.org/jls](https://man.freebsd.org/jls)
-* [https://man.freebsd.org/jexec](https://man.freebsd.org/jexec)
-* [https://bastillebsd.org](https://bastillebsd.org/)
-* [https://web.archive.org/web/20170126214625/http://ivoras.sharanet.org/blog/tree/2009-10-20.the-night-of-1000-jails.html](https://web.archive.org/web/20170126214625/http://ivoras.sharanet.org/blog/tree/2009-10-20.the-night-of-1000-jails.html)
-* [https://forums.freebsd.org/threads/setting-up-a-debian-linux-jail-on-freebsd.68434/](https://forums.freebsd.org/threads/setting-up-a-debian-linux-jail-on-freebsd.68434/)
+- [https://vermaden.wordpress.com/2023/06/28/freebsd-jails-containers/](https://vermaden.wordpress.com/2023/06/28/freebsd-jails-containers/)
+- [https://freebsd.org/handbook/jails.html](https://freebsd.org/handbook/jails.html)
+- [https://man.freebsd.org/jail](https://man.freebsd.org/jail)
+- [https://man.freebsd.org/jail.conf](https://man.freebsd.org/jail.conf)
+- [https://man.freebsd.org/jls](https://man.freebsd.org/jls)
+- [https://man.freebsd.org/jexec](https://man.freebsd.org/jexec)
+- [https://bastillebsd.org](https://bastillebsd.org/)
+- [https://web.archive.org/web/20170126214625/http://ivoras.sharanet.org/blog/tree/2009-10-20.the-night-of-1000-jails.html](https://web.archive.org/web/20170126214625/http://ivoras.sharanet.org/blog/tree/2009-10-20.the-night-of-1000-jails.html)
+- [https://forums.freebsd.org/threads/setting-up-a-debian-linux-jail-on-freebsd.68434/](https://forums.freebsd.org/threads/setting-up-a-debian-linux-jail-on-freebsd.68434/)
 
 ## Bhyve
 
@@ -195,10 +195,10 @@ FreeBSD——和 Linux 或其他受人尊敬的操作系统一样——自带其
 
 更多关于 *Bhyve* 的信息：
 
-* [https://vermaden.wordpress.com/2023/08/18/freebsd-bhyve-virtualization/](https://vermaden.wordpress.com/2023/08/18/freebsd-bhyve-virtualization/)
-* [https://freebsd.org/handbook/virtualization-host-bhyve.html](https://freebsd.org/handbook/virtualization-host-bhyve.html)
-* [https://wiki.freebsd.org/bhyve](https://wiki.freebsd.org/bhyve)
-* [https://man.freebsd.org/bhyve/8](https://man.freebsd.org/bhyve/8)
+- [https://vermaden.wordpress.com/2023/08/18/freebsd-bhyve-virtualization/](https://vermaden.wordpress.com/2023/08/18/freebsd-bhyve-virtualization/)
+- [https://freebsd.org/handbook/virtualization-host-bhyve.html](https://freebsd.org/handbook/virtualization-host-bhyve.html)
+- [https://wiki.freebsd.org/bhyve](https://wiki.freebsd.org/bhyve)
+- [https://man.freebsd.org/bhyve/8](https://man.freebsd.org/bhyve/8)
 
 ## FreeBSD Ports 基础设施
 
@@ -228,12 +228,12 @@ Poudriere 是一款构建框架，它使用 *FreeBSD Ports* 和 *FreeBSD Jails* 
 
 更多关于 *FreeBSD Ports* 的信息：
 
-* [https://freebsd.org/handbook/ports-using.html](https://freebsd.org/handbook/ports-using.html)
-* [https://freebsd.org/handbook/ports-poudriere.html](https://freebsd.org/handbook/ports-poudriere.html)
-* [https://man.freebsd.org/ports](https://man.freebsd.org/ports)
-* [https://man.freebsd.org/build](https://man.freebsd.org/build)
-* [https://freshports.org/](https://freshports.org/)
-* [https://repology.org/repositories/statistics/newest](https://repology.org/repositories/statistics/newest)
+- [https://freebsd.org/handbook/ports-using.html](https://freebsd.org/handbook/ports-using.html)
+- [https://freebsd.org/handbook/ports-poudriere.html](https://freebsd.org/handbook/ports-poudriere.html)
+- [https://man.freebsd.org/ports](https://man.freebsd.org/ports)
+- [https://man.freebsd.org/build](https://man.freebsd.org/build)
+- [https://freshports.org/](https://freshports.org/)
+- [https://repology.org/repositories/statistics/newest](https://repology.org/repositories/statistics/newest)
 
 ## 从源码更新/构建
 
@@ -282,11 +282,11 @@ FreeBSD # zgrep -c WITH_ /usr/share/man/man5/src.conf.5.gz
 
 更多关于 *FreeBSD 源码更新/构建* 的信息：
 
-* [https://freebsd.org//handbook/kernelconfig.html](https://freebsd.org//handbook/kernelconfig.html)
-* [https://freebsd.org/handbook/makeworld.html](https://freebsd.org/handbook/makeworld.html)
-* [https://freebsd.org/doc/en/articles/freebsd-update-server/](https://freebsd.org/doc/en/articles/freebsd-update-server/)
-* [https://man.freebsd.org/build](https://man.freebsd.org/build)
-* [https://man.freebsd.org/src.conf](https://man.freebsd.org/src.conf)
+- [https://freebsd.org//handbook/kernelconfig.html](https://freebsd.org//handbook/kernelconfig.html)
+- [https://freebsd.org/handbook/makeworld.html](https://freebsd.org/handbook/makeworld.html)
+- [https://freebsd.org/doc/en/articles/freebsd-update-server/](https://freebsd.org/doc/en/articles/freebsd-update-server/)
+- [https://man.freebsd.org/build](https://man.freebsd.org/build)
+- [https://man.freebsd.org/src.conf](https://man.freebsd.org/src.conf)
 
 ## 存储
 
@@ -302,16 +302,16 @@ FreeBSD 还拥有自己的 FUSE 实现，使所有基于 FUSE 的文件系统能
 
 更多关于 *存储* 的信息：
 
-* [https://is.gd/bsdstg](https://is.gd/bsdstg)
-* [https://freebsd.org/handbook/disks.html](https://freebsd.org/handbook/disks.html)
-* [https://freebsd.org/handbook/geom.html](https://freebsd.org/handbook/geom.html)
-* [https://freebsd.org/handbook/zfs.html](https://freebsd.org/handbook/zfs.html)
-* [https://freebsd.org/handbook/filesystems.html](https://freebsd.org/handbook/filesystems.html)
-* [https://man.freebsd.org/geom](https://man.freebsd.org/geom)
-* [https://man.freebsd.org/geli](https://man.freebsd.org/geli)
-* [https://man.freebsd.org/fusefs](https://man.freebsd.org/fusefs)
-* [https://man.freebsd.org/newfs](https://man.freebsd.org/newfs)
-* [https://man.freebsd.org/hast.conf](https://man.freebsd.org/hast.conf)
+- [https://is.gd/bsdstg](https://is.gd/bsdstg)
+- [https://freebsd.org/handbook/disks.html](https://freebsd.org/handbook/disks.html)
+- [https://freebsd.org/handbook/geom.html](https://freebsd.org/handbook/geom.html)
+- [https://freebsd.org/handbook/zfs.html](https://freebsd.org/handbook/zfs.html)
+- [https://freebsd.org/handbook/filesystems.html](https://freebsd.org/handbook/filesystems.html)
+- [https://man.freebsd.org/geom](https://man.freebsd.org/geom)
+- [https://man.freebsd.org/geli](https://man.freebsd.org/geli)
+- [https://man.freebsd.org/fusefs](https://man.freebsd.org/fusefs)
+- [https://man.freebsd.org/newfs](https://man.freebsd.org/newfs)
+- [https://man.freebsd.org/hast.conf](https://man.freebsd.org/hast.conf)
 
 ## Init 系统
 
@@ -383,11 +383,11 @@ run_rc_command "$1"
 
 更多关于 *Init 系统* 的信息：
 
-* [https://freebsd.org/handbook/configtuning-rcd.html](https://freebsd.org/handbook/configtuning-rcd.html)
-* [https://freebsd.org/doc/en/articles/rc-scripting/](https://www.freebsd.org/doc/en/articles/rc-scripting/)
-* [https://man.freebsd.org/rc](https://man.freebsd.org/rc)
-* [https://man.freebsd.org/rc.conf](https://man.freebsd.org/rc.conf)
-* [https://man.freebsd.org/rc.local](https://man.freebsd.org/rc.local)
+- [https://freebsd.org/handbook/configtuning-rcd.html](https://freebsd.org/handbook/configtuning-rcd.html)
+- [https://freebsd.org/doc/en/articles/rc-scripting/](https://www.freebsd.org/doc/en/articles/rc-scripting/)
+- [https://man.freebsd.org/rc](https://man.freebsd.org/rc)
+- [https://man.freebsd.org/rc.conf](https://man.freebsd.org/rc.conf)
+- [https://man.freebsd.org/rc.local](https://man.freebsd.org/rc.local)
 
 ## Linux 二进制兼容层
 
@@ -399,9 +399,9 @@ run_rc_command "$1"
 
 更多关于 *Linux 二进制兼容层* 的信息：
 
-* [https://freebsd.org/handbook/linuxemu.html](https://freebsd.org/handbook/linuxemu.html)
-* [https://freebsd.org/handbook/linuxemu-lbc-install.html](https://freebsd.org/handbook/linuxemu-lbc-install.html)
-* [https://freebsd.org/doc/en/articles/linux-emulation/](https://freebsd.org/doc/en/articles/linux-emulation/)
+- [https://freebsd.org/handbook/linuxemu.html](https://freebsd.org/handbook/linuxemu.html)
+- [https://freebsd.org/handbook/linuxemu-lbc-install.html](https://freebsd.org/handbook/linuxemu-lbc-install.html)
+- [https://freebsd.org/doc/en/articles/linux-emulation/](https://freebsd.org/doc/en/articles/linux-emulation/)
 
 ## 简洁性
 
@@ -411,17 +411,17 @@ FreeBSD 很简单，但并不粗糙或难以驾驭。例如，和 Linux 一样�
 
 那么这些呢？
 
-* **securityfs**
-* **devpts**
-* **cgroup**
-* **pstore**
-* **bpf**
-* **configfs**
-* **selinuxfs**
-* **systemd-1**
-* **mqueue**
-* **debugfs**
-* **hugetlbfs**
+- **securityfs**
+- **devpts**
+- **cgroup**
+- **pstore**
+- **bpf**
+- **configfs**
+- **selinuxfs**
+- **systemd-1**
+- **mqueue**
+- **debugfs**
+- **hugetlbfs**
 
 看看 FreeBSD 在默认 ZFS 安装后的 **mount(8)** 输出，就能体会不同的简洁设计。
 
@@ -707,8 +707,8 @@ FreeBSD 真的是一个简单且设计周到的操作系统，同时也是被严
 
 更多关于 *改革而非革命* 的信息：
 
-* [https://duck.com/?q=deprecated+linux+commands](https://duck.com/?q=deprecated+linux+commands)
-* [https://duck.com/?q=deprecated+linux+subsystems+-windows](https://duck.com/?q=deprecated+linux+subsystems+-windows)
+- [https://duck.com/?q=deprecated+linux+commands](https://duck.com/?q=deprecated+linux+commands)
+- [https://duck.com/?q=deprecated+linux+subsystems+-windows](https://duck.com/?q=deprecated+linux+subsystems+-windows)
 
 ## 文档
 
@@ -718,21 +718,21 @@ FreeBSD 真的是一个简单且设计周到的操作系统，同时也是被严
 
 以上仅是官方项目的知识来源，此外还有大量 FreeBSD 书籍。你也可以参考我专门的 **[FreeBSD 书籍](https://vermaden.wordpress.com/2022/02/04/books-about-freebsd/)** 文章，深入了解可用的 FreeBSD 书籍。以下是最佳且最新的书籍：
 
-* **Absolute FreeBSD – Complete Guide to FreeBSD** – 第三版（2019）
-* **Beginning Modern Unix**（2018）
-* **Book of PF** – 第三版（2015）
-* **Design and Implementation of FreeBSD 11 Operating System（FreeBSD 操作系统设计与实现）** – 第二版（2015）
-* **FreeBSD Device Drivers**（2012）
-* **FreeBSD Mastery – ZFS**（2015）
-* **FreeBSD Mastery – Advanced ZFS**（2016）
-* **FreeBSD Mastery – Storage Essentials**（2014）
-* **FreeBSD Mastery – Specialty Filesystems**（2015）
-* **FreeBSD Mastery – Jails**（2019）
+- **Absolute FreeBSD – Complete Guide to FreeBSD** – 第三版（2019）
+- **Beginning Modern Unix**（2018）
+- **Book of PF** – 第三版（2015）
+- **Design and Implementation of FreeBSD 11 Operating System（FreeBSD 操作系统设计与实现）** – 第二版（2015）
+- **FreeBSD Device Drivers**（2012）
+- **FreeBSD Mastery – ZFS**（2015）
+- **FreeBSD Mastery – Advanced ZFS**（2016）
+- **FreeBSD Mastery – Storage Essentials**（2014）
+- **FreeBSD Mastery – Specialty Filesystems**（2015）
+- **FreeBSD Mastery – Jails**（2019）
 
 还有两本专门面向 BSD 和 FreeBSD 系统的杂志，均免费，涵盖大量 FreeBSD 有趣话题：
 
-* **[BSD Magazine](https://bsdmag.org/)**
-* [**FreeBSD 期刊**](https://freebsdfoundation.org/our-work/journal/)
+- **[BSD Magazine](https://bsdmag.org/)**
+- [**FreeBSD 期刊**](https://freebsdfoundation.org/our-work/journal/)
 
 拥有如此丰富的知识和支持，要在 FreeBSD 系统上实现所需功能几乎没有难度。
 
@@ -742,9 +742,9 @@ FreeBSD 真的是一个简单且设计周到的操作系统，同时也是被严
 
 FreeBSD 项目甚至专门为 Linux 新手（有时被称为 **systemd(1)** 难民）制作了若干文章和 Handbook 章节：
 
-* [**For People New to Both FreeBSD and UNIX®**](https://freebsd.org/doc/en/articles/new-users/index.html)
-* [**FreeBSD Quickstart Guide for Linux® Users**](https://freebsd.org/doc/en/articles/linux-users/)
-* [**Explaining BSD**](https://freebsd.org/doc/en/articles/explaining-bsd/)
+- [**For People New to Both FreeBSD and UNIX®**](https://freebsd.org/doc/en/articles/new-users/index.html)
+- [**FreeBSD Quickstart Guide for Linux® Users**](https://freebsd.org/doc/en/articles/linux-users/)
+- [**Explaining BSD**](https://freebsd.org/doc/en/articles/explaining-bsd/)
 
 ## 结语
 
@@ -754,6 +754,6 @@ FreeBSD 项目甚至专门为 Linux 新手（有时被称为 **systemd(1)** 难�
 
 来自“外部”来源的讨论和评论可在以下链接查看：
 
-* [**Lobsters**](https://lobste.rs/s/4egn7o/quare_freebsd)
-* [**Hacker News**](https://news.ycombinator.com/item?id=31664952)
-* [**Reddit**](https://www.reddit.com/r/freebsd/comments/inwclo/quare_freebsd/)
+- [**Lobsters**](https://lobste.rs/s/4egn7o/quare_freebsd)
+- [**Hacker News**](https://news.ycombinator.com/item?id=31664952)
+- [**Reddit**](https://www.reddit.com/r/freebsd/comments/inwclo/quare_freebsd/)
