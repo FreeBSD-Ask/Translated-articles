@@ -827,6 +827,7 @@ host # service jail onestart rabbit1
 Starting jails: rabbit1.
 host #
 ```
+
 ![07-rabbitmq-ha-node-back.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/07-rabbitmq-ha-node-back-1.png?w=960)
 
 **ha-default** 队列恢复了冗余，显示 **+1** 标记，但仍然位于 **rabbit2** 节点。

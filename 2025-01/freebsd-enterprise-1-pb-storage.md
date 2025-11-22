@@ -10,9 +10,9 @@
 
 我曾基于 FreeBSD 构建过各种存储相关系统：
 
-* [FreeBSD 上基于 Minio 的分布式对象存储](https://vermaden.wordpress.com/2018/04/16/distributed-object-storage-with-minio-on-freebsd/)
-* [FreeBSD 上的 GlusterFS 集群，结合 Ansible 和 GNU Parallel](https://vermaden.wordpress.com/2019/01/07/glusterfs-cluster-on-freebsd-with-ansible-and-gnu-parallel/)
-* [静音无风扇 FreeBSD 服务器 —— 冗余备份](https://vermaden.wordpress.com/2019/04/03/silent-fanless-freebsd-server-redundant-backup/)
+- [FreeBSD 上基于 Minio 的分布式对象存储](https://vermaden.wordpress.com/2018/04/16/distributed-object-storage-with-minio-on-freebsd/)
+- [FreeBSD 上的 GlusterFS 集群，结合 Ansible 和 GNU Parallel](https://vermaden.wordpress.com/2019/01/07/glusterfs-cluster-on-freebsd-with-ansible-and-gnu-parallel/)
+- [静音无风扇 FreeBSD 服务器 —— 冗余备份](https://vermaden.wordpress.com/2019/04/03/silent-fanless-freebsd-server-redundant-backup/)
 
 这个项目有所不同。一台 4U 服务器最多能提供多少存储空间？事实证明，非常多！绝对大于 1 PB（1024 TB）的原始存储空间。
 
@@ -20,8 +20,8 @@
 
 这些是 4U 服务器，带有 90-100 个 3.5 寸硬盘位，可以安装 1260-1400 TB 数据（使用 14 TB 硬盘）。此类系统示例有：
 
-* [TYAN Thunder SX FA100](https://www.tyan.com/Barebones_FA100B7118_B7118F100V100HR)（100 个硬盘位）
-* [Supermicro SuperStorage 6048R-E1CR90L](https://www.supermicro.com/products/system/4U/6048/SSG-6048R-E1CR90L.cfm)（90 个硬盘位）
+- [TYAN Thunder SX FA100](https://www.tyan.com/Barebones_FA100B7118_B7118F100V100HR)（100 个硬盘位）
+- [Supermicro SuperStorage 6048R-E1CR90L](https://www.supermicro.com/products/system/4U/6048/SSG-6048R-E1CR90L.cfm)（90 个硬盘位）
 
 我会选择第一款 —— 简称 TYAN FA100。
 
@@ -583,7 +583,7 @@ lagg0: flags=8843 metric 0 mtu 1500
 
 ![intel-x710-da-2.jpg](https://vermaden.wordpress.com/wp-content/uploads/2019/06/intel-x710-da-2.jpg?w=960)
 
-### 配置 Cisco Nexus 
+### 配置 Cisco Nexus
 
 这是启用 LACP 聚合所需的 *Cisco Nexus* 配置。
 
@@ -1001,10 +1001,10 @@ blogbench -d .  299.08s user 5415.04s system 1900% cpu 5:00.68 total
 
 **Intel SSD DC S3500 240 GB 驱动特性：**
 
-* 顺序读取（最大）**500 MB/s**
-* 顺序写入（最大）**260 MB/s**
-* 随机读取（100% 范围）**75000 IOPS**
-* 随机写入（100% 范围）**7500 IOPS**
+- 顺序读取（最大）**500 MB/s**
+- 顺序写入（最大）**260 MB/s**
+- 随机读取（100% 范围）**75000 IOPS**
+- 随机写入（100% 范围）**7500 IOPS**
 
 ```sh
 # time blogbench -d .

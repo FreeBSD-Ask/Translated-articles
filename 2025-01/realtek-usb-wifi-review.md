@@ -153,6 +153,7 @@ PING freebsd.org (96.47.72.84): 56 data bytes
 3 packets transmitted, 3 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 119.128/119.456/119.870/0.309 ms
 ```
+
 可用。
 
 ## FreeBSD 性能测试

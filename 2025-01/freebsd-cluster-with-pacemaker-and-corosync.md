@@ -16,15 +16,15 @@
 
 一如既往，整个实验将基于 VirtualBox，并由 3 台主机组成。为了不创建 3 个相同的 FreeBSD 安装，我直接使用了由 FreeBSD 项目提供的 12.1-RELEASE 虚拟机镜像：
 
-* [https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/)
+- [https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/)
 
 有多种格式可选 – **qcow2**/**raw**/**vhd**/**vmdk** – 因为我将使用 VirtualBox，所以选择了格式 [VMDK](https://download.freebsd.org/ftp/releases/VM-IMAGES/12.1-RELEASE/amd64/Latest/FreeBSD-12.1-RELEASE-amd64.vmdk.xz) 。
 
 下面是 GlusterFS 集群的主机列表：
 
-* 10.0.10.111 node1
-* 10.0.10.112 node2
-* 10.0.10.113 node3
+- 10.0.10.111 node1
+- 10.0.10.112 node2
+- 10.0.10.113 node3
 
 每个 VirtualBox 的 FreeBSD 虚拟机均为默认配置（如 VirtualBox 向导所建议），内存为 512 MB，网络模式为 *NAT Network（NAT 网络）*，如下图所示。
 
