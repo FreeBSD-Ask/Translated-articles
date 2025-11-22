@@ -142,14 +142,14 @@ nextcloud {
 
 现在你可以立即启动你的 Jail。
 
-```bash
+```sh
 FreeBSD # service jail onestart nextcloud
 Starting jails: nextcloud.
 ````
 
 瞧！你的 FreeBSD Jail 已经跑起来了。
 
-```bash
+```sh
 FreeBSD # jls
    JID  IP Address      Hostname                      Path
      1  10.0.0.100      nextcloud.local               /jail/nextcloud
