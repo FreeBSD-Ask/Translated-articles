@@ -4,7 +4,7 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2020/09/07
 
-我本来真的想把这篇文章写得不那么长……但我彻底失败了。但我至少尽力把它组织得井井有条，这样读者在略读之后可以回过头来复习，因为它并不是一堂速成课。我本想将它命名为 *Why FreeBSD?*，但当你在自己喜欢的 搜索引擎 **duck.com**中输入这个标题时，会出现很多类似的文章。我希望它有个独特且与众不同的名字，于是我使用了拉丁语中的“为什么”——*quare*。
+我本来真的想把这篇文章写得不那么长……但我彻底失败了。但我至少尽力把它组织得井井有条，这样读者在略读之后可以回过头来复习，因为它并不是一堂速成课。我本想将它命名为 *Why FreeBSD?*，但当你在自己喜欢的 搜索引擎 **duck.com** 中输入这个标题时，会出现很多类似的文章。我希望它有个独特且与众不同的名字，于是我使用了拉丁语中的“为什么”——*quare*。
 
 <img width="650" height="650" alt="image" src="https://github.com/user-attachments/assets/d40aa447-366c-4646-978a-90cd8d8facdb" />
 
@@ -218,7 +218,7 @@ FreeBSD——和 Linux 或其他受人尊敬的操作系统一样——自带其
 
 ![ports-later](https://vermaden.wordpress.com/wp-content/uploads/2020/09/ports-later.png?w=960)
 
-*FreeBSD Ports* 的数量是一方面，功能则是另一方面。无论你使用哪种 Linux 发行版，总会遇到某些软件在编译和发布时没有加上你急需的标志。如果在 FreeBSD 上遇到类似情况，“痛苦”只会持续片刻，因为你可以非常轻松地使用所需选项重新编译该软件，并用自己的版本替换掉“默认”包。例如，FreeBSD 项目因为现有的 MP3 专利而不敢提供 Lame 包（**译注：在 2020 年[已经移除](https://svnweb.freebsd.org/changeset/ports/554970)该限制及下述限制**），所以 **multimedia/ffmpeg** 包默认是没有 MP3 支持的（使用 **--disable-libmp3lame** 标志）。这就是为什么我有自己的 **audio/lame** 和 **multimedia/ffmpeg** 包，都是按照我的 **configure** 选项构建的，而且实现非常简单。你只需进入 **/usr/ports/multimedia/ffmpeg** 目录，输入 **make config**，在 ncurses 对话框中选择 **[x] LAME**。你选择的选项会保存到普通文件 **/var/db/ports/multimedia_ffmpeg/options**。如果删除该文件（或输入 **make rmconfig**），这些自定义选项将重置为默认值。然后输入 **make build deinstall install clean**，你的 port 就会以新选项构建并安装为包，无需其他操作。你甚至可以使用 **pkg(8)** 的 **pkg lock -y ffmpeg** 命令锁定该包，防止之后被窜改，但更好的做法是每次执行 **pkg upgrade** 时重新构建此类包，以应对库版本升级和变化。虽然使用这些命令创建脚本实现自动化非常容易快捷，你也可以使用 *FreeBSD Ports* 基础设施的其他部分——比如 Poudriere（或 Synth）——在下一部分会详细介绍。
+*FreeBSD Ports* 的数量是一方面，功能则是另一方面。无论你使用哪种 Linux 发行版，总会遇到某些软件在编译和发布时没有加上你急需的标志。如果在 FreeBSD 上遇到类似情况，“痛苦”只会持续片刻，因为你可以非常轻松地使用所需选项重新编译该软件，并用自己的版本替换掉“默认”包。例如，FreeBSD 项目因为现有的 MP3 专利而不敢提供 Lame 包（**译注：在 2020 年 [已经移除](https://svnweb.freebsd.org/changeset/ports/554970) 该限制及下述限制**），所以 **multimedia/ffmpeg** 包默认是没有 MP3 支持的（使用 **--disable-libmp3lame** 标志）。这就是为什么我有自己的 **audio/lame** 和 **multimedia/ffmpeg** 包，都是按照我的 **configure** 选项构建的，而且实现非常简单。你只需进入 **/usr/ports/multimedia/ffmpeg** 目录，输入 **make config**，在 ncurses 对话框中选择 **[x] LAME**。你选择的选项会保存到普通文件 **/var/db/ports/multimedia_ffmpeg/options**。如果删除该文件（或输入 **make rmconfig**），这些自定义选项将重置为默认值。然后输入 **make build deinstall install clean**，你的 port 就会以新选项构建并安装为包，无需其他操作。你甚至可以使用 **pkg(8)** 的 **pkg lock -y ffmpeg** 命令锁定该包，防止之后被窜改，但更好的做法是每次执行 **pkg upgrade** 时重新构建此类包，以应对库版本升级和变化。虽然使用这些命令创建脚本实现自动化非常容易快捷，你也可以使用 *FreeBSD Ports* 基础设施的其他部分——比如 Poudriere（或 Synth）——在下一部分会详细介绍。
 
 你也不必每个 port 都这样配置（对于大量 port 来说会很麻烦），可以只在 **/etc/make.conf** 文件中全局指定所需的 (**OPTIONS_SET**) 或不需要的 (**OPTIONS_UNSET**) 参数。你还可以指定软件的默认版本，例如使用 Apache 2.2 而不是 2.4，使用 PHP 7.0 而不是 7.2。所有默认版本信息可以在 **/usr/ports/Mk/bsd.default-versions.mk** 文件中找到。只要设置好这些选项，你可以使用 **portmaster(8)** 工具从 FreeBSD Ports 构建/重建或更新包。类似 Gentoo Linux 的 **USE** 标志，但这才是原版。Gentoo 的大部分思想都是从 FreeBSD 系统及其 Ports 基础设施中借鉴的。
 

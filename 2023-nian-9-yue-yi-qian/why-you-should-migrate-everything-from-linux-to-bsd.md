@@ -9,7 +9,7 @@
 
 过去，我总是倾向于根据技术优劣来选择操作系统和工具。然而，在当今微软、苹果、谷歌等公司频繁侵犯用户隐私并开展有争议活动的背景下，我认为仅凭技术考虑已不足以作为决策依据。
 
-像 [Microsoft Windows 10](https://en.wikipedia.org/wiki/Windows_10#Privacy_and_data_collection)、[Apple MacOS](https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d) 和[谷歌的安卓](https://en.wikipedia.org/wiki/Android_%28operating_system%29#Security_and_privacy) 这样的专有操作系统因其不当行为而臭名昭著。
+像 [Microsoft Windows 10](https://en.wikipedia.org/wiki/Windows_10#Privacy_and_data_collection)、[Apple MacOS](https://gist.github.com/iosecure/357e724811fe04167332ef54e736670d) 和 [谷歌的安卓](https://en.wikipedia.org/wiki/Android_%28operating_system%29#Security_and_privacy) 这样的专有操作系统因其不当行为而臭名昭著。
 
 长期以来，我一直支持着开源替代方案，如 GNU/Linux 和 BSD。我不仅相信这些开源方案在许多技术层面上更优，而且始终反对 [传统的 BSD 与 Linux 之争](https://unixdigest.com/articles/the-typical-discussions-about-bsd-vs-linux.html)。我认为不同的开源项目应当互帮互助、合作共赢，终端用户的讨论应当基于技术而非个人偏好。
 
@@ -189,7 +189,7 @@ GPL 许可听起来似乎更好，因为为什么我们要让公司简单地“�
 - [BSD 家族树](https://svnweb.freebsd.org/base/head/share/misc/bsd-family-tree?view=co)
 - [EuroBSDcon YouTube 播放列表](https://www.youtube.com/user/EuroBSDcon/playlists)
 
->在我发布了这篇文章的[第一部分](https://unixdigest.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html)后，它被发布到了 Hacker News、Reddit 和 Lobsters 上，有一位叫“harryruhr”的人在他的博客上发表了回应，标题为 [“是否应该从 Linux 迁移到 BSD？这取决于情况。”](https://fediverse.blog/~/AllGoodThings/should-you-migrate-from-linux-to-bsd-it-depends)。在这篇回应中，harryruhr 提出了几个我认为需要澄清的错误论点。
+>在我发布了这篇文章的 [第一部分](https://unixdigest.com/articles/why-you-should-migrate-everything-from-linux-to-bsd.html) 后，它被发布到了 Hacker News、Reddit 和 Lobsters 上，有一位叫“harryruhr”的人在他的博客上发表了回应，标题为 [“是否应该从 Linux 迁移到 BSD？这取决于情况。”](https://fediverse.blog/~/AllGoodThings/should-you-migrate-from-linux-to-bsd-it-depends)。在这篇回应中，harryruhr 提出了几个我认为需要澄清的错误论点。
 
 ## 分裂问题
 
@@ -225,9 +225,9 @@ Dragonfly BSD 也是如此。Matthew Dillon 曾是 1994 到 2003 年间的 FreeB
 
 确实，Netflix 是 FreeBSD 最大的商业贡献者之一，但这与 Linux 世界中的“劫持”没有任何关系。Netflix 所做的所有 FreeBSD 改进都会回馈给项目。他们做的所有性能增强都已贡献回 FreeBSD，这对 FreeBSD 极有益。
 
-但 Netflix 并没有试图影响 FreeBSD 项目，也没有试图“劫持”FreeBSD。他们也没有开始开发一个新的 init 系统，然后再后来声称[它实际上并不是 init 系统](https://unixdigest.com/includes/files/gnomeasia2014.pdf)，而是一个“**永远未完成、永远不完整、但用于跟踪技术进展**”的东西，不断地膨胀和扩展。
+但 Netflix 并没有试图影响 FreeBSD 项目，也没有试图“劫持”FreeBSD。他们也没有开始开发一个新的 init 系统，然后再后来声称 [它实际上并不是 init 系统](https://unixdigest.com/includes/files/gnomeasia2014.pdf)，而是一个“**永远未完成、永远不完整、但用于跟踪技术进展**”的东西，不断地膨胀和扩展。
 
-Netflix 的一名员工 drewg123 在 Hacker News 上提供了如下[相关信息](https://news.ycombinator.com/item?id=22106424)：
+Netflix 的一名员工 drewg123 在 Hacker News 上提供了如下 [相关信息](https://news.ycombinator.com/item?id=22106424)：
 
 > 在 Netflix，我所在的较大工作组中，至少有七名 FreeBSD 提交者，还有一名核心团队成员（我肯定还忘记了一些人，对此抱歉！）。我们还聘用了许多其他提交者和核心团队成员（按特定合同）。
 >

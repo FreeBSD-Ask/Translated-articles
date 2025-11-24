@@ -198,6 +198,7 @@ syncthing-0.14.48:
 # /usr/local/etc/rc.d/syncthing rcvar
 # syncthing
 #
+
 syncthing_enable="NO"
 #   (default: "")
 
@@ -213,6 +214,7 @@ syncthing_enable="NO"
       9 # Add the following lines to /etc/rc.conf.local or /etc/rc.conf
      10 # to enable this service:
      11 #
+
      12 # syncthing_enable (bool):      Set to NO by default.
      13 #                               Set it to YES to enable syncthing.
      14 # syncthing_home (path):        Directory where syncthing configuration
@@ -635,7 +637,7 @@ Android 手机 **SM-A320FL** 设备现在在 **Remote Devices** 区域可见。
 
 现在，你的 Camera 文件已经同步完成，可作为备份使用。
 
-FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key** 重命名为***.xml**（**WordPress** 限制所致）。
+FreeBSD 实例上的完整 Syncthing 配置文件可在此获取：[**/usr/local/etc/syncthing/config.xml**](https://vermaden.wordpress.com/wp-content/uploads/2018/08/config-xml.key "config.xml")。下载后，将文件从 ***.xml.key* * 重命名为***.xml **（** WordPress** 限制所致）。
 
 ## 更新 1
 

@@ -3,7 +3,7 @@
 - 原地址：<https://unixsheikh.com/articles/the-problems-with-the-gpl.html>
 - 最后发布日期：2023-10-28
 
->[GNU 公共许可证（GPL）](https://en.wikipedia.org/wiki/GNU_General_Public_License)的诞生，正是为了与标准的专有许可证对抗。下面我们来看看 GPL 存在的一些问题。
+>[GNU 公共许可证（GPL）](https://en.wikipedia.org/wiki/GNU_General_Public_License) 的诞生，正是为了与标准的专有许可证对抗。下面我们来看看 GPL 存在的一些问题。
 
 ## 什么是 GPL
 
@@ -38,7 +38,7 @@ GPL 相当复杂：
 
 ## 伪善
 
-众所周知，[GNU 项目](https://www.gnu.org/) 和 [自由软件基金会 (FSF)](https://www.fsf.org/) 为推广自由软件做了大量工作。在 FSF 网站上，我们可以看到关于“自由软件”的[如下定义](https://www.gnu.org/philosophy/free-sw.html)：
+众所周知，[GNU 项目](https://www.gnu.org/) 和 [自由软件基金会 (FSF)](https://www.fsf.org/) 为推广自由软件做了大量工作。在 FSF 网站上，我们可以看到关于“自由软件”的 [如下定义](https://www.gnu.org/philosophy/free-sw.html)：
 
 > “自由软件”尊重用户的自由，并且尊重整个社区。粗略来讲，一个软件如果是自由软件，这意味着用户可以自由地运行，拷贝，分发，学习，修改并改进该软件。因此，“自由软件”是关乎自由的问题，与价格无关。要理解这个概念，你要按照 Free Software 中的“Free”是指“自由言论（free speech）”中的自由，而非“免费午餐（free lunch）”的免费这一意项。为避免歧义，在使用英文时，我们也会借用法语或西班牙语的“Libre Software”来指自由软件，这样可以明确表示我们说的不是免费。
 >
@@ -48,13 +48,13 @@ GPL 相当复杂：
 
 GPL 所设下的各种限制，从实质上讲就是“不自由”。这并非哲学意义上的“非自由”，而是实践层面的。正因为这些限制，许多采用宽松许可证的开源项目无法被整合进 Linux。
 
-这与一种[宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license)形成鲜明对比。例如，[OpenBSD 官方目标页面](https://www.openbsd.org/goals.html)上写道：
+这与一种 [宽松许可证](https://en.wikipedia.org/wiki/Permissive_software_license) 形成鲜明对比。例如，[OpenBSD 官方目标页面](https://www.openbsd.org/goals.html) 上写道：
 
 > 我们希望提供让任何人都可以用于任何目的的源代码，不设任何限制。我们致力于让软件健壮、安全，并建议公司根据需要使用我们提供的任何内容。
 
 ## 关于“Linux 偷我们代码”的那回事
 
-下面是一封 [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt)（[OpenBSD](https://www.openbsd.org/) 项目的创始人）在 2007 年 8 月[写下的邮件](https://marc.info/?l=openbsd-misc&m=118861134304239&w=2)。当时，一群 Linux 开发者试图修改双重授权的 ath5k 驱动的许可证。
+下面是一封 [Theo de Raadt](https://en.wikipedia.org/wiki/Theo_de_Raadt)（[OpenBSD](https://www.openbsd.org/) 项目的创始人）在 2007 年 8 月 [写下的邮件](https://marc.info/?l=openbsd-misc&m=118861134304239&w=2)。当时，一群 Linux 开发者试图修改双重授权的 ath5k 驱动的许可证。
 
 ```
 我在最近的争议中停止了公开发表声明，因为 Eben Moglen 开始在幕后努力“改进”Linux 人在许可证方面的错误，并要求我给他调停，以便他的团队可以工作。老实说，我对这种情况感到非常困扰，因为即使像 Alan Cox 这样的人也在给其他 Linux 开发人员提出违法建议。而且，不同社区之间的互动可能存在更大的潜在风险。

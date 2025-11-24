@@ -101,6 +101,7 @@ zsh: suspended  wpa_supplicant -i wlan1 -c /etc/wpa_supplicant.conf
 [1]  + continued  wpa_supplicant -i wlan1 -c /etc/wpa_supplicant.conf
 
 #
+
 ```
 
 此时我们的网络二层（LAYER 2）应该已经连接，**wpa_supplicant(8)** 应在后台运行，**wlan1** 接口应显示 **associated** 状态。

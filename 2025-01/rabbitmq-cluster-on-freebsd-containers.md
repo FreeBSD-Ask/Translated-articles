@@ -4,7 +4,7 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2019/06
 
-我真的很喜欢那种小而简单、专注做好一件事并且做得非常好的专用解决方案——也许是因为我太喜欢 UNIX 了。这种理念的好例子是 Minio 对象存储，它实现了 S3 协议，支持分布式集群、纠删码，并内置了 Web 界面，还有许多其他特性——我曾在[《Distributed Object Storage with Minio on FreeBSD》](https://vermaden.wordpress.com/2018/04/16/distributed-object-storage-with-minio-on-freebsd/)一文中介绍过。
+我真的很喜欢那种小而简单、专注做好一件事并且做得非常好的专用解决方案——也许是因为我太喜欢 UNIX 了。这种理念的好例子是 Minio 对象存储，它实现了 S3 协议，支持分布式集群、纠删码，并内置了 Web 界面，还有许多其他特性——我曾在 [《Distributed Object Storage with Minio on FreeBSD》](https://vermaden.wordpress.com/2018/04/16/distributed-object-storage-with-minio-on-freebsd/) 一文中介绍过。
 
 RabbitMQ 是又一个这样的例子——它大概是目前最流行的 AMQP 协议实现之一——同样带有小巧、精致的 Web 界面。但它和 Minio 的区别在于“力量”。Minio 的 Web 界面非常基础、面向用户，大多数管理和配置任务都需要通过 CLI 完成。Minio 的 Web 界面主要提供创建/删除 buckets、上传/下载文件等功能。而 RabbitMQ 的 Web 界面则非常强大，一旦启用，你几乎不再需要命令行了，所有事情都可以通过 Web 界面完成。
 
@@ -50,6 +50,7 @@ host # for I in 1 2; do echo ${I}; mkdir -p /jail/rabbit${I}; tar --unlink -xpJf
 1
 2
 host #
+
 ```
 
 我们现在已经有了 2 个空的、干净的 Jail。
@@ -78,6 +79,7 @@ rabbit${I} {
 __EOF
 done
 host #
+
 ```
 
 这就是配置完成后的 **/etc/jail.conf** 文件的样子。
@@ -236,6 +238,7 @@ host # cat /jail/rabbit?/etc/hosts | grep 192.168.43 | sort -n | uniq -c
 host # jexec rabbit1 /usr/local/etc/rc.d/rabbitmq rcvar
 # rabbitmq
 #
+
 rabbitmq_enable="NO"
 #   (default: "")
 ```
@@ -372,6 +375,7 @@ rabbit1 # rabbitmq-plugins list
 rabbot1 # cat /var/db/rabbitmq/.erlang.cookie; echo
 NOEVQNXJDNLAJOSVWNIW
 rabbot1 #
+
 ```
 
 我们需要先停止 RabbitMQ，以便更改 ERLANG cookie。
@@ -517,7 +521,7 @@ Cluster status of node rabbit@rabbit1 ...
 创建该 *Policy* 的命令如下：
 
 ```sh
-rabbit1 # rabbitmqctl set_policy ha "^ha-\.*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+rabbit1 # rabbitmqctl set_policy ha "^ha-\.*" '{" ha-mode ":" all "," ha-sync-mode ":" automatic "}'
 Setting policy "ha-mirror" for pattern "^ha-\." to "{"ha-mode":"all","ha-sync-mode":"automatic"}" with priority "0" for vhost "/" ...
 ```
 
@@ -826,6 +830,7 @@ host # umount /jail/rabbit1/dev
 host # service jail onestart rabbit1
 Starting jails: rabbit1.
 host #
+
 ```
 
 ![07-rabbitmq-ha-node-back.png](https://vermaden.wordpress.com/wp-content/uploads/2019/06/07-rabbitmq-ha-node-back-1.png?w=960)

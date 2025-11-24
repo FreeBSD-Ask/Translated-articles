@@ -65,6 +65,7 @@ zfs snapshot zroot/jails/_base@$(freebsd-version)-$(date +%d-%b-%y)
 # https://man.freebsd.org/jail.conf
 # https://man.freebsd.org/jail
 #
+
 ip4 = inherit;
 ip6 = inherit;
 
@@ -115,6 +116,7 @@ children.max=0;
 ```sh
 #!/bin/sh
 #
+
 set -eo pipefail
 
 SNAP=${2:-$(zfs list -t snapshot -H -o name | grep "jails/_base" | cut -f3 -d/)}

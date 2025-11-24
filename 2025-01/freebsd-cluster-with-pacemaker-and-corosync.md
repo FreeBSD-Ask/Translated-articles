@@ -335,15 +335,15 @@ total size is 4,398  speedup is 3.76
 现在我们来检查它们是否一致。
 
 ```sh
-root@node1:~ # cksum /usr/local/etc/corosync/{authkey,corosync.conf}
+root@node1:~ # cksum /usr/local/etc/corosync/{authkey, corosync.conf}
 2277171666 128 /usr/local/etc/corosync/authkey
 1728717329 622 /usr/local/etc/corosync/corosync.conf
 
-root@node2:~ # cksum /usr/local/etc/corosync/{authkey,corosync.conf}
+root@node2:~ # cksum /usr/local/etc/corosync/{authkey, corosync.conf}
 2277171666 128 /usr/local/etc/corosync/authkey
 1728717329 622 /usr/local/etc/corosync/corosync.conf
 
-root@node3:~ # cksum /usr/local/etc/corosync/{authkey,corosync.conf}
+root@node3:~ # cksum /usr/local/etc/corosync/{authkey, corosync.conf}
 2277171666 128 /usr/local/etc/corosync/authkey
 1728717329 622 /usr/local/etc/corosync/corosync.conf
 ```

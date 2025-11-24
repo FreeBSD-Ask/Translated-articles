@@ -193,7 +193,7 @@ Battery '1' model '45N1041' has efficiency: 78%
 
 if [ ${#} -ne 1 ]
 then
-  echo "usage: ${0##*/} BATTERY"
+  echo "usage: ${0##*/} BATTERY "
   exit
 fi
 
@@ -399,7 +399,7 @@ powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1600"
 - **performance_cx_lowest**
 - **economy_cx_lowest**
 
-**economy_cx_lowest** 参数用于电池供电时，**performance_cx_lowest** 参数用于电源供电时。两者都通过 **rc(8)** 子系统使用的 **/etc/rc.d/power_profile** 脚本进行设置。该脚本会设置 **hw.acpi.cpu.cx_lowest** 参数，从而控制所有 **dev.cpu.*.cx_lowest** 的值。当你连接或断开电源时，也可以在 **/var/log/messages** 文件中跟踪这些变化。
+**economy_cx_lowest** 参数用于电池供电时，**performance_cx_lowest** 参数用于电源供电时。两者都通过 **rc(8)** 子系统使用的 **/etc/rc.d/power_profile** 脚本进行设置。该脚本会设置 **hw.acpi.cpu.cx_lowest** 参数，从而控制所有 **dev.cpu.*.cx_lowest* * 的值。当你连接或断开电源时，也可以在 * */var/log/messages** 文件中跟踪这些变化。
 
 ```sh
 % tail -f /var/log/messages
@@ -588,7 +588,7 @@ FreeBSD 提供了对未附加驱动的设备不供电的节能选项。该选项
   hw.pci.do_power_nodriver=3
 ```
 
-**pciconf(8)** 工具可以显示系统中的设备以及附加到它们的驱动程序。如果设备没有附加驱动，你会看到 **none*@**，例如下面的 **none0@**。你还可以查看大多数驱动的手册页，例如 **em(4)** 查看 **em0** 设备，或 **xhci(4)** 查看 **xhci0** 设备。
+**pciconf(8)** 工具可以显示系统中的设备以及附加到它们的驱动程序。如果设备没有附加驱动，你会看到 **none *@* *，例如下面的 * *none0@* *。你还可以查看大多数驱动的手册页，例如 * *em(4)* * 查看 * *em0* * 设备，或 * *xhci(4)* * 查看 * *xhci0** 设备。
 
 ```sh
 % pciconf -l

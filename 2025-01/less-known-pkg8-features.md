@@ -23,7 +23,7 @@
 
 ## 较旧的 FreeBSD 版本
 
-在 FreeBSD 10 之前，如果要使用新的 **pkg(8)** 工具，非旧的 **pkg_*** 工具，则需要在 **/etc/make.conf** 文件中加入 **WITH_PKGNG=yes**。
+在 FreeBSD 10 之前，如果要使用新的 **pkg(8)** 工具，非旧的 **pkg_** * 工具，则需要在 * */etc/make.conf* * 文件中加入 * *WITH_PKGNG=yes**。
 
 目前受支持的 FreeBSD RELEASE 版本只有最近发布的 12.0 以及更加稳定和完善的 11.2，因此无需在 **/etc/make.conf** 文件中加入某些内容来使用 **pkg(8)** 框架。
 
@@ -51,6 +51,7 @@ SQLite version 3.15.2 2016-11-28 19:13:37
 Enter ".help" for usage hints.
 > .q
 #
+
 ```
 
 若由于某种原因你发现 **pkg(8)** 工具无法工作或已经损坏，你可以使用 **sqlite3** 包中的 **sqlite3** 命令连接到它。不要使用软件包 **sqlite**，因为它是 SQLite 的 2.x 版本，而这与 **pkg(8)** 使用的 3.x 版本不向前兼容。
@@ -68,6 +69,7 @@ SQLite version 3.26.0 2018-12-01 12:34:55
 Enter ".help" for usage hints.
 > .q
 #
+
 ```
 
 ## 锁定/解锁
@@ -342,7 +344,7 @@ FreeBSD 的 **periodic** 脚本正在执行它们的工作。
 如果你认为这些活动中某些是不必要的，可以在 **/etc/periodic.conf** 文件中使用这些值将它们禁用。
 
 ```sh
-# find /etc/periodic /usr/local/etc/periodic -name \*pkg\* | xargs grep -m 1 -E -o "[a-z_]+_enable" 
+# find /etc/periodic /usr/local/etc/periodic -name \*pkg\* | xargs grep -m 1 -E -o " [a-z_]+_enable " 
 /usr/local/etc/periodic/daily/490.status-pkg-changes:daily_status_pkgng_changes_enable
 /usr/local/etc/periodic/daily/411.pkg-backup:daily_backup_pkgng_enable
 /usr/local/etc/periodic/security/460.pkg-checksum:security_status_pkgchecksum_enable
@@ -378,6 +380,7 @@ The process will require 3 MiB more space.
 
 Proceed with this action? [y/N]: n
 #
+
 ```
 
 
@@ -576,10 +579,10 @@ sqlite> .quit
 
 所以现在我们知道，“**deps**” 表可能就是我们要找的 ;)。
 
-由于 **pkg shell** 在浏览 SQLite 时功能相当有限，我将直接使用命令 **sqlite3**。所谓有限是指，你不能直接输入 **pkg shell "select * from deps;"** 这样的查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
+由于 **pkg shell** 在浏览 SQLite 时功能相当有限，我将直接使用命令 **sqlite3**。所谓有限是指，你不能直接输入 **pkg shell " select * from deps;"** 这样的查询，而是需要先启动 **pkg shell**，然后才能输入查询语句。
 
 ```sh
-# sqlite3 -column /var/db/pkg/local.sqlite "select * from deps;" | grep libxul
+# sqlite3 -column /var/db/pkg/local.sqlite " select * from deps;" | grep libxul
 www/libxul19   libxul      1.9.2.28_1  104
 ```
 
@@ -626,6 +629,7 @@ Checking dependencies: zenity
 Checking dependencies: zip
 Checking dependencies: zsh
 #
+
 ```
 
 太棒了！问题解决了 :😉:
@@ -694,8 +698,10 @@ Checking dependencies: zsh
   adding the following lines to your /etc/make.conf file:
 
   #
+
   # Keep ruby 2.3 as default version
   #
+
   DEFAULT_VERSIONS+=ruby=2.3
 
   If you wish to update to the new default version, you need to first stop any
@@ -875,9 +881,9 @@ zsh
 
 因此我复制了表格并补充了缺失的数据。
 
-下面是旧 **pkg_*** 工具与当前 **pkg(8)** 框架的对照表（更新版）：
+下面是旧 **pkg_** * 工具与当前 * *pkg(8)** 框架的对照表（更新版）：
 
-| 功能                | 旧 **pkg_*** 工具                                            | 新 **pkg(8)** 工具                                                                                |
+| 功能                | 旧 **pkg_** * 工具                                            | 新 * *pkg(8)** 工具                                                                                |
 | :----------------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
 | 列出已安装的包           | pkg_info                                                  | pkg info                                                                                       |
 | 获取包的基本信息          | pkg_info pkgname-pkgversion                               | pkg info pkgname <br> pkg info category/name <br> pkg info pkgname-pkgversion                  |

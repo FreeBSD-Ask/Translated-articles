@@ -20,7 +20,7 @@
 
 在我看来，使 FreeBSD 优于 Linux 的，正是它那精确追踪音频设备参数、系统内核参数以及对其进行修改的能力。当然，我们这里讨论的仅限于操作系统层面对音频的处理（即在 FreeBSD 中由 OSS/[`sound(4)`](https://man.freebsd.org/cgi/man.cgi?sound%284%29) 驱动完成，Linux 中由 ALSA 完成），并以一种方式配置系统，使得音频数据只在听音设备的硬件层面以 **比特完美** 模式处理，也就是说：在传输到外部 DAC 设备或声卡的过程中，不进行重采样、路由或声道混合。因此，我自然省略了诸如 Jack 服务器、PulseAudio 或 RedHat 旗下令人头疼的 PipeWire 这类额外音频层的使用和配置。当然，软件信号解码器的问题仍存在，后文会详细论述。
 
-使用 FreeBSD 的另一个优势是，它对[实时操作系统](https://en.wikipedia.org/wiki/Real-time_operating_system)（RTOS）和实时程序的支持更好。虽然“更好”并不意味着完美，但在这方面 Linux 远远落后。直到 2024 年，实时 Linux（PREEMPT\_RT）才正式成为内核及其主线软件的一部分。
+使用 FreeBSD 的另一个优势是，它对 [实时操作系统](https://en.wikipedia.org/wiki/Real-time_operating_system)（RTOS）和实时程序的支持更好。虽然“更好”并不意味着完美，但在这方面 Linux 远远落后。直到 2024 年，实时 Linux（PREEMPT\_RT）才正式成为内核及其主线软件的一部分。
 
 ## 什么是实时系统以及它在音频处理中的重要性
 
@@ -89,7 +89,7 @@ mac_priority_load="YES" ②
 
 ② 模块 `mac_priority(4)` 用于建立权限调度规则，使得特权用户可以让工具 [`rtprio(1)`](https://man.freebsd.org/cgi/man.cgi?query=rtprio) 以实时优先级运行进程。
 
-③该参数负责启用 `dev.pcm.5` 设备的图形均衡器（equalizer）（上述规格中指的是 USB DAC 设备）。在比特完美配置中我们省略此项，具体内容详见后文 **FreeBSD 中的图形均衡器** 一节。
+③ 该参数负责启用 `dev.pcm.5` 设备的图形均衡器（equalizer）（上述规格中指的是 USB DAC 设备）。在比特完美配置中我们省略此项，具体内容详见后文 **FreeBSD 中的图形均衡器** 一节。
 
 
 #### /etc/sysctl.conf
@@ -105,9 +105,9 @@ hw.snd.default_unit=5 ⑥
 #dev.pcm.5.eq_preamp=-5 ⑧
 ```
 
-①这是个非常重要的参数，**它表示提高用于同步进程唤醒的软件时钟的精度，从而最小化处理器因进入和退出空闲状态而执行相对高开销操作的次数**。
+① 这是个非常重要的参数，**它表示提高用于同步进程唤醒的软件时钟的精度，从而最小化处理器因进入和退出空闲状态而执行相对高开销操作的次数**。
 
-如果想更深入了解进程唤醒延迟及系统时钟频率对该延迟的影响，推荐阅读 [Paul Herman 的文章](https://www.dragonflybsd.org/presentations/nanosleep/)，文中除了测试结果，还提供了[基准测试源码](https://www.dragonflybsd.org/presentations/nanosleep/wakeup_latency.c)。
+如果想更深入了解进程唤醒延迟及系统时钟频率对该延迟的影响，推荐阅读 [Paul Herman 的文章](https://www.dragonflybsd.org/presentations/nanosleep/)，文中除了测试结果，还提供了 [基准测试源码](https://www.dragonflybsd.org/presentations/nanosleep/wakeup_latency.c)。
 
 为了直观展示参数 `kern.timecounter.alloweddeviation` 对延迟的影响，下面是我在系统上的测试结果：
 
@@ -147,7 +147,7 @@ kern.timecounter.alloweddeviation: 5 -> 0
 
 ⑦ 音频驱动的相对音量级别参数，默认值为 45。这在比特完美模式下影响微乎其微，但在系统图形均衡器（equalizer）配置中则较为重要；在配置和比特完美模式下影响可忽略不计。
 
-⑧与上述参数类似，此为相对音量级别参数，但针对系统图形均衡器的操作（默认 +0.0dB），在比特完美模式下影响可忽略不计。关于参数 `dev.pcm.%d.eq_preamp` 和 `hw.snd.vpc_0db` 的详细含义，请参见 **FreeBSD 中的图形均衡器** 一节。
+⑧ 与上述参数类似，此为相对音量级别参数，但针对系统图形均衡器的操作（默认 +0.0dB），在比特完美模式下影响可忽略不计。关于参数 `dev.pcm.%d.eq_preamp` 和 `hw.snd.vpc_0db` 的详细含义，请参见 **FreeBSD 中的图形均衡器** 一节。
 
 #### /etc/rc.conf
 
@@ -155,7 +155,7 @@ kern.timecounter.alloweddeviation: 5 -> 0
 musicpd_enable="YES" ①
 ```
 
-①在我们的配置中，使用 Music Player Daemon（MPD，音乐播放器守护进程）服务器作为播放器——在系统启动时以普通模式启动它。在其余配置中，我们以实时优先级启动 `musicpd(1)`。
+① 在我们的配置中，使用 Music Player Daemon（MPD，音乐播放器守护进程）服务器作为播放器——在系统启动时以普通模式启动它。在其余配置中，我们以实时优先级启动 `musicpd(1)`。
 
 ## FreeBSD 命令：帮助检查驱动程序、内核参数（sysctl）及音频子系统状态
 
@@ -325,7 +325,7 @@ dev.pcm.5.%desc: Cambridge Audio Cambridge Audio USB Audio 2.0
 要验证 MPD 服务器是否以实时且正确的优先级运行，可使用命令 `ps` 查看进程列表，并筛选出 `musicpd(1)` 进程：
 
 ```sh
-# ps -o rtprio -axl | grep [m]usicpd
+# ps -o rtprio -axl | grep [m] usicpd
 ```
 
 `ps` 命令的输出应类似如下：

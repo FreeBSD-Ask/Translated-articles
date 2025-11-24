@@ -5,23 +5,23 @@
 
 >在这篇文章中，我们将深入探讨 systemd 开发背后的真实动机，并展望 GNU/Linux 作为操作系统的一些未来前景。
 
-**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
+**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其 [全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html) 的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归 [社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development) 的时候了。
 
 ## 引言
 
-起初，systemd 只是一款新的 init 系统，我个人并不反感。然而，今天我对 systemd 的问题在于，它已经变成了一种类似[特洛伊木马](https://en.wikipedia.org/wiki/Trojan_horse_%29computing%29)的存在。它是[红帽](https://en.wikipedia.org/wiki/Red_Hat)（IBM）试图改变 Linux 世界以更好服务其公司利益的手段。
+起初，systemd 只是一款新的 init 系统，我个人并不反感。然而，今天我对 systemd 的问题在于，它已经变成了一种类似 [特洛伊木马](https://en.wikipedia.org/wiki/Trojan_horse_%29computing%29) 的存在。它是 [红帽](https://en.wikipedia.org/wiki/Red_Hat)（IBM）试图改变 Linux 世界以更好服务其公司利益的手段。
 
 虽然最初 Linux 内核、GNU 工具以及不同主要独立的 Linux 发行版都是由社区驱动的项目，但如今 Linux 世界的大部分开发都受公司利益驱动，由坐在各大公司关键职位的开发者推动，例如英特尔、微软、红帽、谷歌、Facebook 等。
 
-[Linux 基金会](https://www.linuxfoundation.org/) 目前赞助了 Linus Torvalds 让他全职工作于 Linux 内核，他依旧掌舵，但 Linux 基金会正慢慢变成“微软的影子”，就像[开源倡议组织（OSI）](https://opensource.org/)一样，大部分资金来源于微软。
+[Linux 基金会](https://www.linuxfoundation.org/) 目前赞助了 Linus Torvalds 让他全职工作于 Linux 内核，他依旧掌舵，但 Linux 基金会正慢慢变成“微软的影子”，就像 [开源倡议组织（OSI）](https://opensource.org/) 一样，大部分资金来源于微软。
 
 微软开展“we love Linux（我们爱 Linux）”运动后，其一名董事会成员进入 Linux 基金会董事会。随后变为两名，现在是三名。基金会似乎在慢慢被暗中接管，真正的社区成员几乎不复存在，主要由公司员工组成。此外，微软在“Linux 基金会技术顾问委员会”也有重大影响，其现任董事试图将 Linux 外包到微软的 GitHub。
 
 最初作为替代 init 系统，红帽发布了 systemd。随后它突然变成“**提供 Linux 操作系统基础构建模块的软件套件**”。红帽开始推动一场运动，影响其他主要 Linux 发行版，并施压它们让其采用 systemd。
 
-采取的方法是，systemd 开发者针对多个第三方项目尝试说服其依赖 systemd，例如 Lennart Poettering 在[GNOME 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html)的尝试，以及红帽开发者 "keszybz" 在[tmux 项目](https://github.com/tmux/tmux/issues/428)的尝试。大部分尝试表面上看是技术问题，但 GNOME 邮件列表及其他地方的长篇邮件往来表明，事实并非如此。
+采取的方法是，systemd 开发者针对多个第三方项目尝试说服其依赖 systemd，例如 Lennart Poettering 在 [GNOME 邮件列表](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00427.html) 的尝试，以及红帽开发者 "keszybz" 在 [tmux 项目](https://github.com/tmux/tmux/issues/428) 的尝试。大部分尝试表面上看是技术问题，但 GNOME 邮件列表及其他地方的长篇邮件往来表明，事实并非如此。
 
-在这个讨论串中，探讨了 GNOME 是否应该[仅作为基于 Linux 的操作系统](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00439.html)，随后出现了一些[重要的](http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00437.html)[反对意见](http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00432.html)。
+在这个讨论串中，探讨了 GNOME 是否应该 [仅作为基于 Linux 的操作系统](https://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00439.html)，随后出现了一些 [重要的](http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00437.html) [反对意见](http://mail.gnome.org/archives/desktop-devel-list/2011-May/msg00432.html)。
 
 红帽采取的其他策略包括从 GNOME 及其他 Linux 发行版（如 Debian）雇佣开发者，让他们推广 systemd。
 
@@ -51,13 +51,13 @@ Lennart Poettering 和 Kay Sievers 在 2010 年启动 systemd 项目时，二人
 
 红帽的主要业务在嵌入式设备，而 systemd 从设计上关注的主要问题就是嵌入式设备，例如消除 `/etc` 的工作。
 
-在与红帽 CEO Jim Whitehurst 的[采访](https://linux.slashdot.org/story/17/10/30/0237219/interviews-red-hat-ceo-jim-whitehurst-answers-your-questions)中，他表示：
+在与红帽 CEO Jim Whitehurst 的 [采访](https://linux.slashdot.org/story/17/10/30/0237219/interviews-red-hat-ceo-jim-whitehurst-answers-your-questions) 中，他表示：
 
 > 我们与全球最大的嵌入式供应商合作，尤其是电信和汽车行业，这些行业最关注的是稳定性和可靠性。他们很容易适应 systemd。
 
-Mentor Automotive 发布了[2015 年活动的演示文稿](https://unixdigest.com/includes/files/agl-systemd-2015.pdf)，其中详细说明了 systemd 为嵌入式汽车市场带来的诸多好处。他们“轻松适应 systemd”的原因，是因为 systemd 是专门为满足这些需求而设计的。
+Mentor Automotive 发布了 [2015 年活动的演示文稿](https://unixdigest.com/includes/files/agl-systemd-2015.pdf)，其中详细说明了 systemd 为嵌入式汽车市场带来的诸多好处。他们“轻松适应 systemd”的原因，是因为 systemd 是专门为满足这些需求而设计的。
 
-自 2002 年以来，美国军方始终是红帽[最大的客户](https://unixdigest.com/includes/files/Army-RedHat-Whitepaper-February-2014.pdf)，也是红帽许多决策背后的主要动力来源之一。
+自 2002 年以来，美国军方始终是红帽 [最大的客户](https://unixdigest.com/includes/files/Army-RedHat-Whitepaper-February-2014.pdf)，也是红帽许多决策背后的主要动力来源之一。
 
 2012 年，Lennart Poettering 将 systemd 的许可证从 GPL 改为 LGPL，以更好地适应嵌入式市场，[具体提交记录](https://github.com/systemd/systemd/commit/5430f7f2bc7330f3088b894166bf3524a067e3d8)。
 
@@ -112,7 +112,7 @@ systemd-resolved 对 Cloudflare、Quad9 和谷歌配置了硬编码的备用 DNS
 
 另一个重大问题是前面提到的 systemd-resolved 的硬编码 DNS 服务器。
 
-Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494) 这些硬编码值用于配置文件灾难性损坏或网络缺少 DHCP 的情况（DNS 备用可更改，但需要重新编译）。然而，这是“嵌入式开发者”的角度。如果应用程序中出现 bug 导致这些 DNS 服务器在你已禁用的情况下仍被使用，或者出现 [竞争条件 bug](https://github.com/systemd/systemd/issues/4175)，就可能产生严重的隐私问题。此外，将 Cloudflare、Quad9 和谷歌的 DNS 服务器硬编码在 systemd 代码中非常不妥，因为这些公司不仅以侵犯用户隐私闻名，而且 NSA 曾经渗透 Google 数据中心（由 [斯诺登文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html)披露）。这样的设置不应为“必须记得手动移除”的默认选项，而应为用户主动选择（opt-in），绝不应默认启用。
+Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494) 这些硬编码值用于配置文件灾难性损坏或网络缺少 DHCP 的情况（DNS 备用可更改，但需要重新编译）。然而，这是“嵌入式开发者”的角度。如果应用程序中出现 bug 导致这些 DNS 服务器在你已禁用的情况下仍被使用，或者出现 [竞争条件 bug](https://github.com/systemd/systemd/issues/4175)，就可能产生严重的隐私问题。此外，将 Cloudflare、Quad9 和谷歌的 DNS 服务器硬编码在 systemd 代码中非常不妥，因为这些公司不仅以侵犯用户隐私闻名，而且 NSA 曾经渗透 Google 数据中心（由 [斯诺登文件](https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html) 披露）。这样的设置不应为“必须记得手动移除”的默认选项，而应为用户主动选择（opt-in），绝不应默认启用。
 
 通常处理这些问题的方式，以及 Lennart Poettering 极端傲慢的态度，显示出他对用户隐私和开源 Linux 社区利益的完全漠视。
 
@@ -122,7 +122,7 @@ Lennart Poettering [解释](https://github.com/systemd/systemd/issues/494) 这�
 
 Casper Ti. Vectors 在 Gentoo 论坛上的帖子，[s6/s6-rc vs systemd, or why you probably do not need systemd](https://forums.gentoo.org/viewtopic-t-1105854.html)，也表明 s6 在很多方面比 systemd 更好、更优。
 
-许多人误以为 systemd 的每个组件都是独立的，但事实并非如此。查看其代码和文档，就会发现这些所谓模块之间存在[紧密耦合](https://systemd.io/PORTABILITY_AND_STABILITY/#general-portability-of-systemds-apis)。
+许多人误以为 systemd 的每个组件都是独立的，但事实并非如此。查看其代码和文档，就会发现这些所谓模块之间存在 [紧密耦合](https://systemd.io/PORTABILITY_AND_STABILITY/#general-portability-of-systemds-apis)。
 
 企业政治、操作手段和操控不应在 Linux 世界存在。虽然允许公司使用开源代码、贡献代码，并用盈利为项目提供资金支持，但绝不应允许像红帽等公司现在在 Linux 世界拥有如此庞大的控制权。
 
