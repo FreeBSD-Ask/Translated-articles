@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [新型 ZFS 启动环境工具](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
 * [Realtek RTL8188CUS – USB 802.11n 无线网卡评测](2025-01/realtek-usb-wifi-review.md)
 * [为什么是 FreeBSD？](2025-01/quare-freebsd.md)
 * [使用 Pacemaker 与 Corosync 构建 FreeBSD 集群](2025-01/freebsd-cluster-with-pacemaker-and-corosync.md)
