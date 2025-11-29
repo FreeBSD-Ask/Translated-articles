@@ -4,6 +4,10 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2018/08/24
 
+>**注意**
+>
+>注：15.0-RELEASE 中仅存在命令 **bectl**。
+
 大约一个月前，我有幸在 [**PBUG**](https://vermaden.wordpress.com/2018/07/30/zfs-boot-environments-at-pbug/) 上做了关于 **ZFS 启动环境** 的演讲。在演讲的最后，我提到了在 FreeBSD 上管理 **ZFS 启动环境** 的工具发展历史。
 
 ![zfs-boot-environments-history.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/zfs-boot-environments-history.png?w=960)
