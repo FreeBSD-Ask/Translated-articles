@@ -4,17 +4,17 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 - 2018/08/24
 
-大约一个月前，我有幸在 [**PBUG**](https://vermaden.wordpress.com/2018/07/30/zfs-boot-environments-at-pbug/) 上做了关于 *ZFS 启动环境* 的演讲。在演讲的最后，我提到了在 FreeBSD 上管理 *ZFS 启动环境* 的工具发展历史。
+大约一个月前，我有幸在 [**PBUG**](https://vermaden.wordpress.com/2018/07/30/zfs-boot-environments-at-pbug/) 上做了关于 **ZFS 启动环境** 的演讲。在演讲的最后，我提到了在 FreeBSD 上管理 **ZFS 启动环境** 的工具发展历史。
 
 ![zfs-boot-environments-history.png](https://vermaden.wordpress.com/wp-content/uploads/2018/08/zfs-boot-environments-history.png?w=960)
 
-Pawel Jakub Dawidek——他也参加了 PBUG #3 会议——建议我应该尝试将 **beadm** 纳入 FreeBSD 基本系统。我也从很多 **beadm** 用户那里听到过这个想法，他们反复询问为什么 **beadm** 没有包含在 FreeBSD 基本系统中。因此，在 PBUG #3 结束后，我正是做了这件事。我创建了新的 PR——[Bug 230323 – Idea/Feature Request – include beadm in the base](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230323)——令我（惊喜地）发现，他们将新的 **bectl** 工具纳入了 FreeBSD 基本系统！现在，我们的 *ZFS 启动环境* 工具家族中新增了一员——工具 **bectl**。
+Pawel Jakub Dawidek——他也参加了 PBUG #3 会议——建议我应该尝试将 **beadm** 纳入 FreeBSD 基本系统。我也从很多 **beadm** 用户那里听到过这个想法，他们反复询问为什么 FreeBSD 基本系统没有内置 **beadm**。因此，在 PBUG #3 结束后，我正是做了这件事。我创建了新的 PR——[Bug 230323 – Idea/Feature Request – include beadm in the base](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230323)——令我（惊喜地）发现，他们将新工具 **bectl** 内置到了 FreeBSD 基本系统！现在，我们的 **ZFS 启动环境** 工具家族中新增了一员——工具 **bectl**。
 
-当然，我仍会维护和更新 **beadm** 工具，它仍可通过 FreeBSD Ports 中的 [sysutils/beadm](https://freshports.org/sysutils/beadm) 获取。因为该工具是用 POSIX **/bin/sh** 编写的，所以调试快速且易于修改。简单来说（TLDR）：**bectl** 是用 C 语言实现的 **beadm**，它已被导入 FreeBSD 基本系统，这意味着它将成为 FreeBSD 12.0-RELEASE 的一部分。目前 **bectl** 已经可以在 12.0-ALPHA2 镜像中使用。
+当然，我仍会维护和更新工具 **beadm**，它仍可通过 FreeBSD Ports 中的 [sysutils/beadm](https://freshports.org/sysutils/beadm) 获取。因为该工具是用 POSIX **/bin/sh** 编写的，所以调试快速且易于修改。简单来说（TLDR）：**bectl** 是用 C 语言实现的 **beadm**，它已引入到了 FreeBSD 基本系统，这意味着它将成为 FreeBSD 12.0-RELEASE 的一部分。目前 **bectl** 已经可以在 12.0-ALPHA2 镜像中使用。
 
 ## 对比
 
-新的 **bectl** 工具还处于非常早期的阶段，目前（尚未）能完全替代 **beadm** 工具。下面是 **bectl** 和 **beadm** 工具使用信息的简单对比。
+新的 **bectl** 工具还处于非常早期的阶段，目前（尚未）能完全替代工具 **beadm**。下面是 **bectl** 和 **beadm** 工具使用信息的简单对比。
 
 ```sh
 root@fbsd12:~ # beadm
