@@ -32,7 +32,7 @@ jobs:
       - name: 检出 gitbook-pdf-export 工具
         uses: actions/checkout@v6
         with:
-          repository: FreeBSD-Ask/gitbook-pdf-export
+          repository: Translated-articles/gitbook-pdf-export
           path: pdf-generator
 
       # ================= 初始化标签检查 =================
@@ -67,7 +67,7 @@ jobs:
       - name: 生成 PDF 文档
         run: |
           cd pdf-generator
-          python mdconv.py ../FreeBSD-Ask
+          python mdconv.py ../Translated-articles
           mv build/final.pdf build/$(date +'%Y.%m.%d').pdf
           mv build/final.epub build/$(date +'%Y.%m.%d').epub
         env:
