@@ -10,7 +10,7 @@ FreeBSD 12.3-PRERELEASE 的首批快照终于 [可用](https://lists.freebsd.org
 
 关于 FreeBSD 上的 ZFS 文件系统，有一点需要注意。人们常常将“真正的” ZFS 启动环境与它的替代品混淆，比如 BTRFS 快照或 Ubuntu 使用 **zsysctl(8)** 命令管理的快照。不幸的是，它们只是快照，并非完整的可写克隆（或完整独立的 ZFS 数据集）。它们可以冻结系统状态，从而在更新软件包后能够恢复到工作配置，但你无法像创建另一个独立的 ZFS 启动环境那样，安装其他独立版本的系统作为新的 ZFS 数据集。
 
-# 创建新的 ZFS 数据集
+## 创建新的 ZFS 数据集
 
 ```sh
 host # beadm list
@@ -34,7 +34,7 @@ BE             Active Mountpoint  Space Created
 ```
 
 
-# 安装 FreeBSD 12.3-PRERELEASE
+## 安装 FreeBSD 12.3-PRERELEASE
 
 ```sh
 host # beadm mount 12.3 /var/tmp/12.3
@@ -89,7 +89,7 @@ host # exa -ld /var/tmp/12.3/usr/lib32
 drwxr-xr-x - root 2021-10-18 13:45 /var/tmp/12.3/usr/lib32
 ```
 
-# 安装与主机相同的 Packages
+## 安装与主机相同的 Packages
 
 使用 **pkg prime-list**，我们可以获取当前运行系统上手动安装的所有 **pkg(8)** packages。你也可以省略此步骤，或者只安装你需要的 packages，而不是全部安装。
 
@@ -167,7 +167,7 @@ Remote package database(s):
         Total size of packages: 96 GiB
 ```
 
-# 复制配置文件
+## 复制配置文件
 
 现在你可以重启到一个干净且未配置的 FreeBSD 系统，但你也可以从当前正在使用的安装中复制配置文件。以下是我复制的文件。
 
@@ -284,7 +284,7 @@ host # for I in /usr/local/etc/X11/xdm/Xresources \
 /usr/local/etc/cups/ppd/Samsung-ML-1915.ppd
 ```
 
-# 添加用户并设置密码
+## 添加用户并设置密码
 
 现在你应该添加常规用户，并为该用户和 root 账户设置密码。
 
@@ -296,7 +296,7 @@ BE # passwd root
 BE # passwd vermaden
 ```
 
-# 重启进入新的 ZFS 启动环境
+## 重启进入新的 ZFS 启动环境
 
 现在你可以退出该 ZFS 启动环境的 **chroot(8)**，然后重启。在 FreeBSD **loader(8)** 菜单中选择 **12.3** 启动环境。
 
@@ -317,7 +317,7 @@ BE             Active Mountpoint  Space Created
 host # shutdown -r now
 ```
 
-# 测试新系统
+## 测试新系统
 
 12.3-PRERELEASE 系统对我来说启动正常。我能够登录并像平常一样使用系统。需要注意的一点是 ZFS 池。我有另一个启用了 **zstd** 压缩的新 ZFS 池，但我无法导入该 ZFS 池，因为 FreeBSD 12.3-PRERELEASE 使用的不是 OpenZFS 2.0，而是 FreeBSD 内部的旧版本 ZFS。
 
