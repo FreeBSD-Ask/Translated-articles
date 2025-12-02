@@ -4,11 +4,11 @@
 - 发布时间：2021/10/19
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 
-FreeBSD 12.3-PRERELEASE 的首批快照终于 [可用](https://lists.freebsd.org/archives/freebsd-snapshots/2021-October/000005.html) 了。这意味着我们可以在一个新的 ZFS 启动环境中尝试它们，而无需触碰当前运行的 13.0-RELEASE 系统。我们无法像平常那样从当前 ZFS 启动环境创建新的 BE 并将其升级到新版本，因为 12.3 的主版本比 13.0 还要旧。
+FreeBSD 12.3-PRERELEASE 的首批快照终于 [可用](https://lists.freebsd.org/archives/freebsd-snapshots/2021-October/000005.html) 了。这意味着我们能在一个新的 ZFS 启动环境中尝试它们，而无需打扰当前运行的 13.0-RELEASE 系统。我们无法像平常那样从当前 ZFS 启动环境创建新的启动环境并将其升级到新版本，因为 12.3 的主版本比 13.0 还要旧（译注：旧版 FreeBSD 不识别新版的 ZFS）。
 
-在 FreeBSD 发布流程中，这有点悖论：当 12.3-RELEASE 发布时，它可能包含一些比今年早些时候发布的 13.0-RELEASE 更新的提交和功能。当然，并非所有提交到 HEAD 的内容都会自动进入 12-STABLE 或 13-STABLE，但大多数都会。只有最大的变更会被限制到 14.0-RELEASE，当然，这大概会在 2022 年中期其发布流程进行时出现。
+在 FreeBSD 发布流程中，这有点悖论：当 12.3-RELEASE 发布时，它可能包含一些比今年早些时候发布的 13.0-RELEASE 更新的提交和功能。当然，并非所有提交到 HEAD 的内容都会自动进入 12-STABLE 或 13-STABLE，但大多数都会。只有最大的变更会被限制在 14.0-RELEASE，当然，这大概会在 2022 年中期其发布流程进行时出现。
 
-关于 FreeBSD 上的 ZFS 文件系统，有一点需要注意。人们常常将“真正的” ZFS 启动环境与它的替代品混淆，比如 BTRFS 快照或 Ubuntu 使用 **zsysctl(8)** 命令管理的快照。不幸的是，它们只是快照，并非完整的可写克隆（或完整独立的 ZFS 数据集）。它们可以冻结系统状态，从而在更新软件包后能够恢复到工作配置，但你无法像创建另一个独立的 ZFS 启动环境那样，安装其他独立版本的系统作为新的 ZFS 数据集。
+关于 FreeBSD 上的 ZFS 文件系统，有一点需要注意。人们常常将“真正的” ZFS 启动环境与它的替代品混淆，比如 Btrfs 快照或 Ubuntu 使用 **zsysctl(8)** 命令管理的快照。不幸的是，它们只是快照，并非完整的可写克隆（或完整独立的 ZFS 数据集）。它们可以冻结系统状态，从而在更新软件包后能够恢复到工作配置，但你无法像创建另一个独立的 ZFS 启动环境那样，安装其他独立版本的系统作为新的 ZFS 数据集。
 
 ## 创建新的 ZFS 数据集
 
@@ -91,7 +91,7 @@ drwxr-xr-x - root 2021-10-18 13:45 /var/tmp/12.3/usr/lib32
 
 ## 安装与主机相同的 Packages
 
-使用 **pkg prime-list**，我们可以获取当前运行系统上手动安装的所有 **pkg(8)** packages。你也可以省略此步骤，或者只安装你需要的 packages，而不是全部安装。
+使用 **pkg prime-list**，我们可以获取当前运行系统上手动安装的所有 **pkg(8)** 软件包。你也可以省略此步骤，或者只安装你需要的软件包，而不是全部安装。
 
 ```sh
 host # pkg prime-list > /var/tmp/12.3/pkg.prime-list
@@ -123,9 +123,9 @@ pkg: No packages available to install matching 'ramspeed' have been found in the
 pkg: No packages available to install matching 'vim-console' have been found in the repositories
 ```
 
-如我们所见，在 FreeBSD 13.0-RELEASE 系统中安装的一些 packages，目前在 FreeBSD 12.3-PRERELEASE 系统的 “**latest**” **pkg(8)** 分支中不可用。这种情况有时会发生，例如某些 package 构建失败——但你可以假设这些 package 在一周左右会重新可用，因为 **pkg(8)** packages 会在 “**latest**” 分支中进行重建。
+如我们所见，在 FreeBSD 13.0-RELEASE 系统中安装的一些软件包，目前在 FreeBSD 12.3-PRERELEASE 系统的 **pkg(8)** “**latest**” 分支中不可用。这种情况有时会发生，例如某些软件包构建失败——但你可以假设这些软件包在一周左右会重新可用，因为 **pkg(8)** 软件包会在 “**latest**” 分支中进行重建。
 
-接下来我们将移除缺失的 packages，并重命名一些在 FreeBSD 12.x 版本中名称可能不同的 packages。
+接下来我们将移除缺失的软件包，并重命名一些在 FreeBSD 12.x 版本中名称可能不同的软件包。
 
 ```sh
 BE # sed -i '' \
@@ -171,7 +171,7 @@ Remote package database(s):
 
 现在你可以重启到一个干净且未配置的 FreeBSD 系统，但你也可以从当前正在使用的安装中复制配置文件。以下是我复制的文件。
 
-首先是来自基础系统 **/etc** 和 **/boot** 目录的文件。
+首先是来自基本系统 **/etc** 和 **/boot** 目录的文件。
 
 ```sh
 host # for I in /boot/loader.conf        \
