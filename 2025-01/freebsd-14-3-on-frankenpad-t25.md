@@ -4,15 +4,15 @@
 - 发布时间：2025/06/26
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 
-在我看过的许多电影中，我也很喜欢 *No Country for Old Men*（2007）——它与我对电脑/笔记本的偏好以及当时市场上可获得的设备产生了共鸣……以及现在可用的设备。我甚至还分享过我颇为消极的 [**笔记本悼文**](https://vermaden.wordpress.com/2022/02/07/epitaph-to-laptops/)。不久前，我还在使用 [**ThinkPad W520**](https://vermaden.wordpress.com/2022/04/14/freebsd-13-1-on-thinkpad-w520/)，那是 2011 年的笔记本——已有 14 年历史——但它运行 FreeBSD 完全没问题……不过当我因工作离开家时，一个新的机会出现了。
+在我看过的许多电影中，我也很喜欢 *No Country for Old Men（老无所依）*（2007）——它与我对电脑/笔记本的偏好以及当时市场上可获得的设备产生了共鸣……以及现在可用的设备。我甚至还分享过我颇为消极的 [**笔记本悼文**](https://vermaden.wordpress.com/2022/02/07/epitaph-to-laptops/)。不久前，我还在使用 [**ThinkPad W520**](https://vermaden.wordpress.com/2022/04/14/freebsd-13-1-on-thinkpad-w520/)，那是 2011 年的笔记本——已有 14 年历史——但它运行 FreeBSD 完全没问题……不过当我因工作离开家时，一个新的机会出现了。
 
-联想当时只生产了大约 5000 台 [**ThinkPad (T25) 25 周年纪念版**](https://news.lenovo.com/pressroom/press-releases/happy-25th-birthday-thinkpad/) 笔记本——所有机器配置相同——搭载了一颗“性能较弱”的 Intel 双核 CPU。我至今仍然遗憾，当时在我所在的波兰中部城市的本地商店里，一个全新的售价约 **$1100**，我没能买到，但过去无法改变。
+联想当时只生产了大约 5000 台 [**ThinkPad (T25) 25 周年纪念版**](https://news.lenovo.com/pressroom/press-releases/happy-25th-birthday-thinkpad/) 笔记本——所有机器配置相同——搭载了一颗“性能较弱”的 Intel 双核 CPU。我至今仍然遗憾，当时在我所在的波兰中部城市的本地商店里，一台全新的售价约 **$1100**，我没能买到，但过去无法改变。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/thinkpad-t25-ansi-keyboard.jpg)
 
 总体来说，**ThinkPad T25** 本质上是 **ThinkPad T470**，只是更换了若干部件——比如掌托和键盘。
 
-在随意查看 EBAY 上 **ThinkPad T25** 的购买选项时，我找到了 **FrankenPad T25** ——价格大约 **$1200**，再加上税费和运送到波兰的费用。我购买了它，并顺利收到了，没有任何意外。经过一番测试后，它运行良好——一切正常——只是我花了大约半年时间才真正从 **ThinkPad W520** 迁移过去。
+在随意查看 EBAY 上 **ThinkPad T25** 的购买方案时，我找到了 **FrankenPad T25** ——价格大约 **$1200**，再加上税费和运送到波兰的费用。我购买了它，并顺利收到了，没有任何意外。经过一番测试后，它运行良好——一切正常——只是我花了大约半年时间才真正从 **ThinkPad W520** 迁移过去。
 
 对于不了解 **FrankenPad** 的人，我来解释一下——它是由各种 ThinkPad 型号混合改装而成的——有时需要 3D 打印部件，有时需要修改 BIOS，有时甚至需要焊接等。过去，你可以自己制作，也可以订购——例如这里：[https://xyte.ch/mods/t25-frankenpad/](https://xyte.ch/mods/t25-frankenpad/)。
 
@@ -24,7 +24,7 @@
 
 ## 独一无二
 
-每次听到或看到 *The One and Only* 这个词，我脑海中都会浮现 *Counter-Strike* 1.x 的 [**HeatoN**](https://youtube.com/watch?v=KwAGylrHbyE) 玩家——看起来 **HeatoN**（本名 Emil Christensen）最近被收入了 *Counter-Strike* 的 [*Hall of Fame*](https://youtube.com/watch?v=AUztvlHCJAQ)——值得称赞！……我真的很喜欢二十年前我们玩的那些 *Counter-Strike* 1.x 局域网派对……可惜那些都已经结束了，每个人都太忙，再也无法像以前那样聚会……不过，当我的一个朋友创建了一个名为 *CS:GO* 的 WhatsApp 群组，在线聚会玩游戏时，多少恢复了一点乐趣……我们见面过一次，半年过去了。
+每次听到或看到 *The One and Only（唯一）* 这个词，我脑海中都会浮现 **反恐精英** 1.x 的 [**HeatoN**](https://youtube.com/watch?v=KwAGylrHbyE) 玩家——看起来 **HeatoN**（本名 Emil Christensen）最近被收入了 **反恐精英** 的 [*Hall of Fame*](https://youtube.com/watch?v=AUztvlHCJAQ)——值得称赞！……我真的很喜欢二十年前我们玩的那些 **反恐精英** 1.x 局域网派对……可惜那些都已经结束了，每个人都太忙，再也无法像以前那样聚会……不过，当我的一个朋友创建了一个名为 *CS:GO* 的 WhatsApp 群组，在线聚会玩游戏时，多少恢复了一点乐趣……我们见面过一次，半年过去了。
 
 回到 FrankenPad——世界上可能至少有几台这样的机器——我的具有以下特征：
 
@@ -40,9 +40,9 @@
 
 你可以看到屏幕边框上仍有 **T480** 标识，而掌托和键盘来自 **T25** 型号。
 
-… 至于最不重要的消息——上面的截图展示了我大部分文章的写作方式 🙂。
+…… 至于最不重要的消息——上面的截图展示了我大部分文章的写作方式 🙂。
 
-我非常喜欢 *Epiphany* 浏览器的功能——每次保存文件时它都会刷新页面，所以我可以像有“实时”预览一样工作。
+我非常喜欢浏览器 *Epiphany* 的功能——每次保存文件时它都会刷新页面，所以我可以像有“实时”预览一样工作。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/frankenpad-t25-top-cover-palm-rest.jpg)
 
@@ -60,13 +60,13 @@
 
 键盘方面——**ThinkPad T25** 的键盘略微柔软/细腻——打字手感更柔和——很好用——并不是说我不喜欢 **ThinkPad W520** 的键盘，只是我更喜欢 **ThinkPad T25**。
 
-其他优点是——我终于可以使用任何 65W USB-C 线来为它充电——包括我的 **ZMI QB826G 210W 25000mAh** 移动电源 – [Tiny UPS for Tiny NAS Reloaded](https://vermaden.wordpress.com/2024/02/11/tiny-ups-for-tiny-nas-reloaded/)——在这里有介绍。
+其他优点是——我终于可以使用任何 65W Type-C 线来为它充电——包括我的 **ZMI QB826G 210W 25000mAh** 移动电源 – [Tiny UPS for Tiny NAS Reloaded](https://vermaden.wordpress.com/2024/02/11/tiny-ups-for-tiny-nas-reloaded/)——在这里有介绍。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2024/02/zmi-top.jpg)
 
 ## 硬件
 
-我拿到它后做的第一件事之一就是查看内部硬件。
+我拿到它后做的第一件事之一就是看看内部硬件。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/frankenpad-t25-inside-bottom.jpg)
 
@@ -84,7 +84,7 @@
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/thinkpad-t480-sata-cable.jpg)
 
-但后来我以便宜的价格买到了 **Corsair MP600 PRO LPX 8TB M.2 NVMe SSD**，所以最终选择了 NVMe SSD。
+但后来我以便宜的价格买到了 **Corsair MP600 PRO LPX 8TB M.2 NVMe SSD**，所以最终选择了 NVMe 固态硬盘。
 
 ## WiFi
 
@@ -102,9 +102,9 @@
 
 现在 —— 无论是 **FreeBSD 14.2-RELEASE** 还是 **FreeBSD 14.3-RELEASE** 都能顺利连接 WiFi 网络。
 
-## TrackPoint
+## 指点杆
 
-有些人喜欢 **ThinkPad** 笔记本，因为它们配备 **TrackPoint**，但我不是其中之一——至少可以说它非常慢且不够精准。
+有些人喜欢 **ThinkPad** 笔记本，因为它们配备 **指点杆**，但我不是其中之一——至少可以说它非常慢且不够精准。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/thinkpad-nub.png)
 
@@ -134,13 +134,13 @@
 
 首先是主要的 **/etc/rc.conf** 配置文件。
 
-```sh
+```ini
 F25 % cat /etc/rc.conf
-# SILENCE # ------------------------------------------------------------------
+# 静默 # ------------------------------------------------------------------
   rc_startmsgs=NO
   rc_info=NO
 
-# NETWORK # ------------------------------------------------------------------
+# 网络 # ------------------------------------------------------------------
   hostname=f25.local
   background_dhclient=YES
   extra_netfs_types=NFS
@@ -154,12 +154,12 @@ F25 % cat /etc/rc.conf
   rtsol_flags="-i"
   rtsold_flags="-a -i"
 
-# MODULES/COMMON/BASE # ------------------------------------------------------
+# 模块/通用/基本 # ------------------------------------------------------
   kld_list="${kld_list} /boot/modules/i915kms.ko"
   kld_list="${kld_list} fusefs coretemp sem cpuctl ichsmb cuse linux linux64"
   kld_list="${kld_list} urndis"
 
-# MODULES/BHYVE/VIRTUALBOX # -------------------------------------------------
+# 模块/BHYVE/VIRTUALBOX # -------------------------------------------------
   vboxnet_enable=NO
   vm_enable=YES
   vm_dir="zfs:zroot/vm"
@@ -168,7 +168,7 @@ F25 % cat /etc/rc.conf
   pf_enable=YES
   dnsmasq_enable=NO
 
-# POWER # --------------------------------------------------------------------
+# 电源 # --------------------------------------------------------------------
   performance_cx_lowest=C1
   economy_cx_lowest=Cmax
   powerd_enable=YES
@@ -176,7 +176,7 @@ F25 % cat /etc/rc.conf
   powerdxx_enable=NO
   powerdxx_flags="-n adaptive -a hiadaptive -b adaptive -m 800 -M 1400"
 
-# DAEMONS | yes # ------------------------------------------------------------
+# 守护进程 | yes # ------------------------------------------------------------
   zfs_enable=YES
   xdm_enable=YES
   xdm_tty=ttyv4
@@ -194,12 +194,12 @@ F25 % cat /etc/rc.conf
   dbus_enable=YES
   cupsd_enable=YES
 
-# DAEMONS/temp | yes # -------------------------------------------------------
+# 守护进程/temp | yes # -------------------------------------------------------
   samba_server_enable=NO
   nmbd_enable=NO
   smbd_enable=NO
 
-# DAEMONS | no # -------------------------------------------------------------
+# 守护进程 | no # -------------------------------------------------------------
   linux_enable=NO
   openssh_enable=NO
   openssh_flags='-4 -p 23'
@@ -208,7 +208,7 @@ F25 % cat /etc/rc.conf
   sendmail_outbound_enable=NO
   sendmail_msp_queue_enable=NO
 
-# FS # -----------------------------------------------------------------------
+# 文件系统 # -----------------------------------------------------------------------
   fsck_y_enable=YES
   clear_tmp_enable=NO
   clear_tmp_X=YES
@@ -237,239 +237,278 @@ F25 % cat /etc/rc.conf
   jail_list="minecraft"
 ```
 
-接下来是运行时参数 **/etc/sysctl.conf** 文件。
+接下来是运行时参数文件 **/etc/sysctl.conf** 。
 
-```sh
+```ini
 F25 % cat /etc/sysctl.conf
 # HARVEST MASK FOR random(4)
-  kern.random.harvest.mask=33119
+kern.random.harvest.mask=33119
 
-# SECURITY
-  security.bsd.see_jail_proc=0
-  security.bsd.unprivileged_proc_debug=0
+# 安全
+security.bsd.see_jail_proc=0
+security.bsd.unprivileged_proc_debug=0
 
-# SECURITY/INTEL CPU MDS MITIGATION DISABLE
-  hw.mds_disable=0
-  machdep.mitigations.mds.disable=0
+# 安全性/禁用 Intel CPU MDS 缓解措施
+hw.mds_disable=0
+machdep.mitigations.mds.disable=0
 
-# SECURITY/RANDOM PID
-  kern.randompid=1
+# 安全/随机 PID
+kern.randompid=1
 
-# ANNOYING THINGS
-  vfs.usermount=1
-  kern.coredump=0
-  hw.syscons.bell=0
-  kern.vt.enable_bell=0
+# 令人烦恼的事项
+vfs.usermount=1
+kern.coredump=0
+hw.syscons.bell=0
+kern.vt.enable_bell=0
 
-# ZFS ASHIFT 4k
-  vfs.zfs.min_auto_ashift=12
+# ZFS 磁盘块大小对齐为 4k
+vfs.zfs.min_auto_ashift=12
 
-# ZFS DELETE FUCKUP TRIM (def:64)
-  vfs.zfs.vdev.trim_max_active=1
+# ZFS 删除错误导致的 TRIM 问题 (def:64)
+vfs.zfs.vdev.trim_max_active=1
 
-# ZFS ARC TUNING
-  vfs.zfs.arc.min=134217728
-  vfs.zfs.arc.max=536870912
+# ZFS ARC 调优
+vfs.zfs.arc.min=134217728
+vfs.zfs.arc.max=536870912
 
-# ZFS DISABLE STRICT ZVOL QUOTA ENFORCMENT (def:1)
-  vfs.zfs.zvol_enforce_quotas=0
+# 禁用 ZFS 严格的 ZVOL 配额执行 (def:1)
+vfs.zfs.zvol_enforce_quotas=0
 
-# JAILS/ALLOW UPGRADES IN JAILS
-  security.jail.chflags_allowed=1
+# Jail/允许在 Jail 中升级
+security.jail.chflags_allowed=1
 
-# JAILS/ALLOW RAW SOCKETS
-  security.jail.allow_raw_sockets=1
+# JAILS/允许 RAW SOCKETS
+security.jail.allow_raw_sockets=1
 
-# JAILS/ALLOW fdescfs(5)
-  security.jail.mount_fdescfs_allowed=1
-  security.jail.param.allow.mount.fdescfs=1
+# JAILS/允许 fdescfs(5)
+security.jail.mount_fdescfs_allowed=1
+security.jail.param.allow.mount.fdescfs=1
 
-# DESKTOP/INTERACTIVITY
-  kern.sched.preempt_thresh=224
+# 桌面/交互性
+kern.sched.preempt_thresh=224
 
-# DESKTOP QUANTUM FOR TIMESHARE THREADS IN stathz TICKS (def:12) NomadBSD
-  kern.sched.slice=3
+# 桌面量子用于时间共享线程，以 stathz 时钟滴答为单位 (def:12) NomadBSD
+kern.sched.slice=3
 
-# DESKTOP/IRIDIUM/CHROMIUM
-  kern.ipc.shm_allow_removed=1
+# 桌面/Iridium/Chromium
+kern.ipc.shm_allow_removed=1
 
-# SAMPLE RATE CONVERTER QUALITY (0=low .. 4=high) (def:1) NomadBSD
-  hw.snd.feeder_rate_quality=3
+# 采样率转换器质量 (0=low .. 4=high) (def:1) NomadBSD
+hw.snd.feeder_rate_quality=3
 
-# PERFORMANCE/ALL SHARED MEMORY SEGMENTS WILL BE MAPPED TO UNPAGEABLE RAM 
-  kern.ipc.shm_use_phys=1
+# 性能/所有共享内存段将映射到不可分页内存
+kern.ipc.shm_use_phys=1
 
-# VIRTUALBOX aio(4) SETTINGS
-  vfs.aio.max_buf_aio=8192
-  vfs.aio.max_aio_queue_per_proc=65536
-  vfs.aio.max_aio_per_proc=8192
-  vfs.aio.max_aio_queue=65536
+# VIRTUALBOX aio(4) 设置
+vfs.aio.max_buf_aio=8192
+vfs.aio.max_aio_queue_per_proc=65536
+vfs.aio.max_aio_per_proc=8192
+vfs.aio.max_aio_queue=65536
 
-# ALLOW idprio(8) USE BY REGULAR USER
-  security.bsd.unprivileged_idprio=1
+# 允许普通用户使用 idprio(8)
+security.bsd.unprivileged_idprio=1
 
-# NETWORK/DO NOT SEND RST ON SEGMENTS TO CLOSED PORTS
-  net.inet.tcp.blackhole=2
+# 网络/不向已关闭端口的报文发送 RST
+net.inet.tcp.blackhole=2
 
-# NETWORK/DO NOT SEND PORT UNREACHABLES FOR REFUSED CONNECTS
-  net.inet.udp.blackhole=1
+# 网络/对拒绝的连接不发送“端口不可达”响应
+net.inet.udp.blackhole=1
 
-# NETWORK/LIMIT ON SYN/ACK RETRANSMISSIONS (def:3)
-  net.inet.tcp.syncache.rexmtlimit=0
+# 网络/限制 SYN/ACK 重传次数（默认:3）
 
-# NETWORK/USE TCP SYN COOKIES IF SYNCACHE OVERFLOWS (def:1)
-  net.inet.tcp.syncookies=0
+net.inet.tcp.syncache.rexmtlimit=0
 
-# NETWORK/ASSIGN RANDOM ip_id VALUES (def:0)
-  net.inet.ip.random_id=1
+# 网络/如果 syncache 溢出则使用 TCP SYN Cookies（默认:1）
 
-# NETWORK/ENABLE SENDING IP REDIRECTS (def:1)
-  net.inet.ip.redirect=0
+net.inet.tcp.syncookies=0
 
-# NETWORK/IGNORE ICMP REDIRECTS (def:0)
-  net.inet.icmp.drop_redirect=1
+# 网络/分配随机的 ip_id 值（默认:0）
 
-# NETWORK/DROP TCP PACKETS WITH SYN+FIN SET (def:0)
-  net.inet.tcp.drop_synfin=1
+net.inet.ip.random_id=1
 
-# NETWORK/RECYCLE CLOSED FIN_WAIT_2 CONNECTIONS FASTER (def:0)
-  net.inet.tcp.fast_finwait2_recycle=1
+# 网络/启用发送 IP 重定向（默认:1）
 
-# NETWORK/CERTAIN ICMP UNREACHABLE MESSAGES MAY ABORT CONNECTIONS IN SYN_SENT (def:1)
-  net.inet.tcp.icmp_may_rst=0
+net.inet.ip.redirect=0
 
-# NETWORK/INITIAL SEND/RECV SOCKET BUFFER SIZE
-  net.inet.tcp.sendspace=65536
-  net.inet.tcp.recvspace=65536
+# 网络/忽略 ICMP 重定向（默认:0）
+
+net.inet.icmp.drop_redirect=1
+
+# 网络/丢弃 SYN+FIN 设置的 TCP 数据包（默认:0）
+
+net.inet.tcp.drop_synfin=1
+
+# 网络/更快回收 FIN_WAIT_2 状态的关闭连接（默认:0）
+
+net.inet.tcp.fast_finwait2_recycle=1
+
+# 网络/某些 ICMP 不可达消息可能会在 SYN_SENT 状态中中断连接（默认:1）
+
+net.inet.tcp.icmp_may_rst=0
+
+# 网络/初始发送/接收套接字缓冲区大小
+
+net.inet.tcp.sendspace=65536
+net.inet.tcp.recvspace=65536
 
 # BHYVE
-  net.link.tap.up_on_open=1
-  net.link.tap.user_open=1
 
-# https://lists.freebsd.org/archives/freebsd-stable/2023-November/001726.html
-  vfs.zfs.dmu_offset_next_sync=0
+net.link.tap.up_on_open=1
+net.link.tap.user_open=1
 
-# SOUND VOLUME
-  hw.snd.vpc_0db=35
+# 参考: [https://lists.freebsd.org/archives/freebsd-stable/2023-November/001726.html](https://lists.freebsd.org/archives/freebsd-stable/2023-November/001726.html)
 
-# SOUND DEFAULT OUTPUT
-  hw.snd.default_unit=0
+vfs.zfs.dmu_offset_next_sync=0
 
-# INCREASE IN PRECISION OF SOFTWARE CLOCKS (def:5) 2025/02/05
-  kern.timecounter.alloweddeviation=0
+# 声卡音量
 
-# DISABLE ZFS DEADMAN - HELPS ZFS ON USB DRIVES THAT GO TO SLEEP
-  vfs.zfs.deadman.enabled=0
+hw.snd.vpc_0db=35
 
-# MAXIMUM LISTEN SOCKET PENDING CONNECTION ACCEPT QUEUE SIZE (def: 128)
-  kern.ipc.soacceptqueue=1024
- 
-# MAXIMUM LISTEN SOCKET PENDING CONNECTION ACCEPT QUEUE SIZE (COMPAT) (def: 128)
-  kern.ipc.somaxconn=1024
+# 默认音频输出设备
 
-# CAP MAX CWND INCREMENT DURING SLOW-START TO THIS NUMBER OF SEGMENTS (def: 2)
-  net.inet.tcp.abc_l_var=16
- 
-# ENABLE TCP FAST OPEN SERVER FUNCTIONALITY (def: 0)
-  net.inet.tcp.fastopen.server_enable=1
+hw.snd.default_unit=0
 
-# FIN-WAIT2 TIMEOUT (def: 60000)
-  net.inet.tcp.finwait2_timeout=8000
+# 提高软件时钟精度（默认:5） 2025/02/05
 
-# PREVENT SHARED MEMORY FROM BEING SWAPPED TO DISK
-  kern.ipc.shm_use_phys=1
+kern.timecounter.alloweddeviation=0
 
-# DO NOT SWITCH VIRTUAL CONSOLES BACK AND FORTH ON SUSPEND
-# SOMETIMES SWITCHING TO DIFFERENT VT BREAKS HARDWARE ACCELERATION
-# https://github.com/freebsd/drm-kmod/issues/175
-  kern.vt.suspendswitch=0
+# 禁用 ZFS Deadman —— 有助于 ZFS 在会进入睡眠的 USB 驱动器上运行
+
+vfs.zfs.deadman.enabled=0
+
+
+# 最大监听套接字待处理连接队列大小（默认: 128）
+
+kern.ipc.soacceptqueue=1024
+
+# 最大监听套接字待处理连接队列大小（兼容模式）（默认: 128）
+
+kern.ipc.somaxconn=1024
+
+# 在慢启动期间 TCP 最大 CWND 增量限制为该段数（默认: 2）
+
+net.inet.tcp.abc_l_var=16
+
+# 启用 TCP Fast Open 服务器功能（默认: 0）
+
+net.inet.tcp.fastopen.server_enable=1
+
+# FIN-WAIT2 超时（默认: 60000）
+
+net.inet.tcp.finwait2_timeout=8000
+
+# 防止共享内存被换出到磁盘
+
+kern.ipc.shm_use_phys=1
+
+# 在挂起时不切换虚拟控制台
+# 有时切换到不同 VT 会破坏硬件加速
+# 参考: [https://github.com/freebsd/drm-kmod/issues/175](https://github.com/freebsd/drm-kmod/issues/175)
+
+kern.vt.suspendswitch=0
 ```
 
 接下来是启动参数 **/boot/loader.conf** 文件。
 
 ```sh
 F25 % cat /boot/loader.conf
-# CONSOLE COMMON
-  autoboot_delay=2       # USE '-1' FOR NO WAIT | USE 'NO' FOR INFINITE WAIT
-  hw.usb.no_boot_wait=1  # DO NOT WAIT FOR USB DEVICES FOR ROOT (/) FILESYSTEM
-  boot_mute=YES          # LIKE '-m' IN LOADER - MUTE CONSOLE WITH FreeBSD LOGO
-  loader_logo=none       # POSSIBLE LOGO OPTIONS: fbsdbw beastiebw beastie none
-  loader_menu_frame="none"
-  screen.font="6x12"
+# CONSOLE 通用
+autoboot_delay=2       # USE '-1' FOR NO WAIT | USE 'NO' FOR INFINITE WAIT
+hw.usb.no_boot_wait=1  # DO NOT WAIT FOR USB DEVICES FOR ROOT (/) FILESYSTEM
+boot_mute=YES          # LIKE '-m' IN LOADER - MUTE CONSOLE WITH FreeBSD LOGO
+loader_logo=none       # POSSIBLE LOGO OPTIONS: fbsdbw beastiebw beastie none
+loader_menu_frame="none"
+screen.font="6x12"
 
-# CONSOLE RESOLUTION
-  kern.vt.fb.default.mode="1920x1080"
-  efi_max_resolution="1920x1080"
-  vbe_max_resolution="1920x1080"
+# CONSOLE 分辨率
+kern.vt.fb.default.mode="1920x1080"
+efi_max_resolution="1920x1080"
+vbe_max_resolution="1920x1080"
 
-# WINE FIX
-  machdep.max_ldt_segment=2048
+# WINE 修复
+machdep.max_ldt_segment=2048
 
-# MODULES - BOOT
-  aesni_load=YES
-  geom_eli_load=YES
-  cryptodev_load=YES
-  zfs_load=YES
+# 启动模块
+aesni_load=YES
+geom_eli_load=YES
+cryptodev_load=YES
+zfs_load=YES
 
-# ENABLE FRAME BUFFER COMPRESSION FOR POWER SAVINGS
-  compat.linuxkpi.i915_enable_fbc=1
+# 启用帧缓冲压缩以节能
 
-# SKIP UNNECESSARY MODE SETS AT BOOT TIME
-  compat.linuxkpi.i915_fastboot=1
+compat.linuxkpi.i915_enable_fbc=1
 
-# ENABLE POWER-SAVING DISPLAY C-STATES
-  compat.linuxkpi.i915_enable_dc=2
+# 启动时跳过不必要的模式设置
 
-# DISABLE DISPLAY POWER WELLS WHEN POSSIBLE
+compat.linuxkpi.i915_fastboot=1
+
+# 启用节能显示 C 状态
+
+compat.linuxkpi.i915_enable_dc=2
+
+# 尽可能禁用显示电源井
+
 # compat.linuxkpi.i915_disable_power_well=1
 
-# ENABLE SYNAPTICS
-  hw.psm.synaptics_support=1
+# 启用 Synaptics 支持
 
-# DISABLE /dev/diskid/* AND /dev/gptid/* ENTRIES FOR DISKS
-  kern.geom.label.disk_ident.enable=0
-  kern.geom.label.gptid.enable=0
+hw.psm.synaptics_support=1
 
-# INCREASE ZFS TRANSACTION TIMEOUT TO SAVE BATTERY
-  vfs.zfs.txg.timeout=10
+# 禁用 /dev/diskid/* 和 /dev/gptid/* 磁盘条目
 
-# RACCT/RCTL RESOURCE LIMITS
-  kern.racct.enable=1
+kern.geom.label.disk_ident.enable=0
+kern.geom.label.gptid.enable=0
 
-# ZFS TUNING
-  vfs.zfs.prefetch_disable=1
+# 增加 ZFS 事务超时时间以节省电池
 
-# POWER MANAGEMENT POWER OFF DEVICES WITHOUT ATTACHED DRIVER
-  hw.pci.do_power_nodriver=3
+vfs.zfs.txg.timeout=10
 
-# POWER MGMT / OPTIMIZE ISS CLOCk FOR EACH CORE INDIVIDUALLY
+# RACCT/RCTL 资源限制
+
+kern.racct.enable=1
+# ZFS 调优
+
+vfs.zfs.prefetch_disable=1
+
+# 电源管理：关闭没有驱动程序的设备
+
+hw.pci.do_power_nodriver=3
+
+# 电源管理 / 为每个核心单独优化 ISS 时钟
+
 # machdep.hwpstate_pkg_ctrl=0
 
-# POWER MANAGEMENT FOR EVERY USED AHCI CHANNEL (ahcich 0-7)
-  hint.ahcich.0.pm_level=5
-  hint.ahcich.1.pm_level=5
-  hint.ahcich.2.pm_level=5
-  hint.ahcich.3.pm_level=5
-  hint.ahcich.4.pm_level=5
-  hint.ahcich.5.pm_level=5
-  hint.ahcich.6.pm_level=5
-  hint.ahcich.7.pm_level=5
+# 电源管理：每个使用的 AHCI 通道（ahcich 0-7）
 
-# GELI THREADS
-  kern.geom.eli.threads=4
+hint.ahcich.0.pm_level=5
+hint.ahcich.1.pm_level=5
+hint.ahcich.2.pm_level=5
+hint.ahcich.3.pm_level=5
+hint.ahcich.4.pm_level=5
+hint.ahcich.5.pm_level=5
+hint.ahcich.6.pm_level=5
+hint.ahcich.7.pm_level=5
 
-# MAX SEND QUEUE SIZE
-  net.link.ifqmaxlen=2048
+# GELI 线程数
 
-# DISABLE USB PACKET FILTERING
-  hw.usb.no_pf=1
+kern.geom.eli.threads=4
 
-# NO USB DEVICE ENUMERATE WAITING AT BOOT AND SHUTDOWN
-  hw.usb.no_boot_wait=0 
-  hw.usb.no_shutdown_wait=1 
+# 最大发送队列大小
 
-# DISABLE hwpstate_intel(4) DRIVER
-  hint.hwpstate_intel.0.disabled=1
+net.link.ifqmaxlen=2048
+
+# 禁用 USB 数据包过滤
+
+hw.usb.no_pf=1
+
+# 启动和关闭时不等待 USB 设备枚举
+
+hw.usb.no_boot_wait=0
+hw.usb.no_shutdown_wait=1
+
+# 禁用 hwpstate_intel(4) 驱动
+
+hint.hwpstate_intel.0.disabled=1
 ```
 
 如上所示——我已禁用了 **hwpstate_intel(4)** 驱动，因为在保持系统响应性的同时，我无法找到性能、功耗与电池续航的最佳平衡。
@@ -539,20 +578,20 @@ rcons	"/usr/libexec/getty std.115200"	vt100	onifconsole secure
 
 无线网络配置——作为不同网络类型的示例。如你所见，我没有在 **/etc/rc.conf** 文件中包含任何网络信息——这是因为我使用自己的 **network.sh** 方案来连接各种有线和无线网络——详细描述见 [FreeBSD Network Management with network.sh Script](https://vermaden.wordpress.com/2018/03/24/freebsd-network-management-with-network-sh-script/)。
 
-```sh
+```ini
 F25 # cat /etc/wpa_supplicant.conf
-# GENERAL
+# 通用
 eapol_version=2
 ap_scan=1
 fast_reauth=1
 
-# OPEN NETWORKS
+# 开放网络
 network={
   key_mgmt=NONE
   priority=0
 }
 
-# NETWORK WITH HIDDEN SSID
+# 隐藏 SSID 的 WIFI
 network={
   scan_ssid=1
   ssid="hidden-network"
@@ -560,14 +599,14 @@ network={
   priority=0
 }
 
-# NAMED OPEN NETWORK
+# 命名开放网络
 network={
   ssid="Free_Internet"
   key_mgmt=NONE
   priority=0
 }
 
-# NORMAL WPA/WPA2 SECURED NETWORK
+# 普通 WPA/WPA2 加密网络
 network={
   ssid="SECURED"
   psk="12345678"
@@ -583,7 +622,7 @@ F25 % cat /usr/local/etc/automount.conf
 
 **doas(1)** 配置文件。
 
-```sh
+```ini
 F25 # cat /usr/local/etc/doas.conf
 # CORE
   permit nopass keepenv root     as root
@@ -741,17 +780,17 @@ F25 % battery-info.sh 1
 
 ## 配件
 
-对于 **ThinkPad W520** 笔记本，有一些非常实用的配件。我将在下文中描述它们。
+对于 **ThinkPad W520** 笔记本，有一些非常实用的配件。我将在下文中说明它们。
 
 ### 更小的电源适配器
 
-**ThinkPad W520** 需要大型电源砖——官方 **ThinkPad 170W 电源** 或 **ThinkPad 135W 电源**（最初随 **ThinkPad W510** 销售）。而对于 **ThinkPad T480** 或我的 **FrankenPad T25**，使用文章 [More Undervalued Hardware Companions](https://vermaden.wordpress.com/2025/06/21/more-undervalued-hardware-companions/) 中 **Small Powerful USB-C Chargers** 部分描述的 140W 电源更加方便。
+**ThinkPad W520** 需要大块电源砖——官方 **ThinkPad 170W 电源** 或 **ThinkPad 135W 电源**（最初随 **ThinkPad W510** 销售）。而对于 **ThinkPad T480** 或我的 **FrankenPad T25**，使用文章 [More Undervalued Hardware Companions](https://vermaden.wordpress.com/2025/06/21/more-undervalued-hardware-companions/) 中 **Small Powerful USB-C Chargers** 部分所述的 140W 电源更加方便。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/more-hardware-smaller-power-adapters-a.jpg)
 
 ### 鼠标搭档
 
-在参考了多款鼠标（详见文章 [UNIX Mouse Shootout](https://vermaden.wordpress.com/2021/11/09/unix-mouse-shootout/)）后，我最终选择了 **Logitech Triathlon M720** 鼠标。我将 **Lenovo USB 接收器** 插入侧边 USB 接口。使用 USB 接收器时可以使用该鼠标，你也可以通过蓝牙连接到其他电脑。这款鼠标有一个专用按钮，可在三台不同电脑间切换。可惜它们之间的复制粘贴功能无法使用 🙂。
+在参考了多款鼠标（详见文章 [UNIX Mouse Shootout](https://vermaden.wordpress.com/2021/11/09/unix-mouse-shootout/)）后，我最终选择了 **罗技 Triathlon M720** 鼠标。我将 **联想 USB 接收器** 插入侧边 USB 接口。使用 USB 接收器时可以使用该鼠标，你也可以通过蓝牙连接到其他电脑。这款鼠标有一个专用按钮，可在三台不同电脑间切换。可惜它们之间的复制粘贴功能无法使用 🙂。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2021/11/mouse-m720.jpg)
 
