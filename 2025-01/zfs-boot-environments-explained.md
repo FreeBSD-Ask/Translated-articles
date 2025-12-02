@@ -5,21 +5,21 @@
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 
 
-这篇文章不会尝试给出 ZFS 的通用解释——我们只会专注于 *ZFS 启动环境*。关于它们存在许多误解和误会——有些人不知道哪些内容在 ZFS BE 之内、哪些内容在 ZFS BE 之外——但更糟的是——有些人完全不理解它们。
+这篇文章不会尝试给出 ZFS 的通用解释——我们只会专注于 **ZFS 启动环境**。关于它们存在许多误解和误会——有些人不知道 ZFS 启动环境里面有什么、ZFS 启动环境里面没有什么——但更糟的是——有些人完全不懂。
 
-我假设读者确实了解什么是 ZFS 文件系统的概念和特性 —— 比如 ZFS pool 或 ZFS dataset 之类的东西对读者来说是已知的……并且读者能够解释 ZFS 和 LVM 之间的区别。
+我假设读者确实了解什么是 ZFS 文件系统的概念和特性 —— 比如 ZFS 池或 ZFS 数据集之类的东西对读者来说是已知的……并且读者能够解释 ZFS 和 LVM 之间的区别。
 
 ## ZFS 启动环境里有什么
 
-这是首先经常被误解的主题……大概是因为没有理解 **canmount=off** 这个 ZFS 属性 —— 你可以在 [**zfsprops(7)**](https://man.freebsd.org/zfsprops/7) man page 中阅读更多相关内容。
+这是首先经常被误解的主题……大概是因为没有理解 **canmount=off** 这个 ZFS 属性 —— 你可以在 man [**zfsprops(7)**](https://man.freebsd.org/zfsprops/7) 中获得更多相关内容。
 
-这是我过去一次关于 “ZFS 启动环境” 的演讲中的幻灯片 —— 可以在链接 [https://is.gd/BECTL](https://is.gd/BECTL) 获得 —— 那是在 **2018 NLUUG** 会议上做的……颜色并不是随便选的……它们是特地准备成那样，以致敬 NLUUG 会议举办的国家 —— 荷兰。
+这是我以前关于 “ZFS 启动环境” 的演讲中的幻灯片 —— 可以在链接 [https://is.gd/BECTL](https://is.gd/BECTL) 获得 —— 那是在 **2018 NLUUG** 会议上做的……颜色并不是随便选的……它们是特地准备成那样，以致敬 NLUUG 会议举办的国家 —— 荷兰。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/11/nluug-zfs-canmount.png)
 
 对 **/var** 和 **/usr** 使用 **canmount=off** 背后的想法是这样的：
 
-**/var** 和 **/usr** 这些 ZFS datasets 的内容确实位于 ZFS BE 中 —— 位于安装程序创建的 **zroot/ROOT/default** 这个 ZFS BE 中 —— 而其余像下面这些这样的内容：
+**/var** 和 **/usr** 这些 ZFS 数据集的内容确实位于 ZFS 启动环境中 —— 位于安装程序创建的 **zroot/ROOT/default** 这个 ZFS 启动环境中 —— 而其余像下面这些这样的内容：
 
 ```sh
 zroot/tmp
@@ -35,7 +35,7 @@ zroot/var/tmp
 
 这些内容 **被排除在这个 ZFS 启动环境之外**。
 
-因此，默认情况下，一切都包含在 ZFS 启动环境中 —— 如果你想从 **/usr** 或 **/var** 中排除某些部分 —— 你就为这些需要排除的路径添加相应的 ZFS datasets。
+因此，在默认情况下，一切都包含在 ZFS 启动环境中 —— 如果你想从 **/usr** 或 **/var** 中排除某些部分 —— 你就为这些需要排除的路径添加相应的 ZFS 数据集。
 
 下面是你在 [**bsdinstall(8)**](https://man.freebsd.org/bsdinstall/8) 安装程序中选择 **Auto（ZFS）** 选项后，FreeBSD 默认的 ZFS 布局。
 
@@ -77,9 +77,9 @@ zroot/var/mail      canmount  on        default
 zroot/var/tmp       canmount  on        default
 ```
 
-关键点在于，**zroot/usr** 和 **zroot/var** 这两个 ZFS dataset 都具有 **canmount=off** 这个 ZFS 属性。这意味着 **/usr** 文件系统 **并不存放在** **zroot/usr** 这个 ZFS dataset 中……它是存放在 **zroot/ROOT/default** 这个 ZFS 启动环境里的。
+关键点在于，**zroot/usr** 和 **zroot/var** 这两个 ZFS 数据集都具有 **canmount=off** 这个 ZFS 属性。这意味着 **/usr** 文件系统 **并不存放在** **zroot/usr** 这个 ZFS 数据集中……它是存放在 **zroot/ROOT/default** 这个 ZFS 启动环境里的。
 
-你可以用传统的 [**df(1)**](https://man.freebsd.org/df/1) 命令像这样进行验证。
+你可以用传统的 [**df(1)**](https://man.freebsd.org/df/1) 命令进行验证如下。
 
 ```sh
 root@freebsd:~ # df -g /usr
@@ -91,11 +91,11 @@ Filesystem         1G-blocks Used Avail Capacity  Mounted on
 zroot/ROOT/default        18    0    18     2%    /
 ```
 
-如你所见，**/usr** 和 **/var** 都只是 **zroot/ROOT/default** 这个 ZFS dataset 中的目录。数据并 **不** 保存在 **zroot/usr** 或 **zroot/var** 这些 ZFS dataset 中……再次强调，这是因为它们具有 **canmount=off** 这个 ZFS 属性。
+如你所见，**/usr** 和 **/var** 都只是 **zroot/ROOT/default** 这个 ZFS 数据集中的目录。数据并 **不** 保存在 **zroot/usr** 或 **zroot/var** 这些 ZFS 数据集中……再次强调，这是因为它们具有 **canmount=off** 这个 ZFS 属性。
 
-现在，这个 FreeBSD 默认设置的主要理念 / 概念是：所有内容都保存在 **zroot/ROOT/default** 这个 ZFS dataset 中，而所有其他 ZFS dataset 都是从它中 **排除（EXCLUDE）** 出去的。比如 **zroot/var/audit** 具有 **canmount=on** 这个 ZFS 属性……其他所有的也都是完全相同的情况。
+现在，这个 FreeBSD 默认设置的主要理念 `/` 概念是：所有内容都保存在 **zroot/ROOT/default** 这个 ZFS 数据集中，而所有其他 ZFS 数据集都是从它中 **排除（exclude）** 出去的。比如 **zroot/var/audit** 具有 **canmount=on** 这个 ZFS 属性……其他所有的也都是完全相同的情况。
 
-说实话，为了让事情变得傻瓜式地简单，我会把 **zroot/usr** 和 **zroot/var** 这两个 ZFS dataset 换成一个能准确说明用途的名称 —— **zroot/exclude**，因为在它下面的所有 ZFS dataset，本质上都是被排除在 **ZFS 启动环境** 之外的。
+说实话，为了让事情变得傻瓜式地简单，我会把 **zroot/usr** 和 **zroot/var** 这两个 ZFS 数据集换成一个能准确说明用途的名称 —— **zroot/exclude**，因为在它下面的所有 ZFS 数据集，本质上都是被排除在 **ZFS 启动环境** 之外的。
 
 ```sh
 root@freebsd:~ # zfs list
@@ -141,7 +141,7 @@ zroot/exclude/var/mail     96K  18.5G    96K  /var/mail
 zroot/exclude/var/tmp      96K  18.5G    96K  /var/tmp
 ```
 
-现在更容易理解了吗？我希望是的……即使在上面进行了所有这些重命名，ZFS 的挂载点也 **没有任何变化**，因为 **mountpoint** 是一个独立的 ZFS 属性——所以即使我们对 ZFS dataset 的命名逻辑进行了重新组织，只要没有从上层继承，这个 ZFS **mountpoint** 属性在逻辑重组后依然保持不变。
+现在更容易理解了吗？我希望是的……即使在上面进行了所有这些重命名，ZFS 的挂载点也 **没有任何变化**，因为 **mountpoint** 是个独立的 ZFS 属性——所以即使我们对 ZFS 数据集的命名逻辑进行了重新组织，只要没有从上层继承，这个 ZFS **mountpoint** 属性在逻辑重组后依然保持不变。
 
 之前使用 **df(1)** 的测试结果与之前完全相同。
 
@@ -211,7 +211,7 @@ zroot/exclude/usr/ports        18    0    18     0%    /usr/ports
 
 另一个经常被误解的谜题……或者说没有被清楚理解的部分。
 
-通常，*ZFS 启动环境* 是由某个时间点创建的 ZFS **快照** 克隆出来的可写 ZFS **clone**。
+通常，**ZFS 启动环境** 是由某个时间点创建的 ZFS **快照** 克隆出来的可写 ZFS **clone**。
 
 让我用我最喜欢的 *Enterprise Architect ASCII Edition* 软件来可视化一下。
 
@@ -295,7 +295,7 @@ zdata  bootfs    -                    default
 zroot  bootfs    zroot/ROOT/default   local
 ```
 
-现在……有趣的部分来了——你可以创建任意数量的额外 *ZFS 启动环境*，或者使用 ZFS 的 **send|recv** 功能。
+现在……有趣的部分来了——你可以创建任意数量的额外 **ZFS 启动环境**，或者使用 ZFS 的 **send|recv** 功能。
 
 下面是这种设置的示例。
 
@@ -343,6 +343,6 @@ summary: 30.3 GiByte in 34min 04.8sec - average of 15.2 MiB/s
 
 ## 总结
 
-我希望现在 *ZFS 启动环境* 的主要原理更加清晰了。
+我希望现在 **ZFS 启动环境** 的主要原理更加清晰了。
 
 ……如果还有不明白的地方，欢迎提出你的疑问。
