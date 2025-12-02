@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [FrankenPad T25 上的 FreeBSD 14.3](2025-01/freebsd-14-3-on-frankenpad-t25.md)
 * [FreeBSD Jail 容器中的 Minecraft 服务器](2025-01/minecraft-server-freebsd-jails-container.md)
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [ZFS 启动环境中的其他 FreeBSD 版本](2025-01/other-freebsd-version-in-zfs-boot-environment.md)
