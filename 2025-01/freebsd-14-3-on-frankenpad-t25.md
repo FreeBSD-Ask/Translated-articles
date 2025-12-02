@@ -611,8 +611,11 @@ network={
   ssid="SECURED"
   psk="12345678"
 }
-The automount(8) config.
+```
 
+**automount(8)** 配置。
+
+```sh
 F25 % cat /usr/local/etc/automount.conf
   USERUMOUNT=YES
   USER=vermaden
@@ -624,11 +627,11 @@ F25 % cat /usr/local/etc/automount.conf
 
 ```ini
 F25 # cat /usr/local/etc/doas.conf
-# CORE
+# 核心
   permit nopass keepenv root     as root
   permit nopass keepenv vermaden as root
 
-# THE network.sh SCRIPT
+# network.sh 脚本
   # pw groupmod network -m YOURUSERNAME
   # cat /usr/local/etc/doas.conf
   permit nopass :network as root cmd /etc/rc.d/netif args onerestart
