@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [FreeBSD Jail 容器中的 Minecraft 服务器](2025-01/minecraft-server-freebsd-jails-container.md)
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [ZFS 启动环境中的其他 FreeBSD 版本](2025-01/other-freebsd-version-in-zfs-boot-environment.md)
 * [ZFS 启动环境详解](2025-01/zfs-boot-environments-explained.md)
