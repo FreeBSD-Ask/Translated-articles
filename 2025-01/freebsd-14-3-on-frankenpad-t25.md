@@ -118,19 +118,19 @@
 
 主要的 FreeBSD 配置文件如下：
 
-* **/etc/rc.conf** – 系统服务配置
-* **/etc/sysctl.conf** – 运行时参数
-* **/boot/loader.conf** – 启动可配置参数
+- **/etc/rc.conf** – 系统服务配置
+- **/etc/sysctl.conf** – 运行时参数
+- **/boot/loader.conf** – 启动可配置参数
 
 我还会包括以下文件，因为它们对配置也至关重要：
 
-* **/etc/devfs.rules** – 设备配置
-* **/etc/fstab** – 文件系统配置
-* **/etc/ttys** – 终端初始化配置
-* **/etc/wpa_supplicant.conf** – WiFi 配置
-* **/usr/local/etc/automount.conf** – **automount(8)** 配置
-* **/usr/local/etc/doas.conf** – **doas(1)** 配置
-* 用户组成员信息。
+- **/etc/devfs.rules** – 设备配置
+- **/etc/fstab** – 文件系统配置
+- **/etc/ttys** – 终端初始化配置
+- **/etc/wpa_supplicant.conf** – WiFi 配置
+- **/usr/local/etc/automount.conf** – **automount(8)** 配置
+- **/usr/local/etc/doas.conf** – **doas(1)** 配置
+- 用户组成员信息。
 
 首先是主要的 **/etc/rc.conf** 配置文件。
 
@@ -671,11 +671,11 @@ groups=1000(vermaden)
 
 图例说明如下：
 
-* **ub1** – **unixbench(1)** 单线程（1 CPU 线程）得分
-* **ub8** – **unixbench(1)** 多线程（8 CPU 线程）得分
-* **bbR** – **blogbench(1)** 读取性能
-* **bbW** – **blogbench(1)** 写入性能
-* **diff** – **F25** 相对于 **W520** 提升的速度
+- **ub1** – **unixbench(1)** 单线程（1 CPU 线程）得分
+- **ub8** – **unixbench(1)** 多线程（8 CPU 线程）得分
+- **bbR** – **blogbench(1)** 读取性能
+- **bbW** – **blogbench(1)** 写入性能
+- **diff** – **F25** 相对于 **W520** 提升的速度
 
 测试结果：
 
@@ -694,9 +694,9 @@ groups=1000(vermaden)
 
 使用的脚本：
 
-* **[battery-time.sh](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-time.sh)**
-* **[battery-capacity.sh](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-capacity.sh)**
-* [**battery-info.sh**](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-info.sh)
+- **[battery-time.sh](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-time.sh)**
+- **[battery-capacity.sh](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-capacity.sh)**
+- [**battery-info.sh**](https://raw.githubusercontent.com/vermaden/scripts/refs/heads/master/battery-info.sh)
 
 测试结果如下。
 

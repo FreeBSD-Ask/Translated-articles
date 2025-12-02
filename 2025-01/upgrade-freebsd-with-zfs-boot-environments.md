@@ -161,7 +161,7 @@
 
 现在讲更快的升级流程 —— 以下说明根据你使用的 shell 而定。
 
-* **ZSH / CSH**
+- **ZSH / CSH**
 
 ```sh
 # beadm create 13.1-RC6
@@ -174,7 +174,7 @@ BE # exit
 # reboot
 ```
 
-* **SH / BASH / FISH / KSH**
+- **SH / BASH / FISH / KSH**
 
 ```sh
 # beadm create 13.1-RC6
