@@ -1,4 +1,4 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [ZFS 启动环境详解](2025-01/zfs-boot-environments-explained.md)
 * [新型 ZFS 启动环境工具](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
 * [Realtek RTL8188CUS – USB 802.11n 无线网卡评测](2025-01/realtek-usb-wifi-review.md)
 * [为什么是 FreeBSD？](2025-01/quare-freebsd.md)
