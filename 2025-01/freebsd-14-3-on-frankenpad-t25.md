@@ -414,7 +414,6 @@ kern.vt.suspendswitch=0
 F25 % cat /boot/loader.conf
 # CONSOLE 通用
 autoboot_delay=2       # 使用 '-1' 表示不等待 | 使用 'NO' 表示无限等待
-hw.usb.no_boot_wait=1  # 启动时不等待 USB 设备以挂载根 (/) 文件系统
 boot_mute=YES          # 类似 LOADER 中的 '-m' 参数 —— 静音控制台并显示 FreeBSD 标志
 loader_logo=none       # 可选标志选项: fbsdbw beastiebw beastie none
 loader_menu_frame="none"
