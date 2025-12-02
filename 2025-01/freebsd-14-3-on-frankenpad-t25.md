@@ -56,7 +56,7 @@
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/06/usb-c-hub.jpg)
 
-我在这里买了一个小型 USB 集线器 – [https://aliexpress.com/item/1005007244139650.html](https://aliexpress.com/item/1005007244139650.html) – 在 *Aliexpress* 上。
+我在这里买了一个小型 USB 集线器 – [https://aliexpress.com/item/1005007244139650.html](https://aliexpress.com/item/1005007244139650.html) – 在 *AliExpress* 上。
 
 键盘方面——**ThinkPad T25** 的键盘略微柔软/细腻——打字手感更柔和——很好用——并不是说我不喜欢 **ThinkPad W520** 的键盘，只是我更喜欢 **ThinkPad T25**。
 
