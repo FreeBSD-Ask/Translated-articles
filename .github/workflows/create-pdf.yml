@@ -22,10 +22,10 @@ jobs:
           timedatectl
 
       # ================= 仓库检出部分 =================
-      - name: 检出 FreeBSD-Ask 主仓库
+      - name: 检出 Translated-articles 主仓库
         uses: actions/checkout@v6
         with:
-          path: FreeBSD-Ask
+          path: Translated-articles
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
@@ -37,7 +37,7 @@ jobs:
 
       # ================= 初始化标签检查 =================
       - name: 检查或创建初始标签
-        working-directory: FreeBSD-Ask
+        working-directory: Translated-articles
         run: |
           timedatectl
           if ! git describe --tags --abbrev=0 2>/dev/null; then
