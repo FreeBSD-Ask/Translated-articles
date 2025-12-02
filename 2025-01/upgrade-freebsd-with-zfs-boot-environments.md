@@ -1,4 +1,4 @@
-# 新型 ZFS 启动环境工具
+# 使用 ZFS 启动环境更新 FreeBSD
 
 - [Upgrade FreeBSD with ZFS Boot Environments](https://vermaden.wordpress.com/2021/02/23/upgrade-freebsd-with-zfs-boot-environments/)
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
