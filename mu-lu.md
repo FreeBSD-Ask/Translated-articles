@@ -1,12 +1,15 @@
-# 目录
+# Table of contents
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
-* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [FreeBSD 特色开发项目（滚动更新）](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
+* [zfs 速查手册](2025-01/zfs.md)
 
 ## 2025 年
 
+* [FreeBSD Jail 容器中的 Minecraft 服务器](2025-01/minecraft-server-freebsd-jails-container.md)
+* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
+* [ZFS 启动环境中的其他 FreeBSD 版本](2025-01/other-freebsd-version-in-zfs-boot-environment.md)
 * [ZFS 启动环境详解](2025-01/zfs-boot-environments-explained.md)
 * [新型 ZFS 启动环境工具](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
 * [Realtek RTL8188CUS – USB 802.11n 无线网卡评测](2025-01/realtek-usb-wifi-review.md)
@@ -46,7 +49,6 @@
 * [FreeBSD 并没有死，别听信那些夸张的说法](2025-01/report.md)
 * [FreeBSD 上的 ZFS 日志压缩](2025-01/zfs-log.md)
 * [为 FreeBSD 发声：FOSDEM 2025 参会报告](2025-01/fosd.md)
-* [zfs 速查手册](2025-01/zfs.md)
 * [谁在使用 FreeBSD（基金会官方版本）](2025-01/di-1.5-jie-shui-zai-shi-yong-freebsd.md)
 * [如何将基于 Electron 的应用程序移植到 FreeBSD](2025-01/ele.md)
 * [FreeBSD：原始操作系统发行版的火炬传承者](2025-01/bsd.md)
