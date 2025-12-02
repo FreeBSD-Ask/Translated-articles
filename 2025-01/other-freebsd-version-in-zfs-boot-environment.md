@@ -394,13 +394,13 @@ BE # diff -u /boot/loader.conf.ZFS /boot/loader.conf
 +++ /boot/loader.conf   2021-10-19 10:57:23.992145000 +0000
 @@ -12,7 +12,8 @@
 
- # MODULES - BOOT
+ # 启动模块
    geom_eli_load=YES
 -  zfs_load=YES
 +  zfs_load=NO
 +  openzfs_load=YES
 
- # DISABLE /dev/diskid/* ENTRIES FOR DISKS
+ # 为磁盘禁用 /dev/diskid/*
    kern.geom.label.disk_ident.enable=0
 
 BE # shutdown -r now
