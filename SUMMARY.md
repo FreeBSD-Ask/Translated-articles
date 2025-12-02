@@ -12,7 +12,7 @@
 * [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [ZFS 启动环境中的其他 FreeBSD 版本](2025-01/other-freebsd-version-in-zfs-boot-environment.md)
 * [ZFS 启动环境详解](2025-01/zfs-boot-environments-explained.md)
-* [新型 ZFS 启动环境工具](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
+* [使用 ZFS 启动环境更新 FreeBSD](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
 * [Realtek RTL8188CUS – USB 802.11n 无线网卡评测](2025-01/realtek-usb-wifi-review.md)
 * [为什么是 FreeBSD？](2025-01/quare-freebsd.md)
 * [使用 Pacemaker 与 Corosync 构建 FreeBSD 集群](2025-01/freebsd-cluster-with-pacemaker-and-corosync.md)
