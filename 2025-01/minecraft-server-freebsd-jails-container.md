@@ -4,7 +4,7 @@
 - 发布时间：2025/04/05
 - 作者：𝚟𝚎𝚛𝚖𝚊𝚍𝚎𝚗
 
-今天——应我儿子的要求——我们来讲讲在 FreeBSD Jails 容器中运行 Minecraft 服务器。
+今天——应我儿子的要求——我们来讲讲如何在 FreeBSD Jail 容器中运行 Minecraft 服务器。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/04/minecraft-logo.png)
 
@@ -12,7 +12,7 @@
 
 ## 准备工作
 
-首先我们将在 **/jail** 路径下创建环境，并获取所需的 FreeBSD *Base System* 版本。
+首先我们将在 **/jail** 路径下创建环境，并获取所需的 FreeBSD **基本系统** 版本。
 
 今天我们将使用 FreeBSD 14.2-RELEASE 版本。
 
@@ -24,7 +24,7 @@ host # VER=$( freebsd-version | awk -F '-' '{print $1 "-" $2}' )
 host # fetch -o /jail/BASE/${VER}-base.txz https://download.freebsd.org/releases/amd64/14.2-RELEASE/base.txz
 ```
 
-接下来我们将创建专用的 Minecraft FreeBSD Jail，并为其填充独立的 *Base System* 内容。
+接下来我们将创建专用的 Minecraft FreeBSD Jail，并为其填充独立的 **基本系统** 内容。
 
 我们还会复制 **/var/run/dmesg.boot**，因为 Minecraft 服务器需要使用它。
 
@@ -40,7 +40,7 @@ host # cp /var/run/dmesg.boot /jail/minecraft/var/run/
 
 这些配置将作为所有其他 Jail 的默认值，除非我们重新定义它们。
 
-```sh
+```ini
 host # cat /etc/jail.conf
 exec.start      = "/bin/sh /etc/rc";
 exec.stop       = "/bin/sh /etc/rc.shutdown";
@@ -51,12 +51,12 @@ mount.devfs;
 
 现在配置我们的 Minecraft Jail。
 
-我们将使用 **em0** 局域网接口和 IP 地址 **10.0.0.210**。
+我们将使用局域网接口 **em0** 和 IP 地址 **10.0.0.210**。
 
-```sh
+```ini
 host # cat /etc/jail.conf.d/minecraft.conf
   minecraft {
-  # GLOBAL
+  # 全局
     exec.start = "/bin/sh /etc/rc";
     exec.stop  = "/bin/sh /etc/rc.shutdown";
     exec.consolelog = "/var/log/jail_console_${name}.log";
@@ -65,7 +65,7 @@ host # cat /etc/jail.conf.d/minecraft.conf
     host.hostname = ${name};
     path = /jail/${name};
 
-  # CUSTOM
+  # 自定义
     ip4.addr = 10.0.0.210;
     interface = em0;
     allow.raw_sockets;
@@ -79,7 +79,7 @@ host # cat /etc/jail.conf.d/minecraft.conf
   }
 ```
 
-下面你还会看到宿主机上的 **/etc/devfs.rules** 规则集。
+下面你还会看到宿主机上的规则集 **/etc/devfs.rules**。
 
 ```sh
 host # grep -A 4 minecraft /etc/devfs.rules
@@ -99,7 +99,7 @@ host # jls
      1  10.0.0.210      minecraft                     /jail/minecraft
 ```
 
-你也可以使用我提供的 [**jmore(8)**](https://github.com/vermaden/jmore) 工具。
+你也可以使用我提供的工具 [**jmore(8)**](https://github.com/vermaden/jmore)。
 
 ```sh
 host # jmore
@@ -120,7 +120,7 @@ unfs3      -    vnet  14.1-R  /jail/unfs3      ${if}b  -
 
 为了让 Minecraft Jail 在启动时自动运行，需要在 **host** 系统的 **/etc/rc.conf** 文件中添加如下内容：
 
-```
+```ini
 host # grep jail /etc/rc.conf
 jail_enable=YES
 jail_devfs_enable=YES
@@ -133,20 +133,20 @@ jail_list="minecraft"
 
 使用 **jmore minecraft c** 相当于执行了知名的命令：
 
-```
+```sh
 env PS1='minecraft # ' jexec minecraft /bin/sh
 ```
 
 示例：
 
-```
+```sh
 host # jmore minecraft c
 minecraft #
 ```
 
 接下来进行一些基本配置，例如设置 DNS 或将 **pkg(8)** FreeBSD 包管理器切换到 **latest** 分支：
 
-```
+```sh
 minecraft # echo nameserver 1.1.1.1 > /etc/resolv.conf
 minecraft # mkdir -p /usr/local/etc/pkg/repos
 minecraft # sed -e 's|quarterly|latest|g' /etc/pkg/FreeBSD.conf > /usr/local/etc/pkg/repos/FreeBSD.conf
@@ -156,13 +156,13 @@ games/minecraft-client         Client for the block building game
 
 现在安装其他所需的包，因为 Minecraft 服务器需要通过 FreeBSD Ports 构建：
 
-```
+```sh
 minecraft # pkg install gitup bsddialog ccache portconfig openjdk21 tmux jless
 ```
 
-由于需要通过 FreeBSD Ports 构建 Minecraft 服务器，并且许可需要手动接受（或忽略），因此接下来使用 **gitup** 工具获取 FreeBSD Ports 树。
+由于需要通过 FreeBSD Ports 构建 Minecraft 服务器，并且许可需要手动接受（或忽略）（**译注：并不需要**），因此接下来使用 **gitup** 工具获取 FreeBSD Ports 树。
 
-在 **make config** 阶段选择 **DAEMON** 选项。
+在 **make config** 阶段选择选项 **DAEMON** 。
 
 ```sh
 minecraft # gitup ports
@@ -255,8 +255,7 @@ devfs on /dev (devfs)
 
 同时，我们将“接受”EULA，并在 **/usr/local/etc/minecraft-server/server.properties** 文件中创建基本的 Minecraft 服务器配置。
 
-你也可以在 **/usr/local/etc/minecraft-server/java-args.txt** 文件中配置额外的 Java 参数。
-如果默认值对你的情况太小，请自行增大。
+你也可以在 **/usr/local/etc/minecraft-server/java-args.txt** 文件中配置额外的 Java 参数。如果默认值对你的情况太小，请自行增大。
 
 ```sh
 minecraft # cat << RC >> /etc/rc.conf
@@ -378,9 +377,9 @@ minecraft # su mcserver -c '/usr/local/bin/java -Xmx1024M -Xms1024M -jar /usr/lo
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/04/minecraft-client-5.jpg)
 
-我们会看到 *正在连接服务器…* 的提示。
+我们会看到 **正在连接服务器…** 的提示。
 
-… 片刻之后，我们就成功加入了 Minecraft 服务器。
+……片刻之后，我们就成功加入了 Minecraft 服务器。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/04/minecraft-client-6.png)
 
@@ -454,20 +453,20 @@ host # jless /jail/minecraft/usr/local/etc/minecraft-server/ops.json | cat
 
 欢迎随意分享你对个人 Minecraft 服务器其他所需配置的想法。
 
-## 更新 1 – FreeBSD Jails 与 Linux Podman
+## 更新 1 – FreeBSD Jail 与 Linux Podman
 
 我没想到第一句话会成为评论的焦点，因此在这里补充一些细节。我们来讨论一下 FreeBSD Jails 和 Linux Podman 容器在安全性上的差异。
 
-**隔离性：** 对于无 root Podman 来说，如果启用了 SELinux/AppArmor，它的隔离性似乎与 Jails 在同一水平。但如果没有 SELinux/AppArmor，Jails 提供更好的隔离性。当你在 Podman 中启用 SELinux/AppArmor 并再添加 MAC 框架（如 **mac_sebsd** / **mac_jail** / **mac_bsdextended** / **mac_portacl**）时，Jails 的隔离性更高。
+**隔离性：** 对于无 root Podman 来说，如果启用了 SELinux/AppArmor，它的隔离性似乎与 Jail 在同一水平。但如果没有 SELinux/AppArmor，Jail 提供了更好的隔离性。当你在 Podman 中启用 SELinux/AppArmor 并再添加 MAC 框架（如 **mac_sebsd** / **mac_jail** / **mac_bsdextended** / **mac_portacl**）时，Jail 的隔离性更高。
 
-**内核系统调用暴露面：** 即使是无 root Podman，除非通过 **seccomp**（SELinux）限制，否则仍有“完全”的系统调用访问权限。Jails 对系统调用的使用有限制，不需要额外工具就能实现；在 FreeBSD 上结合 MAC 框架还可以进一步缩小系统调用的可用范围。
+**内核系统调用暴露面：** 即使是无 root Podman，除非通过 **seccomp**（SELinux）限制，否则仍有“完全”的系统调用访问权限。Jail 对系统调用的使用有限制，不需要额外工具就能实现；在 FreeBSD 上结合 MAC 框架还可以进一步缩小系统调用的可用范围。
 
 **防火墙：** 你无法在无 root Podman 容器内运行防火墙。而在 VNET Jail 中，你可以运行完整的网络栈和任何防火墙（如 PF 或 IPFW），独立于宿主机运行，这意味着安全性更高。
 
-**总结：** FreeBSD Jails 通常在默认情况下比 Podman 容器更安全，如果花时间添加额外的安全层，其安全性会更高。
+**总结：** FreeBSD Jail 通常在默认情况下比 Podman 容器更安全，如果花时间添加额外的安全层，其安全性会更高。
 
 市场存在时间也是一个重要因素。
 
-Jails 自 1999/2000 年引入以来已经投入生产环境，已有 25 年历史，非常经受过考验。Docker 从 2014 年开始流行，时间短约 10 年，但我们要比较的是 Jails 与 Podman。Podman 的无 root 支持首次出现在 2019 年晚期（1.6 版本），因此在市场上的时间不足 6 年。
+Jail 自 1999/2000 年引入以来已经投入生产环境，已有 25 年历史，久经考验。Docker 从 2014 年开始流行，时间短约 10 年，但我们要比较的是 Jail 与 Podman。Podman 的无 root 支持首次出现在 2019 年晚期（1.6 版本），因此在市场上的时间不足 6 年。
 
-这意味着 Jails 是所有方案中最经受考验的。
+这意味着 Jail 是所有方案中最经受考验的。
