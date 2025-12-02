@@ -13,6 +13,12 @@
 
 这是首先经常被误解的主题……大概是因为没有理解 **canmount=off** 这个 ZFS 属性 —— 你可以在 man [**zfsprops(7)**](https://man.freebsd.org/zfsprops/7) 中获得更多相关内容。
 
+>如果该属性被设置为 `off`，则文件系统无法被挂载，并且会被 `zfs mount -a` 忽略。将该属性设置为 `off` 类似于将 `mountpoint` 属性设置为 `none`，但数据集仍然具有正常的 `mountpoint` 属性，该属性可以被继承。将此属性设置为 `off` 允许数据集仅作为继承属性的机制使用。设置 `canmount=off` 的一个例子是创建两个具有相同挂载点的数据集，这样两个数据集的子数据集会显示在同一目录中，但可能具有不同的继承特性。
+>
+>当设置为 `noauto` 时，数据集只能显式地挂载和卸载。数据集在创建或导入时不会自动挂载，也不会被 `zfs mount -a` 命令挂载，或被 `zfs unmount -a` 命令卸载。
+>
+>该属性不可继承。——整理者加
+
 这是我以前关于 “ZFS 启动环境” 的演讲中的幻灯片 —— 可以在链接 [https://is.gd/BECTL](https://is.gd/BECTL) 获得 —— 那是在 **2018 NLUUG** 会议上做的……颜色并不是随便选的……它们是特地准备成那样，以致敬 NLUUG 会议举办的国家 —— 荷兰。
 
 ![](https://vermaden.wordpress.com/wp-content/uploads/2025/11/nluug-zfs-canmount.png)
