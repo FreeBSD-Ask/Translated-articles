@@ -294,7 +294,7 @@ FreeBSD # zgrep -c WITH_ /usr/share/man/man5/src.conf.5.gz
 
 ![openzfs](https://vermaden.wordpress.com/wp-content/uploads/2020/09/openzfs.jpg?w=960)
 
-大多数喜欢 FreeBSD 集成 ZFS 的人并不了解 FreeBSD 的 GEOM 模块化磁盘转换框架，它提供了各种存储相关功能和工具，例如软件 RAID0/RAID1/RAID10/RAID3/RAID5 配置，或使用 GELI/GDBE 对底层设备进行透明加密（类似 Linux 上的 LUKS）。它还允许为任何文件系统提供透明的文件系统日志功能（GJOURNAL，甚至适用于 FAT32 或 exFAT），或通过 GEOM GATE 设备将块设备导出到网络上（类似块设备的 NFS）。
+大多数喜欢 FreeBSD 集成 ZFS 的人并不了解 FreeBSD 的 GEOM 模块化磁盘转换框架，它提供了各种存储相关功能和工具，例如软件 RAID0/RAID1/RAID10/RAID3/RAID5 配置，或使用 GELI/GDBE 对底层设备进行透明加密（类似 Linux 上的 LUKS）。它还能为任何文件系统提供透明的文件系统日志功能（GJOURNAL，甚至适用于 FAT32 或 exFAT），或通过 GEOM GATE 设备将块设备导出到网络上（类似块设备的 NFS）。
 
 ![storage](https://vermaden.wordpress.com/wp-content/uploads/2020/09/storage.jpg?w=960)
 
