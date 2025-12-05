@@ -1,8 +1,5 @@
 # FreeBSD 开发计划
 
->**技巧**
->
->关注实时开发状态或使用 CURRENT 的用户应该关注 [freebsd-src/UPDATING](https://github.com/freebsd/freebsd-src/blob/main/UPDATING) 及 [freebsd-src/RELNOTES](https://github.com/freebsd/freebsd-src/blob/main/RELNOTES)。
 
 **翻译同步至 [Updates prior to BSDCan 2025](https://github.com/bsdjhb/devsummit/commit/55fa11a50e83bf4f66da945aeb994d29f1eab72c)**
 
