@@ -25,7 +25,7 @@
 
 众所周知，不仅是在 **FreeBSD** 社区，**[Allan Jude](http://allanjude.com/)** 最近在 [Changelog Interviews – 574 – Lets Talk FreeBSD](https://changelog.com/podcast/574) 中也谈到了以下内容：
 
->“FreeBSD 在 2000 年率先实现了 **容器** 的实用化，而我们在 **Linux** 上才在很久以后才看到 **容器** 和 **命名空间（namespaces）**。自那以后可能在其上构建了更多功能，但这一概念最初来自 **BSD**。”
+>“FreeBSD 在 2000 年率先实现了 **容器** 的实用化，而我们在 **Linux** 上则是在很久以后才看到 **容器** 和 **命名空间（namespaces）**。自那以后可能在其上构建了更多功能，但这一概念最初来自 **BSD**。”
 
 ……在该采访中他还提及：
 
