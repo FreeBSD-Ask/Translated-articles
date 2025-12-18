@@ -21,7 +21,7 @@
 
 依我看，**容器** 这个术语并不专属于 **Linux** 的 **Podman**/**Docker** 方案。在 **Docker** 或 **Podman** 出现之前，**容器** 这一概念早已存在于 **BSD/UNIX** 世界中——而现在却让这些后来者来定义什么是 **容器**？
 
-在 2000 年，**FreeBSD Jail** 就被作为一种 **容器** 技术引入——甚至有人称 Jail 增强版的 **chroot(8)**。
+在 2000 年，**FreeBSD Jail** 就被作为一种 **容器** 技术引入——甚至有人称 Jail 为增强版的 **chroot(8)**。
 
 众所周知，不仅是在 **FreeBSD** 社区，**[Allan Jude](http://allanjude.com/)** 最近在 [Changelog Interviews – 574 – Lets Talk FreeBSD](https://changelog.com/podcast/574) 中也谈到了以下内容：
 
