@@ -7,6 +7,7 @@
 
 ## 2025 年
 
+* [FreeBSD Jail 的安全性](2025-01/freebsd-jails-security.md)
 * [FreeBSD Jail 是容器吗？](2025-01/are-freebsd-jails-containers.md)
 * [FrankenPad T25 上的 FreeBSD 14.3](2025-01/freebsd-14-3-on-frankenpad-t25.md)
 * [FreeBSD Jail 容器中的 Minecraft 服务器](2025-01/minecraft-server-freebsd-jails-container.md)
