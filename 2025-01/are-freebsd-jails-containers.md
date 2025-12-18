@@ -1,6 +1,6 @@
 # FreeBSD Jail 是容器吗？
 
-- 原文：[Are FreeBSD Jail a Containers?](https://vermaden.wordpress.com/2025/04/08/are-freebsd-Jail-containers/)
+- 原文：[Are FreeBSD Jail a Containers?](https://vermaden.wordpress.com/2025/04/08/are-freebsd-jails-containers/)
 - 作者：vermaden
 - 发布时间：2025/04/08
 
