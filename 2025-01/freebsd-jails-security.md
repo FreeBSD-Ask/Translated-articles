@@ -44,7 +44,7 @@ freebsd # mkdir -p /jail/minimal/dev
 freebsd # cp /rescue/sh /jail/minimal
 ```
 
-甚至不需要配置文件 **/etc/jail.conf**、**etc/jail.conf.d/minimal**。
+甚至不需要配置文件 **/etc/jail.conf**、**/etc/jail.conf.d/minimal**。
 
 只需在命令行传入必要选项直接启动 Jail——执行 **jail(8)** 命令后，你就会进入这个 **minimal** Jail 环境。
 
