@@ -8,10 +8,10 @@
 
 至少有以下这些：
 
-* [FreeBSD Jail Container 中的 Minecraft 服务器](https://vermaden.wordpress.com/2025/04/05/minecraft-server-freebsd-Jail-container/)
-* [安全的容器化浏览器](https://vermaden.wordpress.com/2021/12/15/secure-containerized-browser/)
-* [FreeBSD Jail Containers](https://vermaden.wordpress.com/2023/06/28/freebsd-Jail-containers/)
-* [FreeBSD Containers 上的 RabbitMQ 集群](https://vermaden.wordpress.com/2019/06/05/rabbitmq-cluster-on-freebsd-containers/)
+- [FreeBSD Jail Container 中的 Minecraft 服务器](https://vermaden.wordpress.com/2025/04/05/minecraft-server-freebsd-Jail-container/)
+- [安全的容器化浏览器](https://vermaden.wordpress.com/2021/12/15/secure-containerized-browser/)
+- [FreeBSD Jail Containers](https://vermaden.wordpress.com/2023/06/28/freebsd-Jail-containers/)
+- [FreeBSD Containers 上的 RabbitMQ 集群](https://vermaden.wordpress.com/2019/06/05/rabbitmq-cluster-on-freebsd-containers/)
 
 有些人认同我的观点——认为 **FreeBSD Jail** 就是 **容器**——而有些人则完全否认。
 
@@ -66,11 +66,11 @@ HP 的 **HP-UX** 系统（最后一次官方发布为 **11i v3**，B.11.31，200
 
 关于 **容器**，你可以像使用 **Docker**/**Podman** 一样，创建单进程 **FreeBSD Jail**：
 
-* [FreeBSD Jail Containers 中的单进程 Jail](https://vermaden.wordpress.com/2023/06/28/freebsd-Jail-containers/#single-process-Jail)
+- [FreeBSD Jail Containers 中的单进程 Jail](https://vermaden.wordpress.com/2023/06/28/freebsd-Jail-containers/#single-process-Jail)
 
 你也可以用 **Bastillefile**，就像在 *BastilleBSD* 中使用 **Dockerfile** 一样：
 
-* [Bastille 默认模板与自定义](https://bastillebsd.org/blog/2021/01/06/bastille-default-templates-and-customization/)
+- [Bastille 默认模板与自定义](https://bastillebsd.org/blog/2021/01/06/bastille-default-templates-and-customization/)
 
 来自 **[satanist](https://lobste.rs/~satanist)** 的更多观点：
 
