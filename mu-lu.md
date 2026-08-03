@@ -1,4 +1,4 @@
-# Table of contents
+# 目录
 
 * [FreeBSD 网络文章集锦](README.md)
 * [目录](mu-lu.md)
