@@ -5,13 +5,17 @@
 * [FreeBSD 特色开发项目（滚动更新）](2025-01/di-1.7-jie-freebsd-zi-xiang-mu.md)
 * [zfs 速查手册](2025-01/zfs.md)
 
+## 2026 年
+
+* [FreeBSD 16.0 开发计划](2026/16.0.md)
+
 ## 2025 年
 
 * [FreeBSD Jail 的安全性](2025-01/freebsd-jails-security.md)
 * [FreeBSD Jail 是容器吗？](2025-01/are-freebsd-jails-containers.md)
 * [FrankenPad T25 上的 FreeBSD 14.3](2025-01/freebsd-14-3-on-frankenpad-t25.md)
 * [FreeBSD Jail 容器中的 Minecraft 服务器](2025-01/minecraft-server-freebsd-jails-container.md)
-* [FreeBSD 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
+* [FreeBSD 15.0 开发计划](2025-01/di-1.5-jie-freebsd-kai-fa-ji-hua.md)
 * [ZFS 启动环境中的其他 FreeBSD 版本](2025-01/other-freebsd-version-in-zfs-boot-environment.md)
 * [ZFS 启动环境详解](2025-01/zfs-boot-environments-explained.md)
 * [使用 ZFS 启动环境更新 FreeBSD](2025-01/upgrade-freebsd-with-zfs-boot-environments.md)
