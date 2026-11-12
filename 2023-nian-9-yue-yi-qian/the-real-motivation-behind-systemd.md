@@ -5,7 +5,7 @@
 
 >在这篇文章中，我们将深入探讨 systemd 开发背后的真实动机，并展望 GNU/Linux 作为操作系统的一些未来前景。
 
-**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[全新的受信启动世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
+**2022-10-31 更新：** 情况并未改善，这并不令人意外。随着微软在 systemd 开发中扮演主导角色，以及其[受信启动的美丽新世界](https://0pointer.net/blog/brave-new-trusted-boot-world.html)的推进，再加上对大量开源基础设施的掌控，这正在慢慢演变为一种“暗中接管”Linux 世界的局面，而这是无人希望看到的。现在的确是回归[社区驱动开发](https://en.wikipedia.org/wiki/Community-driven_development)的时候了。
 
 ## 引言
 
